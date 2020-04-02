@@ -8,8 +8,8 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-09-19
-module-type: 'class'
+modified: 2020-04-02
+odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
 week: 3
@@ -42,6 +42,14 @@ Be sure that you have also completed the <a href="{{ site.url }}/courses/earth-a
 You will also need a web browser and your `Github.com` login (username and password). 
 
 </div>
+## Step 1 - Fork The Repo
+
+This step will only be done ONCE. You begin by making a copy of the repo in your own account. This is called forking. When you make this copy you then have it available to you in your user account.
+
+
+## Clone the Repo
+
+
 
 ## About Pull Requests
 

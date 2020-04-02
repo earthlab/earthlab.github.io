@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/
 nav-title: "What Is Open Reproducible Science"
 dateCreated: 2018-06-27
-modified: 2018-09-10
+modified: 2020-04-02
 module-title: 'Get Started with Open Reproducible Science With Bash, Git, and Jupyter Notebook'
 module-nav-title: 'Get Started with Open Reproducible Science'
 module-description: 'This tutorial helps you get started with open reproducible science and introduces you to tools used in open reproducible science workflows including Bash/Shell, Git and Github.com, and Python in Jupyter Notebook.'
@@ -107,3 +107,4 @@ In this course, you will learn how to use `Git`/`GitHub` workflows to implement 
 Writing and organizing your `Python` code with `Jupyter Notebook` supports open reproducible science by facilitating and supporting collaboration and documentation. 
 
 In this course, you will learn how to use `Jupyter Notebook` to write and run `Python` code to organize, analyze, and visualize earth and environmental science data. 
+

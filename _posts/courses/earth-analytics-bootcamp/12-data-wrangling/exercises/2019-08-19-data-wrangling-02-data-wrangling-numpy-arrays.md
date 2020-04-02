@@ -8,7 +8,7 @@ class-lesson: ['data-wrangling']
 permalink: /courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/
 nav-title: "Data Wrangling With Numpy Arrays"
 dateCreated: 2019-08-11
-modified: 2018-08-22
+modified: 2020-04-02
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -260,6 +260,8 @@ Test your `Python` skills to:
 </div>
 
 
+
+
 {:.output}
 {:.execute_result}
 
@@ -287,6 +289,7 @@ Test your `Python` skills to:
 4. How many values are in the output array? What does each value represent?
 
 </div>
+
 
 
 {:.output}

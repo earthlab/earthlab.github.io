@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/plot-data-matplotlib/
 nav-title: "Plot Data in Python with Matplotlib"
 dateCreated: 2018-06-27
-modified: 2018-09-10
+modified: 2020-04-02
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 2
@@ -147,7 +147,7 @@ ax.plot(months, precip);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_6_0.png" alt = "This plot displays the default settings of the matplotlib package for Python, which renders a blue line plot of the input data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib/2018-07-23-python-variables-lists-04-plot-data-matplotlib_6_0.png" alt = "This plot displays the default settings of the matplotlib package for Python, which renders a blue line plot of the input data.">
 <figcaption>This plot displays the default settings of the matplotlib package for Python, which renders a blue line plot of the input data.</figcaption>
 
 </figure>
@@ -187,7 +187,7 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_8_0.png" alt = "This plot expands on the default settings of the matplotlib package for Python to add a title and labels for the plot axes.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib/2018-07-23-python-variables-lists-04-plot-data-matplotlib_8_0.png" alt = "This plot expands on the default settings of the matplotlib package for Python to add a title and labels for the plot axes.">
 <figcaption>This plot expands on the default settings of the matplotlib package for Python to add a title and labels for the plot axes.</figcaption>
 
 </figure>
@@ -224,7 +224,7 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_10_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a green bar plot, instead of the default blue line plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib/2018-07-23-python-variables-lists-04-plot-data-matplotlib_10_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a green bar plot, instead of the default blue line plot.">
 <figcaption>This plot modifies the default settings of the matplotlib package for Python to create a green bar plot, instead of the default blue line plot.</figcaption>
 
 </figure>
@@ -255,7 +255,7 @@ Test your `Python` skills to further customize your plot:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_12_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a blue scatter plot, instead of the default blue line plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib/2018-07-23-python-variables-lists-04-plot-data-matplotlib_12_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a blue scatter plot, instead of the default blue line plot.">
 <figcaption>This plot modifies the default settings of the matplotlib package for Python to create a blue scatter plot, instead of the default blue line plot.</figcaption>
 
 </figure>

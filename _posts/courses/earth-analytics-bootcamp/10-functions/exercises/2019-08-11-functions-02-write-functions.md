@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/write-functions/
 nav-title: "Write Custom Functions"
 dateCreated: 2019-08-11
-modified: 2018-09-10
+modified: 2020-04-02
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"

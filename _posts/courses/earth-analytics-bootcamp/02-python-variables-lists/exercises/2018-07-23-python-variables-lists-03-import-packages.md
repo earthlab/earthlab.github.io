@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/import-python-packages/
 nav-title: "Import Python Packages"
 dateCreated: 2018-06-27
-modified: 2018-08-08
+modified: 2020-04-02
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 2
@@ -174,7 +174,7 @@ os.getcwd()
 
 
 
-    '/home/jpalomino/Documents/Earth_Lab/earth-analytics-python/notebooks/final-notebooks/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises'
+    '/root/earth-analytics-lessons'
 
 
 
@@ -197,5 +197,6 @@ Test your `Python` skills to:
 
 {:.output}
     import of pandas package successful
+
 
 

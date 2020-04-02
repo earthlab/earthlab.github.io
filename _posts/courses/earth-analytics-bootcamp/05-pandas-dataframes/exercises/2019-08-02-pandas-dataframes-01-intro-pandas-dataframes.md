@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-09-10
+modified: 2020-04-02
 module-title: 'Intro to Working With Pandas Dataframes in Python'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'This tutorial walks you through importing tabular data (.csv) to pandas dataframes as well as summarizing, plotting, and running calculations on pandas dataframes.'
@@ -88,3 +88,4 @@ In addition, `pandas dataframes` differ from `numpy arrays` in other key ways:
 4. Due to its inherent tabular structure, `pandas dataframes` also allow for cells to have `null` or blank values. 
 
 In the lessons that follow, you will review these benefits of working with `pandas dataframes`. 
+

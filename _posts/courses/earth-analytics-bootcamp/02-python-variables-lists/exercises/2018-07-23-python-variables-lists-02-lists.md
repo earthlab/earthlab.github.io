@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-10
-modified: 2018-08-12
+modified: 2020-04-02
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -417,5 +417,6 @@ Test your `Python` skills to complete the lists for January through December:
 {:.output}
     [17.779999999999998, 19.049999999999997, 46.99, 74.422, 77.46999999999998, 51.308, 49.022, 41.148, 46.736, 33.274, 35.306, 21.336]
     ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+
 
 

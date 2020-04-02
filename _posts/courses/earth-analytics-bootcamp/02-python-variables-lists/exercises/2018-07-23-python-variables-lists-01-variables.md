@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/variables/
 nav-title: "Variables in Python"
 dateCreated: 2018-06-27
-modified: 2018-09-10
+modified: 2020-04-02
 module-title: 'Intro to Working With Variables and Lists in Python'
 module-nav-title: 'Python Variables and Lists'
 module-description: 'This tutorial teaches you how to create and manipulate variables and lists in Python. You will also learn how to plot data using the matplotlib package.'
@@ -288,5 +288,6 @@ Test your `Python` skills to:
 {:.output}
     49.022
     21.336
+
 
 

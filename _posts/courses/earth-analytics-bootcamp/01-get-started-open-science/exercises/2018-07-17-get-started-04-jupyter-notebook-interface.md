@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/
 nav-title: "The Jupyter Notebook Interface"
 dateCreated: 2018-06-27
-modified: 2018-08-08
+modified: 2020-04-02
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 1
@@ -397,7 +397,12 @@ Without writing your own code, you were able to easily replicate this analysis b
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/01-get-started-open-science/exercises/2018-07-17-get-started-04-jupyter-notebook-interface_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/01-get-started-open-science/exercises/2018-07-17-get-started-04-jupyter-notebook-interface/2018-07-17-get-started-04-jupyter-notebook-interface_10_0.png" alt = "This bar plot displays the daily precipitation in Boulder, CO during the a flood event in September 2018.">
+<figcaption>This bar plot displays the daily precipitation in Boulder, CO during the a flood event in September 2018.</figcaption>
+
+</figure>
 
 
 

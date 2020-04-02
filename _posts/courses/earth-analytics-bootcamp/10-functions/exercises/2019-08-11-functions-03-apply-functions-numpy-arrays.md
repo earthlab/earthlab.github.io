@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/
 nav-title: "Apply Functions to Numpy Arrays"
 dateCreated: 2019-08-11
-modified: 2018-08-22
+modified: 2020-04-02
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -464,5 +464,6 @@ Test your `Python` skills to:
 {:.output}
     Shape of year_min_precip_2002_2013:  (12,)
     Number of dimensions of year_min_precip_2002_2013:  1
+
 
 

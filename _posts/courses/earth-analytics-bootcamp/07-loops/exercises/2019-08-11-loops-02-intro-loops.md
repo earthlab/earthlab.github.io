@@ -8,7 +8,7 @@ class-lesson: ['loops']
 permalink: /courses/earth-analytics-bootcamp/loops/intro-loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-08-11
-modified: 2018-08-13
+modified: 2020-04-02
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -241,6 +241,14 @@ for x in numlist:
     print(x)    
 ```
 
+{:.output}
+    5
+    10
+    15
+    20
+
+
+
 Note that in this example, `x` is not a variable but rather a placeholder for the current value that the loop is working with in each iteration of the code.  
 
 This means that you could use any word or character to indicate the placeholder, with the exception of numeric values. 
@@ -259,6 +267,14 @@ for i in numlist:
     print(i)    
 ```
 
+{:.output}
+    5
+    10
+    15
+    20
+
+
+
 {:.input}
 ```python
 # create a list of integers `numlist`
@@ -268,6 +284,14 @@ numlist = [5, 10, 15, 20]
 for banana in numlist:
     print(banana)   
 ```
+
+{:.output}
+    5
+    10
+    15
+    20
+
+
 
 `numlist` is a variable (in this case, a `Python` list), and you must use its variable name to access the items in the list. 
 
@@ -282,6 +306,12 @@ filelist = ["months.txt", "avg-monthly-precip.txt"]
 for filename in filelist:
     print(filename)   
 ```
+
+{:.output}
+    months.txt
+    avg-monthly-precip.txt
+
+
 
 Note that `print()` returns the name of the file, but not the values in the file. The function that you use in the loop will determine what output you will receive. 
 
@@ -312,3 +342,4 @@ for i in fruit:
 ```
 
 </div>
+

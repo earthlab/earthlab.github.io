@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-09-19
+modified: 2020-04-02
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -226,3 +226,4 @@ Test your `Bash` and `Git`/`GitHub` skills to `fork`/`clone` the repository for 
 What other directories are present in the `earth-analytics-bootcamp` directory?
 
 </div>
+
