@@ -2,11 +2,12 @@
 layout: single
 authors: ['Naupaka Zimmerman', 'Leah Wasser', 'Reproducible Science Curriculum Community']
 category: [courses]
-title: 'Introduction to Open Science Teaching Activity'
+title: 'Introduction to Open Reproducible Science Teaching Activity'
 excerpt: 'A hands-on activity where students review a project for readability, organization, etc and identify key elements that would make it more usable and readily reproducible.'
 dateCreated: 2016-10-25
 modified: '2020-04-02'
 module-title: 'Introduction to Open Science Teaching Activity'
+module-type: 'workshop'
 module-description: 'A hands-on activity where students review a project for readability, organization, etc and identify key elements that would make it more usable and readily reproducible.'
 permalink: /workshops/intro-open-science/
 nav-title: 'Lesson Overview'
