@@ -5,7 +5,7 @@ excerpt: "Often when spatial data do not line up properly on a plot, it is becau
 coordinate reference systems (CRS). Learn how to reproject a vector dataset to a different CRS in Python using the to_crs() function from GeoPandas."
 authors: ['Leah Wasser','Martha Morrissey','Chris Holdgraf']
 dateCreated: 2018-02-05
-modified: 2020-04-01
+modified: 2020-04-02
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/
