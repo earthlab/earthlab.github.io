@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-03-03
+modified: 2020-04-02
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 topics:
   remote-sensing: ['landsat']
   reproducible-science-and-programming: ['python']
@@ -68,12 +68,6 @@ data = et.data.get_data('cold-springs-fire')
 data_2 = et.data.get_data('cs-test-landsat')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
-    Extracted output to /root/earth-analytics/data/cs-test-landsat/.
-
-
 
 First, open the masked raster stack that you exported in the previous lesson. If you did not complete the previous lesson, you will need to make a masked raster stack of the cold springs cloud data to continue on with this lesson. (If you exported your masked raster stack from the last lesson, you can read that file in and skip the following code.)
 

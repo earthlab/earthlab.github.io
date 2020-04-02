@@ -3,7 +3,7 @@ layout: single
 title: "Clip Raster in R"
 excerpt: "You can clip a raster to a polygon extent to save processing time and make image sizes smaller. Learn how to crop a raster dataset in R."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-13'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/
@@ -165,7 +165,7 @@ For each plot, be sure to:
 
 You will include these plots in your final report due next week.
 
-Check out <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" target="_blank">this cheatsheet for more on colors in `R`. </a>
+Check out <a href="https://web.archive.org/web/20180825230129/https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" target="_blank">this cheatsheet for more on colors in `R`. </a>
 
 Or type: `grDevices::colors()` into the r console for a nice list of colors!
 </div>
