@@ -15,7 +15,7 @@ estimated-time: "3+ hours"
 difficulty: "beginner"
 sidebar:
   nav:
-module: ['intro-open-science']
+module: 'intro-open-science'
 author_profile: false
 comments: false
 order: 1

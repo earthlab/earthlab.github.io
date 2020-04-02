@@ -4,10 +4,10 @@ authors: ['Naupaka Zimmerman', 'Leah Wasser']
 title: 'Open Science Lesson Instructor Notes'
 excerpt: 'Instructor notes for the open science lesson.'
 category: [courses]
-nav-title: 'Instructor Notes'
-module: ['intro-open-science']
+module: 'intro-open-science'
 dateCreated: 2016-06-25
 modified: '2020-04-02'
+nav-title: 'Instructor Notes'
 permalink: /workshops/open-science-instructor-notes/
 sidebar:
   nav:
