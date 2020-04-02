@@ -4,7 +4,7 @@ category: courses
 title: "Introduction to API Data Access in Open Source Python"
 permalink: /courses/use-data-open-source-python/intro-to-apis/
 week-landing: 7
-modified: 2020-03-31
+modified: 2020-04-01
 week: 7
 sidebar:
   nav:

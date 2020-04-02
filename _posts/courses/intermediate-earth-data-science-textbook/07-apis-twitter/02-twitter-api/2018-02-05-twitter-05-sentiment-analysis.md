@@ -143,7 +143,8 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
 
-    (0.3, TextBlob("Different kind of climate change"))
+    (0.0,
+     TextBlob("What does the virus do for the outlook and fond hope of climate change alarmists who want to get everyone travellin"))
 
 
 
@@ -164,7 +165,8 @@ sentiment_values[0]
 
 
 
-    [0.3, 'Different kind of climate change']
+    [0.0,
+     'What does the virus do for the outlook and fond hope of climate change alarmists who want to get everyone travellin']
 
 
 
@@ -208,28 +210,28 @@ sentiment_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.300000</td>
-      <td>Different kind of climate change</td>
+      <td>0.0</td>
+      <td>What does the virus do for the outlook and fon...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.400000</td>
-      <td>Some forests particularly in more arid regions...</td>
+      <td>0.6</td>
+      <td>In addition to COVID19 the world also faces an...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.107143</td>
-      <td>Englands water resource muddle The UK Departme...</td>
+      <td>0.0</td>
+      <td>Heres the state of our climate the news is no ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.700000</td>
-      <td>Covid19 and climate change The epidemic provid...</td>
+      <td>0.0</td>
+      <td>BBC News Climate change Warming clips the nigh...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.000000</td>
-      <td>realDonaldTrump Thats a lie In your obsessive ...</td>
+      <td>0.2</td>
+      <td>This is one to read now and follow up on Clima...</td>
     </tr>
   </tbody>
 </table>
@@ -329,11 +331,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("BryanDeanWright UmmMost masks we have that are n95 masks used in most hospitals were made in China They do work"),
-     TextBlob("Friday amp Saturday perfect weather for the outdoor Campfire party in the woods forest presearves ill find out tomor"),
-     TextBlob("Love a bit of improvisation Campfire outdoorliving"),
-     TextBlob("Camp fire and gentle sound of harp for your relaxation gtgt relaxation relaxing"),
-     TextBlob("Why werent any PGampE executives indicted over the CampFire Prosecutors would have had to prove that a specific")]
+    [TextBlob("No this isnt a dream nor an April Fools joke This is what I entirely thought of the W branding in general"),
+     TextBlob("FREE checklist 19 ways to connect with young people during this time from SearchInstitute"),
+     TextBlob("Its really tough to think we have to do something this hard yet again But we will campfire Paradisestrong"),
+     TextBlob("SalesmanCalendar Sample Vintage 1956 Boys at Campfire FREE USA SHIP"),
+     TextBlob("For the first day of NorthlandScouts CampAtHome initiative weve got a virtual campfire by Anna from the 93rd N")]
 
 
 
@@ -383,28 +385,28 @@ wild_sent_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.500000</td>
-      <td>BryanDeanWright UmmMost masks we have that are...</td>
+      <td>0.025000</td>
+      <td>No this isnt a dream nor an April Fools joke T...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.250000</td>
-      <td>Friday amp Saturday perfect weather for the ou...</td>
+      <td>FREE checklist 19 ways to connect with young p...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.500000</td>
-      <td>Love a bit of improvisation Campfire outdoorli...</td>
+      <td>-0.340278</td>
+      <td>Its really tough to think we have to do someth...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.300000</td>
-      <td>Camp fire and gentle sound of harp for your re...</td>
+      <td>0.400000</td>
+      <td>SalesmanCalendar Sample Vintage 1956 Boys at C...</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>0.266667</td>
-      <td>With all this hand washing we thought wed have...</td>
+      <th>4</th>
+      <td>0.250000</td>
+      <td>For the first day of NorthlandScouts CampAtHom...</td>
     </tr>
   </tbody>
 </table>

@@ -4,11 +4,11 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-03-03
+modified: 2020-04-02
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
-nav-title: 'Work with Landsat in Python'
+nav-title: 'About Landsat Data'
 module-title: 'Learn How to Work With Landsat Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to work with Landsat multi-band raster data stored in .tif format in Python using Rasterio'
 module-nav-title: 'Landsat'
@@ -44,6 +44,7 @@ After completing this chapter, you will be able to:
 
 * Use `glob()` to create a subsetted list of file names within a specified directory on your computer.
 * Create a raster stack from a list of `.tif` files in **Python**.
+* Crop rasters to a desired extent in **Python**.
 * Plot various band combinations using a numpy array in **Python**.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -149,11 +150,7 @@ The second part of the file name above tells you more about when the data were l
 
 <a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products" target="_blank">Learn more about Landsat 8 file naming conventions.</a>
 
-As you work wtih these data, it is good to double check that you are working with the sensor (Landsat 8) and the time period that you intend. Having this information in the file name makes it easier to keep track of this as you process your data. 
-
-## Open Landsat .tif Files in Python
-
-Now that you understand the Landsat 8 Collection file naming conventions, you will bring the data into Python. To begin, load your libraries and set up your working directory.
+As you work with these data, it is good to double check that you are working with the sensor (Landsat 8) and the time period that you intend. Having this information in the file name makes it easier to keep track of this as you process your data. 
 
 {:.input}
 ```python
@@ -178,219 +175,25 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 
 
-You will be working in the `landsat-collect` directory. Notice that the data in that directory are stored by individual band. Each file is a single geotiff (.tif) rather than one tif with all the bands which is what you worked with in the previous lesson with NAIP data.  
-
-### Why Are Landsat Bands Stored As Individual Files?
- 
-Originally Landsat was stored in a file format called HDF - hierarchical
-data format. However that format, while extremely efficient, is a bit more
-challenging to work with. In recent years, USGS has started to make each band
-of a landsat scene available as a `.tif` file. This makes it a bit easier to use
-across many different programs and platforms.
-
-The good news is that you already know how to work with .tif files in **Python**. You just need to learn how to batch process a series of `.tif` files to work with Landsat 8 Collections. 
-
-## Generate a List of Files in Python
- 
-To begin, explore the Landsat files in your `cold-springs-fire` directory. Start with the data:
-
-`data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/`
-
-Note that there is a crop directory which contains:
-
-```
-LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif
-LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif
-```
-
-Landsat scenes are large. To make processing quicker for you as you learn, your instructor cropped the data to a smaller spatial extent. She also added the word `_crop` to the end of each file to ensure you know the data have been modified. 
-
-
-Also, notice that some of the layers are quality assurance layers. Others have the word band in them. The layers with band in them are the reflectance data that you need to work with. 
-
-To work with these files, you will do the following
-
-1. You will generate a list of all files in the directory that contain the word **band** in the name. 
-2. Loop through those layers to create a numpy array.
-
-You will use the `glob()` function and library to do this in **Python**. 
-
-Begin exploring `glob()` by grabbing everything in the directory using `/*`. 
-
 {:.input}
 ```python
+# Get list of all pre-cropped data and sort the data
+
 path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
                     "LC080340322016072301T1-SC20180214145802", "crop")
 
-glob(path + "/*")
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif']
-
-
-
-
-
-### Grab Subsets of File Names Using File Names and Other Criteria 
-
-Above you generated a list of all files in the directory. However, you may want to subset that list to only include:
-
-1. `.tif` files
-2. `.tif` files that contain the word "band" in them
-
-Note that it is important that the file **ends with** .tif. So we use an asterisk at the end of the path to tell Python to only grab files that end with .tif.
-
-`path/*.tif` will grab all files in the crop directory that end with the .tif extension. 
-
-{:.input}
-```python
-glob(path + "/*.tif")
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif']
-
-
-
-
-
-To only grab files containing the word band AND that end with `.tif` we use `*band*.tif`.
-This tells python to look for the word band anywhere before the `.tif` extension AND anywhere within the file name. 
-
-
-{:.input}
-```python
 all_landsat_post_bands = glob(path + "/*band*.tif")
-all_landsat_post_bands
-```
 
-{:.output}
-{:.execute_result}
-
-
-
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif']
-
-
-
-
-
-Be sure that your bands are in order starting at 1 and ending at 7! If the data are not in order, you can use the `.sort()` list method to sort your list alphabetically. The data in this lesson are sorted properly; however, we have noticed that this sort doesn't happen by default on some machines. The code below will sort your list.
-
-{:.input}
-```python
 all_landsat_post_bands.sort()
-all_landsat_post_bands
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
-
-
-
-
-
-Now you have a list of all of the landsat bands in your landsat collections folder. You could chose to open each file individually using the `rio.open` (rasterio library) function.
-
-Remember that Python uses 0 based indexing so band 3 is actually at index `[2]` not `[3]`.
 
 {:.input}
 ```python
-# Open a single band and plot
-with rio.open(all_landsat_post_bands[3]) as src:
-    landsat_band4 = src.read()
-
-ep.plot_bands(landsat_band4[0],
-              title="Landsat Cropped Band 4\nColdsprings Fire Scar",
-              scale=False)
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_13_0.png" alt = "Landsat band 4  - red band - plot.">
-<figcaption>Landsat band 4  - red band - plot.</figcaption>
-
-</figure>
-
-
-
-
-### Create Raster Stack of All Landsat Bands in Python
-
-It's sometimes less efficient to import bands individually into Python. For this class, we have built a function that will create a new stacked tif file from a list of tif files. This function takes 2 arguments:
-
-1. a list of tif files that are all in the same crs and of the same extent
-2. a path to a new file where the stacked raster will be saved
-
-To call it you use the following:
-
-`es.stack(list-of-files-to-stack, "output/dir/filename.tif")`
-
-Note that this stack function was written into the Earth Lab `earthpy` python package to avoid 
-all of the steps that you would have to take to create the stack. In the next lesson we will break 
-down how this function works in case you want to know. 
-
-{:.input}
-```python
+# Create an output array of all the landsat data stacked
 landsat_post_fire_path = os.path.join("data", "cold-springs-fire", 
                                       "outputs", "landsat_post_fire.tif")
 
-# This will create a new stacked raster with all bands
+# This will create a new stacked raster with all bands 
 land_stack, land_meta = es.stack(all_landsat_post_bands,
                                  landsat_post_fire_path)
 ```
@@ -406,49 +209,21 @@ with rio.open(landsat_post_fire_path) as src:
     landsat_post_fire = src.read()
 ```
 
-
-
-{:.input}
-```python
-# Plot all bands using earthpy
-band_titles = ["Band 1", "Blue", "Green", "Red", 
-               "NIR", "Band 6", "Band7"]
-
-ep.plot_bands(landsat_post_fire,
-              title=band_titles, cbar=False)
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_19_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
-<figcaption>Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.</figcaption>
-
-</figure>
-
-
-
-
-
 ## Plot RGB image
 
 Just like you did with NAIP data, you can plot 3 band color composite images with Landsat too. Below you will plot an RGB image using landsat. Refer to the landsat bands in the table
 at the top of this page to figure out the red, green and blue bands. Or read the
 <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
 
+To make plotting less code intensive we have created a plot_rgb function that allows you to quickly make a 3 band raster plot. To use it simply provide 
 
+1. the numpy array containing the bands that you wish to plot. 
 
-{:.input}
-```python
-# rgb = [3,2,1]
-# # grab 3 bands and turn into array
-# rgb_bands = np.asarray([landsat_post_fire[i] for i in rgb])
-# rgb_bands = rgb_bands.transpose([1, 2, 0])
-# rgb_bands.shape
-```
+IMPORTANT: this array should be in rasterio band order (bands first). 
+
+2. The bands that you wish to plot in the array.
+
+Optionally you can chose to provide a title for the plot, and the figure size if you'd like. 
 
 {:.input}
 ```python
@@ -463,7 +238,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_24_0.png" alt = "Landsat 8 3 band color RGB composite.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_8_0.png" alt = "Landsat 8 3 band color RGB composite.">
 <figcaption>Landsat 8 3 band color RGB composite.</figcaption>
 
 </figure>
@@ -517,7 +292,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_26_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_10_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch applied.</figcaption>
 
 </figure>
@@ -541,14 +316,10 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_27_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_11_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch and more clip applied.</figcaption>
 
 </figure>
-
-
-
-
 
 
 
@@ -559,6 +330,10 @@ You can create a histogram to view the distribution of pixel values in the rgb b
 
 {:.input}
 ```python
+# Plot all band histograms using earthpy
+band_titles = ["Band 1", "Blue", "Green", "Red", 
+               "NIR", "Band 6", "Band7"]
+
 ep.hist(landsat_post_fire,
         title=band_titles)
 
@@ -570,7 +345,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_32_0.png" alt = "Landsat 8 histogram for each band.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_13_0.png" alt = "Landsat 8 histogram for each band.">
 <figcaption>Landsat 8 histogram for each band.</figcaption>
 
 </figure>
@@ -578,6 +353,8 @@ plt.show()
 
 
 
+
+### Plot CIR
 
 Now you've created a red, green blue color composite image. Remember red green and blue are colors that
 your eye can see. 
@@ -597,7 +374,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_35_0.png" alt = "Landsat 8 CIR color composite image.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_16_0.png" alt = "Landsat 8 CIR color composite image.">
 <figcaption>Landsat 8 CIR color composite image.</figcaption>
 
 </figure>
@@ -644,6 +421,3 @@ See this link that provide tables to help you <a href="https://landweb.modaps.eo
 
 
 </div>
-
-
-
