@@ -4,7 +4,7 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-02-28
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
@@ -66,12 +66,6 @@ data = et.data.get_data('colorado-flood')
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 {:.input}
 ```python

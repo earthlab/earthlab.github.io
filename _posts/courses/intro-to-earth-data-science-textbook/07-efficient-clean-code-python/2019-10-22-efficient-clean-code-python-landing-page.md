@@ -4,7 +4,7 @@ category: courses
 title: "Write Efficient, Clean Code in Python"
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/
 week-landing: 7
-modified: 2019-11-08
+modified: 2020-01-08
 week: 7
 sidebar:
   nav:

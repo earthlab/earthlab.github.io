@@ -4,7 +4,7 @@ title: "Classify a Raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-13'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
@@ -181,12 +181,10 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76284  3365  3066  2888  2400  2183  1912  1727  1457  1238   979
-## [12]   788   591   416   274   166   106    80    34    27    10     3
-## [23]     6
+##  [1] 76161  3395  3115  2943  2337  2105  1984  1859  1476  1164   956   690
+## [13]   583   445   296   182   137    71    54    25    12     6     3     1
 histinfo$breaks
-##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23
+##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
 ```
 
 If you want to customize your histogram further, you can customize the number of
@@ -462,7 +460,7 @@ For each plot, be sure to:
 
 You will include these plots in your final report due next week.
 
-Check out <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" target="_blank">this cheatsheet for more on colors in `R`. </a>
+Check out <a href="https://web.archive.org/web/20180825230129/https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" target="_blank">this cheatsheet for more on colors in `R`. </a>
 
 Or type: `grDevices::colors()` into the r console for a nice list of colors!
 </div>

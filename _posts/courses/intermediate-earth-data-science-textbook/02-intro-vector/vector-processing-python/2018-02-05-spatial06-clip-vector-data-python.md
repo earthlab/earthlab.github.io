@@ -4,7 +4,7 @@ title: "Clip a spatial vector layer in Python using Shapely & GeoPandas: GIS in 
 excerpt: "Sometimes you may want to spatially clip a vector data layer to a specified boundary for easier plotting and analysis of smaller spatial areas. Learn how to clip a vector data layer in Python using GeoPandas and Shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-03-06
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/clip-vector-data-in-python-geopandas-shapely/
@@ -206,7 +206,7 @@ Clip shape takes two arguments:
 * shp: the vector layer (point, line or polygon) that you wish to clip and
 * clip_obj: the polygon that you wish to use to clip your data
 
-`clip_shp()` will clip the data to the boundary of the polygon layer that ou select. If there are multiple polygons in your clip_obj object, `clip_shp()` will clip the data to the total boundary of all polygons in the layer.
+`clip_shp()` will clip the data to the boundary of the polygon layer that you select. If there are multiple polygons in your clip_obj object, `clip_shp()` will clip the data to the total boundary of all polygons in the layer.
 
 {:.input}
 ```python
@@ -248,37 +248,37 @@ points_clip[['name', 'geometry', 'scalerank', 'natscale', ]].head()
   </thead>
   <tbody>
     <tr>
-      <td>175</td>
+      <th>175</th>
       <td>San Francisco</td>
-      <td>POINT (-122.4171687735522 37.76919562968743)</td>
+      <td>POINT (-122.41717 37.76920)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>176</td>
+      <th>176</th>
       <td>Denver</td>
-      <td>POINT (-104.9859618109682 39.7411339069655)</td>
+      <td>POINT (-104.98596 39.74113)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>177</td>
+      <th>177</th>
       <td>Houston</td>
-      <td>POINT (-95.34192514914599 29.82192024318886)</td>
+      <td>POINT (-95.34193 29.82192)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>178</td>
+      <th>178</th>
       <td>Miami</td>
-      <td>POINT (-80.22605193945003 25.78955655502153)</td>
+      <td>POINT (-80.22605 25.78956)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>179</td>
+      <th>179</th>
       <td>Atlanta</td>
-      <td>POINT (-84.40189524187565 33.83195971260585)</td>
+      <td>POINT (-84.40190 33.83196)</td>
       <td>1</td>
       <td>300</td>
     </tr>
