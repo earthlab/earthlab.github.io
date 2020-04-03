@@ -44,7 +44,7 @@ You will also need a web browser and your `GitHub.com` login (username and passw
 </div>
 ## Step 1 - Fork The Repo
 
-This step will only be done ONCE. You begin by making a copy of the repo in your own account. This is called forking. When you make this copy you then have it available to you in your user account.
+This step only needs to be done once. You begin by making a copy of the repo in your own account. This is called forking. When you make this copy you then have it available to you in your user account.
 
 
 ## Clone the Repo
@@ -55,7 +55,8 @@ This step will only be done ONCE. You begin by making a copy of the repo in your
 
 In the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a>, you added, committed, and pushed changed files to your forked repository on `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername`. 
 
-To submit changed files to the original repository owned by earthlab-education (`https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`), you need to submit a pull request on `Github.com`. 
+To submit changed files to the original repository owned by earthlab-education (`https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`), you need to submit a pull request on `GitHub.com`. 
+
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">
