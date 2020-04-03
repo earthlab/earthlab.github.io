@@ -41,7 +41,7 @@ Before completing this lesson and the challenges, be sure that you have forked a
 
 Be sure that you have also completed the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/manage-jupyter-notebooks/">Manage Jupyter Notebook Files</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/">Markdown in Jupyter Notebook</a>.
 
-You will also need a web browser and your `GitHub.com` login (username and password). 
+You will also need a web browser and your `Github.com` login (username and password). 
 
 </div>
 
@@ -61,7 +61,7 @@ In later lessons, you will expand on this version control workflow to notify oth
 
 ## Configure `Git` Settings On Your Computer:
 
-1. In the terminal, set your `GitHub.com` username by typing: `git config --global user.name "Your UserName"`.
+1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
 
 2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
 

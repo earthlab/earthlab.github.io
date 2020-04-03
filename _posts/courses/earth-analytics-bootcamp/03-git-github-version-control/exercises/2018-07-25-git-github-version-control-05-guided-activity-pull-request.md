@@ -57,6 +57,7 @@ In the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-versi
 
 To submit changed files to the original repository owned by earthlab-education (`https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`), you need to submit a pull request on `GitHub.com`. 
 
+
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">
    <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png" alt="LEFT: To sync changes made and committed locally on your computer to your Github account, you push the changes from your computer to your fork on GitHub. RIGHT: To suggest changes to another repository, you submit a Pull Request to update the central repository. Source: Colin Williams, NEON."></a>

@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Working With JSON Data in Open Source Python'
 excerpt: 'This lesson introduces how to work with the JSON data structure using Python using the JSON and Pandas libraries to create and convert JSON objects. '
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2020-04-01
+modified: 2020-04-02
 category: [courses]
 class-lesson: ['intro-APIs-python']
 permalink: /courses/use-data-open-source-python/intro-to-apis/use-JSON-in-python/
@@ -154,7 +154,7 @@ type(json_sample)
 
 
 
-Using the `json.loads()` function, a `JSON` string can be converted to a `dictonary`. 
+Using the `json.loads()` function, a `JSON` string can be converted to a `dictionary`. 
 
 {:.input}
 ```python

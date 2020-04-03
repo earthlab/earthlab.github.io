@@ -83,3 +83,4 @@ This course is highly technical, and you will code every day. We will use the `P
 | 14    | Thurs, Aug 23rd | Final Project      | - |
 
 
+
