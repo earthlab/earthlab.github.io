@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/intro-version-control/
 nav-title: "What Is Version Control"
 dateCreated: 2018-07-25
-modified: 2020-02-05
+modified: 2020-04-03
 module-title: 'Git/GitHub Workflow For Version Control'
 module-nav-title: 'Git/GitHub Workflow For Version Control'
 module-description: 'Version control allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
@@ -36,7 +36,7 @@ After completing this lesson, you will be able to:
 
 * Define version control.
 * Explain how version control is useful in a scientific workflow.
-* Describe how `Git` and `GitHub` support version control
+* Describe how `Git` and `GitHub` support version control.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -127,7 +127,7 @@ A version control system is a tool that keeps track of these changes for us. Eac
 
 ### Git and GitHub - A Distributed Version Control Model
 
-`Git` uses a distributed version control model. This means that there can be many copies (or forks/branches in `GitHub` world) of the repository. When working locally, git is the program that you will use to keep track of changes to your repository. `GitHub` is a location on the internet (a cloud web server) that acts as a remote location for your repository. `GitHub` provides a backup of your work, that can be retrieved if your local copy is lost (e.g., if your computer falls off a pier).
+`Git` uses a distributed version control model. This means that there can be many copies (or forks/branches in `GitHub` world) of the repository. When working locally, `git` is the program that you will use to keep track of changes to your repository. `GitHub` is a location on the internet (a cloud web server) that acts as a remote location for your repository. `GitHub` provides a backup of your work, that can be retrieved if your local copy is lost (e.g., if your computer falls off a pier).
 
 GitHub also allows you to share your work and collaborate with others on projects.
 

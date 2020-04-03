@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/
 nav-title: "Guided Activity on Version Control with Git/GitHub"
 dateCreated: 2018-07-25
-modified: 2020-02-05
+modified: 2020-04-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -43,6 +43,7 @@ Be sure that you have also completed the lesson on <a href="{{ site.url }}/cours
 
 You will also need a web browser and your `Github.com` login (username and password). 
 
+
 </div>
 
 
@@ -61,7 +62,9 @@ In later lessons, you will expand on this version control workflow to notify oth
 
 ## Configure `Git` Settings On Your Computer:
 
+
 1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
+
 
 2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
 

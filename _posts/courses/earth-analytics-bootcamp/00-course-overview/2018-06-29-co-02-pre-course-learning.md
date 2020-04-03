@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Pre-Course Learning Resources
-modified: 2018-08-08
+modified: 2020-04-03
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/
 author_profile: no
@@ -47,4 +47,5 @@ The following optional lessons are individual chapters from Data Camp lessons th
 
 * <a href="https://campus.datacamp.com/courses/introduction-to-git-for-data-science/basic-workflow?ex=1" target="_blank">Basic Workflow</a> 
     * Topics: review version control and how git can be used to implement it; check the state of a repository; check for changes in a repository; compare differences between two files; save and commit changes to files; write log messages; view the history of changes to a repository   
+
 

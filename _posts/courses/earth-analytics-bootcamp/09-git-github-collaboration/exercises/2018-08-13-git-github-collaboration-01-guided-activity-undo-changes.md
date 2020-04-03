@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-undo-changes/
 nav-title: "Guided Activity on Undo Changes in Git"
 dateCreated: 2018-07-25
-modified: 2018-09-10
+modified: 2020-04-03
 module-title: 'Git/GitHub For Collaboration'
 module-nav-title: 'Git/GitHub For Collaboration'
 module-description: 'This tutorial teaches you how to undo changes using Git and helps you practice collaborating with others on GitHub.com.'

@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Reference on PEP 8 Style Guide
-modified: 2018-08-10
+modified: 2020-04-03
 comments: no
 permalink: /courses/earth-analytics-bootcamp/pep-8-style-guide/
 author_profile: no
@@ -119,3 +119,4 @@ For functions, we recommend the use of the naming conventions of mixedCase to di
 * <a href="https://www.safaribooksonline.com/library/view/the-hitchhikers-guide/9781491933213/ch04.html" target="_blank">The Hitchhiker's Guide to Python by Tanya Schlusser and Kenneth Reitz</a>
     
 </div>
+

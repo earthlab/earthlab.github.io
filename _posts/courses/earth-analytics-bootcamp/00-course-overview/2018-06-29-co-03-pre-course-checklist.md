@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Pre-Course Checklist
-modified: 2018-08-08
+modified: 2020-04-03
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/
 author_profile: no
@@ -39,4 +39,5 @@ Please complete the following tasks before the first day of the course to ensure
 4. Follow the instructions on the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> to install the necessary tools for your operating system (Windows, Mac, Linux). The necessary tools include `Bash`, `Git`, and the Anaconda distribution for `Python` 3.6. 
 
 **Questions or concerns?** Post questions to <a href="https://piazza.com/colorado/summer2018/earthanalyticsbootcamp/home" target="_blank">Piazza webpage for this course</a> or email concerns to the instructor as needed. 
+
 

@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-collaboration/
 nav-title: "Guided Activity on Git/Github.com For Collaboration"
 dateCreated: 2018-07-25
-modified: 2018-09-10
+modified: 2020-04-03
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -108,3 +108,4 @@ If more changes are merged later to the original repository, you can run `git pu
 * <a href="https://help.github.com/articles/creating-an-issue/" target="_blank">Create Issue on Github.com</a>
 
 </div>
+
