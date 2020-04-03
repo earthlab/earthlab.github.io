@@ -4,7 +4,7 @@ title: "Clip a spatial vector layer in Python using Shapely & GeoPandas: GIS in 
 excerpt: "Sometimes you may want to spatially clip a vector data layer to a specified boundary for easier plotting and analysis of smaller spatial areas. Learn how to clip a vector data layer in Python using GeoPandas and Shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-03-27
+modified: 2020-04-03
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/clip-vector-data-in-python-geopandas-shapely/
@@ -154,7 +154,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_6_0.png" alt = "Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_6_0.png" alt = "Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.">
 <figcaption>Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.</figcaption>
 
 </figure>
@@ -173,18 +173,9 @@ To remove the points that are outside of your study area, you can clip the data.
     </figcaption>
 </figure>
 
-To clip points, lines, and polygons, GeoPandas has a function named `clip()` that will clip all types of geometries. This operation used to be much more difficult, involving creating bounding boxes and shapely objects, while using the GeoPandas `intersection()` function to clip the data. However, to simplify the process EarthPy developed a `clip_shp()` function that would do all of these things automatically. The function was than picked up by GeoPandas and is now a part of their package! Just a small example of how awesome working with open source code can be.
+To clip points, lines, and polygons, GeoPandas has a function named `clip()` that will clip all types of geometries. This operation used to be much more difficult, involving creating bounding boxes and shapely objects, while using the GeoPandas `intersection()` function to clip the data. However, to simplify the process EarthPy developed a `clip_shp()` function that would do all of these things automatically. The function was than picked up by GeoPandas and is now a part of their package! Just a small example of how awesome working with open source software can be.
 
-If you wanted to clip data using GeoPandas without `clip()` you could use the `.intersection()` method as follows:
-
-```python
-# "clip" a points layer to the boundary of a polygon
-poly = country_boundary_us.geometry.unary_union
-points_clip = pop_places[pop_places.geometry.intersects(poly)]
-```
-
-However now you can just use the `clip()` function and it will take care of all of these steps for you!
-Clip takes three arguments:
+`Clip()` takes three arguments:
 
 * gdf: Vector layer (point, line, polygon) to be clipped to mask.
 * mask: Polygon vector layer used to clip `gdf`. The mask's geometry is dissolved into one geometric feature and intersected with `gdf`.
@@ -309,7 +300,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_10_0.png" alt = "Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_10_0.png" alt = "Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.">
 <figcaption>Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.</figcaption>
 
 </figure>
@@ -317,7 +308,7 @@ plt.show()
 
 
 
-## Crop a Line or Polygon Layer to An Extent
+## Clip a Line or Polygon Layer to An Extent
 
 The process for clipping a line or polygon layer is slightly different than clipping a set of points. To clip a line of polygon feature you will do the following:
 
@@ -416,7 +407,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_22_0.png" alt = "Clipped vs unclipped roads layer. ">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_22_0.png" alt = "Clipped vs unclipped roads layer. ">
 <figcaption>Clipped vs unclipped roads layer. </figcaption>
 
 </figure>
@@ -450,7 +441,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_26_0.png" alt = "Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_26_0.png" alt = "Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.">
 <figcaption>Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.</figcaption>
 
 </figure>
@@ -517,7 +508,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_29_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_29_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
 <figcaption>Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.</figcaption>
 
 </figure>
@@ -548,7 +539,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_30_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_30_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
 <figcaption>The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.</figcaption>
 
 </figure>
@@ -613,7 +604,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_34_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial03-clip-vector-data-python/2019-01-29-spatial03-clip-vector-data-python_34_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
 <figcaption>Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.</figcaption>
 
 </figure>

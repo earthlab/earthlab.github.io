@@ -5,7 +5,7 @@ excerpt: "Often when spatial data do not line up properly on a plot, it is becau
 coordinate reference systems (CRS). Learn how to reproject a vector dataset to a different CRS in Python using the to_crs() function from GeoPandas."
 authors: ['Leah Wasser','Martha Morrissey','Chris Holdgraf']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-04-03
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/reproject-vector-data-in-python/
@@ -93,6 +93,12 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 Revisiting the challenge from a previous lesson, here are the two layers:
 Notice the CRS of each layer.
 
@@ -115,8 +121,8 @@ print(sjer_aoi.crs)
 ```
 
 {:.output}
-    {'init': 'epsg:4269'}
-    {'init': 'epsg:32611'}
+    epsg:4269
+    epsg:32611
 
 
 
@@ -156,7 +162,7 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_8_0.png" alt = "Plot showing roads for Madera County, California with the study area extent overlayed on top.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_8_0.png" alt = "Plot showing roads for Madera County, California with the study area extent overlayed on top.">
 <figcaption>Plot showing roads for Madera County, California with the study area extent overlayed on top.</figcaption>
 
 </figure>
@@ -252,7 +258,7 @@ state_boundary_us.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>06</td>
       <td>01779778</td>
       <td>0400000US06</td>
@@ -263,10 +269,10 @@ state_boundary_us.head()
       <td>403483823181</td>
       <td>20483271881</td>
       <td>West</td>
-      <td>(POLYGON Z ((-118.593969 33.467198 0, -118.484...</td>
+      <td>MULTIPOLYGON Z (((-118.59397 33.46720 0.00000,...</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>11</td>
       <td>01702382</td>
       <td>0400000US11</td>
@@ -277,10 +283,10 @@ state_boundary_us.head()
       <td>158350578</td>
       <td>18633500</td>
       <td>Northeast</td>
-      <td>POLYGON Z ((-77.119759 38.934343 0, -77.041017...</td>
+      <td>POLYGON Z ((-77.11976 38.93434 0.00000, -77.04...</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>12</td>
       <td>00294478</td>
       <td>0400000US12</td>
@@ -291,10 +297,10 @@ state_boundary_us.head()
       <td>138903200855</td>
       <td>31407883551</td>
       <td>Southeast</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>13</td>
       <td>01705317</td>
       <td>0400000US13</td>
@@ -305,10 +311,10 @@ state_boundary_us.head()
       <td>148963503399</td>
       <td>4947080103</td>
       <td>Southeast</td>
-      <td>POLYGON Z ((-85.605165 34.984678 0, -85.474338...</td>
+      <td>POLYGON Z ((-85.60516 34.98468 0.00000, -85.47...</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>16</td>
       <td>01779783</td>
       <td>0400000US16</td>
@@ -319,7 +325,7 @@ state_boundary_us.head()
       <td>214045425549</td>
       <td>2397728105</td>
       <td>West</td>
-      <td>POLYGON Z ((-117.243027 44.390974 0, -117.2150...</td>
+      <td>POLYGON Z ((-117.24303 44.39097 0.00000, -117....</td>
     </tr>
   </tbody>
 </table>
@@ -353,7 +359,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_13_0.png" alt = "Plot of state boundaries for the USA.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_13_0.png" alt = "Plot of state boundaries for the USA.">
 <figcaption>Plot of state boundaries for the USA.</figcaption>
 
 </figure>
@@ -414,7 +420,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_17_0.png" alt = "Map showing USA boundary and states with custom colors.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_17_0.png" alt = "Map showing USA boundary and states with custom colors.">
 <figcaption>Map showing USA boundary and states with custom colors.</figcaption>
 
 </figure>
@@ -445,7 +451,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_19_0.png" alt = "Plot of the SJER area of interest (AOI). This represents the boundary of your study area.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_19_0.png" alt = "Plot of the SJER area of interest (AOI). This represents the boundary of your study area.">
 <figcaption>Plot of the SJER area of interest (AOI). This represents the boundary of your study area.</figcaption>
 
 </figure>
@@ -481,7 +487,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_21_0.png" alt = "When you try to plot the state and country boundaries with the SJER_AOI what happens? Notice that this map does not look right even though the layers plotted just fine individually. This suggests there may be a CRS issue.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_21_0.png" alt = "When you try to plot the state and country boundaries with the SJER_AOI what happens? Notice that this map does not look right even though the layers plotted just fine individually. This suggests there may be a CRS issue.">
 <figcaption>When you try to plot the state and country boundaries with the SJER_AOI what happens? Notice that this map does not look right even though the layers plotted just fine individually. This suggests there may be a CRS issue.</figcaption>
 
 </figure>
@@ -505,9 +511,9 @@ print(state_boundary_us.crs)
 ```
 
 {:.output}
-    {'init': 'epsg:32611'}
-    {'init': 'epsg:4326'}
-    {'init': 'epsg:4326'}
+    epsg:32611
+    epsg:4326
+    epsg:4326
 
 
 
@@ -593,8 +599,8 @@ print('state boundary crs:', state_boundary_us.crs)
 
 {:.output}
     [ 254570.567      4107303.07684455  258867.40933092 4112361.92026107]
-    sjer_aoi crs:  {'init': 'epsg:4326'}
-    state boundary crs: {'init': 'epsg:4326'}
+    sjer_aoi crs:  epsg:4326
+    state boundary crs: epsg:4326
 
 
 
@@ -643,7 +649,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_31_0.png" alt = "Once you have reprojected your data, you can then plot all of the layers together.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_31_0.png" alt = "Once you have reprojected your data, you can then plot all of the layers together.">
 <figcaption>Once you have reprojected your data, you can then plot all of the layers together.</figcaption>
 
 </figure>
@@ -688,7 +694,7 @@ ax.set(xticks = [], yticks = []);
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_33_0.png" alt = "Here you've zoomed into the data on the map to see the very small study area extent that you are interested in.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_33_0.png" alt = "Here you've zoomed into the data on the map to see the very small study area extent that you are interested in.">
 <figcaption>Here you've zoomed into the data on the map to see the very small study area extent that you are interested in.</figcaption>
 
 </figure>
@@ -726,7 +732,7 @@ sjer_aoi_WGS84["geometry"].centroid.plot();
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_36_0.png" alt = "Plot showing the centroid of your AOI boundary. A point might be more visible on a map of the entire United States than a tiny box as you can adjust the markersize.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_36_0.png" alt = "Plot showing the centroid of your AOI boundary. A point might be more visible on a map of the entire United States than a tiny box as you can adjust the markersize.">
 <figcaption>Plot showing the centroid of your AOI boundary. A point might be more visible on a map of the entire United States than a tiny box as you can adjust the markersize.</figcaption>
 
 </figure>
@@ -764,7 +770,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2018-02-05-spatial05-reproject-vector-data-python/2018-02-05-spatial05-reproject-vector-data-python_37_0.png" alt = "Plot showing the centroid of your AOI boundary overlayed on top of a map of the entire United States.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/02-intro-vector/vector-processing-python/2019-01-29-spatial02-reproject-vector-data-python/2019-01-29-spatial02-reproject-vector-data-python_37_0.png" alt = "Plot showing the centroid of your AOI boundary overlayed on top of a map of the entire United States.">
 <figcaption>Plot showing the centroid of your AOI boundary overlayed on top of a map of the entire United States.</figcaption>
 
 </figure>
