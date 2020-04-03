@@ -4,11 +4,11 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-01-06
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/subset-time-series-data-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/
 nav-title: 'Subset Time Series Data in Python'
 week: 1
 sidebar:
@@ -20,6 +20,9 @@ topics:
   reproducible-science-and-programming: ['python']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/subset-time-series-data-python/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/subset-time-series-data-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -29,8 +32,6 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Subset time series data using different options for time frames, including by year, month, and with a specified begin and end date. 
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -43,7 +44,7 @@ There are many ways to subset the data temporally in **Python**; one easy way to
 
 **Pandas** natively understands time operations if:
 1. you tell it what column contains your time stamps (using the parameter `parse_dates`) and 
-2. you set the date column to be the index of the dataframe (using the parameter `index_col`)
+2. you set the date column to be the index of the dataframe (using the parameter `index_col`).
 
 On the previous page of this chapter, you already learned how to complete these steps during the `read_csv()` import into the **pandas** dataframe. On this page, you will learn how to use the `datetime` index to subset data from a **pandas dataframe**. 
 
@@ -88,12 +89,6 @@ You will also download data from **earthpy** by specifiying a data key for the d
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 Note that when you download data using a data key in **earthpy**, the data are automatically downloaded to a new directory in the `data` directory under `earth-analytics`.  The name of the directory will be the same as the name of the dataset, for example, `colorado-flood`. 
 
@@ -173,7 +168,7 @@ boulder_precip_2003_2013.head()
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01</td>
+      <th>2003-01-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -184,7 +179,7 @@ boulder_precip_2003_2013.head()
       <td>1</td>
     </tr>
     <tr>
-      <td>2003-01-05</td>
+      <th>2003-01-05</th>
       <td>NaN</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -195,7 +190,7 @@ boulder_precip_2003_2013.head()
       <td>5</td>
     </tr>
     <tr>
-      <td>2003-02-01</td>
+      <th>2003-02-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -206,7 +201,7 @@ boulder_precip_2003_2013.head()
       <td>32</td>
     </tr>
     <tr>
-      <td>2003-02-02</td>
+      <th>2003-02-02</th>
       <td>NaN</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -217,7 +212,7 @@ boulder_precip_2003_2013.head()
       <td>33</td>
     </tr>
     <tr>
-      <td>2003-02-03</td>
+      <th>2003-02-03</th>
       <td>0.4</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -278,14 +273,16 @@ boulder_precip_2003_2013.info()
     <class 'pandas.core.frame.DataFrame'>
     DatetimeIndex: 792 entries, 2003-01-01 to 2013-12-31
     Data columns (total 8 columns):
-    DAILY_PRECIP    788 non-null float64
-    STATION         792 non-null object
-    STATION_NAME    792 non-null object
-    ELEVATION       792 non-null float64
-    LATITUDE        792 non-null float64
-    LONGITUDE       792 non-null float64
-    YEAR            792 non-null int64
-    JULIAN          792 non-null int64
+     #   Column        Non-Null Count  Dtype  
+    ---  ------        --------------  -----  
+     0   DAILY_PRECIP  788 non-null    float64
+     1   STATION       792 non-null    object 
+     2   STATION_NAME  792 non-null    object 
+     3   ELEVATION     792 non-null    float64
+     4   LATITUDE      792 non-null    float64
+     5   LONGITUDE     792 non-null    float64
+     6   YEAR          792 non-null    int64  
+     7   JULIAN        792 non-null    int64  
     dtypes: float64(4), int64(2), object(2)
     memory usage: 55.7+ KB
 
@@ -330,7 +327,7 @@ boulder_precip_2003_2013.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>788.000000</td>
       <td>792.0</td>
       <td>792.000000</td>
@@ -339,7 +336,7 @@ boulder_precip_2003_2013.describe()
       <td>792.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>0.247843</td>
       <td>1650.5</td>
       <td>40.033850</td>
@@ -348,7 +345,7 @@ boulder_precip_2003_2013.describe()
       <td>175.541667</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>0.462558</td>
       <td>0.0</td>
       <td>0.000045</td>
@@ -357,7 +354,7 @@ boulder_precip_2003_2013.describe()
       <td>98.536373</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>0.000000</td>
       <td>1650.5</td>
       <td>40.033800</td>
@@ -366,7 +363,7 @@ boulder_precip_2003_2013.describe()
       <td>1.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>0.100000</td>
       <td>1650.5</td>
       <td>40.033800</td>
@@ -375,7 +372,7 @@ boulder_precip_2003_2013.describe()
       <td>96.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>0.100000</td>
       <td>1650.5</td>
       <td>40.033890</td>
@@ -384,7 +381,7 @@ boulder_precip_2003_2013.describe()
       <td>167.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>0.300000</td>
       <td>1650.5</td>
       <td>40.033890</td>
@@ -393,7 +390,7 @@ boulder_precip_2003_2013.describe()
       <td>255.250000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>9.800000</td>
       <td>1650.5</td>
       <td>40.033890</td>
@@ -495,7 +492,7 @@ boulder_precip_2003_2013['2013'].head()
   </thead>
   <tbody>
     <tr>
-      <td>2013-01-01</td>
+      <th>2013-01-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -506,7 +503,7 @@ boulder_precip_2003_2013['2013'].head()
       <td>1</td>
     </tr>
     <tr>
-      <td>2013-01-28</td>
+      <th>2013-01-28</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -517,7 +514,7 @@ boulder_precip_2003_2013['2013'].head()
       <td>28</td>
     </tr>
     <tr>
-      <td>2013-01-29</td>
+      <th>2013-01-29</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -528,7 +525,7 @@ boulder_precip_2003_2013['2013'].head()
       <td>29</td>
     </tr>
     <tr>
-      <td>2013-02-01</td>
+      <th>2013-02-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -539,7 +536,7 @@ boulder_precip_2003_2013['2013'].head()
       <td>32</td>
     </tr>
     <tr>
-      <td>2013-02-14</td>
+      <th>2013-02-14</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -609,7 +606,7 @@ boulder_precip_2003_2013['2013'].tail()
   </thead>
   <tbody>
     <tr>
-      <td>2013-12-04</td>
+      <th>2013-12-04</th>
       <td>0.4</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -620,7 +617,7 @@ boulder_precip_2003_2013['2013'].tail()
       <td>338</td>
     </tr>
     <tr>
-      <td>2013-12-22</td>
+      <th>2013-12-22</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -631,7 +628,7 @@ boulder_precip_2003_2013['2013'].tail()
       <td>356</td>
     </tr>
     <tr>
-      <td>2013-12-23</td>
+      <th>2013-12-23</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -642,7 +639,7 @@ boulder_precip_2003_2013['2013'].tail()
       <td>357</td>
     </tr>
     <tr>
-      <td>2013-12-29</td>
+      <th>2013-12-29</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -653,7 +650,7 @@ boulder_precip_2003_2013['2013'].tail()
       <td>363</td>
     </tr>
     <tr>
-      <td>2013-12-31</td>
+      <th>2013-12-31</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -740,7 +737,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].head()
   </thead>
   <tbody>
     <tr>
-      <td>2003-12-01</td>
+      <th>2003-12-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -751,7 +748,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].head()
       <td>335</td>
     </tr>
     <tr>
-      <td>2004-12-01</td>
+      <th>2004-12-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -762,7 +759,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].head()
       <td>336</td>
     </tr>
     <tr>
-      <td>2004-12-22</td>
+      <th>2004-12-22</th>
       <td>0.2</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -773,7 +770,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].head()
       <td>357</td>
     </tr>
     <tr>
-      <td>2004-12-24</td>
+      <th>2004-12-24</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -784,7 +781,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].head()
       <td>359</td>
     </tr>
     <tr>
-      <td>2005-12-01</td>
+      <th>2005-12-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -854,7 +851,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
   </thead>
   <tbody>
     <tr>
-      <td>2013-12-04</td>
+      <th>2013-12-04</th>
       <td>0.4</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -865,7 +862,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
       <td>338</td>
     </tr>
     <tr>
-      <td>2013-12-22</td>
+      <th>2013-12-22</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -876,7 +873,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
       <td>356</td>
     </tr>
     <tr>
-      <td>2013-12-23</td>
+      <th>2013-12-23</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -887,7 +884,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
       <td>357</td>
     </tr>
     <tr>
-      <td>2013-12-29</td>
+      <th>2013-12-29</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -898,7 +895,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
       <td>363</td>
     </tr>
     <tr>
-      <td>2013-12-31</td>
+      <th>2013-12-31</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -978,7 +975,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01</td>
+      <th>2003-01-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -989,7 +986,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>1</td>
     </tr>
     <tr>
-      <td>2003-02-01</td>
+      <th>2003-02-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1000,7 +997,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>32</td>
     </tr>
     <tr>
-      <td>2003-03-01</td>
+      <th>2003-03-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1011,7 +1008,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>60</td>
     </tr>
     <tr>
-      <td>2003-04-01</td>
+      <th>2003-04-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1022,7 +1019,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>91</td>
     </tr>
     <tr>
-      <td>2003-05-01</td>
+      <th>2003-05-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1033,7 +1030,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>121</td>
     </tr>
     <tr>
-      <td>...</td>
+      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1044,7 +1041,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>...</td>
     </tr>
     <tr>
-      <td>2013-08-01</td>
+      <th>2013-08-01</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1055,7 +1052,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>213</td>
     </tr>
     <tr>
-      <td>2013-09-01</td>
+      <th>2013-09-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1066,7 +1063,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>244</td>
     </tr>
     <tr>
-      <td>2013-10-01</td>
+      <th>2013-10-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1077,7 +1074,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>274</td>
     </tr>
     <tr>
-      <td>2013-11-01</td>
+      <th>2013-11-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1088,7 +1085,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
       <td>305</td>
     </tr>
     <tr>
-      <td>2013-12-01</td>
+      <th>2013-12-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1169,7 +1166,7 @@ precip_may_aug_2005.head()
   </thead>
   <tbody>
     <tr>
-      <td>2005-05-01</td>
+      <th>2005-05-01</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1180,7 +1177,7 @@ precip_may_aug_2005.head()
       <td>121</td>
     </tr>
     <tr>
-      <td>2005-05-11</td>
+      <th>2005-05-11</th>
       <td>1.2</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1191,7 +1188,7 @@ precip_may_aug_2005.head()
       <td>131</td>
     </tr>
     <tr>
-      <td>2005-05-30</td>
+      <th>2005-05-30</th>
       <td>0.5</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1202,7 +1199,7 @@ precip_may_aug_2005.head()
       <td>150</td>
     </tr>
     <tr>
-      <td>2005-05-31</td>
+      <th>2005-05-31</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -1213,7 +1210,7 @@ precip_may_aug_2005.head()
       <td>151</td>
     </tr>
     <tr>
-      <td>2005-06-01</td>
+      <th>2005-06-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>

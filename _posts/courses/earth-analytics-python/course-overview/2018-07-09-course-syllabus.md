@@ -1,11 +1,11 @@
 ---
 layout: single
-title: 'GEOG 5563 - Earth Analytics: Fall 2018 Syllabus'
+title: 'GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus'
 authors: ['Leah Wasser']
 category: courses
 excerpt:
 nav-title: Course Syllabus
-modified: 2017-05-12
+modified: 2020-03-06
 comments: no
 permalink: /courses/earth-analytics-python/earth-analytics-syllabus/
 author_profile: no
@@ -22,26 +22,25 @@ sidebar:
 ## Course Location & Time
 
 * **Location:** SEEC N125 (distance learning classroom)
-* **Time:** Wednesdays, 1:00PM - 3:50
+* **Time:** Spring 2020: Wednesdays, 3:00PM - 5:30
 
 ## Instructor & TA
 
 * **Instructor:** Dr. Leah A. Wasser
-    * Office. S346 SEEC
-    * Email leah.wasser@colorado.edu
+    * Office: S346 SEEC
+    * Email: leah.wasser at colorado.edu
 
 
 ## Office Hours
 
 There will be a few weeks where office hours will need to be adjusted.
 However unless otherwise notified, office hours are as follows:
- 
 
 | Day | Time | Location | Who |
 |---|---|---|---|
-| Mondays | 1:30 pm - 3:00 pm | S346 SEEC | Leah |
+| Mondays (in person) | 11:00 am - 12:30 pm | Earth Lab  S346 SEEC | Leah |
+| Tuesday (in person / zoom) | 3:00 pm - 4:30 pm | Earth Lab S346 SEEC | Jenny |
 |===
-
 
 ## Learning Outcomes
 
@@ -59,7 +58,7 @@ All students will need a working laptop to use in class each week.
 ## Online Participation
 
 If you enrolled in the online section of this course, you can join the course
-remotely using ZOOM. Please visit D2L to access the zoom link.
+remotely using ZOOM. Please visit Canvas to access the zoom link.
 
 <a href="http://www.colorado.edu/oit/services/conferencing-services/web-conferencing-zoom" target="_blank">Click here to get help getting Zoom up and running</a>
 
@@ -71,10 +70,8 @@ There are several ways that you can get help when you get stuck in this class.
 2. Post your question on Canvas in the respective week x - homework questions discussion
 
 #### Textbook
-There is no required textbook for this course. You will learn about each topic 
-taught in the course from a suite of papers, blog posts, text and other resources 
-throughout the course. As you find other resources that help you through the class, 
-please feel free to share them with the instructor and your classmates.
+
+The textbook for this course is online here: https://www.earthdatascience.org/courses/use-data-open-source-python/. 
 
 </div>
 
@@ -119,7 +116,7 @@ Course grades will be calculated using the following assignments:
 
 ### Final Letter Grades
 
-Please use the table below to understand how your numeric grade - listed in D2L
+Please use the table below to understand how your numeric grade - listed in Canvas
 related to your final letter grade in this course.
 
 | Score | Grade  |  |  |  |
@@ -147,8 +144,8 @@ subject line and be signed with your full name. Please use your official
 If your email is not personal in nature, but rather a question about the homework,
 issues with the course website, or issues with R, please
 
-1. See if the question has already been asked on Piazza
-2. If the question hasn't already been asked, please **post your question to PIAZZA**.
+1. See if the question has already been asked in the Canvas Discussion page. 
+2. If the question hasn't already been asked, please **post your question to the Canvas Discussion page**.
 
 
 ## Canvas Discussion Post Rules
@@ -159,7 +156,7 @@ Do:
 
 * Post questions that you have about homework assignments
 * Post issues that you find with the website -- typos, errors, points of confusion
-* Answer other questions if you can (you will receive participation points for posting on piazza so use it)
+* Answer other questions if you can (you will receive participation points for posting in the Canvas Discussion page so use it)
 * **upvote** questions that you have as well or that you think are written well
 * Be respectful of your peers. All questions related to data and earth analytics are good questions.
 
@@ -167,9 +164,9 @@ Do not:
 
 * Post any content that is in any way offensive or that violates University codes of conduct (see links below)
 * Post explicit solutions to homework assignments (help each other out but don't post the answer)
-* Post an entire `.ipynb` document on Piazza - rather post a small snippet of code that is causing problems and the associated code error
+* Post an entire `.ipynb` document on the Canvas Discussion page - rather post a small snippet of code that is causing problems and the associated code error
 
-When posting questions about coding issues to Piazza, please do your best to
+When posting questions about coding issues to the Canvas Discussion page, please do your best to
 provide an example of the specific code error that you are encountering.
 
 Example. The code
@@ -182,9 +179,10 @@ returns this error:
 
 In the example above the fix would be to make sure your function name is correct.
 
-## Course Content
-Material pertaining to this course will be communicated through the course website. [{{ site.url }}]({{ site.url }}/courses/earth-analytics/). Students are expected to check this website daily for assignment and
-content updates.
+## Assignments & Week to Week Communication
+
+All assignments and week to week items will be communicated through Canvas - our course learning management system. Please canvas daily for assignment and
+content updates. Turn on notifications if you don't login to canvas regularly. 
 
 ## Course Policies
 
@@ -193,7 +191,7 @@ content updates.
 Attendance is encouraged for all class sessions. I have found that students
 who attend class often do better than those who don't. However, with that
 said the entire course is available in an online format and you will be able
-to participate in many activities remotely using the Piazza forum.
+to participate in many activities remotely using the Canvas Discussion page.
 
 ### Participation
 
@@ -278,6 +276,7 @@ see Temporary Medical Conditions: Injuries, Surgeries, and Illnesses guidelines
 under Quick Links at Disability Services website and discuss your needs with your
 professor.
 
+
 ## Course Components
 
 ### Homework Assignments
@@ -304,4 +303,29 @@ is subject to change. This course content schedule is not designed as a
 contract. Rather, it is
 an overview guide to the materials that you will review during the semester.
 {: .notice--success}
+
+## General Course Schedule (subject to change)
+
+The schedule below is a rough estimate of topics that will be covered this semester.
+Please note that some of these topics may change or move around on the calendar depending upon how previous weeks go.
+
+| Week | Topic | Specific Data Topics | Who |
+|---|:---|:---|---|
+| 1-2 | Colorado Floods | Spatial data, Lidar, Raster data | Leah |
+| 3 |  | Spatial Vector data in Python | Leah |
+| 4 | Remote Sensing Uncertainty - Comparing ground to airborne lidar measurements | Lidar, Raster, Vector | Leah |
+| 5 | Fire: Intro to Multi-spectral Remote Sensing | Geotiff, NAIP, Landsat | Leah |
+| 6 | Fire: Multi-spectral Remote Sensing 2 | H4, MODIS | Leah |
+| 7 | Automate Workflows |  | Jenny, (Leah Out) |
+| 8 | Automate workflows 2 | H4, MODIS | Leah |
+| 9 | Introduction to H5 (TBD) | | Leah |
+| 10 | Mid Term Presentations (TBD) | | Leah |
+| 11 | SPRING BREAK!!   | |  |
+|===
+| 12 | Introduction to API's | H4, MODIS | Leah |
+| 13 | Streaming data access & Social Media for Science -- Twitter | | Leah |
+| 14 | Contribute to Open Source Software | | Leah |
+| 15 | Work on Projects | | Leah |
+| 16 | LAST DAY OF CLASS! Final Project Presentations | | Leah |
+
 

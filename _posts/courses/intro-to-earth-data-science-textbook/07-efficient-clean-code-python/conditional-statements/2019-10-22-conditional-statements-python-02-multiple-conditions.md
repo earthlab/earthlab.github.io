@@ -5,10 +5,10 @@ excerpt: "Conditional statements in Python can be written to check for alternati
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-conditional-statements-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/alternative-multiple-conditions/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
-modified: 2019-11-07
+modified: 2020-03-06
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -22,6 +22,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/conditional-statements/control-flow/"
   - "/courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/"
+  - "/courses/intro-to-earth-data-science/write-efficient-python-code/alternative-multiple-conditions/" 
 ---
 {% include toc title="On This Page" icon="file-text" %}
 

@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/
 nav-title: "Project Management Best Practices"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2020-01-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -19,6 +19,9 @@ comments: true
 order: 3
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/earth-analytics-python/python-open-science-toolbox/best-practices-file-organization/"
+
 ---
 
 {% include toc title="On This Page" icon="file-text" %}

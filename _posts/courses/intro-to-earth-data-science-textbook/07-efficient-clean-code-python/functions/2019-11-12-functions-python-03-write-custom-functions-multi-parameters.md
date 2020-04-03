@@ -5,10 +5,10 @@ excerpt: "A function is a reusable block of code that performs a specific task. 
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-functions-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-with-multiple-and-optional-parameters-in-python/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/write-functions-with-multiple-and-optional-parameters-in-python/
 nav-title: "Write Multi-Parameter Functions in Python"
 dateCreated: 2019-11-12
-modified: 2019-11-17
+modified: 2020-03-06
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
@@ -20,6 +20,8 @@ comments: true
 order: 3
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-with-multiple-and-optional-parameters-in-python/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -601,84 +603,84 @@ precip_2002_2013_df
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>1.07</td>
       <td>0.27</td>
       <td>Winter</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>0.44</td>
       <td>1.13</td>
       <td>Winter</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>1.50</td>
       <td>1.72</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>0.20</td>
       <td>4.14</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>3.20</td>
       <td>2.66</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>1.18</td>
       <td>0.61</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>0.09</td>
       <td>1.03</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>1.44</td>
       <td>1.40</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>1.52</td>
       <td>18.16</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>2.44</td>
       <td>2.24</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>0.78</td>
       <td>0.29</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.02</td>
       <td>0.50</td>
@@ -784,84 +786,84 @@ precip_2002_2013_df
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>1.07</td>
       <td>0.27</td>
       <td>Winter</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>0.44</td>
       <td>1.13</td>
       <td>Winter</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>1.50</td>
       <td>1.72</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>0.20</td>
       <td>4.14</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>3.20</td>
       <td>2.66</td>
       <td>Spring</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>1.18</td>
       <td>0.61</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>0.09</td>
       <td>1.03</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>1.44</td>
       <td>1.40</td>
       <td>Summer</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>1.52</td>
       <td>18.16</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>2.44</td>
       <td>2.24</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>0.78</td>
       <td>0.29</td>
       <td>Fall</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.02</td>
       <td>0.50</td>

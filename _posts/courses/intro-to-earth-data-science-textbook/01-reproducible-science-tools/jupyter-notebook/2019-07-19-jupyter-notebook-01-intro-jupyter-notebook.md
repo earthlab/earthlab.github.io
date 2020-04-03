@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/
 nav-title: "Intro to Jupyter"
 dateCreated: 2019-07-15
-modified: 2019-09-23
+modified: 2020-01-14
 module-title: 'Jupyter For Python'
 module-nav-title: 'Jupyter For Python'
 module-description: 'This chapter teaches you how to use Jupyter Notebook, an interactive environment where you can write and run code such as Python and add text that describes your workflow using Markdown.'
@@ -27,6 +27,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/"
   - "/courses/earth-analytics-bootcamp/git-github-version-control/manage-jupyter-notebooks/"
+  - "/courses/earth-analytics-python/python-open-science-toolbox/use-jupyter-notebooks/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}

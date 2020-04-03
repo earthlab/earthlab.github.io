@@ -3,7 +3,7 @@ layout: single
 title: 'Create Data Driven Reports using Jupyter Notebooks | 2013 Colorado Flood Data'
 excerpt: "Connecting data to analysis and outputs is an important part of open reproducible science. In this lesson you will explore that value of a well documented workflow."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2020-03-06
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/
@@ -112,7 +112,7 @@ A lot of rain impacted Colorado. See below.
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -124,7 +124,7 @@ A lot of rain impacted Colorado. See below.
       <td></td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -136,7 +136,7 @@ A lot of rain impacted Colorado. See below.
       <td></td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -148,7 +148,7 @@ A lot of rain impacted Colorado. See below.
       <td></td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -160,7 +160,7 @@ A lot of rain impacted Colorado. See below.
       <td></td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>

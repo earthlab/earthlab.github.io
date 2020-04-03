@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/
 nav-title: "About Open Science"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2020-01-14
 module-title: 'Open Reproducible Science Workflows and Tools'
 module-nav-title: 'Open Reproducible Science Workflows'
 module-description: 'Open science involves making scientific methods, data and outcomes available to everyone. Learn why open reproducible science is important. Discover tools that support open science including Shell (Bash), git and GitHub, and Jupyter.'
@@ -26,6 +26,7 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/"
+  - "/courses/earth-analytics-python/python-open-science-toolbox/jupyter-notebooks-for-open-science/"  
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}

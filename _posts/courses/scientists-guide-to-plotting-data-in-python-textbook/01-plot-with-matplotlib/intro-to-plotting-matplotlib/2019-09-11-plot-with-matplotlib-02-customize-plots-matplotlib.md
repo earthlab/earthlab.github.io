@@ -4,12 +4,12 @@ title: "Customize Your Plots Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to customize the colors, symbols, and labels on your plots using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2019-09-11
-modified: 2019-10-05
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 nav-title: 'Customize Plots with Matplotlib'
-permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/customize-plot-colors-labels-matplotlib/
+permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/customize-plot-colors-labels-matplotlib/
 module-type: 'class'
 week: 1
 sidebar:
@@ -20,6 +20,9 @@ order: 2
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/plot-with-matplotlib-python/"
+  - "/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/customize-plot-colors-labels-matplotlib/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -90,7 +93,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fd6713622e8>]
+    [<matplotlib.lines.Line2D at 0x7fa530b10a50>]
 
 
 

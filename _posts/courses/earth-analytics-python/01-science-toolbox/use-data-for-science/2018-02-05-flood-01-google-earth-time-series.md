@@ -3,7 +3,7 @@ layout: single
 title: 'Use Google Earth Time Series Images to View Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2020-03-30
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -13,8 +13,10 @@ module-title: 'Understand Disturbance with Data - Flooding and Erosion'
 module-nav-title: 'Use Data For Science'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
-class-order: 3
+class-order: 1
 week: 1
+estimated-time: "1 hour"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
@@ -123,16 +125,16 @@ As a group, discuss the following questions.
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
 * Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
 
-Now, go to piazza. In the `wk1-google-earth-activity` create a <kbd>new post</kbd> that includes:
+Now, go to the Canvas Discussion page. In the `wk1-google-earth-activity` create a <kbd>new post</kbd> that includes:
 
 1. atleast 3 differences or changes that your group noticed in the imagery
 2. what data you could use to quantify each different that you noticed
 3. what might have caused that change in the landscape?
 4. How would you measure that driver that caused the change in the landscape
 
-Consider organizing your response in a table like the one below. Do not use the example below in your piazza post UNLESS you can come up with another way to quantify how many (or the degree to which) trees were lost! Also note the example provided below is using manually measured data. You may know of other ways to measure tree loss! 
+Consider organizing your response in a table like the one below. Do not use the example below in your Canvas Discussion page post UNLESS you can come up with another way to quantify how many (or the degree to which) trees were lost! Also note the example provided below is using manually measured data. You may know of other ways to measure tree loss! 
 
-An example table that shows what you might post in piazza:
+An example table that shows what you might post in the Canvas Discussion page:
 
 |  Difference | Data you can use to quantify the change | What drove the change  | How could you quantify that driver |
 |---|---|---|

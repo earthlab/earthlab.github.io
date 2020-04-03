@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2020-01-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -21,8 +21,9 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/python-variables-lists/variables/"
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/"
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/"
 ---
-
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

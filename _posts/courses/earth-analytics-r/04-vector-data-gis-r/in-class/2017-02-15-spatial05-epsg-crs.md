@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-13'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -375,8 +375,8 @@ the `CRS` using various formats including `proj4`, `epsg`, `WKT` and others.
 
 * <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#43" target="_blank">Explore the WKT standard: Open Geospatial Consortium WKT document. </a>
 
-* Read more about <a href="https://www.nceas.ucsb.edu/scicomp/recipes/projections" target="_blank">all three formats from the National Center for Ecological Analysis and Synthesis.</a>
-* A handy four page overview of CRS <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">including file formats on page 1.</a>
+* Read more about <a href="https://web.archive.org/web/20130211101051/https://www.nceas.ucsb.edu/scicomp/recipes/projections" target="_blank">all three formats from the National Center for Ecological Analysis and Synthesis.</a>
+* A handy four page overview of CRS <a href="https://web.archive.org/web/20200225021219/https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">including file formats on page 1.</a>
 
 * <a href="http://www.epsg-registry.org/" target="_blank">The EPSG registry. </a>
 * <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>

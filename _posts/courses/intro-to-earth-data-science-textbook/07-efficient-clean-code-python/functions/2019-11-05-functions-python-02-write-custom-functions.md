@@ -5,10 +5,10 @@ excerpt: "A function is a reusable block of code that performs a specific task. 
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-functions-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-in-python/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/write-functions-in-python/
 nav-title: "Write Functions in Python"
 dateCreated: 2019-11-05
-modified: 2019-11-09
+modified: 2020-03-06
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
@@ -22,6 +22,8 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/functions/write-functions/"
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/"
+  - "/courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-in-python/" 
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -494,73 +496,73 @@ precip_2002
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>27.178</td>
       <td>1.07</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>11.176</td>
       <td>0.44</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>38.100</td>
       <td>1.50</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>5.080</td>
       <td>0.20</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>81.280</td>
       <td>3.20</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>29.972</td>
       <td>1.18</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>2.286</td>
       <td>0.09</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>36.576</td>
       <td>1.44</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>38.608</td>
       <td>1.52</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>61.976</td>
       <td>2.44</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>19.812</td>
       <td>0.78</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.508</td>
       <td>0.02</td>
@@ -646,7 +648,7 @@ help(np.mean)
             Alternate output array in which to place the result.  The default
             is ``None``; if provided, it must have the same shape as the
             expected output, but the type will be cast if necessary.
-            See `doc.ufuncs` for details.
+            See `ufuncs-output-type` for more details.
         
         keepdims : bool, optional
             If this is set to True, the axes which are reduced are left

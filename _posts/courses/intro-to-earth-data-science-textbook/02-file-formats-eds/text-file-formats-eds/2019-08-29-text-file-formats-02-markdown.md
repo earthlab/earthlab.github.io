@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2019-08-29
-modified: 2019-09-23
+modified: 2020-01-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -21,6 +21,7 @@ topics:
   reproducible-science-and-programming: ['markdown']
 redirect_from:
    - "/courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/"
+   - "/courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}

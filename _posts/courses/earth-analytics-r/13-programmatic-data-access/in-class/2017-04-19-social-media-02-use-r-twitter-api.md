@@ -3,7 +3,7 @@ layout: single
 title: "Twitter Data in R Using Rtweet: Analyze and Download Twitter Data"
 excerpt: "You can use the Twitter RESTful API to access data about Twitter users and tweets. Learn how to use rtweet to download and analyze twitter social media data in R."
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2019-09-03'
+modified: '2020-03-13'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/use-twitter-api-r/
@@ -183,41 +183,38 @@ head(rstats_tweets, n = 3)
 ## # A tibble: 3 x 90
 ##   user_id status_id created_at          screen_name text  source
 ##   <chr>   <chr>     <dttm>              <chr>       <chr> <chr> 
-## 1 108501… 11689678… 2019-09-03 19:23:45 d8aninja    #rst… Twitt…
-## 2 737142… 11689677… 2019-09-03 19:23:25 chidambara… "Acc… Twitt…
-## 3 737142… 11689288… 2019-09-03 16:48:56 chidambara… "dot… Twitt…
-## # … with 84 more variables: display_text_width <dbl>,
-## #   reply_to_status_id <chr>, reply_to_user_id <chr>,
-## #   reply_to_screen_name <chr>, is_quote <lgl>, is_retweet <lgl>,
-## #   favorite_count <int>, retweet_count <int>, quote_count <int>,
-## #   reply_count <int>, hashtags <list>, symbols <list>, urls_url <list>,
-## #   urls_t.co <list>, urls_expanded_url <list>, media_url <list>,
-## #   media_t.co <list>, media_expanded_url <list>, media_type <list>,
-## #   ext_media_url <list>, ext_media_t.co <list>,
+## 1 955709… 12386007… 2020-03-13 23:00:00 WebSecurit… "A B… Post …
+## 2 856798… 12386006… 2020-03-13 22:59:45 calexandru… "A B… Twitt…
+## 3 433559… 12386000… 2020-03-13 22:57:15 tangming20… "com… Twitt…
+## # … with 84 more variables: display_text_width <dbl>, reply_to_status_id <chr>,
+## #   reply_to_user_id <chr>, reply_to_screen_name <chr>, is_quote <lgl>,
+## #   is_retweet <lgl>, favorite_count <int>, retweet_count <int>,
+## #   quote_count <int>, reply_count <int>, hashtags <list>, symbols <list>,
+## #   urls_url <list>, urls_t.co <list>, urls_expanded_url <list>,
+## #   media_url <list>, media_t.co <list>, media_expanded_url <list>,
+## #   media_type <list>, ext_media_url <list>, ext_media_t.co <list>,
 ## #   ext_media_expanded_url <list>, ext_media_type <chr>,
 ## #   mentions_user_id <list>, mentions_screen_name <list>, lang <chr>,
 ## #   quoted_status_id <chr>, quoted_text <chr>, quoted_created_at <dttm>,
 ## #   quoted_source <chr>, quoted_favorite_count <int>,
-## #   quoted_retweet_count <int>, quoted_user_id <chr>,
-## #   quoted_screen_name <chr>, quoted_name <chr>,
-## #   quoted_followers_count <int>, quoted_friends_count <int>,
-## #   quoted_statuses_count <int>, quoted_location <chr>,
-## #   quoted_description <chr>, quoted_verified <lgl>,
-## #   retweet_status_id <chr>, retweet_text <chr>,
-## #   retweet_created_at <dttm>, retweet_source <chr>,
-## #   retweet_favorite_count <int>, retweet_retweet_count <int>,
-## #   retweet_user_id <chr>, retweet_screen_name <chr>, retweet_name <chr>,
+## #   quoted_retweet_count <int>, quoted_user_id <chr>, quoted_screen_name <chr>,
+## #   quoted_name <chr>, quoted_followers_count <int>,
+## #   quoted_friends_count <int>, quoted_statuses_count <int>,
+## #   quoted_location <chr>, quoted_description <chr>, quoted_verified <lgl>,
+## #   retweet_status_id <chr>, retweet_text <chr>, retweet_created_at <dttm>,
+## #   retweet_source <chr>, retweet_favorite_count <int>,
+## #   retweet_retweet_count <int>, retweet_user_id <chr>,
+## #   retweet_screen_name <chr>, retweet_name <chr>,
 ## #   retweet_followers_count <int>, retweet_friends_count <int>,
 ## #   retweet_statuses_count <int>, retweet_location <chr>,
 ## #   retweet_description <chr>, retweet_verified <lgl>, place_url <chr>,
-## #   place_name <chr>, place_full_name <chr>, place_type <chr>,
-## #   country <chr>, country_code <chr>, geo_coords <list>,
-## #   coords_coords <list>, bbox_coords <list>, status_url <chr>,
-## #   name <chr>, location <chr>, description <chr>, url <chr>,
-## #   protected <lgl>, followers_count <int>, friends_count <int>,
-## #   listed_count <int>, statuses_count <int>, favourites_count <int>,
-## #   account_created_at <dttm>, verified <lgl>, profile_url <chr>,
-## #   profile_expanded_url <chr>, account_lang <lgl>,
+## #   place_name <chr>, place_full_name <chr>, place_type <chr>, country <chr>,
+## #   country_code <chr>, geo_coords <list>, coords_coords <list>,
+## #   bbox_coords <list>, status_url <chr>, name <chr>, location <chr>,
+## #   description <chr>, url <chr>, protected <lgl>, followers_count <int>,
+## #   friends_count <int>, listed_count <int>, statuses_count <int>,
+## #   favourites_count <int>, account_created_at <dttm>, verified <lgl>,
+## #   profile_url <chr>, profile_expanded_url <chr>, account_lang <lgl>,
 ## #   profile_banner_url <chr>, profile_background_url <chr>,
 ## #   profile_image_url <chr>
 ```
@@ -241,40 +238,37 @@ head(rstats_tweets, n = 2)
 ## # A tibble: 2 x 90
 ##   user_id status_id created_at          screen_name text  source
 ##   <chr>   <chr>     <dttm>              <chr>       <chr> <chr> 
-## 1 113044… 11689672… 2019-09-03 19:21:13 fubits      "I w… Twitt…
-## 2 550920… 11689671… 2019-09-03 19:20:54 pham_np     So i… Twitt…
-## # … with 84 more variables: display_text_width <dbl>,
-## #   reply_to_status_id <chr>, reply_to_user_id <chr>,
-## #   reply_to_screen_name <chr>, is_quote <lgl>, is_retweet <lgl>,
-## #   favorite_count <int>, retweet_count <int>, quote_count <int>,
-## #   reply_count <int>, hashtags <list>, symbols <list>, urls_url <list>,
-## #   urls_t.co <list>, urls_expanded_url <list>, media_url <list>,
-## #   media_t.co <list>, media_expanded_url <list>, media_type <list>,
-## #   ext_media_url <list>, ext_media_t.co <list>,
+## 1 433559… 12386000… 2020-03-13 22:57:15 tangming20… comm… Twitt…
+## 2 433559… 12384858… 2020-03-13 15:23:31 tangming20… use … Twitt…
+## # … with 84 more variables: display_text_width <dbl>, reply_to_status_id <chr>,
+## #   reply_to_user_id <chr>, reply_to_screen_name <chr>, is_quote <lgl>,
+## #   is_retweet <lgl>, favorite_count <int>, retweet_count <int>,
+## #   quote_count <int>, reply_count <int>, hashtags <list>, symbols <list>,
+## #   urls_url <list>, urls_t.co <list>, urls_expanded_url <list>,
+## #   media_url <list>, media_t.co <list>, media_expanded_url <list>,
+## #   media_type <list>, ext_media_url <list>, ext_media_t.co <list>,
 ## #   ext_media_expanded_url <list>, ext_media_type <chr>,
 ## #   mentions_user_id <list>, mentions_screen_name <list>, lang <chr>,
 ## #   quoted_status_id <chr>, quoted_text <chr>, quoted_created_at <dttm>,
 ## #   quoted_source <chr>, quoted_favorite_count <int>,
-## #   quoted_retweet_count <int>, quoted_user_id <chr>,
-## #   quoted_screen_name <chr>, quoted_name <chr>,
-## #   quoted_followers_count <int>, quoted_friends_count <int>,
-## #   quoted_statuses_count <int>, quoted_location <chr>,
-## #   quoted_description <chr>, quoted_verified <lgl>,
-## #   retweet_status_id <chr>, retweet_text <chr>,
-## #   retweet_created_at <dttm>, retweet_source <chr>,
-## #   retweet_favorite_count <int>, retweet_retweet_count <int>,
-## #   retweet_user_id <chr>, retweet_screen_name <chr>, retweet_name <chr>,
+## #   quoted_retweet_count <int>, quoted_user_id <chr>, quoted_screen_name <chr>,
+## #   quoted_name <chr>, quoted_followers_count <int>,
+## #   quoted_friends_count <int>, quoted_statuses_count <int>,
+## #   quoted_location <chr>, quoted_description <chr>, quoted_verified <lgl>,
+## #   retweet_status_id <chr>, retweet_text <chr>, retweet_created_at <dttm>,
+## #   retweet_source <chr>, retweet_favorite_count <int>,
+## #   retweet_retweet_count <int>, retweet_user_id <chr>,
+## #   retweet_screen_name <chr>, retweet_name <chr>,
 ## #   retweet_followers_count <int>, retweet_friends_count <int>,
 ## #   retweet_statuses_count <int>, retweet_location <chr>,
 ## #   retweet_description <chr>, retweet_verified <lgl>, place_url <chr>,
-## #   place_name <chr>, place_full_name <chr>, place_type <chr>,
-## #   country <chr>, country_code <chr>, geo_coords <list>,
-## #   coords_coords <list>, bbox_coords <list>, status_url <chr>,
-## #   name <chr>, location <chr>, description <chr>, url <chr>,
-## #   protected <lgl>, followers_count <int>, friends_count <int>,
-## #   listed_count <int>, statuses_count <int>, favourites_count <int>,
-## #   account_created_at <dttm>, verified <lgl>, profile_url <chr>,
-## #   profile_expanded_url <chr>, account_lang <lgl>,
+## #   place_name <chr>, place_full_name <chr>, place_type <chr>, country <chr>,
+## #   country_code <chr>, geo_coords <list>, coords_coords <list>,
+## #   bbox_coords <list>, status_url <chr>, name <chr>, location <chr>,
+## #   description <chr>, url <chr>, protected <lgl>, followers_count <int>,
+## #   friends_count <int>, listed_count <int>, statuses_count <int>,
+## #   favourites_count <int>, account_created_at <dttm>, verified <lgl>,
+## #   profile_url <chr>, profile_expanded_url <chr>, account_lang <lgl>,
 ## #   profile_banner_url <chr>, profile_background_url <chr>,
 ## #   profile_image_url <chr>
 ```
@@ -285,112 +279,76 @@ Next, let's figure out who is tweeting about `R` using the `#rstats` hashtag.
 ```r
 # view column with screen names - top 6
 head(rstats_tweets$screen_name)
-## [1] "fubits"         "pham_np"        "programmerpunk" "SorenWilke"    
-## [5] "peterdalle"     "hglanz"
+## [1] "tangming2005"   "tangming2005"   "noah_greifer"   "yoniceedee"    
+## [5] "yoniceedee"     "peterlovesdata"
 # get a list of unique usernames
 unique(rstats_tweets$screen_name)
-##   [1] "fubits"          "pham_np"         "programmerpunk" 
-##   [4] "SorenWilke"      "peterdalle"      "hglanz"         
-##   [7] "gp_pulipaka"     "JPSoucy"         "IndoorEcology"  
-##  [10] "RubenRemelgado"  "natorro"         "unconj1"        
-##  [13] "rstatsdata"      "CRANberriesFeed" "datacunha"      
-##  [16] "rfindingyourway" "djnavarro"       "CancuCS"        
-##  [19] "kguidonimartins" "vishal_katti"    "caitsimop"      
-##  [22] "umairdurrani87"  "generativist"    "KenSteif"       
-##  [25] "rocitations"     "cogscimom"       "limnojess"      
-##  [28] "EstatSite"       "JMFradeRue"      "TiffanyTimbers" 
-##  [31] "tidyversetweets" "Rbloggers"       "rfortherest"    
-##  [34] "mircaze"         "BiophysicalEco"  "dataandme"      
-##  [37] "hrbrmstr"        "thanhtungmilan"  "_DaniellaMark"  
-##  [40] "tylermorganwall" "CougRstats"      "StatsForBios"   
-##  [43] "ProCogia"        "RLadiesFreiburg" "DogmaticPrior"  
-##  [46] "pachamaltese"    "TheMelton"       "DethWench"      
-##  [49] "EarthLabCU"      "_Gil_Henriques"  "joranelias"     
-##  [52] "RLadiesLancs"    "SeeHerGo"        "DataCamp"       
-##  [55] "BodoWinter"      "Simmie_kafaru"   "RSSAnnualConf"  
-##  [58] "DataDaft"        "LPMKremer"       "whiskersedge"   
-##  [61] "maxheld"         "jonkeane"        "zdw2126062"     
-##  [64] "ludmila_janda"   "davidhughjones"  "Eduardo50935627"
-##  [67] "GrantHumphries"  "rstatsdc"        "ryanlinnbrown"  
-##  [70] "abresler"        "SHaymondSays"    "geokaramanis"   
-##  [73] "MikeRSpencer"    "Niels_Bremen"    "AmJEpi"         
-##  [76] "ariel_esteban"   "JoaoGranja3"     "robsalasco"     
-##  [79] "AlexSlavenko"    "AvrahamAdler"    "rmflight"       
-##  [82] "planetmoney"     "nikki_g_b"       "levalencia"     
-##  [85] "KinseyTedford"   "liz_mauer"       "gavg712"        
-##  [88] "tishaevite"      "olyerickson"     "jessenleon"     
-##  [91] "jimhester_"      "AnalyticsFrance" "cypher_text"    
-##  [94] "DataScientistsF" "BigData_Fr"      "lobrowR"        
-##  [97] "ingorohlfing"    "imsonoshah"      "KKulma"         
-## [100] "underdarkGIS"    "chrisBowdata"    "JenniferBadham" 
-## [103] "rusersoxford"    "M_E_Scott"       "haematobot"     
-## [106] "LucyStats"       "mdancho84"       "MalariaAtlas"   
-## [109] "sharon000"       "gavin_fay"       "Ektropos"       
-## [112] "fatma_cinar_ftm" "dataclaudius"    "DerFredo"       
-## [115] "krystian8207"    "simon_tarr"      "evalparse"      
-## [118] "sherajilir"      "NumFOCUS"        "UK_PetDogPop"   
-## [121] "HiDefSurvey"     "perspectivalean" "Laserhedvig"    
-## [124] "tgwilson"        "D_Rodziewicz"    "martinjhnhadley"
-## [127] "traffordDataLab" "MazdakS"         "ClaireCities"   
-## [130] "shermstats"      "THEAdamGabriel"  "veabrunsdon"    
-## [133] "niken59904793"   "alexyfyf"        "datawookie"     
-## [136] "natedayta"       "Vebash"          "KirkDBorne"     
-## [139] "RLangPackage"    "Westlake_CJW"    "man_matej"      
-## [142] "howard_baik"     "dtoher"          "StephenEglen"   
-## [145] "Altea_Lorenzo"   "R_by_Ryo"        "appsilon"       
-## [148] "whatsgoodio"     "jamie_lendrum"   "rweekly_live"   
-## [151] "DubelMarcin"     "trappedalien"    "GSwithR"        
-## [154] "gbganalyst"      "oscar_b123"      "josh_longbottom"
-## [157] "SamPlayle"       "erbiostat"       "cleris_mr"      
-## [160] "earlconf"        "fgutowski__"     "nj_tierney"     
-## [163] "whyRconf"        "dinga92"         "RLadiesCapeTown"
-## [166] "CareQualityComm" "datasciencetip1" "econabstracts"  
-## [169] "thegymnosophist" "inesz"           "EmRstats"       
-## [172] "LucaLeisten"     "ConallOM"        "ElzbthMcCrthy"  
-## [175] "thinkR_fr"       "neilfws"         "LeahAWasser"    
-## [178] "aliyaleigh"      "johnjanuszczak"  "obergr"         
-## [181] "rstudio"         "technocrat"      "spoonertaylor"  
-## [184] "RLadiesSydney"   "CurtinIC"        "_davecooley"    
-## [187] "consimption"     "DerriereLaLune"  "daily_r_sheets" 
-## [190] "DeborahPassey"   "d_olivaw"        "devenwisner"    
-## [193] "tangming2005"    "DrAndrewRate"    "mrtec_y"        
-## [196] "NerdoRican"      "tsonika"         "thomas_mock"    
-## [199] "AnnaHenschel"    "SpacePlowboy"    "redheadkristy"  
-## [202] "alejdiazd"       "gjmount"         "PaobCorrales"   
-## [205] "_lazappi_"       "mbtoomey"        "Eeysirhc"       
-## [208] "brad_weiner"     "MihiretuKebede1" "IKosmidis_"     
-## [211] "bek_grieger"     "claudiodanielpc" "adamhsparks"    
-## [214] "leon_is_awesome" "ai_korg"         "aschinchon"     
-## [217] "_sharleen_w"     "BC0808"          "atrfisch"       
-## [220] "ChasingMicrobes" "mikkelkrogsholm" "darrenclinch"   
-## [223] "Bluelion0305"    "rhetta_chappell" "mixOmics_team"  
-## [226] "wendtke"         "GuyProchilo"     "janellehajjar"  
-## [229] "NabaHassan8"     "thomasp85"       "mattdray"       
-## [232] "wisevis"         "felipe_mattioni" "DrPaulEllis"    
-## [235] "kai_arzheimer"   "quantargo"       "la_Rusers"      
-## [238] "mkuehn10"        "CourseGift"      "ZKamvar"        
-## [241] "vladtarko"       "kamromero"       "KristenNolting" 
-## [244] "ottofwagner"     "mikedecr"        "adhdoug"        
-## [247] "ethantenison"    "DanielT_W"       "RLangTip"       
-## [250] "TeebzR"          "researchcommunK" "inesblackh"     
-## [253] "_RCharlie"       "barbalhofernand" "thomas_barto"   
-## [256] "jonathandinu"    "TazPoltorak"     "scottyanco"     
-## [259] "JanaJarecki"     "LNPP_MX"         "seabbs"         
-## [262] "McKibbinUSA"     "threader_app"    "gdeandajauregui"
-## [265] "eddelbuettel"    "ariamsita"       "datascienceplus"
-## [268] "mbeckett_za"     "JackkStat"       "pegleraj"       
-## [271] "jladata"         "abiyugiday"      "cai_sadio"      
-## [274] "juneyeungchun"   "ryantimpe"       "YBirchPsy"      
-## [277] "koen_hufkens"    "_ColinFay"       "SangerCytometry"
-## [280] "SwampThingPaul"  "jtrecenti"       "MiguelCos"      
-## [283] "rmagn0"          "shamindraas"     "bradisbrad"     
-## [286] "TraineeGeek"     "callmeyvan"      "LessCrime"      
-## [289] "AlexisLNorris"   "FionaIngleby"    "statwonk"       
-## [292] "Nate__Haines"    "wiscostretford"  "JRBerrendero"   
-## [295] "TheGinaGi"       "AndreaCirilloAC" "coolbutuseless" 
-## [298] "lapply"          "krishanu_c"      "cosminribo"     
-## [301] "suuz_beck"       "RLadiesEdinb"    "dirk_sch"       
-## [304] "pawel_appsilon"  "musy_n"
+##   [1] "tangming2005"    "noah_greifer"    "yoniceedee"      "peterlovesdata" 
+##   [5] "tidyversetweets" "lauriejhopkins"  "denis_mongin"    "chig4_"         
+##   [9] "Rbloggers"       "marcdotson"      "BenjaminWolfe"   "CRANberriesFeed"
+##  [13] "albury_alex"     "AnnoDomaini"     "SaraDWms"        "asmae_toumi"    
+##  [17] "icymi_r"         "gp_pulipaka"     "TuQmano"         "tdawry"         
+##  [21] "curso_r"         "JosetAEtzel"     "markvdloo"       "thomasp85"      
+##  [25] "mdsumner"        "jdblischak"      "rOpenSci"        "thmscwlls"      
+##  [29] "xvaca"           "c_mues"          "nmorstanlee"     "PHExaminer"     
+##  [33] "ophiryotam"      "Aaron_Horowitz"  "Jake_Lawlor1"    "PyData"         
+##  [37] "Elliot_Meador"   "jp_gannon"       "AnthonyBouc974"  "drob"           
+##  [41] "ericpgreen"      "library_pirate"  "sharon000"       "DerFredo"       
+##  [45] "precariobecario" "michelnivard"    "rstatsdata"      "ChelseaParlett" 
+##  [49] "clinarmo"        "CedScherer"      "erum2020_conf"   "dp_moriarity"   
+##  [53] "geokaramanis"    "grrrck"          "worldbankdata"   "JulienGorintin" 
+##  [57] "kdpsinghlab"     "MRHelmus"        "iamalexchisholm" "LizRoten"       
+##  [61] "R4DScommunity"   "seandavis12"     "dgkeyes"         "VictimOfMaths"  
+##  [65] "jmcastagnetto"   "stuwillmurray"   "UrsWilke"        "aschinchon"     
+##  [69] "jp_hydro"        "jakekaupp"       "arianneyka"      "RobinWilhelmus" 
+##  [73] "RBarMUN"         "southmapr"       "patri_vaquero_"  "RobertFrey40"   
+##  [77] "TKRspatial"      "dlmillimet"      "Adam_C_Garber"   "CorradoLanera"  
+##  [81] "ChrisKla47"      "ucfagls"         "BuzzTechy"       "cameratraps1"   
+##  [85] "RLangTip"        "OesUnr"          "marcelotournier" "eliasdabbas"    
+##  [89] "EduardoGCCM"     "nubededatos"     "_joecha_"        "sckottie"       
+##  [93] "jacklich10"      "appsilon"        "divadnojnarg"    "haro_ca_"       
+##  [97] "davsjob"         "stephlabou"      "fasiolo1985"     "rzembo"         
+## [101] "dokatox"         "Millymakandi"    "brodriguesco"    "kjhealy"        
+## [105] "NewCoupon2"      "eddelbuettel"    "kdgorospe"       "heymatthenry"   
+## [109] "EdKwedar"        "livingwithdata"  "milanwiedemann"  "allhoff_joachim"
+## [113] "IBKRQuant"       "stevenvmiller"   "andrewheiss"     "gorkang"        
+## [117] "climbertobby"    "markhw_"         "DLNarango"       "Trifenol"       
+## [121] "Julian_H0ffmann" "ckauebraga"      "tylermorganwall" "MadhanAlisha"   
+## [125] "gztstatistics"   "mercuriusio"     "mrbadmus10"      "CancuCS"        
+## [129] "Primary_Immune"  "Scar_Data"       "GarmireGroup"    "gradientmetrics"
+## [133] "AbyssalDive"     "NumFOCUS"        "dr_keithmcnulty" "SaridResearch"  
+## [137] "headhunterchron" "noatamir"        "pgshky"          "rachelmalkani"  
+## [141] "oranwutan"       "ChRauh"          "olyerickson"     "NalimR"         
+## [145] "Physacourses"    "KkKestutis"      "jessenleon"      "heyitsmehugo"   
+## [149] "JasonWilliamsNY" "mauro_lepore"    "abilash_cherian" "DrTokami"       
+## [153] "LocalisJoe"      "noramvillanueva" "emvolpi"         "RLangPackage"   
+## [157] "jimmyczech"      "milos_agathon"   "1littlecoder"    "kamromero"      
+## [161] "R_Hisp"          "CraigHarper19"   "BiochemSoc"      "mixOmics_team"  
+## [165] "lefkiospaik"     "richard_glennie" "MVaugoyeau"      "rweekly_live"   
+## [169] "WitJakuczun"     "amc_corporation" "zx8754"          "lapply"         
+## [173] "chrisderv"       "JeanneauAmelie"  "zoowalk"         "Marie_Etienne"  
+## [177] "k_lauper"        "gregrs_uk"       "dmi3k"           "michael_chirico"
+## [181] "erbiostat"       "strengejacke"    "roberto_boberto" "Guru_GyanKhoji" 
+## [185] "pjs_228"         "SOHotQuestions"  "Hung_TT_Nguyen"  "EmRstats"       
+## [189] "_davecooley"     "edmundneil"      "Human_x"         "PatriceGodard"  
+## [193] "datawookie"      "ClausWilke"      "kestert"         "SuperCroup"     
+## [197] "cfcoverdale"     "MattCowgill"     "_jameslamb"      "lmhallett"      
+## [201] "NickYarmey"      "stringfestdata"  "abmathewks"      "KirkDBorne"     
+## [205] "AeRO_eResearch"  "daily_r_sheets"  "GrayAnalyst"     "CourseGift"     
+## [209] "seanmhoban"      "weverkaj"        "kylefbutts"      "numeroteca"     
+## [213] "darokun"         "infj_ingrid"     "RLadiesBrisbane" "gringene_bio"   
+## [217] "KWittfogel"      "malco_barrett"   "la_Rusers"       "znmeb"          
+## [221] "EvaMaeRey"       "jcrichardson617" "microbeEcology"  "myMLjournal"    
+## [225] "kiernxn"         "udansk"          "richelletanner"  "heyhilaryizatt" 
+## [229] "_ColinFay"       "EarlGlynn"       "omarwagih"       "martinasladek"  
+## [233] "MatthewSmith786" "Sumidu"          "YaNiPaper"       "LearnRinaDay"   
+## [237] "felipeduque1986" "CodyArlie"       "ODR_Psy"         "adr"            
+## [241] "arielbeccia"     "Tall_Viking"     "jamesconigrave"  "IgnaceLab"      
+## [245] "kmpanthagani"    "PPetersonSC"     "PsiChiHonor"     "felipe_mattioni"
+## [249] "SorenWilke"      "PipingHotData"   "patilindrajeets" "sussenglish"    
+## [253] "nyhackr"         "LanderAnalytics" "rstatsnyc"       "MyKo101AB"      
+## [257] "TazPoltorak"     "mueller89_r"     "committedtotape" "DataSciRookie"  
+## [261] "marcus_volz"
 ```
 
 You  can similarly use the `search_users()` function to just see what users are tweeting
@@ -407,40 +365,37 @@ head(users, n = 2)
 ## # A tibble: 2 x 90
 ##   user_id status_id created_at          screen_name text  source
 ##   <chr>   <chr>     <dttm>              <chr>       <chr> <chr> 
-## 1 101181… 11689676… 2019-09-03 19:22:50 rstatstweet "I w… rstat…
-## 2 107501… 11689620… 2019-09-03 19:00:45 rstats4ds   @osc… R sta…
-## # … with 84 more variables: display_text_width <dbl>,
-## #   reply_to_status_id <chr>, reply_to_user_id <chr>,
-## #   reply_to_screen_name <chr>, is_quote <lgl>, is_retweet <lgl>,
-## #   favorite_count <int>, retweet_count <int>, quote_count <int>,
-## #   reply_count <int>, hashtags <list>, symbols <list>, urls_url <list>,
-## #   urls_t.co <list>, urls_expanded_url <list>, media_url <list>,
-## #   media_t.co <list>, media_expanded_url <list>, media_type <list>,
-## #   ext_media_url <list>, ext_media_t.co <list>,
+## 1 961691… 12385084… 2020-03-13 16:53:30 FC_rstats   Stat… Twitt…
+## 2 101181… 12385987… 2020-03-13 22:52:12 rstatstweet Toda… rstat…
+## # … with 84 more variables: display_text_width <dbl>, reply_to_status_id <chr>,
+## #   reply_to_user_id <chr>, reply_to_screen_name <chr>, is_quote <lgl>,
+## #   is_retweet <lgl>, favorite_count <int>, retweet_count <int>,
+## #   quote_count <int>, reply_count <int>, hashtags <list>, symbols <list>,
+## #   urls_url <list>, urls_t.co <list>, urls_expanded_url <list>,
+## #   media_url <list>, media_t.co <list>, media_expanded_url <list>,
+## #   media_type <list>, ext_media_url <list>, ext_media_t.co <list>,
 ## #   ext_media_expanded_url <list>, ext_media_type <chr>,
 ## #   mentions_user_id <list>, mentions_screen_name <list>, lang <chr>,
 ## #   quoted_status_id <chr>, quoted_text <chr>, quoted_created_at <dttm>,
 ## #   quoted_source <chr>, quoted_favorite_count <int>,
-## #   quoted_retweet_count <int>, quoted_user_id <chr>,
-## #   quoted_screen_name <chr>, quoted_name <chr>,
-## #   quoted_followers_count <int>, quoted_friends_count <int>,
-## #   quoted_statuses_count <int>, quoted_location <chr>,
-## #   quoted_description <chr>, quoted_verified <lgl>,
-## #   retweet_status_id <chr>, retweet_text <chr>,
-## #   retweet_created_at <dttm>, retweet_source <chr>,
-## #   retweet_favorite_count <int>, retweet_retweet_count <int>,
-## #   retweet_user_id <chr>, retweet_screen_name <chr>, retweet_name <chr>,
+## #   quoted_retweet_count <int>, quoted_user_id <chr>, quoted_screen_name <chr>,
+## #   quoted_name <chr>, quoted_followers_count <int>,
+## #   quoted_friends_count <int>, quoted_statuses_count <int>,
+## #   quoted_location <chr>, quoted_description <chr>, quoted_verified <lgl>,
+## #   retweet_status_id <chr>, retweet_text <chr>, retweet_created_at <dttm>,
+## #   retweet_source <chr>, retweet_favorite_count <int>,
+## #   retweet_retweet_count <int>, retweet_user_id <chr>,
+## #   retweet_screen_name <chr>, retweet_name <chr>,
 ## #   retweet_followers_count <int>, retweet_friends_count <int>,
 ## #   retweet_statuses_count <int>, retweet_location <chr>,
 ## #   retweet_description <chr>, retweet_verified <lgl>, place_url <chr>,
-## #   place_name <chr>, place_full_name <chr>, place_type <chr>,
-## #   country <chr>, country_code <chr>, geo_coords <list>,
-## #   coords_coords <list>, bbox_coords <list>, status_url <chr>,
-## #   name <chr>, location <chr>, description <chr>, url <chr>,
-## #   protected <lgl>, followers_count <int>, friends_count <int>,
-## #   listed_count <int>, statuses_count <int>, favourites_count <int>,
-## #   account_created_at <dttm>, verified <lgl>, profile_url <chr>,
-## #   profile_expanded_url <chr>, account_lang <lgl>,
+## #   place_name <chr>, place_full_name <chr>, place_type <chr>, country <chr>,
+## #   country_code <chr>, geo_coords <list>, coords_coords <list>,
+## #   bbox_coords <list>, status_url <chr>, name <chr>, location <chr>,
+## #   description <chr>, url <chr>, protected <lgl>, followers_count <int>,
+## #   friends_count <int>, listed_count <int>, statuses_count <int>,
+## #   favourites_count <int>, account_created_at <dttm>, verified <lgl>,
+## #   profile_url <chr>, profile_expanded_url <chr>, account_lang <lgl>,
 ## #   profile_banner_url <chr>, profile_background_url <chr>,
 ## #   profile_image_url <chr>
 ```
@@ -452,7 +407,7 @@ they from?
 ```r
 # how many locations are represented
 length(unique(users$location))
-## [1] 311
+## [1] 299
 
 users %>%
   ggplot(aes(location)) +
@@ -557,7 +512,7 @@ information about a particular topic from twitter.
 ## Additional Resources
 
 * <a href="http://tidytextmining.com/" target="_blank">Tidy text mining online book</a>
-* <a href="https://mkearney.github.io/rtweet/articles/intro.html#retrieving-trends" target="_blank">A great overview of the rtweet package by Mike Kearny</a>
+* <a href="https://rtweet.info/articles/intro.html" target="_blank">A great overview of the rtweet package by Mike Kearny</a>
 * <a href="https://francoismichonneau.net/2017/04/tidytext-origins-of-species/" target="_blank">A blog post on tidytext by Francois Michonneau</a>
 *  <a href="https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated" target="_blank">About the twitter API rate limit</a>
 

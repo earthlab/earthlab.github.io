@@ -5,10 +5,10 @@ excerpt: "Loops can be used to automate data tasks in Python by iteratively exec
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-09
+modified: 2020-03-06
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -23,6 +23,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/loops/automate-tasks-loops/"
   - "/courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/"
+  - "/courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -373,73 +374,73 @@ precip_2002_2013_df
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>1.07</td>
       <td>0.27</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>0.44</td>
       <td>1.13</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>1.50</td>
       <td>1.72</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>0.20</td>
       <td>4.14</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>3.20</td>
       <td>2.66</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>1.18</td>
       <td>0.61</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>0.09</td>
       <td>1.03</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>1.44</td>
       <td>1.40</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>1.52</td>
       <td>18.16</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>2.44</td>
       <td>2.24</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>0.78</td>
       <td>0.29</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.02</td>
       <td>0.50</td>
@@ -514,73 +515,73 @@ precip_2002_2013_df
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>27.178</td>
       <td>6.858</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>11.176</td>
       <td>28.702</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>38.100</td>
       <td>43.688</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>5.080</td>
       <td>105.156</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>81.280</td>
       <td>67.564</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>29.972</td>
       <td>15.494</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>2.286</td>
       <td>26.162</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>36.576</td>
       <td>35.560</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>38.608</td>
       <td>461.264</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>61.976</td>
       <td>56.896</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>19.812</td>
       <td>7.366</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.508</td>
       <td>12.700</td>
@@ -697,7 +698,9 @@ os.listdir(data_dir)
 
 
 
-    ['avg-monthly-precip.txt', 'monthly-precip-2002-2013.csv']
+    ['monthly-precip-2002-2013.csv',
+     'precip-2002-2013-months-seasons.csv',
+     'avg-monthly-precip.txt']
 
 
 
