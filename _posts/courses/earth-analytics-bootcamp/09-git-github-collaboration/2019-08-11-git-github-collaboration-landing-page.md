@@ -38,3 +38,5 @@ By completing the activity for today, you will be able to:
 | Review Day 8 / Questions                                  | 
 | Guided Activity 1: Undo Changes in `Git`/`Github.com` |
 | Guided Activity 2: `Git`/`Github.com` For Collaboration |
+
+
