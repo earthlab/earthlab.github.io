@@ -4,7 +4,7 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-26
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
