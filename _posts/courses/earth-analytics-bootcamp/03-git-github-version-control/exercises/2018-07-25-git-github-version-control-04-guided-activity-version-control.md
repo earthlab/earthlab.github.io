@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Guided Activity on Version Control with Git/GitHub'
-excerpt: "This lesson teaches you how to implement version control using Git and GitHub."
+excerpt: "Version control allows you to track and manage changes to your files. Learn how to implement version control using Git and GitHub."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['git-github-version-control']
@@ -31,9 +31,9 @@ In this lesson, you will learn how to implement version control using `Git` and 
 
 After completing this lesson, you will be able to:
 
-* Explain how `Git` and `GitHub` are used to implement version control
-* Use `Git` to `add` and `commit` changed files 
-* Use `Git` to `push` changed files from your local computer to the repository on `Github.com`
+* Explain how `Git` and `GitHub.com` are used to implement version control.
+* Use `Git` to `add` and `commit` changed files.
+* Use `Git` to `push` changed files from your local computer to the repository on `GitHub.com`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -41,7 +41,7 @@ Before completing this lesson and the challenges, be sure that you have forked a
 
 Be sure that you have also completed the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/manage-jupyter-notebooks/">Manage Jupyter Notebook Files</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/">Markdown in Jupyter Notebook</a>.
 
-You will also need a web browser and your `Github.com` login (username and password). 
+You will also need a web browser and your `GitHub.com` login (username and password). 
 
 </div>
 
@@ -55,13 +55,13 @@ In this lesson, you expand on those skills to:
 * check the `status` of changed files in a repository
 * `add` changed files to version control tracking
 * `commit` the changed files to your local repository
-* `push` those changed files from the local copy of a repository to the cloud (`Github.com`)
+* `push` those changed files from the local copy of a repository to the cloud (`GitHub.com`)
 
 In later lessons, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`master`) copy of a repository.  
 
 ## Configure `Git` Settings On Your Computer:
 
-1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
+1. In the terminal, set your `GitHub.com` username by typing: `git config --global user.name "Your UserName"`.
 
 2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
 
@@ -123,8 +123,8 @@ You will use the add and commit functions to `add` and `commit` your changed fil
 These two commands make up the bulk of many workflows that use git for version control.
 
 <figure>
-   <a href="https://www.earthdatascience.org/images/workshops/version-control/git-add-commit.png">
-   <img src="https://www.earthdatascience.org/images/workshops/version-control/git-add-commit.png" alt="Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014)."></a>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png" alt="Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014)."></a>
    <figcaption> Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).
    </figcaption>
 </figure>
