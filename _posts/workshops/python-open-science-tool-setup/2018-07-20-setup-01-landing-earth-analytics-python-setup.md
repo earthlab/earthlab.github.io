@@ -4,7 +4,7 @@ category: courses
 title: "Setup Your Earth Analytics Python, Git, Bash Environment On Your Computer"
 excerpt: 'There are several core tools that are required to work with data. These include Shell/Bash, Git/Github and Python. Learn how to set all of these tools up on your computer so you can work with different types of data using open science workflows.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey', 'Will Norris']
-modified: 2020-03-30
+modified: 2020-04-02
 nav-title: "Setup the Earth Analytics Python"
 permalink: /workshops/setup-earth-analytics-python/
 module: "setup-earth-analytics-environment"

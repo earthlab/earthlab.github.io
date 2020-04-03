@@ -4,7 +4,7 @@ category: courses
 title: "Learn to Use tidyverse and Clean Code to Work With Data in R"
 excerpt: 'When working with data, you often spend the most amount of time cleaning your data. Learn how to write more efficient code using the tidyverse in R.'
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2020-03-30'
+modified: '2020-04-02'
 nav-title: "Tidyverse Workshop Setup"
 permalink: /workshops/clean-coding-tidyverse-intro/
 module: "clean-coding-tidyverse-intro"

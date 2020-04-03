@@ -6,7 +6,7 @@ title: 'An introduction version control'
 attribution: ''
 excerpt: 'Learn what version control is, and how Git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
-modified: '2020-03-30'
+modified: '2020-04-02'
 module-title: 'Introduction to version control'
 module-description: 'This module includes instructions for setting up your Git environment, introduces key version control concepts, and describes first steps to start using version control with Git and GitHub.'
 module-nav-title: 'Version control'
