@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 nav-title: "Earth Analytics Home"
 permalink: /courses/earth-analytics-python/
 course: "earth-analytics-python"
-modified: 2020-03-30
+modified: 2020-04-03
 module-type: 'overview'
 module-title: "Earth Analytics Python Course"
 week-landing: 0
