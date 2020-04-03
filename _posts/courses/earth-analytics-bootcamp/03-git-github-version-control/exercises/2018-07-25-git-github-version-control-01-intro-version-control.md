@@ -1,17 +1,17 @@
 ---
 layout: single
 title: 'What Is Version Control'
-excerpt: "This lesson reviews the process and benefits of version control and how Git and GitHub support version control."
+excerpt: "Version control allows you to track and manage changes to your files. Learn benefits of version control for scientific workflows and how git and GitHub.com support version control."
 authors: ['Software Carpentry', 'NEON Data Skills', 'Max Joseph', 'Leah Wasser', 'Jenny Palomino']
 category: [courses]
 class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/intro-version-control/
 nav-title: "What Is Version Control"
 dateCreated: 2018-07-25
-modified: 2018-08-08
+modified: 2020-02-05
 module-title: 'Git/GitHub Workflow For Version Control'
 module-nav-title: 'Git/GitHub Workflow For Version Control'
-module-description: 'This tutorial helps you get started with version control to track changes to your files and share your files with others using Git and GitHub.'
+module-description: 'Version control allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -34,8 +34,8 @@ In this lesson, you will learn about the process and benefits of version control
 
 After completing this lesson, you will be able to:
 
-* Define version control
-* Explain how version control is useful in a scientific workflow
+* Define version control.
+* Explain how version control is useful in a scientific workflow.
 * Describe how `Git` and `GitHub` support version control
 
 
@@ -53,9 +53,9 @@ The text and graphics in the first three sections were borrowed, with some modif
 A version control system maintains a record of changes to code and other content. It also allows us to revert changes to a previous point in time.
 
 <figure>
-   <a href="http://www.phdcomics.com/comics/archive/phd101212s.gif">
-   <img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" alt="Many of us have appended a date to a file name as a method of version control at some point in our lives. Source: Piled Higher and Deeper by Jorge Cham www.phdcomics.com."></a>
-   <figcaption> Many of us have used the "append a date" to a file name version of version control at some point in our lives. Source: "Piled Higher and Deeper" by Jorge Cham www.phdcomics.com.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt="Many of us have appended a date to a file name as a method of version control at some point in our lives. Source: Piled Higher and Deeper by Jorge Cham www.phdcomics.com."></a>
+   <figcaption> Many of us have used the append a date to a file name version of version control at some point in our lives. Source:  <a href="http://phdcomics.com/comics/archive/phd101212s.gif" target="_blank">Piled Higher and Deeper by Jorge Cham</a>
    </figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ A version control system maintains a record of changes to code and other content
 
 There are many forms of version control. Some not as good:
 
-* Save a document with a new date (we’ve all done it, but it isn’t efficient)
+* Save a document with a new date (we’ve all done it, but it isn’t efficient).
 * Google Docs “history” function (not bad for some documents, but limited in scope).
 
 Some better:
@@ -96,9 +96,9 @@ This means that you don’t have to worry about a collaborator (or your future s
 A version control system tracks what has changed in one or more files over time. Version control systems begin with a base version of a document. They then save the committed changes that you make. You can think of version control as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
 
 <figure>
-   <a href="http://swcarpentry.github.io/git-novice/fig/play-changes.svg">
-   <img src="http://swcarpentry.github.io/git-novice/fig/play-changes.svg" alt="A version control system saves changes to a document, sequentially as you add and commit them to the system. Source: Software Carpentry."></a>
-   <figcaption> A version control system saves changes to a document, sequentially as you add and commit them to the system. Source: Software Carpentry.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.png" alt="A version control system saves changes to a document, sequentially as you add and commit them to the system. Source: Software Carpentry."></a>
+   <figcaption> A version control system saves changes to a document, sequentially as you add and commit them to the system. Source: <a href="https://swcarpentry.github.io/git-novice/fig/play-changes.svg" target="_blank"> Software Carpentry </a>
    </figcaption>
 </figure>
 
@@ -107,18 +107,18 @@ Once you think of changes as separate from the document itself, you can then thi
 Collaboration with version control allows to users to make independent changes to the same document.
 
 <figure>
-   <a href="http://swcarpentry.github.io/git-novice/fig/versions.svg">
-   <img src="http://swcarpentry.github.io/git-novice/fig/versions.svg" alt="Different versions of the same document can be saved within a version control system. Source: Software Carpentry."></a>
-   <figcaption> Different versions of the same document can be saved within a version control system. Source: Software Carpentry.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.png" alt="Different versions of the same document can be saved within a version control system. Source: Software Carpentry."></a>
+   <figcaption> Different versions of the same document can be saved within a version control system. Source: <a href="https://swcarpentry.github.io/git-novice/fig/versions.svg" target="_blank"> Software Carpentry </a>
    </figcaption>
 </figure>
 
 If there aren’t conflicts between the users’ changes (a conflict is an area where both users modified the same part of the same document in different ways) you can review two sets of changes on the same base document.
 
 <figure>
-   <a href="http://swcarpentry.github.io/git-novice/fig/merge.svg">
-   <img src="http://swcarpentry.github.io/git-novice/fig/merge.svg" alt="Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together. Source: Software Carpentry."></a>
-   <figcaption> Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together. Source: Software Carpentry.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-merge.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-merge.png" alt="Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together. Source: Software Carpentry."></a>
+   <figcaption> Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together. Source: <a href="https://swcarpentry.github.io/git-novice/fig/merge.svg" target="_blank"> Software Carpentry </a>
    </figcaption>
 </figure>
 
@@ -132,9 +132,9 @@ A version control system is a tool that keeps track of these changes for us. Eac
 GitHub also allows you to share your work and collaborate with others on projects.
 
 <figure>
-   <a href="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png">
-   <img src="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png" alt="One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data. Source: Pro Git by Scott Chacon & Ben Straub. "></a>
-   <figcaption> One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data. Source: Pro Git by Scott Chacon & Ben Straub. 
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-distributed-version-control-model.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-distributed-version-control-model.png" alt="One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data. Source: Pro Git by Scott Chacon & Ben Straub. "></a>
+   <figcaption> One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data. Source: <a href="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png" target="_blank"> Pro Git by Scott Chacon & Ben Straub </a>
     </figcaption>
 </figure>    
 

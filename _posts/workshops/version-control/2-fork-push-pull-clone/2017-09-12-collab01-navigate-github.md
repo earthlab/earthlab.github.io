@@ -91,13 +91,13 @@ the content in the repo, here.
 acceptance.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/github-repo-interface.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-repo-interface.png" alt = "Screenshot of the `earthlab/14ers-git` central repository. The GitHub search bar is located at the very top of the page. Notice there are 6 "tabs" below the repo name including: Code, Issues, Pull Request, ...etc. Because you are not an administrator for this repo, you will not see the "Settings" tab in your browser."></a>
-	<figcaption> Screenshot of the `earthlab/14ers-git` central repository.
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-repo-interface.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-repo-interface.png" alt = "Screenshot of the earthlab/14ers-git central repository. The GitHub search bar is located at the very top of the page. Notice there are 6 tabs below the repo name including: Code, Issues, Pull Request, ...etc. Because you are not an administrator for this repo, you will not see the Settings tab in your browser."></a>
+	<figcaption> Screenshot of the earthlab/14ers-git central repository.
 	The GitHub search bar is located at the very top of the page. Notice there are 6
-	"tabs" below the repo name including: Code, Issues, Pull Request, ...etc.
+	tabs below the repo name including: Code, Issues, Pull Request, ...etc.
   NOTE: Because you are not an administrator for this
-	repo, you will not see the "Settings" tab in your browser.
+	repo, you will not see the Settings tab in your browser.
 	Source: Earth Lab
 	</figcaption>
 </figure>

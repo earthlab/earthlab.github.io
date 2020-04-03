@@ -64,11 +64,11 @@ It also allows us to revert changes to a previous point in time.
 
 
 <figure>
-	<a href="http://www.phdcomics.com/comics/archive/phd101212s.gif">
-	<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" alt = "Many of us have used the "append a date" to a file name version of version control at some point in our lives. "></a>
-	<figcaption> Many of us have used the "append a date" to a file name version
- of version control at some point in our lives.  Source: "Piled Higher and
-Deeper" by Jorge Cham <a href="http://www.phdcomics.com" target="_blank"> www.phdcomics.com</a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt = "Many of us have used the append-a-date to a file name version of version control at some point in our lives. Source: Piled Higher and Deeper by Jorge Cham www.phdcomics.com. "></a>
+	<figcaption> Many of us have used the append-a-date to a file name version
+ of version control at some point in our lives.  Source: <a href="http://phdcomics.com/comics/archive/phd101212s.gif" target="_blank"> Piled Higher and
+Deeper by Jorge Cham</a>
 	</figcaption>
 </figure>
 
@@ -118,11 +118,11 @@ if you rewind the tape and start at the base document, then you can play back
 each change and end up with your latest version.
 
  <figure>
-	<a href="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.png" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/play-changes.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -134,11 +134,11 @@ Collaboration with version control allows to users to make independent changes
 to the same document.
 
  <figure>
-	<a href="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg" ALT = "Different versions of the same document can be saved within a version control system."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.png" ALT = "Different versions of the same document can be saved within a version control system."></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/versions.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -147,13 +147,13 @@ where both users modified the same part of the same document in different
 ways) you can review two sets of changes on the same base document.
 
  <figure>
-	<a href="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg" ALT = "Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-merge.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-merge.png" ALT = "Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together."></a>
 	<figcaption>Two sets of changes to the same base document can be reviewed
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
 	Changes submitted by both users can then be merged together.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/merge.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -174,8 +174,8 @@ retrieved if your local copy is lost (e.g., if your computer falls off a pier).
 GitHub also allows you to share your work and collaborate with others on projects.
 
 <figure>
- <a href="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png">
- <img src="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png" ALT = "One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data." width="70%"></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-distributed-version-control-model.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-distributed-version-control-model.png" ALT = "One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data." width="70%"></a>
  <figcaption>One advantage of a distributed version control system is that there
  are many copies of the repository. Thus, if any server or computer dies, any of
   the client repositories can be copied and used to restore the data! Every clone

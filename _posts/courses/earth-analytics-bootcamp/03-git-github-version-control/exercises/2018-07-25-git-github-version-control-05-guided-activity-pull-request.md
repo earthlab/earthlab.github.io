@@ -1,15 +1,15 @@
 ---
 layout: single
 title: 'Guided Activity to Submit Pull Requests'
-excerpt: "This lesson teaches you how to submit pull requests on Github.com to suggest changes to another repository."
+excerpt: "A pull request allows anyone to suggest changes to a repository on GitHub that can be easily reviewed by others. Learn how to submit pull requests on GitHub.com to suggest changes to a GitHub repository."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-09-19
-module-type: 'class'
+modified: 2020-02-05
+odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
 week: 3
@@ -31,17 +31,25 @@ In this lesson, you will learn how to submit a pull request to suggest that your
 
 After completing this lesson, you will be able to:
 
-* Explain the relationship between a forked repository (head) and the original repository (base)
-* Submit a pull request of changes to a repository on `Github.com` 
+* Explain the relationship between a forked repository (head) and the original repository (base).
+* Submit a pull request of changes to a repository on `GitHub.com`. 
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 Be sure that you have also completed the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a>.
 
-You will also need a web browser and your `Github.com` login (username and password). 
+You will also need a web browser and your `GitHub.com` login (username and password). 
 
 </div>
+## Step 1 - Fork The Repo
+
+This step will only be done ONCE. You begin by making a copy of the repo in your own account. This is called forking. When you make this copy you then have it available to you in your user account.
+
+
+## Clone the Repo
+
+
 
 ## About Pull Requests
 
@@ -50,8 +58,8 @@ In the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-versi
 To submit changed files to the original repository owned by earthlab-education (`https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`), you need to submit a pull request on `Github.com`. 
 
 <figure>
-   <a href="https://www.earthdatascience.org/images/workshops/version-control/git-push-pr.png">
-   <img src="https://www.earthdatascience.org/images/workshops/version-control/git-push-pr.png" alt="LEFT: To sync changes made and committed locally on your computer to your Github account, you push the changes from your computer to your fork on GitHub. RIGHT: To suggest changes to another repository, you submit a Pull Request to update the central repository. Source: Colin Williams, NEON."></a>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png" alt="LEFT: To sync changes made and committed locally on your computer to your Github account, you push the changes from your computer to your fork on GitHub. RIGHT: To suggest changes to another repository, you submit a Pull Request to update the central repository. Source: Colin Williams, NEON."></a>
    <figcaption> LEFT: To sync changes made and committed locally on your computer to your Github account, you push the changes from your computer to your fork on GitHub. RIGHT: To suggest changes to another repository, you submit a Pull Request to update the central repository. Source: Colin Williams, NEON.
    </figcaption>
 </figure>
@@ -80,9 +88,9 @@ Pull requests show diffs, (differences), of the content between your repo and th
 To begin a pull request (PR), click the `New pull request` button on the main page of your forked repository (e.g. `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername`).
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/new-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277."></a>
- <figcaption> Location of the New pull request button on the main page of an example repository for jenp0277. 
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/new-pull-request.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277. This repository has been forked from the repository owned by earthlab-education. Changes have been made by jenp0277 in her fork, and jenp0277 is ready to create a new pull request to send changes from her fork to the repository owned by earthlab-education."></a>
+ <figcaption> Location of the New pull request button on the main page of an example repository for jenp0277. This repository has been forked from the repository owned by earthlab-education. Changes have been made by jenp0277 in her fork, and jenp0277 is ready to create a new pull request to send changes from her fork to the repository owned by earthlab-education.
  </figcaption>
 </figure>
 
@@ -117,9 +125,9 @@ When you compare two repos in a pull request page, `GitHub` provides an overview
 You can also click on the commit titles to see the specific changes in each commit. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/diffs.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/diffs.png" alt="This screenshot shows the differences between the files on earthlab-education and jenp0277's fork of the repository. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow)."></a>
- <figcaption> This screenshot shows the differences between the files on earthlab-education and jenp0277's fork of the repository. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow).
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-pull-request-diff.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-pull-request-diff.png" alt="This screenshot shows the differences between the files in Earth Lab's version of the 14ers-git repo and a fork of that repository created by lwasser. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow)."></a>
+ <figcaption> This screenshot shows the differences between the files in Earth Lab's version of the 14ers-git repo and a fork of that repository created by lwasser. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow).
  </figcaption>
 </figure>
 
@@ -133,8 +141,8 @@ Add a title and write a brief description of your changes. When you’re done wi
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/create-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/create-pull-request.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-create-pull-request.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-create-pull-request.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box."></a>
  <figcaption> Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box.
  </figcaption>
 </figure>
@@ -157,8 +165,8 @@ For example, the pull request you just created in this lesson can be closed if y
 To close a pull request, simply click on `Close pull request` button toward the bottom of the pull request page.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/close-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/close-pull-request.png" alt="Location of the Close pull request button on an example pull request from jenp0277 to earthlab-education."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-close-pull-request.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-close-pull-request.png" alt="Location of the Close pull request button on an example pull request from jenp0277 to earthlab-education."></a>
  <figcaption> Location of the Close pull request button on an example pull request from jenp0277 to earthlab-education.
  </figcaption>
 </figure>
