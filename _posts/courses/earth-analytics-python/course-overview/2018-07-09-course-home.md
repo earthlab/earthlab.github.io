@@ -2,14 +2,17 @@
 layout: single
 category: courses
 title: "Earth Analytics Python Course | Earth Lab CU Boulder"
+authors: ['Leah Wasser']
 nav-title: "Earth Analytics Home"
 permalink: /courses/earth-analytics-python/
 course: "earth-analytics-python"
-modified: 2020-03-06
+modified: 2020-03-30
 module-type: 'overview'
 module-title: "Earth Analytics Python Course"
 week-landing: 0
 week: 0
+estimated-time: "12 weeks"
+difficulty: "intermediate"
 sidebar:
   nav:
 comments: false
