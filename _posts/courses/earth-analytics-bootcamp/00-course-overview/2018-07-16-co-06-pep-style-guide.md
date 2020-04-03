@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Reference on PEP 8 Style Guide
-modified: 2020-04-02
+modified: 2020-04-03
 comments: no
 permalink: /courses/earth-analytics-bootcamp/pep-8-style-guide/
 author_profile: no

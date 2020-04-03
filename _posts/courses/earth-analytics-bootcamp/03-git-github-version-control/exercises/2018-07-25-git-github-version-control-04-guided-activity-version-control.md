@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/
 nav-title: "Guided Activity on Version Control with Git/GitHub"
 dateCreated: 2018-07-25
-modified: 2020-04-02
+modified: 2020-04-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
