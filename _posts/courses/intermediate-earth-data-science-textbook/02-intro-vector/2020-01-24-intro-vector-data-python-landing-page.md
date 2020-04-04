@@ -4,7 +4,7 @@ category: courses
 title: "Intro to Spatial Vector Data in Python"
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/
 week-landing: 2
-modified: 2020-01-29
+modified: 2020-04-03
 week: 2
 sidebar:
   nav:
