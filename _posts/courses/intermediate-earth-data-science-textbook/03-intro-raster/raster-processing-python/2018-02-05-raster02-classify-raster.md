@@ -250,7 +250,7 @@ plt.show()
 
 You can look at the values that **Python** used to draw your histogram, too. 
 
-To do this, you can collect the outputs that are returned when you call `np.histogram`. This consists of three things:
+To do this, you can collect the outputs that are returned when you call `np.histogram`. This consists of two things:
 
 * `counts`, which represents the number of items in each bin
 * `bins`, which represents the edges of the bins (there will be one extra item in bins compared to counts)
@@ -281,13 +281,10 @@ print("bins:", bins)
 
 
 
-Each bin represents a bar on your histogram plot. Each bar represents the frequency
-or number of pixels that have a value within that bin. 
+Each bin represents a bar on your histogram plot. Each bar represents the frequency or number of pixels that have a value within that bin. 
 
-For instance, there is a break between 0 and 1 in the histogram results above, and there are 76,057 pixels
-in the counts element that fall into that bin.
+Notice that you have adjusted the `xlim` and `ylim` to zoom into the region of the histogram that you are interested in exploring; however, the values did not actually change.
 
-Notice that you have adjusted the `xlim` and `ylim` to zoom into the region of the histogram that you are interested in exploring.
 
 ### Histogram with Custom Breaks
 
@@ -299,6 +296,7 @@ In the example below, breaks are added in 5 meter increments using the `bins =` 
 
 {:.input}
 ```python
+# Histogram with custom breaks
 ep.hist(lidar_chm_im.ravel(),
         bins=[0, 5, 10, 15, 20, 30],
         title="Histogram with Custom Breaks",
@@ -541,6 +539,7 @@ Below the raster is plotted with slightly improved colors
 
 {:.input}
 ```python
+# Check classes
 np.unique(lidar_chm_class_ma)
 ```
 
