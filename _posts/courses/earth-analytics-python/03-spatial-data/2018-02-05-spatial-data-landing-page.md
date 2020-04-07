@@ -6,7 +6,6 @@ permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
 modified: 2020-04-04
-modified: 2020-03-27
 sidebar:
   nav:
 comments: false
@@ -15,10 +14,6 @@ course: "earth-analytics-python"
 module-type: 'session'
 ---
 {% include toc title="This Week" icon="file-text" %}
-
-
-
-
 
 <div class="notice--info" markdown="1">
 
