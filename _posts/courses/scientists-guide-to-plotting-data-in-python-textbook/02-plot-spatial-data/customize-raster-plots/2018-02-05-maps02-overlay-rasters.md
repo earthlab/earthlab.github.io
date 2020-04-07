@@ -37,9 +37,9 @@ redirect_from:
 
 ## Overlay Rasters in Python
 
-In this lesson, you will learn about overlaying rasters on top of a hillshade for nicer looking plots in **Python**. 
+In this lesson, you will learn about overlaying rasters on top of a hillshade for nicer looking plots in **Python**.
 
-To overlay a raster, you will plot two different raster datasets in the same plot in **matplotlib**. You will use alpha to adjust the transparency of one of your rasters so the terrain hillshade gives the raster texture! 
+To overlay a raster, you will plot two different raster datasets in the same plot in **matplotlib**. You will use alpha to adjust the transparency of one of your rasters so the terrain hillshade gives the raster texture!
 
 You will also turn off the legend for the hillshade plot, as the legend we want to see is the DEM elevation values.
 
@@ -76,16 +76,16 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Open raster DTM data
-lidar_dem_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", 
+lidar_dem_path = os.path.join("data", "colorado-flood", "spatial",
+                              "boulder-leehill-rd", "pre-flood",
                               "lidar", "pre_DTM.tif")
 
 with rio.open(lidar_dem_path) as lidar_dem:
     lidar_dem_im = lidar_dem.read(1, masked=True)
 
 # Open dem hillshade
-lidar_hs_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", 
+lidar_hs_path = os.path.join("data", "colorado-flood", "spatial",
+                              "boulder-leehill-rd", "pre-flood",
                               "lidar", "pre_DTM_hill.tif")
 
 with rio.open(lidar_hs_path) as lidar_dem_hill:
@@ -102,7 +102,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 ep.plot_bands(lidar_dem_im, ax=ax, cmap='viridis_r',
               title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade")
 
-ax.imshow(lidar_dem_hill, cmap='Greys', alpha=.5)
+ep.plot_bands(lidar_dem_hill, cmap='Greys', alpha=.5, ax=ax, cbar=False)
 ax.set_axis_off()
 
 plt.show()
@@ -117,6 +117,3 @@ plt.show()
 <figcaption>Plot of the Digital Elevation Model overlayed on top of a hillshade.</figcaption>
 
 </figure>
-
-
-

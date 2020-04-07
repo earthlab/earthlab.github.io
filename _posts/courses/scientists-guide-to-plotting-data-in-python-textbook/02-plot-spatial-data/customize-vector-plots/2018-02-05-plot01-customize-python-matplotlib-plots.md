@@ -4,7 +4,7 @@ title: "Customize Map Legends and Colors in Python using Matplotlib: GIS in Pyth
 excerpt: "When making maps, you often want to add legends and customize the map colors. Learn how to customize legends and colors in matplotlib maps created using vector data in Python."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-30
+modified: 2020-04-03
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/
@@ -51,28 +51,21 @@ import numpy as np
 from shapely.geometry import box
 import geopandas as gpd
 import earthpy as et
-from earthpy import clip as cl
 
 # Get the data & set working dir
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 ### Import Data
 
-Next, import and explore your spatial data. In this case you are importing the same roads layer that you used in earlier lessons which is stored in shapefile (`.shp`) format. 
+Next, import and explore your spatial data. In this case you are importing the same roads layer that you used in earlier lessons which is stored in shapefile (`.shp`) format.
 
 {:.input}
 ```python
 # Import roads shapefile
-sjer_roads_path = os.path.join("data", "spatial-vector-lidar", 
-                               "california", "madera-county-roads", 
+sjer_roads_path = os.path.join("data", "spatial-vector-lidar",
+                               "california", "madera-county-roads",
                                "tl_2013_06039_roads.shp")
 
 sjer_roads = gpd.read_file(sjer_roads_path)
@@ -153,9 +146,9 @@ plt.show()
 
 
 
-## Plot Color by Attribute 
+## Plot Color by Attribute
 
-To plot a vector layer by attribute value so each road layer is colored 
+To plot a vector layer by attribute value so each road layer is colored
 according to it's respective attribute value, and so the legend also represents that same symbology you need to do three things.
 
 1. You need to create a dictionary that associates a particular color with a particular attribute value
@@ -197,10 +190,10 @@ fig, ax = plt.subplots(figsize=(10, 10))
 
 # Loop through each attribute type and plot it using the colors assigned in the dictionary
 for ctype, data in sjer_roads.groupby('RTTYP'):
-    
+
     # Define the color for each group using the dictionary
     color = roadPalette[ctype]
-    
+
     # Plot each group using the color defined above
     data.plot(color=color,
               ax=ax,
@@ -228,7 +221,7 @@ plt.show()
 
 ### Adjust Line Width
 
-You can adjust the width of your plot lines using the `linewidth=` attribute. If you set the `linewidth` to 4, you can create a truly ugly plot. In this example every line is `width=4`. 
+You can adjust the width of your plot lines using the `linewidth=` attribute. If you set the `linewidth` to 4, you can create a truly ugly plot. In this example every line is `width=4`.
 
 {:.input}
 ```python
@@ -267,11 +260,11 @@ plt.show()
 
 Similar to how you adjust colors, you can create a dictionary to adjust line widths. Then you can call `dictionaryName[ctype]`
 where dictionaryName is a dictionary of what line width you want to assign to each attribute
-value and ctype is the attribute value. 
+value and ctype is the attribute value.
 
 `lineWidths = {'M': 1, 'S': 1, 'C': 4, 'Unknown': .5}`
 
-Here you are assigning the linewidth of each respective attibute value a line width as follows: 
+Here you are assigning the linewidth of each respective attibute value a line width as follows:
 
 * M: 1
 * S: 1
@@ -292,7 +285,7 @@ for ctype, data in sjer_roads.groupby('RTTYP'):
     data.plot(color=color,
               ax=ax,
               label=ctype,
-              
+
               # Assign each group to a line width using the dictionary created above
               linewidth=lineWidths[ctype])
 
@@ -351,7 +344,7 @@ Create a plot of roads using the following line thicknesses:
 
 Above you created a legend using the `label=` argument and `ax.legend()`. You may want to move your legend around to make a cleaner map. You can use the `loc=` argument in the call to `ax.legend()` to adjust your legend location. This location can be numeric or descriptive.
 
-Below you specify the `loc=` to be in the **lower right** hand part of the plot. 
+Below you specify the `loc=` to be in the **lower right** hand part of the plot.
 
 `ax.legend(loc='lower right')`
 
@@ -361,7 +354,7 @@ When you add a legend, you use the following elements to customize legend labels
 * **fontsize:** the size of the fonts used in the legend
 * **frameon:** Boolean Values: True of False - if you want a box around your legend use `True`
 
-The `bbox_to_anchor=(1, 1)` argument is also often helpful to customization the location further. Read more about that argument <a href="https://matplotlib.org/users/legend_guide.html" target="_blank">here in the matplotlib documentation</a>. 
+The `bbox_to_anchor=(1, 1)` argument is also often helpful to customization the location further. Read more about that argument <a href="https://matplotlib.org/users/legend_guide.html" target="_blank">here in the matplotlib documentation</a>.
 
 {:.input}
 ```python
@@ -369,7 +362,7 @@ lineWidths = {'M': 1, 'S': 2, 'C': 1.5, 'Unknown': 3}
 
 fig, ax = plt.subplots(figsize=(10, 10))
 
-# Loop through each attribute value and assign each 
+# Loop through each attribute value and assign each
 # with the correct color & width specified in the dictionary
 for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
@@ -457,12 +450,12 @@ fig, ax = plt.subplots(figsize=(10, 10))
 for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
     label = ctype
-    
+
     data.plot(color=color,
               ax=ax,
               linewidth=lineWidths[ctype],
               label=label)
-    
+
 ax.set(title='Madera County Roads \n Pretty Colors')
 
 ax.legend(loc='lower right',
@@ -509,12 +502,12 @@ fig, ax = plt.subplots(figsize=(10, 10))
 for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
     label = ctype
-    
+
     data.plot(color=color,
               ax=ax,
               linewidth=lineWidths[ctype],
               label=label)
-    
+
 ax.set(title='Madera County Roads\n County and State recognized roads')
 
 ax.legend(loc='lower right',
@@ -545,17 +538,17 @@ O = Other
 S = State recognized
 U = U.S.-->
 
-## Add a Point Shapefile to your Map 
+## Add a Point Shapefile to your Map
 
 Next, add another layer to your map to see how you can create a more complex map with a legend that represents both layers. You will add the same SJER_plot_centroids shapefile that you worked with in previous lessons to your map.
 
-If you recall, this layer contains 3 plot_types: grass, soil and trees. 
+If you recall, this layer contains 3 plot_types: grass, soil and trees.
 
 {:.input}
 ```python
 # Import points layer
-sjer_plots_path = os.path.join("data", "spatial-vector-lidar", 
-                               "california", "neon-sjer-site", 
+sjer_plots_path = os.path.join("data", "spatial-vector-lidar",
+                               "california", "neon-sjer-site",
                                "vector_data", "SJER_plot_centroids.shp")
 
 sjer_plots = gpd.read_file(sjer_plots_path)
@@ -597,7 +590,7 @@ sjer_plots.head(5)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -606,7 +599,7 @@ sjer_plots.head(5)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -615,16 +608,16 @@ sjer_plots.head(5)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
       <td>256838.760</td>
       <td>grass</td>
-      <td>POINT (256838.76 4110819.876)</td>
+      <td>POINT (256838.760 4110819.876)</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -633,7 +626,7 @@ sjer_plots.head(5)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -649,7 +642,7 @@ sjer_plots.head(5)
 
 
 
-Just like you did above, create a dictionary that specifies the colors associated with each plot type. 
+Just like you did above, create a dictionary that specifies the colors associated with each plot type.
 Then you can plot your data just like you did with the lines
 
 {:.input}
@@ -668,7 +661,7 @@ for ctype, data in sjer_plots.groupby('plot_type'):
               ax=ax,
               label=label,
               markersize=100)
-    
+
 ax.set(title='Study area plot locations\n by plot type (grass, soil and trees)')
 
 ax.legend(fontsize=20,
@@ -695,9 +688,9 @@ plt.show()
 
 ### Overlay points on top of roads
 
-Next, plot the plot data on top of the roads layer. Then create a custom legend that contains both lines and points. 
+Next, plot the plot data on top of the roads layer. Then create a custom legend that contains both lines and points.
 
-NOTE: In this example, the projection for the roads layer has to match the projection of the SJER plot locations. 
+NOTE: In this example, the projection for the roads layer has to match the projection of the SJER plot locations.
 
 {:.input}
 ```python
@@ -716,7 +709,7 @@ for ctype, data in sjer_plots.groupby('plot_type'):
               ax=ax,
               label=label,
               markersize=100)
-    
+
 for ctype, data in sjer_roads_utm.groupby('RTTYP'):
     color = roadPalette[ctype]
     label = ctype    
@@ -724,7 +717,7 @@ for ctype, data in sjer_roads_utm.groupby('RTTYP'):
               ax=ax,
               linewidth=lineWidths[ctype],
               label=label)
-    
+
 ax.set(title='Study area plot locations\n by plot type (grass, soil and trees)')
 
 ax.legend(fontsize=15,
@@ -745,42 +738,3 @@ plt.show()
 <figcaption>You can customize points and lines in one plot by using the ax object for both plots.</figcaption>
 
 </figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
