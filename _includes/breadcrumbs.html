@@ -15,6 +15,22 @@
 {% endif %}
 
 {% comment %}
+{% case site.category_archive.type %}
+  {% when "liquid" %}
+    {% assign path_type = "#" %}
+  {% when "jekyll-archives" %}
+    {% assign path_type = nil %}
+{% endcase %}
+
+{% if page.collection != 'posts' %}
+  {% assign path_type = nil %}
+  {% assign crumb_path = '/' %}
+{% else %}
+  {% assign crumb_path = site.category_archive.path %}
+{% endif %}
+{% endcomment %}
+
+{% comment %}
 <!-- This is all commented out -->
 <nav class="breadcrumbs">
   <ol itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -45,13 +61,15 @@
 
 {% comment %}
 * Breadcrumbs - adjusting the minimal mistakes approach doesn't work.
-*
+* This used to run fine
 {% endcomment %}
+
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-<a href="{{ site.url }}{{ site.baseurl }}">{{ site.data.language.breadcrumb_start }}</a>
+ <a href="{{ site.url }}{{ site.baseurl }}">{{ site.data.language.breadcrumb_start }}</a>
  {% assign crumbs = page.url | split: '/' %}
+ {% assign i = 1 %}
  <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
  {% assign crumb_size = crumbs | size | minus:2 %}
    {% for crumb in crumbs offset: 1 %}
@@ -65,9 +83,42 @@
     {% if forloop.last %}
         <li class="current">{{ page.title }}</li>
     {% else %}
+        {% assign i = i | plus: 1 %}
         <li><a href="{{ site.url }}{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{% if forloop.index == crumb_size %}{% if page.module-type != 'session' %} {% if page.week %}Week {{ page.week }}. {% endif %}{% endif %} {% endif %}{{ crumb | replace:'-',' ' | capitalize }} </a>
+        <meta itemprop="position" content="{{ i }}" />
         <span class="sep">{{ site.data.ui-text[site.locale].breadcrumb_separator }}</span></li>
     {% endif %}
   {% endfor %}
 </ol>
 </nav>
+
+<!-- from min mistakes -->
+
+
+{% comment %}
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    {% assign crumbs = page.url | split: '/' %}
+    {% assign i = 1 %}
+    {% for crumb in crumbs offset: 1 %}
+      {% if forloop.first %}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="{{ site.url }}{{ site.baseurl }}/" itemprop="item"><span itemprop="name">{{ site.data.ui-text[site.locale].breadcrumb_home_label | default: "Home" }}</span></a>
+          <meta itemprop="position" content="{{ i }}" />
+        </li>
+        <span class="sep">{{ site.data.ui-text[site.locale].breadcrumb_separator | default: "/" }}</span>
+      {% endif %}
+      {% if forloop.last %}
+        <li class="current">{{ page.title }}</li>
+      {% else %}
+        {% assign i = i | plus: 1 %}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="{{ crumb | downcase | replace: '%20', '-' | prepend: path_type | prepend: crumb_path | relative_url }}" itemprop="item"><span itemprop="name">{{ crumb | replace: '-', ' ' | replace: '%20', ' ' | capitalize }}</span></a>
+          <meta itemprop="position" content="{{ i }}" />
+        </li>
+        <span class="sep">{{ site.data.ui-text[site.locale].breadcrumb_separator | default: "/" }}</span>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endcomment %}

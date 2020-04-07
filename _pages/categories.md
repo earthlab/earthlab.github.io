@@ -5,6 +5,10 @@ title: "Browse by category"
 author_profile: false
 ---
 
+Under construction for the time being
+
+{% comment %}
+<!-- We aren't using this page so let's turn it off for the time being -->
 {% include toc title="Categories" icon="file-text" %}
 
 {% include base_path %}
@@ -19,3 +23,4 @@ author_profile: false
     {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
+{% endcomment %}
