@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-09-19
+modified: 2020-02-05
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -31,10 +31,10 @@ In this lesson, you will learn how to create a copy of other users' files on `Gi
 
 After completing this lesson, you will be able to:
 
-* Explain how `Github.com` and `Git` use repositories to store and manage files
-* Create a copy of (i.e. `fork`) other users' files on `Github.com` 
-* Use the `Git clone` command to download your copy of files to your computer 
-* Update your forked repository with changes made in the original `Github`repository (i.e. `git pull`)
+* Explain how `Github.com` and `Git` use repositories to store and manage files.
+* Create a copy of (i.e. `fork`) other users' files on `Github.com`. 
+* Use the `Git clone` command to download your copy of files to your computer. 
+* Update your forked repository with changes made in the original `Github`repository (i.e. `git pull`).
 
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -88,8 +88,8 @@ On the main `Github.com` page of the repository, you will see a button on the to
 Click on the `Fork` button and select your `Github.com` account as the home of the forked repository. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
  <figcaption> You can create a copy of repositories created by other users on Github by forking their repository to your Github account. 
  </figcaption>
 </figure>
@@ -121,11 +121,12 @@ Because you forked `example-repository`, your `Github.com` account now contains 
 On the main `Github.com` page of your forked repository, click on the green button for `Clone or download`, and copy the URL provided in the box, which will look like: `https://github.com/your-username/example-repository`. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-clone-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
  <figcaption> You can make a local copy of your forked repository on your computer with the git clone command. 
  </figcaption>
 </figure>
+
 
 Note: you do not have to use the `Clone or download` button to copy the URL. You can also copy it directly from your web browser or you might simply already know the URL. However, in many cases, you will have come across a `Github.com` repository on your own and will need to follow these instructions to copy the URL for future use.
 
@@ -165,8 +166,8 @@ On this web page, create a pull request from the original repository by followin
 5. On the new page, click on `Create pull request` once more to finish creating the pull request. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-create-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-create-reverse-pull-request.gif" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
  <figcaption> You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork. 
  </figcaption>
 </figure>
@@ -176,8 +177,8 @@ After creating the pull request, you need to merge the pull request, so that the
 You can simply click on the green button for `Merge pull request` and `Confirm merge`. Once you return to the main page of your fork, you will see the changes reflected. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif" alt="After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-reverse-pull-request.gif" alt="After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork."></a>
  <figcaption> After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork. 
  </figcaption>
 </figure>
@@ -226,3 +227,4 @@ Test your `Bash` and `Git`/`GitHub` skills to `fork`/`clone` the repository for 
 What other directories are present in the `earth-analytics-bootcamp` directory?
 
 </div>
+

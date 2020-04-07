@@ -155,7 +155,7 @@ As you work with these data, it is good to double check that you are working wit
 {:.input}
 ```python
 import os
-from glob import glob # File manipulation
+from glob import glob  # File manipulation
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
@@ -179,7 +179,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```python
 # Get list of all pre-cropped data and sort the data
 
-path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
+path = os.path.join("data", "cold-springs-fire", "landsat_collect",
                     "LC080340322016072301T1-SC20180214145802", "crop")
 
 all_landsat_post_bands = glob(path + "/*band*.tif")
@@ -190,10 +190,10 @@ all_landsat_post_bands.sort()
 {:.input}
 ```python
 # Create an output array of all the landsat data stacked
-landsat_post_fire_path = os.path.join("data", "cold-springs-fire", 
+landsat_post_fire_path = os.path.join("data", "cold-springs-fire",
                                       "outputs", "landsat_post_fire.tif")
 
-# This will create a new stacked raster with all bands 
+# This will create a new stacked raster with all bands
 land_stack, land_meta = es.stack(all_landsat_post_bands,
                                  landsat_post_fire_path)
 ```
@@ -331,7 +331,7 @@ You can create a histogram to view the distribution of pixel values in the rgb b
 {:.input}
 ```python
 # Plot all band histograms using earthpy
-band_titles = ["Band 1", "Blue", "Green", "Red", 
+band_titles = ["Band 1", "Blue", "Green", "Red",
                "NIR", "Band 6", "Band7"]
 
 ep.hist(landsat_post_fire,
