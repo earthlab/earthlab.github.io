@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2018-07-25
-modified: 2018-09-10
+modified: 2020-04-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -197,3 +197,4 @@ It will render as follows:
     * An image for each item in your listed favorite foods
 
 </div>
+

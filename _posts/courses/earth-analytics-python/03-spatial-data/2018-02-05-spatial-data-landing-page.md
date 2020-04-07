@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python - Spati
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
-modified: 2020-02-06
+modified: 2020-03-27
 sidebar:
   nav:
 comments: false
@@ -79,7 +79,7 @@ Please read the following chapters to support completing this week's assignment:
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
     Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
     
     To further ignore this warning, you can do: 
@@ -109,7 +109,7 @@ Please read the following chapters to support completing this week's assignment:
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
     Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
     
     To further ignore this warning, you can do: 
@@ -121,7 +121,7 @@ Please read the following chapters to support completing this week's assignment:
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
     Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
     
     To further ignore this warning, you can do: 
