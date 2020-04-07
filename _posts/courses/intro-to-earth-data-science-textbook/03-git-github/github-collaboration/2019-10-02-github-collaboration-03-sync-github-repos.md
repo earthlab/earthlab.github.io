@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
-modified: 2019-10-18
+modified: 2020-01-13
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -73,8 +73,8 @@ There are a few ways to update or sync your repo with the central repo (e.g. you
 This lesson will focus on syncing your fork using a reverse pull request approach on **GitHub.com.**
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow-neon.png">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow-neon.png" alt="When you fork a repo that is being actively worked on by other people, it is good practice to periodically update your fork with updates. Remember that multiple people may be adding to this repo at any given time."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png" alt="When you fork a repo that is being actively worked on by other people, it is good practice to periodically update your fork with updates. Remember that multiple people may be adding to this repo at any given time."></a>
  <figcaption>When you fork a repo that is being actively worked on by other people, it is good practice to periodically update your fork with updates. Remember that multiple people may be adding to this repo at any given time.
  </figcaption>
 </figure>

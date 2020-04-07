@@ -6,7 +6,7 @@ title: 'How to fork a repo in GitHub'
 attribution: ''
 excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2019-09-03'
+modified: '2020-01-23'
 nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
@@ -53,8 +53,8 @@ This  means that you can edit the contents of your forked repository without imp
 the parent repo.
 
 <figure>
- <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" alt="When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can freely modify it as you wish." width="70%"></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-emphasis.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-emphasis.png" alt="When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can freely modify it as you wish." width="70%"></a>
  <figcaption>When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can
  freely modify it as you wish. Image source: Colin Williams, NEON
  </figcaption>
@@ -77,8 +77,8 @@ are other Git and GitHub workflows too. However in this workshop,
 we are demonstrating a central repo workflow.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" alt = "In this workshop, we are using a GitHub workflow that assumes a central repository. Earth Lab owns the central repo that you will initially fork." width="70%"></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png" alt = "In this workshop, we are using a GitHub workflow that assumes a central repository. Earth Lab owns the central repo that you will initially fork." width="70%"></a>
 	<figcaption>
 	In this workshop, we are using a GitHub workflow that assumes a central repository.
   Earth Lab owns the central repo that you will initially fork. Image source: Colin Williams, NEON
@@ -91,16 +91,16 @@ we are demonstrating a central repo workflow.
 You can fork any repo by clicking the fork button in the upper right hand corner of a repo page.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png">
-	<img src="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png" alt="Click on the "Fork" button to fork any repo on github.com ." width="70%"></a>
-	<figcaption> Click on the "Fork" button to fork any repo on github.com. Source:
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/githubguides-bootcamp-fork.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/githubguides-bootcamp-fork.png" alt="Click on the Fork button to fork any repo on github.com." width="70%"></a>
+	<figcaption> Click on the Fork button to fork any repo on github.com. Source:
 <a href="https://guides.github.com/activities/forking/" target="_blank">GitHub Guides</a>.
 	</figcaption>
 </figure>
 
 <figure>
- <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" alt="When you fork a repo on GitHub, the forked repo is copied to your GitHub account, and you can edit it as the repo owner." width="70%"></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-emphasis.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-emphasis.png" alt="When you fork a repo on GitHub, the forked repo is copied to your GitHub account, and you can edit it as the repo owner." width="70%"></a>
  <figcaption>When you fork a repo on GitHub, the forked repo is copied to your GitHub account,
  and you can edit it as the repo owner.
  Source: National Ecological Observatory Network (NEON)
