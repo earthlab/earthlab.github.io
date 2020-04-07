@@ -64,7 +64,7 @@ data = et.data.get_data('spatial-vector-lidar')
 
 ### Import Data
 
-Next, import and explore your spatial data. In this case you are importing the same roads layer that you used in earlier lessons which is stored in shapefile (`.shp`) format. 
+Next, import and explore your spatial data. In this case you are importing the same roads layer that you used in earlier lessons which is stored in shapefile (`.shp`) format.
 
 {:.input}
 ```python
@@ -145,9 +145,9 @@ plt.show()
 
 
 
-## Plot by Attribute 
+## Plot by Attribute
 
-To plot a vector layer by attribute value so each road layer is colored 
+To plot a vector layer by attribute value so each road layer is colored
 according to it's respective attribute value, and so the legend also represents that same symbology you need to do three things.
 
 1. You need to create a dictionary that associates a particular color with a particular attribute value
@@ -218,7 +218,7 @@ plt.show()
 
 ### Adjust Line Width
 
-You can adjust the width of your plot lines using the `linewidth=` attribute. If you set the `linewidth` to 4, you can create a truly ugly plot. In this example every line is `width=4`. 
+You can adjust the width of your plot lines using the `linewidth=` attribute. If you set the `linewidth` to 4, you can create a truly ugly plot. In this example every line is `width=4`.
 
 {:.input}
 ```python
@@ -256,11 +256,11 @@ plt.show()
 
 Similar to how you adjust colors, you can create a dictionary to adjust line widths. Then you can call `dictionaryName[ctype]`
 where dictionaryName is a dictionary of what line width you want to assign to each attribute
-value and ctype is the attribute value. 
+value and ctype is the attribute value.
 
 `lineWidths = {'M': 1, 'S': 1, 'C': 4, 'Unknown': .5}`
 
-Here you are assigning the linewidth of each respective attibute value a line width as follows: 
+Here you are assigning the linewidth of each respective attibute value a line width as follows:
 
 * M: 1
 * S: 1
@@ -337,7 +337,7 @@ Create a plot of roads using the following line thicknesses:
 
 Above you created a legend using the `label=` argument and `ax.legend()`. You may want to move your legend around to make a cleaner map. You can use the `loc=` argument in the call to `ax.legend()` to adjust your legend location. This location can be numeric or descriptive.
 
-Below you specify the `loc=` to be in the **lower right** hand part of the plot. 
+Below you specify the `loc=` to be in the **lower right** hand part of the plot.
 
 `ax.legend(loc='lower right')`
 
@@ -347,7 +347,7 @@ When you add a legend, you use the following elements to customize legend labels
 * **fontsize:** the size of the fonts used in the legend
 * **frameon:** Boolean Values: True of False - if you want a box around your legend use `True`
 
-The `bbox_to_anchor=(1, 1)` argument is also often helpful to customization the location further. Read more about that argument <a href="https://matplotlib.org/users/legend_guide.html" target="_blank">here in the matplotlib documentation</a>. 
+The `bbox_to_anchor=(1, 1)` argument is also often helpful to customization the location further. Read more about that argument <a href="https://matplotlib.org/users/legend_guide.html" target="_blank">here in the matplotlib documentation</a>.
 
 {:.input}
 ```python
@@ -355,7 +355,7 @@ lineWidths = {'M': 1, 'S': 2, 'C': 1.5, 'Unknown': 3}
 
 fig, ax = plt.subplots(figsize=(10, 10))
 
-# Loop through each attribute value and assign each 
+# Loop through each attribute value and assign each
 # with the correct color & width specified in the dictionary
 for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
@@ -516,11 +516,11 @@ O = Other
 S = State recognized
 U = U.S.-->
 
-## Add a Point Shapefile to your Map 
+## Add a Point Shapefile to your Map
 
 Next, add another layer to your map to see how you can create a more complex map with a legend that represents both layers. You will add the same SJER_plot_centroids shapefile that you worked with in previous lessons to your map.
 
-If you recall, this layer contains 3 plot_types: grass, soil and trees. 
+If you recall, this layer contains 3 plot_types: grass, soil and trees.
 
 {:.input}
 ```python
@@ -616,7 +616,7 @@ sjer_plots.head(5)
 
 
 
-Just like you did above, create a dictionary that specifies the colors associated with each plot type. 
+Just like you did above, create a dictionary that specifies the colors associated with each plot type.
 Then you can plot your data just like you did with the lines
 
 {:.input}
@@ -658,7 +658,7 @@ plt.show()
 
 ### Overlay points on top of roads
 
-Next, plot the plot data on top of the roads layer. Then create a custom legend that contains both lines and points. 
+Next, plot the plot data on top of the roads layer. Then create a custom legend that contains both lines and points.
 
 NOTE: In this example the projection for the roads layer is already changed and the layer has been cropped! You will have to do the same before this code will work.
 
@@ -674,14 +674,14 @@ sjer_roads_utm = sjer_roads.to_crs(crs=sjer_aoi.crs)
 
 ## Clip (Intersect) the Data
 
-Next, clip the roads layer to the boundary of the sjer_aoi layer. This will remove all roads and road segments that are outside of your square AOI layer. 
+Next, clip the roads layer to the boundary of the sjer_aoi layer. This will remove all roads and road segments that are outside of your square AOI layer.
 
 
 {:.output}
     /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
     Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
-    
-    To further ignore this warning, you can do: 
+
+    To further ignore this warning, you can do:
     import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
       return self.notna()
 
@@ -713,7 +713,7 @@ You do not need to do this for your homework but below you can see how you'd add
 1. You need to loop through each "Group" that you wish to plot to create an collection object (discussed below)
 2. Then you need to create the legend using those collections.
 
-To begin to customize legends using matplotlib you need to work with collections. Matplotlib stores groups of points, lines or polygons as a collection. In the example above each road type is stored as a collection of type `path` for line. If you call collections AFTER the call to plot in matplotlib, you can see how many collections were created. 
+To begin to customize legends using matplotlib you need to work with collections. Matplotlib stores groups of points, lines or polygons as a collection. In the example above each road type is stored as a collection of type `path` for line. If you call collections AFTER the call to plot in matplotlib, you can see how many collections were created.
 
 Notice below there are 3 collections - one for each road type.
 
@@ -861,31 +861,31 @@ The code looks like this:
 
 
 
-Next, add subheadings to your legend. Here, you will add a "Plots" and a "Roads" subheading to make the legend easier to read. To do this you will create 2 legend elements, each with a specific title that will create the subheading. 
+Next, add subheadings to your legend. Here, you will add a "Plots" and a "Roads" subheading to make the legend easier to read. To do this you will create 2 legend elements, each with a specific title that will create the subheading.
 
 ```python
 
 # Set up legend
 points = ax.collections[:3]
 lines = ax.collections[3:]
-leg1 = ax.legend(points, [point.get_label() for point in points], 
-       loc=(1.1, .1), 
+leg1 = ax.legend(points, [point.get_label() for point in points],
+       loc=(1.1, .1),
        prop={'size': 16, 'family': 'serif'},
-       frameon=False, 
+       frameon=False,
        title='Roads')
 ax.add_artist(leg1)
 
-leg2 = ax.legend(lines, [line.get_label() for line in lines], 
-                 loc=(1.1, .3), 
+leg2 = ax.legend(lines, [line.get_label() for line in lines],
+                 loc=(1.1, .3),
                  prop={'size': 16},
-                 frameon=False, 
+                 frameon=False,
                  title='Markers')
 ax.add_artist(leg2)
 ```
 
 ### Customize legend fonts
 
-Note that you can customize the look of legend elements using the `prop=` argument. Below you set the font family to cursive and the font size to 16. 
+Note that you can customize the look of legend elements using the `prop=` argument. Below you set the font family to cursive and the font size to 16.
 
 `prop={'size': 16, 'family': 'cursive'}`
 
@@ -906,18 +906,18 @@ Note that you can customize the look of legend elements using the `prop=` argume
 
 ### Refine legend
 
-You can refine each element of the legend. To adjust the legend sub heading titles 
-you use 
+You can refine each element of the legend. To adjust the legend sub heading titles
+you use
 
 `plt.setp(leg1.get_title())`
 
-where leg1 is the variable name for the first legend element (the plot types in this case). You then can add various text attributes including fontsize, weight and family. 
+where leg1 is the variable name for the first legend element (the plot types in this case). You then can add various text attributes including fontsize, weight and family.
 
 `plt.setp(leg1.get_title(), fontsize='15', weight='bold')`
 
-## Set Plot Attributes Globally 
+## Set Plot Attributes Globally
 
-There are different ways to adjust title font sizes. Below you use a call to  `plt.rcParams` to set the fonts universally for ALL PLOTS in your notebook. This is a nice option to use if you want to maintain the same plot look throughout your document. 
+There are different ways to adjust title font sizes. Below you use a call to  `plt.rcParams` to set the fonts universally for ALL PLOTS in your notebook. This is a nice option to use if you want to maintain the same plot look throughout your document.
 
 
 {:.input}
@@ -937,6 +937,3 @@ plt.rcParams['legend.fontsize'] = 'small'
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
-
-
-

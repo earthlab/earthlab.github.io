@@ -20,7 +20,7 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Section Three - Intro to Spatial Vector Data in Python
 
-In section three of this textbook, you will learn how to work with and plot spatial vector data using the **geopandas** package for **Python**. 
+In section three of this textbook, you will learn how to work with and plot spatial vector data using the **geopandas** package for **Python**.
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
