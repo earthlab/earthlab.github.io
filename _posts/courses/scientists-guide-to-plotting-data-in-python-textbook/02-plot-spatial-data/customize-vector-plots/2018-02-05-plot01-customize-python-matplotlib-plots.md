@@ -4,7 +4,7 @@ title: "Customize Map Legends and Colors in Python using Matplotlib: GIS in Pyth
 excerpt: "When making maps, you often want to add legends and customize the map colors. Learn how to customize legends and colors in matplotlib maps created using vector data in Python."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-30
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/
@@ -51,18 +51,11 @@ import numpy as np
 from shapely.geometry import box
 import geopandas as gpd
 import earthpy as et
-from earthpy import clip as cl
 
 # Get the data & set working dir
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 ### Import Data
 
@@ -597,7 +590,7 @@ sjer_plots.head(5)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -606,7 +599,7 @@ sjer_plots.head(5)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -615,16 +608,16 @@ sjer_plots.head(5)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
       <td>256838.760</td>
       <td>grass</td>
-      <td>POINT (256838.76 4110819.876)</td>
+      <td>POINT (256838.760 4110819.876)</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -633,7 +626,7 @@ sjer_plots.head(5)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>

@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/
 nav-title: "GitHub for Collaboration"
 dateCreated: 2019-10-02
-modified: 2019-10-21
+modified: 2020-01-13
 module-title: 'GitHub for Collaboration'
 module-nav-title: 'GitHub for Collaboration'
 module-description: 'GitHub is a website that supports git version control and also collaborative project management. Learn how to use git and GitHub to collaborate on projects in support of reproducible open science.'
@@ -127,8 +127,8 @@ chapter.
 
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
    <figcaption>In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request.  Source: Colin Williams, NEON
    </figcaption>
 </figure>
