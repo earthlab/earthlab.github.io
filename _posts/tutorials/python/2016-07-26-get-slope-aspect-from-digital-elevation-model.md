@@ -2,10 +2,12 @@
 layout: single
 title: 'Calculating slope and aspect from a digital elevation model in Python'
 date: 2016-07-26
-modified: 2019-09-03
+modified: 2020-04-08
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute the slope and aspect from a digital elevation model in Python.'
+estimated-time: "20-30 minutes"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
