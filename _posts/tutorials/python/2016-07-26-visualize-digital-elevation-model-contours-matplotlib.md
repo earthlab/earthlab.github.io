@@ -2,7 +2,7 @@
 layout: single
 title: 'Visualizing elevation contours from raster digital elevation models in Python'
 date: 2016-07-26
-modified: 2020-04-02
+modified: 2020-04-08
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute and plot contour lines for elevation from a raster DEM (digital elevation model).'
@@ -55,11 +55,11 @@ The first objective we'll have to accomplish is acquiring and reading in our dat
     make: Nothing to be done for 'all'.
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.c20c62cb65d749d9b77735837c49091b.vrt
+    cp SRTM1.vrt SRTM1.6a6a4da0cb804d8d93968ec60cad8854.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.c20c62cb65d749d9b77735837c49091b.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.c20c62cb65d749d9b77735837c49091b.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.6a6a4da0cb804d8d93968ec60cad8854.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.6a6a4da0cb804d8d93968ec60cad8854.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
