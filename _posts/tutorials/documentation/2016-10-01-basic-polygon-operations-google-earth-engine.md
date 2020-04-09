@@ -1,115 +1,79 @@
 ---
-layout: single 
-title: "Visualizing hourly traffic crime data for Denver, Colorado using R, dplyr, and ggplot"
-date: 2016-12-06 
-modified: '2020-04-08'
-authors: [Max Joseph] 
-category: [tutorials] 
-excerpt: 'This tutorial demonstrates how to access and visualize crime data for Denver, Colorado.' 
+layout: single
+title: 'Calculating the area of polygons in Google Earth Engine'
+date: 2016-10-01
+modified: '2020-04-09'
+authors: [Matt Oakley]
+category: [tutorials]
+excerpt: 'This tutorial demonstrates polygon creation, perimeter and area calculations, and visualization using the JavaScript interface to Google Earth Engine.'
 estimated-time: "20-30 minutes"
-difficulty: "intermediate"
-sidebar: 
-nav: 
-author_profile: false 
-comments: true 
-lang: [r]
-lib: [dplyr, ggplot2, lubridate, readr]
+difficulty: "beginner"
+sidebar:
+  nav:
+author_profile: false
+comments: true
+lang: [javascript]
+lib:
 ---
 
+As we've seen in previous tutorials covering the Google Earth Engine IDE and Python API, Earth Engine is an extremely powerful and fast way to analyze and visualize geospatial data. 
+This tutorial will cover creating a polygon on the map and computing/printing out to the console information such as area, perimeter, etc about the polygon.
 
-The city of Denver publicly hosts crime data from the past five years in their open data catalog.
-In this tutorial, we will use R to access and visualize these data, which are essentially spatiotemporally referenced points with features for type of crime, neighborhood, etc. 
+## Objectives
 
-First, we will load some packages that we'll use later. 
+- Plot a polygon onto the map
+- Compute and print out information about the polygon
 
+## Dependencies
 
-```r
-library(dplyr)
-library(ggplot2)
-library(lubridate)
+- Access to [Google Earth Engine's Code Editor](https://code.earthengine.google.com/)
+
+## Creating/Plotting a Polygon
+
+Our first objective will be to create a polygon and display it on the map. 
+Let's have this polygon cover all of Boulder, CO. 
+Copy and paste the following code into the Earth Engine Code Editor:
+
+```
+// Create a geodesic polygon containing Boulder, CO
+var boulder = ee.Geometry.Polygon([
+  [[-105.35, 39.95], [-105.35, 40.05],[-105.2, 40.05], [-105.2, 39.95], [-105.2, 39.95]]
+]);
+
+// Display the polygon on the map
+Map.centerObject(boulder);
+Map.addLayer(boulder, {color: 'FF0000'}, 'geodesic polygon');
 ```
 
-Then, we need to download a comma separated values file that contains the raw data.
+After running the following script, you should see a red rectangle displayed on the map centered in Boulder, CO.
 
+![Imgur](https://i.imgur.com/64yOQOh.png)
 
-```r
-data_url <- "https://www.denvergov.org/media/gis/DataCatalog/crime/csv/crime.csv"
-d <- read.csv(data_url)
+## Computing polygon area and perimeter
+
+Copy and paste the following code into the Code Editor under the code that we've already ran:
+
+```
+// Print polygon area in square kilometers.
+print('Polygon area: ', boulder.area().divide(1000 * 1000));
+
+// Print polygon perimeter length in kilometers.
+print('Polygon perimeter: ', boulder.perimeter().divide(1000));
 ```
 
-Let's lowercase the column names, and look at the structure of the data with the `str()` function. 
+After running this, you should see values for the area (km^2) and perimeter (km) printed to the Console. 
+Earth Engine can provide us with additional information/output which may be useful.
 
-
-```r
-names(d) <- tolower(names(d))
-str(d)
-## 'data.frame':	477213 obs. of  19 variables:
-##  $ incident_id           : num  2.02e+09 2.02e+09 2.02e+10 2.02e+10 2.02e+09 ...
-##  $ offense_id            : num  2.02e+15 2.02e+15 2.02e+16 2.02e+16 2.02e+15 ...
-##  $ offense_code          : int  2399 5441 2399 2308 5016 1316 5499 5499 7399 1102 ...
-##  $ offense_code_extension: int  0 0 1 0 0 0 0 0 2 0 ...
-##  $ offense_type_id       : chr  "theft-other" "traffic-accident" "theft-bicycle" "theft-from-bldg" ...
-##  $ offense_category_id   : chr  "larceny" "traffic-accident" "larceny" "larceny" ...
-##  $ first_occurrence_date : chr  "12/27/2018 3:58:00 PM" "11/13/2015 7:45:00 AM" "6/8/2017 1:15:00 PM" "12/7/2019 1:07:00 PM" ...
-##  $ last_occurrence_date  : chr  "" "" "6/8/2017 5:15:00 PM" "12/7/2019 6:30:00 PM" ...
-##  $ reported_date         : chr  "12/27/2018 4:51:00 PM" "11/13/2015 8:38:00 AM" "6/12/2017 8:44:00 AM" "12/9/2019 1:35:00 PM" ...
-##  $ incident_address      : chr  "2681 N HANOVER CT" "4100 BLOCK W COLFAX AVE" "1705 17TH ST" "1350 N IRVING ST" ...
-##  $ geo_x                 : int  3178210 3129148 3140790 3132400 3188580 3142086 3152605 3148176 3143312 NA ...
-##  $ geo_y                 : int  1700715 1694748 1699792 1694088 1716158 1699093 1710822 1694866 1690483 NA ...
-##  $ geo_lon               : num  -105 -105 -105 -105 -105 ...
-##  $ geo_lat               : num  39.8 39.7 39.8 39.7 39.8 ...
-##  $ district_id           : int  5 1 6 1 5 6 2 6 1 6 ...
-##  $ precinct_id           : int  512 122 612 122 521 612 212 623 123 611 ...
-##  $ neighborhood_id       : chr  "stapleton" "west-colfax" "union-station" "west-colfax" ...
-##  $ is_crime              : int  1 0 1 1 1 1 1 1 1 1 ...
-##  $ is_traffic            : int  0 1 0 0 0 0 0 0 0 0 ...
 ```
+// Print the geometry as a GeoJSON string.
+print('Polygon GeoJSON: ', boulder.toGeoJSONString());
 
-The code below uses the `dplyr` package to subset the data to only include traffic accident crimes (`filter(...)`), and parses the date/time column so that we can extract quantities like hour-minutes (to evaluate patterns over the course of one day), the day of week (e.g., 1 = Sunday, 2 = Monday, ...), and year day (what day of the year is it?), creating new columns for these variables with the `mutate()` function.
+// Print the GeoJSON 'type'.
+print('Geometry type: ', boulder.type());
 
+// Print the coordinates as lists.
+print('Polygon coordinates: ', boulder.coordinates());
 
-```r
-accidents <- d %>%
-  filter(offense_type_id == "traffic-accident") %>%
-  mutate(datetime = mdy_hms(first_occurrence_date, tz = "MST"),
-         hr = hour(datetime),
-         dow = wday(datetime), 
-         yday = yday(datetime))
+// Print whether the geometry is geodesic.
+print('Geodesic? ', boulder.geodesic());
 ```
-
-Last, we will group our data by hour and day of the week, and for each combination of these two quantities, compute the number of traffic accident crimes. 
-Then we'll create a new variable `day`, which is the character representation (Sunday, Monday, ...) of the numeric `dow` column (1, 2, ...).
-We'll also create a new variable `offense_type`, which is a more human-readable version of the `offense-type-id` column.
-Using ggplot, we'll create a density plot with a color for each day of week.
-This workflow uses `dplyr` to munge our data, then pipes the result to `ggplot2`, so that we only create one object in our global environment `p`, which is our plot. 
-
-
-```r
-p <- accidents %>%
-  count(hr, dow, yday, offense_type_id) %>%
-  # the call to mutate() makes new variables with better names
-  mutate(day = factor(c("Sunday", "Monday", "Tuesday", 
-                 "Wednesday", "Thursday", "Friday", 
-                 "Saturday")[dow], 
-                 levels = c("Monday", "Tuesday", 
-                            "Wednesday", "Thursday", "Friday", 
-                            "Saturday", "Sunday")), 
-         offense_type = ifelse(
-           offense_type_id == "traffic-accident-hit-and-run", 
-           "Hit and run", 
-           ifelse(
-             offense_type_id == "traffic-accident-dui-duid",
-             "Driving under the influence", "Traffic accident"))) %>%
-  ggplot(aes(x = hr, 
-             fill = day, 
-             color = day)) + 
-  geom_freqpoly(binwidth = 1) + # 60 sec/min * 60 min
-  scale_color_discrete("Day of week") + 
-  xlab("Time of day (hour)") + 
-  ylab("Frequency") + 
-  ggtitle("Traffic crimes in Denver, Colorado")
-p 
-```
-
-<img src="{{ site.url }}/images/tutorials/documentation/2016-12-06-visualize-denver-colorado-traffic-crime/plot-hourly-1.png" title="Traffic accident data for each hour in Denver, CO" alt="Traffic accident data for each hour in Denver, CO" width="90%" />
-
