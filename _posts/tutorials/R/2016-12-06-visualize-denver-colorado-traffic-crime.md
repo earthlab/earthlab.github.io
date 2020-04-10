@@ -111,5 +111,5 @@ p <- accidents %>%
 p 
 ```
 
-<img src="{{ site.url }}/images/tutorials//R/2016-12-06-visualize-denver-colorado-traffic-crime/plot-hourly-1.png" title="Traffic accident data for each hour in Denver, CO" alt="Traffic accident data for each hour in Denver, CO" width="90%" />
+<img src="{{ site.url }}/images/tutorials/R/2016-12-06-visualize-denver-colorado-traffic-crime/plot-hourly-1.png" title="Traffic accident data for each hour in Denver, CO" alt="Traffic accident data for each hour in Denver, CO" width="90%" />
 
