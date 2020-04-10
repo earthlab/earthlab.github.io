@@ -2,7 +2,7 @@
 layout: single 
 title: "Visualizing hourly traffic crime data for Denver, Colorado using R, dplyr, and ggplot"
 date: 2016-12-06 
-modified: '2020-04-09'
+modified: '2020-04-10'
 authors: [Max Joseph] 
 category: [tutorials] 
 excerpt: 'This tutorial demonstrates how to access and visualize crime data for Denver, Colorado.' 
@@ -43,7 +43,7 @@ Let's lowercase the column names, and look at the structure of the data with the
 ```r
 names(d) <- tolower(names(d))
 str(d)
-## 'data.frame':	477213 obs. of  19 variables:
+## 'data.frame':	477836 obs. of  19 variables:
 ##  $ incident_id           : num  2.02e+09 2.02e+09 2.02e+10 2.02e+10 2.02e+09 ...
 ##  $ offense_id            : num  2.02e+15 2.02e+15 2.02e+16 2.02e+16 2.02e+15 ...
 ##  $ offense_code          : int  2399 5441 2399 2308 5016 1316 5499 5499 7399 1102 ...

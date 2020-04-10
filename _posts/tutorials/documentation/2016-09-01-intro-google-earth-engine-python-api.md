@@ -2,7 +2,7 @@
 layout: single
 title: 'Introduction to the Google Earth Engine Python API'
 date: 2016-09-01
-modified: '2020-04-09'
+modified: '2020-04-10'
 authors: [Matt Oakley]
 category: [tutorials]
 excerpt: 'This tutorial outlines the process of installing the Google Earth Engine Python API client.'

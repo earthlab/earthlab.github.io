@@ -2,7 +2,7 @@
 layout: single
 title: 'Introduction to the Google Earth Engine code editor'
 date: 2016-09-01
-modified: '2020-04-09'
+modified: '2020-04-10'
 authors: [Matt Oakley]
 category: [tutorials]
 excerpt: 'This tutorial introduces the code editor in Google Earth Engine and shows how to use LandSat imagery using the JavaScript API.'
