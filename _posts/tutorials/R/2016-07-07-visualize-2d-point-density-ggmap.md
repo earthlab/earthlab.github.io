@@ -2,10 +2,12 @@
 layout: single 
 title: 'Computing and plotting 2d spatial point density in R' 
 date: 2016-07-07 
-modified: '2019-09-19'
+modified: '2020-04-20'
 authors: [Max Joseph] 
 category: [tutorials] 
 excerpt: 'This tutorial demonstrates how to compute 2d spatial density and visualize the result using storm event data from NOAA.' 
+estimated-time: "20-30 minutes"
+difficulty: "intermediate"
 sidebar: 
 nav: 
 author_profile: false 

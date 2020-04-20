@@ -2,10 +2,12 @@
 layout: single
 title: 'Convert lat/lon coordinates to Landsat 8 path/row in Python'
 date: 2016-08-04
-modified: 2019-08-23
+modified: 2020-04-08
 authors: [Zach Schira]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates how to convert Landsat 8 path/row coordinates to latitude and longitude in Python.'
+estimated-time: "20-30 minutes"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

@@ -2,10 +2,12 @@
 layout: single
 title: 'Acquiring streamflow data from USGS with climata and Python'
 date: 2016-07-08
-modified: 2020-03-13
+modified: 2020-04-08
 authors: [Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates how to use climata to acquire streamflow data in and around Boulder, Colorado.'
+estimated-time: "20-30 minutes"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false

@@ -2,10 +2,12 @@
 layout: single
 title: 'Calculating the area of polygons in Google Earth Engine'
 date: 2016-10-01
-modified: '2019-08-23'
+modified: '2020-04-20'
 authors: [Matt Oakley]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates polygon creation, perimeter and area calculations, and visualization using the JavaScript interface to Google Earth Engine.'
+estimated-time: "20-30 minutes"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false
