@@ -4,7 +4,7 @@ title: "The Relationship Between Precipitation and Stream Discharge | Explore Ma
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-30
+modified: 2020-06-15
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
@@ -101,8 +101,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-30T22:46:40.064Z', 'title': 'requestDT'},
-        {'value': '51e44c00-72d8-11ea-b343-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-06-15T15:17:35.373Z', 'title': 'requestDT'},
+        {'value': '57697bd0-af1b-11ea-85fd-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -141,9 +141,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '85.0',
+        'values': [{'value': [{'value': '64.6',
             'qualifiers': ['P'],
-            'dateTime': '2020-03-29T00:00:00.000'}],
+            'dateTime': '2020-06-14T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -381,7 +381,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_9_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_9_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
 <figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
 
 </figure>
@@ -578,7 +578,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_16_0.png" alt = "Cumulative sum plot for stream discharge.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_16_0.png" alt = "Cumulative sum plot for stream discharge.">
 <figcaption>Cumulative sum plot for stream discharge.</figcaption>
 
 </figure>

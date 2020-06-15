@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-03-03
+modified: 2020-06-15
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -61,18 +61,7 @@ Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-eart
 </div>
 
 
-## Why Use Datetime Objects in Python
-
-Dates can be tricky in any programming language. While you may see a date in a dataset and recognize it as something that can be quantified and related to time, a computer reads in numbers and characters. Often by default, date information is loaded as a string (i.e. a set of characters), rather than something that has an order in time. 
-
-Luckily, **Python** provides an easy way to work with dates using `datetime` objects, and you can actually convert **pandas** dataframes columns containing dates and times as strings into `datetime` objects.
-
-Recall that objects are used in **Python** to provide a set of functionality and rules that apply to that specific object type such as: 
-1. lists
-2. **numpy** arrays
-3. **pandas** dataframes and more
-
-Just like these objects have distinct characteristics and functionality, the `datetime` object also provides unique functionality to help you to easily work with time series data and customize the dates on your plot, resulting in more visually appealing plots.
+## Dive Deeper Into Working With Datetime Objects in Python
 
 On this page, you will learn how to handle dates using the `datetime` object in **Python** with **pandas**, using a dataset of daily temperature (maximum in Fahrenheit) and total precipitation (inches) in July 2018 for Boulder, CO, provided by the <a href="https://www.esrl.noaa.gov/psd/boulder/data/boulderdaily.complete" target="_blank">National Oceanic and Atmospheric Administration (NOAA)</a>.
 
