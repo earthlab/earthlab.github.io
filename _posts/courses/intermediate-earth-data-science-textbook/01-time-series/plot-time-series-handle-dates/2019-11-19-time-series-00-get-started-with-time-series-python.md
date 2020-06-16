@@ -8,7 +8,7 @@ modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/introduction-to-time-series-in-pandas-python/
 module-description: 'Python provides a datetime object for storing and working with dates. Learn how to handle date fields using pandas to work with time series data in Python.'
 module-nav-title: 'Time Series Data in Pandas'
 module-title: 'Use Time Series Data in Python With Pandas'
@@ -27,7 +27,6 @@ topics:
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
-  - "/courses/earth-analytics-python/use-time-series-data-in-python/date-time-types-in-pandas-python/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
