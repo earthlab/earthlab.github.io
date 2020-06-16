@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with Pandas."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-03-03
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 topics:
   reproducible-science-and-programming: ['python']
   time-series:
@@ -416,7 +416,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_12_0.png" alt = "Scatter plot showing hourly precipitation for Boulder, CO from 2003 to 2013.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-resample-time-series-precip-python/2019-11-19-time-series-04-resample-time-series-precip-python_12_0.png" alt = "Scatter plot showing hourly precipitation for Boulder, CO from 2003 to 2013.">
 <figcaption>Scatter plot showing hourly precipitation for Boulder, CO from 2003 to 2013.</figcaption>
 
 </figure>
@@ -619,7 +619,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_18_0.png" alt = "Scatter plot of daily total precipitation subsetted 2003-2013.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-resample-time-series-precip-python/2019-11-19-time-series-04-resample-time-series-precip-python_18_0.png" alt = "Scatter plot of daily total precipitation subsetted 2003-2013.">
 <figcaption>Scatter plot of daily total precipitation subsetted 2003-2013.</figcaption>
 
 </figure>
@@ -795,7 +795,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_22_0.png" alt = "Scatter plot of monthly total precipitation subsetted 2003-2013.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-resample-time-series-precip-python/2019-11-19-time-series-04-resample-time-series-precip-python_22_0.png" alt = "Scatter plot of monthly total precipitation subsetted 2003-2013.">
 <figcaption>Scatter plot of monthly total precipitation subsetted 2003-2013.</figcaption>
 
 </figure>
@@ -981,7 +981,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_26_0.png" alt = "Scatter plot of yearly total precipitation subsetted 2003-2013.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-resample-time-series-precip-python/2019-11-19-time-series-04-resample-time-series-precip-python_26_0.png" alt = "Scatter plot of yearly total precipitation subsetted 2003-2013.">
 <figcaption>Scatter plot of yearly total precipitation subsetted 2003-2013.</figcaption>
 
 </figure>

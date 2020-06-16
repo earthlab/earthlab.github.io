@@ -3,7 +3,7 @@ layout: single
 title: "Customize Dates on Time Series Plots in Python Using Matplotlib"
 excerpt: 'When you plot time series data using the matplotlib package in Python, you often want to customize the date format that is presented on the plot. Learn how to customize the date format on time series plots created using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-03-03
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
@@ -254,7 +254,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-customize-date-axes-matplotlib/2019-11-19-time-series-04-customize-date-axes-matplotlib_9_0.png" alt = "Bar plot of daily total precipitation for June to Aug 2005.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-05-customize-date-axes-matplotlib/2019-11-19-time-series-05-customize-date-axes-matplotlib_9_0.png" alt = "Bar plot of daily total precipitation for June to Aug 2005.">
 <figcaption>Bar plot of daily total precipitation for June to Aug 2005.</figcaption>
 
 </figure>
@@ -308,7 +308,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-customize-date-axes-matplotlib/2019-11-19-time-series-04-customize-date-axes-matplotlib_11_0.png" alt = "Bar plot showing daily total precipitation with the x-axis dates shortened to just month and day, so they are easier to read.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-05-customize-date-axes-matplotlib/2019-11-19-time-series-05-customize-date-axes-matplotlib_11_0.png" alt = "Bar plot showing daily total precipitation with the x-axis dates shortened to just month and day, so they are easier to read.">
 <figcaption>Bar plot showing daily total precipitation with the x-axis dates shortened to just month and day, so they are easier to read.</figcaption>
 
 </figure>
@@ -362,7 +362,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-customize-date-axes-matplotlib/2019-11-19-time-series-04-customize-date-axes-matplotlib_13_0.png" alt = "Bar plot showing daily total precipitation with the x-axis dates cleaned up and the format customized, so they are easier to read.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-05-customize-date-axes-matplotlib/2019-11-19-time-series-05-customize-date-axes-matplotlib_13_0.png" alt = "Bar plot showing daily total precipitation with the x-axis dates cleaned up and the format customized, so they are easier to read.">
 <figcaption>Bar plot showing daily total precipitation with the x-axis dates cleaned up and the format customized, so they are easier to read.</figcaption>
 
 </figure>
@@ -407,7 +407,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-customize-date-axes-matplotlib/2019-11-19-time-series-04-customize-date-axes-matplotlib_15_0.png" alt = "Bar plot showing daily total precipitation with the x-axis date range customized.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-05-customize-date-axes-matplotlib/2019-11-19-time-series-05-customize-date-axes-matplotlib_15_0.png" alt = "Bar plot showing daily total precipitation with the x-axis date range customized.">
 <figcaption>Bar plot showing daily total precipitation with the x-axis date range customized.</figcaption>
 
 </figure>
@@ -465,7 +465,7 @@ How different was the rainfall in 2012 compared to 2013?
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-04-customize-date-axes-matplotlib/2019-11-19-time-series-04-customize-date-axes-matplotlib_19_0.png" alt = "Bar plots showing daily total precipitation for Aug to Oct in both 2012 and 2013.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-05-customize-date-axes-matplotlib/2019-11-19-time-series-05-customize-date-axes-matplotlib_19_0.png" alt = "Bar plots showing daily total precipitation for Aug to Oct in both 2012 and 2013.">
 <figcaption>Bar plots showing daily total precipitation for Aug to Oct in both 2012 and 2013.</figcaption>
 
 </figure>

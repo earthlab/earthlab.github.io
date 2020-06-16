@@ -4,15 +4,11 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-15
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/
-module-description: 'Python provides a datetime object for storing and working with dates. Learn how to handle date fields using pandas to work with time series data in Python.'
-module-nav-title: 'Time Series Data in Pandas'
-module-title: 'Use Time Series Data in Python With Pandas'
-module-type: 'class'
 nav-title: 'Dates in Python'
 chapter: 1
 week: 1
@@ -20,8 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-class-order: 1
-order: 1
+order: 2
 topics:
   reproducible-science-and-programming: ['jupyter-notebook', 'python']
   time-series:
@@ -280,7 +275,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_11_0.png" alt = "Line plot of precipitation in Boulder, CO with dates as strings and without no-data values removed.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-date-format-python/2019-11-19-time-series-02-date-format-python_11_0.png" alt = "Line plot of precipitation in Boulder, CO with dates as strings and without no-data values removed.">
 <figcaption>Line plot of precipitation in Boulder, CO with dates as strings and without no-data values removed.</figcaption>
 
 </figure>
@@ -498,7 +493,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_21_0.png" alt = "Scatter plot of precipitation with the x-axis dates formated as datetime.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-date-format-python/2019-11-19-time-series-02-date-format-python_21_0.png" alt = "Scatter plot of precipitation with the x-axis dates formated as datetime.">
 <figcaption>Scatter plot of precipitation with the x-axis dates formated as datetime.</figcaption>
 
 </figure>
@@ -532,7 +527,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_22_0.png" alt = "Bar plot showing daily precipitation with the x-axis dates as datetimes.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-date-format-python/2019-11-19-time-series-02-date-format-python_22_0.png" alt = "Bar plot showing daily precipitation with the x-axis dates as datetimes.">
 <figcaption>Bar plot showing daily precipitation with the x-axis dates as datetimes.</figcaption>
 
 </figure>
@@ -846,7 +841,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_31_0.png" alt = "Scatter plot showing daily precipitation with the x-axis dates cleaned up and the no-data values removed.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-date-format-python/2019-11-19-time-series-02-date-format-python_31_0.png" alt = "Scatter plot showing daily precipitation with the x-axis dates cleaned up and the no-data values removed.">
 <figcaption>Scatter plot showing daily precipitation with the x-axis dates cleaned up and the no-data values removed.</figcaption>
 
 </figure>

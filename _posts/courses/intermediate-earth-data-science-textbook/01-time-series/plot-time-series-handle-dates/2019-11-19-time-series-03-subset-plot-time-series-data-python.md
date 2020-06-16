@@ -4,7 +4,7 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-15
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
   time-series:
@@ -89,6 +89,12 @@ You will also download data from **earthpy** by specifiying a data key for the d
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Note that when you download data using a data key in **earthpy**, the data are automatically downloaded to a new directory in the `data` directory under `earth-analytics`.  The name of the directory will be the same as the name of the dataset, for example, `colorado-flood`. 
 
@@ -1280,7 +1286,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-subset-plot-time-series-data-python/2019-11-19-time-series-02-subset-plot-time-series-data-python_31_0.png" alt = "Bar plot showing daily total precipitation for Boulder Creek between May and Aug 2005.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-subset-plot-time-series-data-python/2019-11-19-time-series-03-subset-plot-time-series-data-python_31_0.png" alt = "Bar plot showing daily total precipitation for Boulder Creek between May and Aug 2005.">
 <figcaption>Bar plot showing daily total precipitation for Boulder Creek between May and Aug 2005.</figcaption>
 
 </figure>
