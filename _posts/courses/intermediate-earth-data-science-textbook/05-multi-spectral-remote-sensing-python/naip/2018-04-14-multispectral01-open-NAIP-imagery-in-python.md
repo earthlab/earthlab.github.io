@@ -4,7 +4,7 @@ title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-03-30
+modified: 2020-04-07
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/

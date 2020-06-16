@@ -4,7 +4,7 @@ title: "Handle missing spatial attribute data: GIS in Python"
 excerpt: "Sometimes vector data are missing attribute data, and it can be helpful to clean up your data. Learn how to handle missing attribute data in Python using GeoPandas."  
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/missing-data-vector-data-in-python/

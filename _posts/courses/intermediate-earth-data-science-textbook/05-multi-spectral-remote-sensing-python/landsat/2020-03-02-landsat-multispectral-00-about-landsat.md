@@ -4,7 +4,7 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-04-02
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
@@ -155,7 +155,7 @@ As you work with these data, it is good to double check that you are working wit
 {:.input}
 ```python
 import os
-from glob import glob  # File manipulation
+from glob import glob # File manipulation
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
@@ -179,7 +179,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```python
 # Get list of all pre-cropped data and sort the data
 
-path = os.path.join("data", "cold-springs-fire", "landsat_collect",
+path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
                     "LC080340322016072301T1-SC20180214145802", "crop")
 
 all_landsat_post_bands = glob(path + "/*band*.tif")

@@ -4,7 +4,7 @@ title: "How to Join Attributes From One Shapefile to Another in Open Source Pyth
 excerpt: "A spatial join is when you assign attributes from one shapefile to another based upon its spatial location. Learn how to perform spatial joins in Python."
 authors: ['Leah Wasser','Jenny Palomino']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/spatial-joins-in-python-geopandas-shapely/
@@ -52,12 +52,6 @@ import earthpy as et
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 {:.input}
 ```python

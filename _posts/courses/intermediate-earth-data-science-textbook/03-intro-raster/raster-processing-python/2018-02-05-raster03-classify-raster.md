@@ -32,14 +32,14 @@ redirect_from:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Explore a raster and produce histograms to help define appropriate raster break points for classification.
-* Reclassify a raster dataset in **Python** using a set of defined values and `np.digitize`.
+* Reclassify a raster dataset in **Python** using a set of defined values and `np.digitize`. 
 
 </div>
 
-### Manually Reclassify Raster Data
+### Manually Reclassify Raster Data 
 
 In this lesson, you will learn how to reclassify a raster dataset in **Python**. When you reclassify
-a raster, you create a **new** raster object / file that can be exported and shared with colleagues and / or open in other tools such as QGIS.
+a raster, you create a **new** raster object / file that can be exported and shared with colleagues and / or open in other tools such as QGIS. 
 
 In that raster, each pixel is mapped to a new value based on some approach. This approach can vary depending upon your science question.
 
@@ -58,7 +58,7 @@ You can break your raster processing workflow into several steps as follows:
 
 * **Data import / cleanup:** load and "clean" the data. This includes cropping, removing with `nodata` values
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms and scatter plots to determine what classes are appropriate for our data
-* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non-statistical approaches to reclassification. Here you will learn how to manually reclassify a raster using bins that you define in your data exploration step.
+* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non-statistical approaches to reclassification. Here you will learn how to manually reclassify a raster using bins that you define in your data exploration step. 
 
 Please note - working with data is not a linear process. Above you see a potential workflow. You will develop your own workflow and approach.  
 
@@ -149,7 +149,7 @@ lidar_chm_im
 
 ### What Classification Values to Use?
 
-There are many different approaches to classification. Some use highly sophisticated spatial algorithms that identify patterns in the data that can in turn be used to classify particular pixels into particular "classes".
+There are many different approaches to classification. Some use highly sophisticated spatial algorithms that identify patterns in the data that can in turn be used to classify particular pixels into particular "classes". 
 
 In this case, you are simply going to create the classes manually using the range of quantitative values found in our data.
 
@@ -176,7 +176,7 @@ print('CHM max value:', lidar_chm_im.max())
 
 
 
-### Get to Know Raster Summary Statistics
+### Get to Know Raster Summary Statistics 
 
 Get to know your data by looking at a histogram. A histogram quantifies
 the distribution of values found in your data.
@@ -208,7 +208,7 @@ plt.show()
 
 ### Explore Raster Histograms
 
-Further explore your histogram, by constraining the x axis limits using the `xlim` and `ylim` parameters.
+Further explore your histogram, by constraining the x axis limits using the `xlim` and `ylim` parameters. 
 
 These lim parameters visually zooms in on the data in the plot. It does not modify the data.
 
@@ -248,7 +248,7 @@ plt.show()
 
 
 
-You can look at the values that **Python** used to draw your histogram, too.
+You can look at the values that **Python** used to draw your histogram, too. 
 
 To do this, you can collect the outputs that are returned when you call `np.histogram`. This consists of two things:
 
@@ -260,7 +260,7 @@ To do this, you can collect the outputs that are returned when you call `np.hist
 ```python
 # Get counts and bins
 counts, bins = np.histogram(lidar_chm_im,
-                            bins=50,
+                            bins=50, 
                             range=xlim)
 
 print("counts:", counts)
@@ -281,16 +281,16 @@ print("bins:", bins)
 
 
 
-Each bin represents a bar on your histogram plot. Each bar represents the frequency or number of pixels that have a value within that bin.
+Each bin represents a bar on your histogram plot. Each bar represents the frequency or number of pixels that have a value within that bin. 
 
 Notice that you have adjusted the `xlim` and `ylim` to zoom into the region of the histogram that you are interested in exploring; however, the values did not actually change.
 
 
 ### Histogram with Custom Breaks
 
-Next, customize your histogram with breaks that you think might make sense as breaks to use for your raster map.
+Next, customize your histogram with breaks that you think might make sense as breaks to use for your raster map. 
 
-In the example below, breaks are added in 5 meter increments using the `bins =` argument.
+In the example below, breaks are added in 5 meter increments using the `bins =` argument. 
 
 `bins=[0, 5, 10, 15, 20, 30]`
 
@@ -300,7 +300,7 @@ In the example below, breaks are added in 5 meter increments using the `bins =` 
 ep.hist(lidar_chm_im.ravel(),
         bins=[0, 5, 10, 15, 20, 30],
         title="Histogram with Custom Breaks",
-        xlabel="Height (m)",
+        xlabel="Height (m)", 
         ylabel="Number of Pixels")
 
 plt.show()
@@ -319,9 +319,9 @@ plt.show()
 
 
 
-You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0.
+You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0. 
 
-In the case of this lidar instrument, you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed).
+In the case of this lidar instrument, you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed). 
 
 Below you create a bin between 0-2.
 
@@ -363,7 +363,7 @@ You may want to play around with the setting specific bins associated with your 
 
 ## Map Raster Values to New Values
 
-To reclassify your raster, first you need to create a reclassification matrix.
+To reclassify your raster, first you need to create a reclassification matrix. 
 
 This matrix **MAPS** a range of values to a new defined value. You will use this matrix to create a classified
 canopy height model where you designate short, medium and tall trees.
@@ -396,10 +396,10 @@ Below you create the matrix.
 
 **Numpy** has a function called `digitize` that is useful for classifying the values in an array. It is similar to how `histogram` works, because it categorizes datapoints into bins. However, unlike `histogram`, it doesn't aggregate/count the number of values within each bin.
 
-Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges.
+Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges. 
 
 When you use `np.digitize`, the bins that you create work as follows:
-* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if you want the second value in the bin to be included but not the first.
+* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if you want the second value in the bin to be included but not the first. 
 * Any values BELOW the bins as defined will be assigned a `0`. Any values ABOVE the highest value in your bins will be assigned the next value available. Thus, if you have:
 
 `class_bins = [0, 2, 7, 12, 30]`
@@ -408,7 +408,7 @@ Any values that are equal to 30 or larger will be assigned a value of `5`. Any v
 
 Oftentimes, you can use `np.inf` in your array to include all values greater than the last value, and you can use `-np.inf` in your array to include all values less than the first value.
 
-However, if you are using the class bins for a `BoundaryNorm` object for a plot,`np.inf` will throw an error in **matplotlib**. The `BoundaryNorm` object cannot handle an infinity value, so you must supply it with an actual integer.
+However, if you are using the class bins for a `BoundaryNorm` object for a plot,`np.inf` will throw an error in **matplotlib**. The `BoundaryNorm` object cannot handle an infinity value, so you must supply it with an actual integer. 
 
 A good stand in for `np.inf` is the maximum value numpy can store as an integer, which can be accessed by using `np.iinfo(np.int32).max`. This will have the same effect as `np.inf` without breaking the `BoundaryNorm` object.
 
@@ -431,7 +431,7 @@ lidar_chm_im.fill_value
 
 
 
-Below you define 4 bins. However, you end up with a `fifth class == 0` which represents values smaller than `0` which is the minimum value in your chm.
+Below you define 4 bins. However, you end up with a `fifth class == 0` which represents values smaller than `0` which is the minimum value in your chm. 
 
 These values < 0 come from the **numpy** mask fill value which you can see identified above this text.
 
@@ -468,7 +468,7 @@ type(lidar_chm_im_class)
 
 
 
-After running the classification, you have one extra class. This class - the first class - is your missing data value. Your classified array output is also a regular (not a masked) array.
+After running the classification, you have one extra class. This class - the first class - is your missing data value. Your classified array output is also a regular (not a masked) array. 
 
 You can reassign the first class in your data to a mask using `np.ma.masked_where()`.
 
@@ -508,7 +508,7 @@ lidar_chm_class_ma
 
 
 
-Below you plot the data.
+Below you plot the data. 
 
 {:.input}
 ```python
@@ -597,9 +597,9 @@ There are a few tricky pieces to creating a custom legend.
 
 `height_class_labels = ["Short trees", "Less short trees", "Medium trees", "Tall trees"]`
 
-This represents the text that will appear in your legend.
+This represents the text that will appear in your legend. 
 
-2. Next you create the colormap from a list of colors.
+2. Next you create the colormap from a list of colors. 
 
 This code: `colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']` creates the color list.
 

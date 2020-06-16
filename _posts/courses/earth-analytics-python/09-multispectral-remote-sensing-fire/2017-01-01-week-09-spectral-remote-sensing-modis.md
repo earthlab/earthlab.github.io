@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/
-modified: 2020-04-01
+modified: 2020-04-07
 week-landing: 9
 week: 9
 sidebar:

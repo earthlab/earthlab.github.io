@@ -2,7 +2,7 @@
 layout: single
 title: 'Using R and Python in the same Jupyter notebook'
 date: 2016-06-28
-modified: 2020-04-08
+modified: 2020-04-20
 authors: [Matt Oakley]
 category: [tutorials]
 excerpt: 'This tutorial shows how to use rpy2 in a Jupyter notebook to run both R and Python.'
