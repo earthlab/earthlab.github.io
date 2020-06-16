@@ -4,13 +4,13 @@ title: "The Relationship Between Precipitation and Stream Discharge | Explore Ma
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-06-15
+modified: 2020-06-16
 category: [courses]
-class-lesson: ['time-series-python-tb']
+class-lesson: ['ts-flood-return-python']
 course: 'intermediate-earth-data-science-textbook'
 week: 1
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/precipitation-discharge-mass-balance/
-nav-title: 'Cumulative Sums in Pandas (Optional)'
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/
+nav-title: 'Cumulative Sums in Pandas'
 sidebar:
   nav:
 author_profile: false
@@ -22,6 +22,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
   - "/courses/use-data-open-source-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/precipitation-discharge-mass-balance/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -101,8 +102,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-06-15T15:17:35.373Z', 'title': 'requestDT'},
-        {'value': '57697bd0-af1b-11ea-85fd-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-06-16T15:49:04.868Z', 'title': 'requestDT'},
+        {'value': 'e80d2330-afe8-11ea-85fd-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -141,9 +142,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '64.6',
+        'values': [{'value': [{'value': '97.7',
             'qualifiers': ['P'],
-            'dateTime': '2020-06-14T00:00:00.000'}],
+            'dateTime': '2020-06-15T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -381,7 +382,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_9_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-02-cumulative-sum-mass-balance/2019-11-19-time-series-02-cumulative-sum-mass-balance_9_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
 <figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
 
 </figure>
@@ -578,7 +579,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-06-cumulative-sum-mass-balance/2019-11-19-time-series-06-cumulative-sum-mass-balance_16_0.png" alt = "Cumulative sum plot for stream discharge.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-02-cumulative-sum-mass-balance/2019-11-19-time-series-02-cumulative-sum-mass-balance_16_0.png" alt = "Cumulative sum plot for stream discharge.">
 <figcaption>Cumulative sum plot for stream discharge.</figcaption>
 
 </figure>

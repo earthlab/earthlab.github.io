@@ -4,7 +4,7 @@ title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Prob
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-06-15
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['ts-flood-return-python']
 course: 'intermediate-earth-data-science-textbook'
@@ -257,8 +257,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-06-15T15:17:15.938Z', 'title': 'requestDT'},
-        {'value': '4bd3c910-af1b-11ea-b630-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-06-16T15:48:46.508Z', 'title': 'requestDT'},
+        {'value': 'dd1b9fb0-afe8-11ea-b630-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'vaas01', 'title': 'server'}]},
@@ -297,9 +297,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '64.6',
+        'values': [{'value': [{'value': '97.7',
             'qualifiers': ['P'],
-            'dateTime': '2020-06-14T00:00:00.000'}],
+            'dateTime': '2020-06-15T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -579,7 +579,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-05-exceedance-probability-and-return-periods/2019-11-19-time-series-05-exceedance-probability-and-return-periods_19_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-01-exceedance-probability-and-return-periods/2019-11-19-time-series-01-exceedance-probability-and-return-periods_19_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
 <figcaption>Stream Discharge for the longmont USGS stream gage from 1946-2017</figcaption>
 
 </figure>
@@ -714,7 +714,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7f7b8caba750>)
+     <http.client.HTTPMessage at 0x7fc2fc2f2f10>)
 
 
 
@@ -972,7 +972,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-05-exceedance-probability-and-return-periods/2019-11-19-time-series-05-exceedance-probability-and-return-periods_35_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-01-exceedance-probability-and-return-periods/2019-11-19-time-series-01-exceedance-probability-and-return-periods_35_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
 <figcaption>Annual maxima data compared - USGS product vs daily value calculated.</figcaption>
 
 </figure>
@@ -1022,7 +1022,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-05-exceedance-probability-and-return-periods/2019-11-19-time-series-05-exceedance-probability-and-return-periods_41_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-01-exceedance-probability-and-return-periods/2019-11-19-time-series-01-exceedance-probability-and-return-periods_41_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
 <figcaption>Bar plot showing the difference between the USGS max product and the calculated annual max.</figcaption>
 
 </figure>
@@ -1356,7 +1356,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-05-exceedance-probability-and-return-periods/2019-11-19-time-series-05-exceedance-probability-and-return-periods_54_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-01-exceedance-probability-and-return-periods/2019-11-19-time-series-01-exceedance-probability-and-return-periods_54_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
 <figcaption>Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
@@ -1402,7 +1402,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-05-exceedance-probability-and-return-periods/2019-11-19-time-series-05-exceedance-probability-and-return-periods_56_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/02-flood-data-analysis/2019-11-19-time-series-01-exceedance-probability-and-return-periods/2019-11-19-time-series-01-exceedance-probability-and-return-periods_56_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
 <figcaption>Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
