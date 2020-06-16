@@ -2,14 +2,14 @@
 layout: single
 title: "Summary Activity for Time Series Data"
 excerpt: "An activity to practice all of the skills you just learned in ."
-authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey', 'Nathan Korinek']
+authors: ['Leah Wasser', 'Nathan Korinek']
 modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 week: 1
 permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/time-series-exercise/
-nav-title: 'Time Series Exercise'
+nav-title: 'Time Series Challenges'
 sidebar:
   nav:
 author_profile: false
@@ -23,9 +23,9 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-## Earth Science Time Series Exercises 
+## Test Your Skills - Time Series Data In Python Using Pandas 
 
-Now that you have learned how to open and manipulate time series data in **Python**, you can complete the activites below to reaffirm your skills.
+Now that you have learned how to open and manipulate time series data in **Python**, it's time to test your skills. Complete the activities below.
 </div>
 
 {:.input}
@@ -62,27 +62,55 @@ data = et.data.get_data('colorado-flood')
 {:.input}
 ```python
 # Set working directory
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 
 # Define relative path to file with daily discharge data
-file_path = os.path.join("data", "colorado-flood",
-                         "discharge", "06730200-discharge-daily-1986-2013.csv")
+stream_discharge_path = os.path.join("colorado-flood",
+                                     "discharge",
+                                     "06730200-discharge-daily-1986-2013.csv")
 ```
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Open a CSV with Time Series Data and Plot the Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Read a CSV file
 
-The code above give you a path to daily discharge measurments taken by U.S. Geological Survey from 1986 to 2013 at Boulder Creek. Using **pandas**, do the following with the data:
+Before we open a file in **python**, it can be good to look at the data contained in the file. Open up the folder that was downloaded above (should be in your home directory under `earth-analytics/data/colorado-flood/discharge`. In that folder you'll see three files, `README_dischargeMetadata.rtf`, `06730200-discharge-daily-1986-2013.csv`, and `06730200-discharge-daily-1986-2013.txt`. Between these files, you should be able to find out a lot of information. Open these files in any text editor and read the data in them, and use the data to answer the following questions:
+
+
+1. What is the delimiter used in `06730200-discharge-daily-1986-2013.csv`?
+2. What are the units for stream discharge in the data?
+3. Where was this data collected?
+4. What is the frequency of the data collection (day, week, month)?
+5. What does each number represent in the data (a single observation, minimum value, max value or mean value)?
+
+Write down your answers in the cell below as a comment.
+
+
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Open a CSV with Time Series Data and Plot the Data
+
+The code above creates a path (`stream_discharge_path`) to open daily stream 
+discharge measurements taken by U.S. Geological Survey from 1986 to 2013 at 
+Boulder Creek in Boulder, Colorado. Using **pandas**, do the following with the data:
 
 1. Read the data into **Python** as a **pandas** `DataFrame`. 
 2. Parse the dates in the `datetime` column of the **pandas** `DataFrame`.
 3. Set the `datetime` as the index for your `DataFrame`.
-4. Plot the newly opened data with `matplotlib`. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
+4. Plot the newly opened data with **matplotlib**. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
 5. Give your plot a title and label the axes.
 
-If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/) for more information.
+If you need a refresher on how to plot time series data, check out [this lesson on working with time series data in Pandas.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/).
+
+Once you have created your plot, answer the following questions.
+
+1. What is the max value for stream charge in the data? One what date did that value occur?
+2. Consider the entire dataset. Do you see any patterns of stream discharge values in the data?
 </div>
+
+Your final plot should look like the plot below. 
 
 
 
@@ -91,7 +119,7 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_7_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_9_0.png">
 
 </figure>
 
@@ -100,14 +128,16 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Subset the Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Subset the Data
 
 Since we are mostly interested in the flood data in 2013, we can focus in more closely on that data. Let's focus on the months around the event. Do the following: 
 1. Subset the data to be just the discharge data from August 1st, 2013 until October 10th, 2013
-2. Plot the newly subset data with `matplotlib`. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
+2. Plot the newly subset data with **matplotlib**. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
 3. Give your plot a title and label the axes.
+4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
+5. Make the x-axis week ticks only show up for every other week. 
 
-If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/) for more information.
+If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/) for more information regarding sub-setting **pandas** `DataFrames`, and [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/) for more information about customizing your date ticks in **matplotlib**. 
 </div>
 
 
@@ -117,7 +147,7 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_10_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_12_0.png">
 
 </figure>
 
@@ -126,16 +156,17 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Resample the Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Resample the Data
 
 Daily data might be to much information for this chart. Let's summarize the data by week and see if there's more clarity. Additionally, let's clean up the dates formatting on the x-axis. Do the following: 
 
 1. Resample your dataframe that you made for the 3 months of data to be the maximum value by week. 
 2. Plot the newly resampled data with `matplotlib`. Give your plot a title and label the axes.
-3. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
-4. Make the x-axis week ticks only show up for every other week. 
+3. Make your plot a scatter plot to better demonstrate the data.
+4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
+5. Make the x-axis week ticks only show up for every other week. 
 
-If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/) for more information regarding resampling your data, and [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/) for more customizing your date ticks. 
+If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/) for more information regarding resampling your data.
 </div>
 
 
@@ -145,7 +176,7 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_13_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_15_0.png">
 
 </figure>
 
@@ -154,7 +185,7 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Compare Two Months Side by Side
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 5: Compare Two Months Side by Side
 
 The weekly data didn't seem to be very informative, so let's use the daily data once again. In order to see how significant these discharge levels are, create a plot comparing these levels to the levels seen 10 years ago during the same months. Do the following: 
 
@@ -164,7 +195,7 @@ The weekly data didn't seem to be very informative, so let's use the daily data 
 4. You may have noticed empty space on either side of the data in your previous plot. Use `ax.set_xlim()` to set the x limits of your plot to the minimum and maximum date values in each of your subset datasets. 
 5. Format the dates on the x-axis so they only show the month and the day. Angle the dates to increase legibility as well. 
 6. Make the x-axis week ticks only show up for every other week. 
-7. Use plt.tight_layout() to ensure your plots don't overlap each other. 
+7. Use `plt.tight_layout()` to ensure your plots don't overlap each other. 
 
 </div>
 
@@ -175,7 +206,7 @@ The weekly data didn't seem to be very informative, so let's use the daily data 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_16_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_18_0.png">
 
 </figure>
 
@@ -222,7 +253,38 @@ Once you have the data into a **pandas** `DataFrame` using the code above, perfo
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_19_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_21_0.png">
+
+</figure>
+
+
+
+
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2: Plotting Precipitation and Discharge Side by Side 
+
+For this challenge, you will open up the precipitation dataset also found in the `colorado-flood` download, and plot it side by side with discharge to see how they interact. For this challenge, you need to:
+
+1. Open the precipitation data in Pandas (the path is provided for you).
+2. Parse the date column ("DATE") and set it as the index.
+3. Set the `na_values` to `999.99`. 
+4. Subset the data to just be for the year 2013. 
+5. Subset the stream discharge data to be for the year 2013.
+6. Resample the discharge datset to be the weekly maximum values instead of daily. 
+7. Resample the precipitation datset to be the weekly sum of all values instead of hourly. 
+8. Plot the precipitation data and the discharge data side by side so we can see how the two compare. Use scatter plots. 
+9. Format your plots are we were doing before so they look good. Date formatting is up to you!
+</div>
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_24_0.png">
 
 </figure>
 
