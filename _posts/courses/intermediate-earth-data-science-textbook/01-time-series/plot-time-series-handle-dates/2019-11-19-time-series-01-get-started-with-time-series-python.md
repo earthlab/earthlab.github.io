@@ -13,7 +13,7 @@ module-description: 'Python provides a datetime object for storing and working w
 module-nav-title: 'Time Series Data in Pandas'
 module-title: 'Use Time Series Data in Python With Pandas'
 module-type: 'class'
-nav-title: 'Dates in Python'
+nav-title: 'Intro to Timeseries'
 chapter: 1
 week: 1
 sidebar:
@@ -129,6 +129,12 @@ data = et.data.get_data('colorado-flood')
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', "data"))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Next, open the precipitation data for Boulder, Colorado. Look at the structure
 of the data.
