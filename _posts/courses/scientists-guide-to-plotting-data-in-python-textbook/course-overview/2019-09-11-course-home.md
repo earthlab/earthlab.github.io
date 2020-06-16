@@ -2,15 +2,18 @@
 layout: single
 category: courses
 title: "Scientist's Guide to Plotting Data in Python Textbook | Earth Lab CU Boulder"
+authors: ['Leah Wasser', 'Jenny Palomino']
 nav-title: "Scientist's Guide to Plotting Data in Python Home"
 permalink: /courses/scientists-guide-to-plotting-data-in-python/
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 dateCreated: 2019-09-11
-modified: 2020-03-13
+modified: 2020-03-30
 module-type: 'overview'
 module-title: "Scientist's Guide to Plotting Data in Python Textbook"
 week-landing: 0
 week: 0
+estimated-time: "3+ hours"
+difficulty: "beginner"
 sidebar:
   nav:
 comments: false
