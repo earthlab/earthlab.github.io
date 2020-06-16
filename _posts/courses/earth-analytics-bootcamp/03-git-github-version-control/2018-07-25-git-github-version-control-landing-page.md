@@ -66,3 +66,4 @@ View Homework 1</a>
 
 The first homework (Homework 1) is due **Friday, August 10th at 8:00 AM (U.S. Mountain Daylight Time)**. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180810T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
 
+

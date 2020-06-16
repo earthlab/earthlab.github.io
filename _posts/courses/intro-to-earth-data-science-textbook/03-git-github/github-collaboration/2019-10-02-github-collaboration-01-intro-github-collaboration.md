@@ -129,8 +129,8 @@ chapter.
 
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
    <figcaption>In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request.  Source: Colin Williams, NEON
    </figcaption>
 </figure>

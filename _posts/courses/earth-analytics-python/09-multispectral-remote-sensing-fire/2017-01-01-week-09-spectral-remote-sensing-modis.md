@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/
-modified: 2020-03-18
+modified: 2020-04-01
 week-landing: 9
 week: 9
 sidebar:
@@ -90,7 +90,8 @@ Please read the articles below to prepare for next week's class.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_21_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_21_0.png" alt = "Landsat and MODIS NDVI Normalized Difference from before and after the Cold Springs fire.">
+<figcaption>Landsat and MODIS NDVI Normalized Difference from before and after the Cold Springs fire.</figcaption>
 
 </figure>
 

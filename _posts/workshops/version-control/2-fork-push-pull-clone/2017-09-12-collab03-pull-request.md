@@ -6,7 +6,7 @@ title: 'Submit a pull request on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to create and submit a pull request to another repo.'
 dateCreated: 2017-09-12
-modified: '2019-09-03'
+modified: '2020-01-13'
 nav-title: 'Create pull requests'
 sidebar:
   nav:
@@ -54,10 +54,10 @@ edits are included in another (the central Earth Lab) repo.
 
 
 <figure class="half">
-	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" alt="LEFT: You will fork and clone a repo ONCE." width="70%"></a>
-	<a href="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png" alt="RIGHT: After you have forked and cloned a repo, you will update your fork from the central repository using a Pull Request. You will update your local copy of the repo (on your computer) using git pull. Notice that the workflow is similar in both images above, however the commands are different the first time you setup your repo in your GitHub account and on your local computer!" width="70%"></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-clone-flow.png" alt="LEFT: You will fork and clone a repo ONCE." width="70%"></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow.png" alt="RIGHT: After you have forked and cloned a repo, you will update your fork from the central repository using a Pull Request. You will update your local copy of the repo (on your computer) using git pull. Notice that the workflow is similar in both images above, however the commands are different the first time you setup your repo in your GitHub account and on your local computer!" width="70%"></a>
 	<figcaption>LEFT: You will fork and clone a repo <strong> ONCE </strong>. RIGHT: After you have forked
 	and cloned a repo, you will update your fork from the central repository using
 	a <strong> Pull Request.</strong> You will update your local copy of the repo
@@ -71,8 +71,8 @@ edits are included in another (the central Earth Lab) repo.
 
 
 <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/git-push-pr.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-push-pr.png" alt ="LEFT: To sync changes made and committed locally on your computer, to your github account, you push the changes from your computer to your fork on GitHub RIGHT: TO suggest changes to another repo, you submit a Pull Request to update the central repository."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png" alt ="LEFT: To sync changes made and committed locally on your computer, to your github account, you push the changes from your computer to your fork on GitHub RIGHT: TO suggest changes to another repo, you submit a Pull Request to update the central repository."></a>
 	<figcaption>LEFT: To sync changes made and committed locally on your computer,
   to your github account, you  <strong> push </strong> the changes from your
 	computer to your fork on GitHub RIGHT: TO suggest changes to another repo,
@@ -118,8 +118,8 @@ The changes, additions, and subtractions are shown in green and red.
 To begin a pull request (PR), click the pull request button on the main repo page.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/github-submit-pull-request.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-submit-pull-request.png" alt="Location of the Pull Request button on the earthLab/14ers-git repo."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request.png" alt="Location of the Pull Request button on the earthLab/14ers-git repo."></a>
 	<figcaption> Location of the Pull Request button on the earthLab/14ers-git repo.
 	</figcaption>
 </figure>
@@ -161,8 +161,8 @@ of the differences (diffs) between the files. Look over the changes and make sur
 nothing looks surprising.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/github-pull-request-diff.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-pull-request-diff.png" alt="Location of the Pull Request button on the earthLab/14ers-git repo."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-pull-request-diff.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-pull-request-diff.png" alt="Location of the Pull Request button on the earthLab/14ers-git repo."></a>
 	<figcaption> This screenshot shows the differences between the files on Earth Lab's
   version of the 14ers repo in red and your copy of the repo in green.
   Deletions are highlighted in red and additions
@@ -182,8 +182,8 @@ Give your pull request a title and write a brief description of your changes.
 When you’re done with your message, click "Create Pull Request".
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/github-submit-pull-request-title.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-submit-pull-request-title.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request-title.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request-title.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box."></a>
 	<figcaption> Pull request titles should be concise and descriptive of
 	the content in the pull request. More detailed notes can be left in the comments
 	box.
@@ -280,10 +280,10 @@ occurs when two users edit the same part of a file at the same time. Git cannot
 automatically determine which edit should be in the most current copy. Hence the conflict.
 
 <figure>
-	<a href="https://developer.atlassian.com/blog/2015/01/a-better-pull-request/merge-conflict.png">
-	<img src="https://developer.atlassian.com/blog/2015/01/a-better-pull-request/merge-conflict.png" alt="Merge conflicts occur when the same part of a script or document has been changed simultaneously."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-conflict.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-conflict.png" alt="Merge conflicts occur when the same part of a script or document has been changed simultaneously."></a>
 	<figcaption> Merge conflicts occur when the same part of a script or
-	document has been changed simultaneously. Source: Atlassian
+	document has been changed simultaneously. Source: <a href="https://developer.atlassian.com/blog/2015/01/a-better-pull-request/merge-conflict.png" target="_blank"> Atlassian </a>
 	</figcaption>
 </figure>
 

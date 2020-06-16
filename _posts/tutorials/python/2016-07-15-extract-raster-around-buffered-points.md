@@ -2,10 +2,12 @@
 layout: single
 title: 'Computing raster statistics around buffered spatial points Python'
 date: 2016-07-15
-modified: 2019-09-03
+modified: 2020-04-08
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute raster statistics like the mean and variance around buffered spatial points in Python.'
+estimated-time: "20-30 minutes"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
@@ -55,7 +57,7 @@ Our first objective is to read in the data that we want to use. We'll be working
 
 {:.input}
 ```python
-!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6
+!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6 
 ```
 
 {:.output}
@@ -66,17 +68,17 @@ Our first objective is to read in the data that we want to use. We'll be working
     curl -s -o spool/N41/N41W122.hgt.gz.temp https://s3.amazonaws.com/elevation-tiles-prod/skadi/N41/N41W122.hgt.gz && mv spool/N41/N41W122.hgt.gz.temp spool/N41/N41W122.hgt.gz
     gunzip spool/N41/N41W122.hgt.gz 2>/dev/null || touch spool/N41/N41W122.hgt
     gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 spool/N41/N41W122.hgt cache/N41/N41W122.tif 2>/dev/null || touch cache/N41/N41W122.tif
-    rm spool/N41/N41W122.hgt spool/N41/N41W123.hgt
+    rm spool/N41/N41W123.hgt spool/N41/N41W122.hgt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W122.tif cache/N41/N41W123.tif
+    gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W123.tif cache/N41/N41W122.tif
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt
+    cp SRTM1.vrt SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
@@ -142,7 +144,7 @@ print(prj)
 ```
 
 {:.output}
-    GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]]
+    GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]
 
 
 
@@ -169,13 +171,13 @@ coords
 
 
 
-    Location(Mount Shasta, Siskiyou County, California, USA, (41.4091897, -122.1949533, 0.0))
+    Location(Mount Shasta, Siskiyou County, California, United States of America, (41.4091897, -122.1949533, 0.0))
 
 
 
 
 
-Next, we need to find the row and column index for our point, which is currently defined as a latitude/longitidue tuple.
+Next, we need to find the row and column index for our point, which is currently defined as a latitude/longitidue tuple. 
 
 {:.input}
 ```python
@@ -191,7 +193,7 @@ def get_coords_at_point(rasterfile, pos):
 
 radius = 60 # in units of pixels
 
-row, col = get_coords_at_point(filename, pos = coords[1])
+row, col = get_coords_at_point(filename, pos = coords[1]) 
 circle = (row, col, radius)
 ```
 
@@ -201,17 +203,17 @@ circle = (row, col, radius)
 def points_in_circle(circle, arr):
     buffer_points = []
     i0, j0, r = circle
-
+    
     def int_ceiling(x):
         return int(np.ceil(x))
-
+    
     for i in range(int_ceiling(i0 - r), int_ceiling(i0 + r)):
         ri = np.sqrt(r**2 - (i - i0)**2)
-
+        
         for j in range(int_ceiling(j0 - ri), int_ceiling(j0 + ri)):
             buffer_points.append(arr[i][j])
             arr[i][j] = np.nan
-
+    
     return buffer_points
 
 buffer_points = points_in_circle(circle, data_array)
@@ -257,3 +259,6 @@ print("Variance: %.2f" % variance)
     Mean: 3746.62
     Standard Deviation: 231.50
     Variance: 53592.80
+
+
+

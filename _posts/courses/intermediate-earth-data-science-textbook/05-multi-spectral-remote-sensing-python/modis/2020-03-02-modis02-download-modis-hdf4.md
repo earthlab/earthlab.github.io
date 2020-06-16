@@ -1,13 +1,13 @@
 ---
 layout: single
 title: "Find and Download MODIS Data From the USGS Earth Explorer Website"
-excerpt: "Learn how to find and download MODIS imagery from the USGS Earth Explorer website."
+excerpt: "Learn how to find and download MODIS data from the USGS Earth Explorer website."
 authors: ['Nathan Korinek', 'Leah Wasser', 'Jenny Palomino']
 dateCreated: 2020-03-01
-modified: 2020-03-16
+modified: 2020-04-07
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
-permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/download-hdf4-data
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/modis-data-in-python/download-modis-hdf4-data/
 nav-title: 'Get MODIS data'
 week: 5
 course: "intermediate-earth-data-science-textbook"
@@ -20,6 +20,8 @@ topics:
   remote-sensing: ['modis']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
+redirect_from:
+  - "/courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/download-hdf4-data"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
