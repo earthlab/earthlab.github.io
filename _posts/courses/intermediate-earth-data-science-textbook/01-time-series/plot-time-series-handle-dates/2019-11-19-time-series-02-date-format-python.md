@@ -29,12 +29,6 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter One - Introduction to Time Series Data in Python 
-
-
-In this chapter, you will learn how to work with the `datetime` object in **Python**, which is important for plotting and working with time series data. You will also learn how to work with "no data" values in **Python**. 
-
-
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this chapter, you will be able to:
@@ -43,15 +37,6 @@ After completing this chapter, you will be able to:
 * Use the `datetime` object to create easier-to-read time series plots and work with data across various timeframes (e.g. daily, monthly, yearly) in **Python**.
 * Explain the role of "no data" values and how the `NaN` value is used in **Python** to label "no data" values.
 * Set a "no data" value for a file when you import it into a **pandas** dataframe. 
-
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You should have Conda setup on your computer and the Earth Analytics Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
-
-Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook</a> or are familiar with the **Python** programming language and the **pandas** package for working with dataframes. 
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
