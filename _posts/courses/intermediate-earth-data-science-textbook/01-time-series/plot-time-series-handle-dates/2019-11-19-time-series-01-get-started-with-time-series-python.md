@@ -1139,12 +1139,13 @@ span across specific dates of the year - like this:
 
 `data_frame_name['2005-05-01':'2005-06-31']`
 
-In the cell below create a *bar plot** of your precipitation data. 
+In the cell below create a **scatter plot** of your precipitation data. 
 Subset the data to the date range September 1, 2013 (2013-09-01) to
 November 1, 2013 (2013-11-01).
 
+OPTIONAL -- <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/">use this lesson on customing the format of time ticks on the 
+x-axis of a plot to adjust the xaxis to be </a>
 
-`ax.bar()`
 </div>
 
 
@@ -1154,6 +1155,39 @@ November 1, 2013 (2013-11-01).
 <figure>
 
 <img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_38_0.png">
+
+</figure>
+
+
+
+
+{:.input}
+```python
+from matplotlib.dates import DateFormatter
+
+# Place your code to plot your data here
+flood_data = boulder_precip_2003_2013['2013-09-01':'2013-11-01']
+
+f, ax = plt.subplots(figsize=(10,6))
+
+ax.scatter(x=flood_data.index.values,
+       y=flood_data["HPCP"])
+
+# Define the date format
+date_form = DateFormatter("%m-%d")
+ax.xaxis.set_major_formatter(date_form)
+ax.set(title="Challenge 3 Optional \n Precipitation Sept - Nov 2013 \n Optional Plot with Dates Formatted Cleanly")
+plt.show()
+
+
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_39_0.png">
 
 </figure>
 
