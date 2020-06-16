@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-15
+modified: 2020-06-16
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -36,7 +36,9 @@ redirect_from:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter One - Introduction to Time Series Data in Python 
 
-In this chapter, you will learn how to work with the `datetime` object in **Python** which you need for plotting and working with time series data. You will also learn how to work with "no data" values in **Python**.
+In this chapter, you will learn how to work with the `datetime` object in 
+**Python** which you need for plotting and working with time series data. 
+You will also learn how to work with "no data" values in **Python**.
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -51,9 +53,11 @@ After completing this chapter, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You should have Conda setup on your computer and the Earth Analytics Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
+You should have Conda setup on your computer and the Earth Analytics 
+Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
 
-Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook</a> or are familiar with the **Python** programming language and the **pandas** package for working with dataframes. 
+Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook</a> or are familiar with the **Python** programming 
+language and the **pandas** package for working with dataframes. 
 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
@@ -62,9 +66,16 @@ Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-eart
 
 ## Why Use Datetime Objects in Python
 
-Dates can be tricky in any programming language. While you may see a date in a dataset and recognize it as something that can be quantified and related to time, a computer reads in numbers and characters. Often by default, date information is loaded as a string (i.e. a set of characters), rather than something that has an order in time. 
+Dates can be tricky in any programming language. While you may 
+see a date in a dataset and recognize it as something that can 
+be quantified and related to time, a computer reads in numbers 
+and characters. Often by default, date information is loaded 
+as a string (i.e. a set of characters), rather than something 
+that has an order in time. 
 
-The **Python** `datetime` object will make working with and plotting time series data easier. You can convert **pandas** dataframe columns containing dates and times as strings into `datetime` objects.
+The **Python** `datetime` object will make working with and plotting 
+time series data easier. You can convert **pandas** dataframe 
+columns containing dates and times as strings into `datetime` objects.
 
 Below, you will find a quick introduction to working with and 
 plotting time series data using Pandas. The following pages in 
@@ -85,7 +96,6 @@ import seaborn as sns
 import pandas as pd
 import earthpy as et
 
-# commenting out to see if still needed
 # Handle date time conversions between pandas and matplotlib
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
@@ -103,7 +113,14 @@ which is a `.csv` file that contains precipitation data for
 Boulder, Colorado for 2003 to 2013 when the flood occurred 
 in Colorado.
 
-# TODO: Add link to flood data story here and about the data?
+<div class="notice--success alert alert-info">
+    
+<i class="fa fa-star"></i> **Data Tip:**
+You can read more about the data used in this lesson in the 
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/colorado-floods-2013/how-rain-impacts-floods/">data story 
+the discusses the Colorado flood.</a>   
+</div>
+
 
 {:.input}
 ```python
@@ -120,7 +137,8 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', "data"))
 
 
 
-Next, open the precipitation data for Boulder, Colorado. 
+Next, open the precipitation data for Boulder, Colorado. Look at the structure
+of the data.
 
 {:.input}
 ```python
@@ -237,7 +255,7 @@ boulder_precip_2003_2013.head()
 
 
 
-Next, plot the data using the `DAILY_PRECIP` column. What do you notice about 
+Plot the data using the `DAILY_PRECIP` column. What do you notice about 
 the plot?
 
 {:.input}
@@ -279,7 +297,7 @@ HINT: the next few cells may help you explore the data to better understand
 what is going on with it. 
 </div>
 
-
+*List your answers to the above questions in this cell*
 
 ### Time Series Data Cleaning & Exploration
 
@@ -341,8 +359,7 @@ You may have observed several anomalies in the data.
 1. The data seem to have a very large number - 999.99. More often than note, a value of 999 represents a no data value that needs to be removed from your data. 
 2. You may have noticed that your x axis date values in the plot look "messy". When you see an x-axis like this but you know your data are time series, it's most often caused by your datetime data not being read in properly as numeric date times. 
 
-You can address all of these issues using the following `read_csv()` parameters when you open
-up the `.csv` file:
+You can address all of these issues using the following `read_csv()` parameters:
 
 * `parse_dates=`: description here
 * `na_values=`: description here
@@ -586,9 +603,16 @@ values for the HPCP column are more reasonable for hourly
 precipitation ranging from 0 to 2.2.
 
 
-### Where Did the Date Column Go?
+### Using An Index In Pandas
 
-You may be wondering where the date column went.
+Above, you used `index_col=['DATE']` to get the date column to be an index for 
+the Pandas DataFrame. Assigning an index column is helpful when using timeseries 
+data as it allows you to easily subset your data by time (see below for an
+overview of subsetting data). 
+
+It is also important to know that once a column is an index, you need to call 
+it differently. For instance, below you run `.dtypes` on your data. Notice that 
+`DATE` is no longer a column described in your dataframe. 
 
 {:.input}
 ```python
@@ -651,6 +675,190 @@ boulder_precip_2003_2013.index
 
 
 
+You can also reset the index if you want it to turn it back into a normal
+column using `data-frame.reset_index()`
+
+{:.input}
+```python
+boulder_precip_2003_2013.reset_index()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DATE</th>
+      <th>STATION</th>
+      <th>STATION_NAME</th>
+      <th>ELEVATION</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>HPCP</th>
+      <th>Measurement Flag</th>
+      <th>Quality Flag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2003-01-01 01:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>0.0</td>
+      <td>g</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2003-02-01 01:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>0.0</td>
+      <td>g</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2003-02-02 19:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>0.2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2003-02-02 22:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>0.1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2003-02-03 02:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>0.1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1835</th>
+      <td>2013-12-22 01:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03380</td>
+      <td>-105.28110</td>
+      <td>NaN</td>
+      <td>[</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1836</th>
+      <td>2013-12-23 00:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03380</td>
+      <td>-105.28110</td>
+      <td>NaN</td>
+      <td>]</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1837</th>
+      <td>2013-12-23 02:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03380</td>
+      <td>-105.28110</td>
+      <td>0.1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1838</th>
+      <td>2013-12-29 01:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03380</td>
+      <td>-105.28110</td>
+      <td>NaN</td>
+      <td>[</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1839</th>
+      <td>2013-12-31 00:00:00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03380</td>
+      <td>-105.28110</td>
+      <td>NaN</td>
+      <td>]</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<p>1840 rows × 9 columns</p>
+</div>
+
+
+
+
+
 Now that you have cleaned up the data, you can plot it. Below, you use 
 `.plot()` to plot. If you have an index column, then `.plot()` will automatically
 select that column to plot on the x-axis. You then only need to specify the 
@@ -668,7 +876,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_24_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_26_0.png">
 
 </figure>
 
@@ -803,18 +1011,25 @@ precip_2005_clean = precip_2005.dropna()
 
 {:.input}
 ```python
-# Plot the data using pandas 
-precip_2005_clean.plot(y="HPCP",
-                  title = "Hourly Precipitation")
+# Plot the data using pandas
+precip_2005_clean.reset_index().plot(x="DATE",
+                                     y="HPCP",
+                                     title="Hourly Precipitation", 
+                                     kind="scatter")
 plt.show()
 ```
+
+{:.output}
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_28_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_30_1.png">
 
 </figure>
 
@@ -839,10 +1054,9 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_30_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_32_0.png">
 
 </figure>
-
 
 
 
@@ -852,17 +1066,23 @@ plt.show()
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
 
 If you recall from previous lessons, you can create a figure with
-multiple subplots using 
+multiple subplots using: 
 
 `f, (ax1, ax2) = plot.subplots(2,1)`
 
-In the cell below, plot data from 2012 and 2013 with 2012 on the top 
-and 2013 on the bottom.
+In the cell below, do the following
 
-Then answer the question
+1. Create a variable that contains precipitation data from 2012 and a second variable that contains data from 2013.
+2. Plot each variable on a subplot within a matplotlib figure. The 2012 data
+should be on the top of your figure and the 2013 data should be on the bottom.
+
+Then answer the following questions:
 
 1. In which year 2012 or 2013 do you see the highest hourly precipitation value(s)?
-2. What is that value?
+2. What is the max hourly precipitation value for each year? HINT: `data-frame.max()`
+should help you answer this question. 
+
+Customize your plots with x and y axis labels and titles. 
 </div>
 
 
@@ -872,7 +1092,7 @@ Then answer the question
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_33_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_34_0.png">
 
 </figure>
 
@@ -881,18 +1101,20 @@ Then answer the question
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge 2
 
-You can modify the x and y axis limits using 
+Have a look at the min and max values in your plots above. Do you notice 
+anything about the y-axis that may make the data look similar when in 
+reality one year has much higher values compared to the other?
+
+Recreate the same plot that you made above. However, this time set the 
+y limits of each plot to span from 0 to 2.
 
 `ax1.set(ylim=[0, 2])`
 
-set...y limits 
+Customize your plot by changing the colors.
 
-change the color of the plot ---
-add a title to each plot suing ax.set()
-
-then plot
+Add your plot code to the cell below. 
 </div>
 
 
@@ -901,7 +1123,7 @@ then plot
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_35_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_36_0.png">
 
 </figure>
 
@@ -910,14 +1132,38 @@ then plot
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge 3 - Data Subsets
 
-Subset the data for sept-nov 2013 and plot using
+Above you subsetted the data by year and plotted two years in the same figure.
+You can also create temporal subsets using dates to create subsets that 
+span across specific dates of the year - like this:
+
+`data_frame_name['2005-05-01':'2005-06-31']`
+
+In the cell below create a *bar plot** of your precipitation data. 
+Subset the data to the date range September 1, 2013 (2013-09-01) to
+November 1, 2013 (2013-11-01).
+
+
 `ax.bar()`
 </div>
 
-{:.input}
-```python
-# Place your code to plot your data here
 
-```
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-00-get-started-with-time-series-python/2019-11-19-time-series-00-get-started-with-time-series-python_38_0.png">
+
+</figure>
+
+
+
+
+## Summary
+
+This lesson provides a high level overview of working with dates using 
+Pandas in Python. The rest of this chapter will dive into more detail
+surrounding working with dates, subsettings and also customizing date time
+labels on plots. 
