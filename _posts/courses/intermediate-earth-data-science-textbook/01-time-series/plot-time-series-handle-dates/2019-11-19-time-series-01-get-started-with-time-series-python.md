@@ -1062,7 +1062,7 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1
 
 If you recall from previous lessons, you can create a figure with
 multiple subplots using: 
@@ -1100,7 +1100,7 @@ Customize your plots with x and y axis labels and titles.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge 2
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2
 
 Have a look at the min and max values in your plots above. Do you notice 
 anything about the y-axis that may make the data look similar when in 
@@ -1131,7 +1131,7 @@ Add your plot code to the cell below.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge 3 - Data Subsets
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3 - Data Subsets
 
 Above you subsetted the data by year and plotted two years in the same figure.
 You can also create temporal subsets using dates to create subsets that 
