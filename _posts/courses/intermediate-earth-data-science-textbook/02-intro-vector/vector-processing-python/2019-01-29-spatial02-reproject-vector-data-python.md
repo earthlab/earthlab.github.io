@@ -5,7 +5,7 @@ excerpt: "Often when spatial data do not line up properly on a plot, it is becau
 coordinate reference systems (CRS). Learn how to reproject a vector dataset to a different CRS in Python using the to_crs() function from GeoPandas."
 authors: ['Leah Wasser','Martha Morrissey','Chris Holdgraf']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/reproject-vector-data-in-python/
@@ -92,12 +92,6 @@ sns.set(font_scale=1.5)
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 Revisiting the challenge from a previous lesson, here are the two layers:
 Notice the CRS of each layer.

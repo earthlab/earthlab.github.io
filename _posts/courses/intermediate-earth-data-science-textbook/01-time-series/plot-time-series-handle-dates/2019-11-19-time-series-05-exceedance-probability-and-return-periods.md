@@ -4,7 +4,7 @@ title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Prob
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-30
+modified: 2020-04-07
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -245,8 +245,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-30T22:46:25.321Z', 'title': 'requestDT'},
-        {'value': '491a8a80-72d8-11ea-a38e-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-04-07T16:09:42.009Z', 'title': 'requestDT'},
+        {'value': '30875f80-78ea-11ea-9927-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'vaas01', 'title': 'server'}]},
@@ -285,9 +285,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '85.0',
+        'values': [{'value': [{'value': '57.5',
             'qualifiers': ['P'],
-            'dateTime': '2020-03-29T00:00:00.000'}],
+            'dateTime': '2020-04-06T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -702,7 +702,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7f294ad1f250>)
+     <http.client.HTTPMessage at 0x7fa9ca556390>)
 
 
 

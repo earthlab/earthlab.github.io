@@ -43,7 +43,6 @@ Be sure that you have also completed the lesson on <a href="{{ site.url }}/cours
 
 You will also need a web browser and your `Github.com` login (username and password). 
 
-
 </div>
 
 
@@ -62,9 +61,7 @@ In later lessons, you will expand on this version control workflow to notify oth
 
 ## Configure `Git` Settings On Your Computer:
 
-
 1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
-
 
 2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
 

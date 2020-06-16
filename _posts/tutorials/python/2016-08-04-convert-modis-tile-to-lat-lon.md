@@ -2,7 +2,7 @@
 layout: single
 title: 'Get Modis sinusoidal tile grid positions from latitude and longitude coordinates in Python'
 date: 2016-08-04
-modified: 2020-04-08
+modified: 2020-04-20
 authors: [Zach Schira]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates how to convert Modis sinusoidal tile grid positions to latitude and longitude in Python.'
@@ -43,16 +43,16 @@ MODIS provides a text file containing the range of latitude and longitude coordi
 ```
 
 {:.output}
-    --2020-04-08 17:57:27--  https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
+    --2020-04-20 16:13:39--  https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
     Resolving modis-land.gsfc.nasa.gov (modis-land.gsfc.nasa.gov)... 129.164.179.244, 2001:4d0:2310:150::244
     Connecting to modis-land.gsfc.nasa.gov (modis-land.gsfc.nasa.gov)|129.164.179.244|:443... connected.
     HTTP request sent, awaiting response... 200 OK
     Length: 32585 (32K) [text/plain]
     Saving to: ‘sn_bound_10deg.txt’
     
-    sn_bound_10deg.txt  100%[===================>]  31.82K  --.-KB/s    in 0.03s   
+    sn_bound_10deg.txt  100%[===================>]  31.82K  --.-KB/s    in 0.02s   
     
-    2020-04-08 17:57:27 (1004 KB/s) - ‘sn_bound_10deg.txt’ saved [32585/32585]
+    2020-04-20 16:13:39 (1.88 MB/s) - ‘sn_bound_10deg.txt’ saved [32585/32585]
     
 
 

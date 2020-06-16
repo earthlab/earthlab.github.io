@@ -4,7 +4,7 @@ title: "Clip a spatial vector layer in Python using Shapely & GeoPandas: GIS in 
 excerpt: "Sometimes you may want to spatially clip a vector data layer to a specified boundary for easier plotting and analysis of smaller spatial areas. Learn how to clip a vector data layer in Python using GeoPandas and Shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/clip-vector-data-in-python-geopandas-shapely/
