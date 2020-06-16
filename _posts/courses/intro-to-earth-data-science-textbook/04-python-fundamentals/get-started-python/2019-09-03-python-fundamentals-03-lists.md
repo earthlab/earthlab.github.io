@@ -2,7 +2,7 @@
 layout: single
 title: 'Lists in Python'
 excerpt: "A Python list is a data structure that stores a collection of values in a specified order (or sequence) and is mutable (or changeable). Learn how to create and work with lists in Python."
-authors: ['Jenny Palomino', 'Leah Wasser']
+authors: ['Jenny Palomino', 'Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/

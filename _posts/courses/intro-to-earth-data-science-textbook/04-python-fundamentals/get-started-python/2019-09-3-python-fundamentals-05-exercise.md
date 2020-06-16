@@ -2,7 +2,7 @@
 layout: single
 title: 'Python Fundamentals Exercise'
 excerpt: "Complete these exercises to practice the skills you learned in the Python fundamentals chapters."
-authors: ['Leah Wasser']
+authors: ['Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-fundamentals-exercises/
@@ -16,10 +16,18 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 topics:
   reproducible-science-and-programming: ['python']
 ---
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+This page of exercises will test the skills that you learned in the previous lessons in this chapter.
+
+</div>
 
 <div class="notice--warning" markdown="1">
 
