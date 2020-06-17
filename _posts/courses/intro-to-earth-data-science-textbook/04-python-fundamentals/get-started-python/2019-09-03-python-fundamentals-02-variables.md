@@ -2,7 +2,7 @@
 layout: single
 title: 'Variables in Python'
 excerpt: "Variables store data (i.e. information) that you want to re-use in your code (e.g. single numeric value, path to a directory or file). Learn how to to create and work with variables in Python."
-authors: ['Jenny Palomino', 'Leah Wasser']
+authors: ['Jenny Palomino', 'Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
@@ -114,7 +114,8 @@ underscore makes the variable name easier to read and follows **Python**
 
 <i class="fa fa-star"></i> **Data Tip:** Read more about expressive variable 
 names and clean code <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/expressive-variable-names-make-code-easier-to-read/">
-in this earth data science lesson.</a>
+in this earth data science lesson.</a> 
+{ .notice-success } 
 
 
 ### Variables Are Available In Your Coding Environment Once Defined 
@@ -191,6 +192,7 @@ decimal values (`float`).
 
 <i class="fa fa-star"></i> **Data Tip:** For more advanced math applications, you can also 
 use variables to work with <a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank">complex numbers (see Python documentation for more details)</a>.
+{: .notice--success}
 
 As described previously, you do not need to define which numeric type you want to 
 use to create a variable. For example, you can create a `int` variable called 
@@ -475,11 +477,7 @@ type(city)
 
 
 
-Checking the type for a variable can help you make sure that you understand what a variable contains and how it can be used. 
-
-For example, you can actually create a `str` variable that contain numbers if you use the syntax for creating a `str` variable (e.g. `variable_name = "value"`).
-
-Notice below that `city_precip` is still a `str`, even though it contains a number.
+Checking the type for a variable can help you make sure that you understand what a variable contains and how it can be used. For example, you can actually create a `str` variable that contain numbers if you use the syntax for creating a `str` variable (e.g. `variable_name = "value"`). Notice below that `city_precip` is still a `str`, even though it contains a number.
 
 {:.input}
 ```python

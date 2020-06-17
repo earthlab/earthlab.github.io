@@ -2,7 +2,7 @@
 layout: single
 title: 'Basic Operators in Python'
 excerpt: "Operators are symbols in Python that carry out a specific computation, or operation, such as arithmetic calculations. Learn how to use basic operators in Python."
-authors: ['Jenny Palomino', 'Leah Wasser']
+authors: ['Jenny Palomino', 'Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
@@ -784,7 +784,8 @@ Because of this, `list1 == list2` will return `True`, because their values are e
     
 However, if you make a list by assigning it to the old list, a.k.a `list1 = list2`, they will both have the memory address of `list1`, `140657632719088`. This is because you were not creating a new variable, and thus making a new memory address. 
 
-You were instead pointing to an old memory address when creating `list2`. Because of this, `list1 == list2` will return `True`, because their values are equal, AND `list1 is list2` will also return `True`, since they are stored at the same location.</div>
+You were instead pointing to an old memory address when creating `list2`. Because of this, `list1 == list2` will return `True`, because their values are equal, AND `list1 is list2` will also return `True`, since they are stored at the same location.
+</div>
 
 {:.input}
 ```python
@@ -893,7 +894,6 @@ is_the_same
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Test Your Knowledge 
 
 Below, there are variables assigned to the output of either relational, identity, membership, or logical operations. Currently, each operation is returning `False`. Modify the operations so that they will all return `True`.
-
 </div>
 
 {:.input}
