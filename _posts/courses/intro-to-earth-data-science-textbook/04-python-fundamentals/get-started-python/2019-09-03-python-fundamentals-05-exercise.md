@@ -186,7 +186,3 @@ For more information on loops and changing values within a list, you can check o
 
 </div>
 
-{:.input}
-```python
-boulder_precip_mm = [i * 25.4 for i in boulder_precip_inches]
-```
