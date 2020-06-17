@@ -3,7 +3,7 @@ layout: single
 title: "Summary Activity for Time Series Data"
 excerpt: "An activity to practice all of the skills you just learned in ."
 authors: ['Leah Wasser', 'Nathan Korinek']
-modified: 2020-06-16
+modified: 2020-06-17
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -74,9 +74,19 @@ stream_discharge_path = os.path.join("colorado-flood",
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Read a CSV file
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Explore Your Data & Metadata
 
-Before we open a file in **python**, it can be good to look at the data contained in the file. Open up the folder that was downloaded above (should be in your home directory under `earth-analytics/data/colorado-flood/discharge`. In that folder you'll see three files, `README_dischargeMetadata.rtf`, `06730200-discharge-daily-1986-2013.csv`, and `06730200-discharge-daily-1986-2013.txt`. Between these files, you should be able to find out a lot of information. Open these files in any text editor and read the data in them, and use the data to answer the following questions:
+Before you begin working with files using **python**, it can be helpful 
+to look at the structure of the file itself. In some cases, text files 
+metadata at the top of the file that tell you more about the data within 
+the file itself. This information at the top of the text file can help 
+you make decisions about how you plan to import the data, and what cleanup 
+steps you may need to take.
+
+Open up the folder that was downloaded above. The file should be in your 
+home directory under `earth-analytics/data/colorado-flood/discharge`. In 
+that folder you'll see three files, `README_dischargeMetadata.rtf`, `06730200-discharge-daily-1986-2013.csv`, and `06730200-discharge-daily-1986-2013.txt`. Use the 
+`06730200-discharge-daily-1986-2013.csv` file to answer the questions below:
 
 
 1. What is the delimiter used in `06730200-discharge-daily-1986-2013.csv`?
@@ -90,7 +100,7 @@ Write down your answers in the cell below as a comment.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Open a CSV with Time Series Data and Plot the Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Open and Plot a CSV File with Time Series Data
 
 The code above creates a path (`stream_discharge_path`) to open daily stream 
 discharge measurements taken by U.S. Geological Survey from 1986 to 2013 at 
@@ -130,14 +140,19 @@ Your final plot should look like the plot below.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Subset the Data
 
-Since we are mostly interested in the flood data in 2013, we can focus in more closely on that data. Let's focus on the months around the event. Do the following: 
-1. Subset the data to be just the discharge data from August 1st, 2013 until October 10th, 2013
-2. Plot the newly subset data with **matplotlib**. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
+The 2013 Colorad Flood occurred in 2013. The plot above shows all of the stream discharge data over several decades. In this challenge you will subset the data to just the year and months during which the flood event occurred. 
+
+Do the following: 
+1. Subset the data to including only discharge data from August 1st, 2013 through November 1, 2013
+2. Plot the newly subset data with **matplotlib**. Make sure your x-axis contains dates,  and your y-axis is contains the `disValue` column from your **pandas** `DataFrame`.
 3. Give your plot a title and label the axes.
 4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
 5. Make the x-axis week ticks only show up for every other week. 
 
-If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/) for more information regarding sub-setting **pandas** `DataFrames`, and [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/) for more information about customizing your date ticks in **matplotlib**. 
+The lessons below should help you complete this challenge:
+
+* [More on subsetting time series data using **Pandas**](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/) 
+* [More on customizing date labels on time series plots in **matplotlib**](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/). 
 </div>
 
 
@@ -187,16 +202,23 @@ If you need help, see [this lesson](https://www.earthdatascience.org/courses/use
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 5: Compare Two Months Side by Side
 
-The weekly data didn't seem to be very informative, so let's use the daily data once again. In order to see how significant these discharge levels are, create a plot comparing these levels to the levels seen 10 years ago during the same months. Do the following: 
+In this next challenge, you will compare daily max stream discharge for two time periods. Create a plot comparing stream discharge in  levels to the levels seen 10 years ago during the same months. Do the following: 
 
-1. Create another subset of data to be the discharge data from August 1st, 2003 until October 10th, 2003 
-2. Plot the data from 2003 on a plot next to the data from 2013 using `matplotlib`. Give your plots titles and label the axes.
-3. Modify the y limits of the 2003 plot to match the y limits of the 2013 plot. (Hint: you can use `ax.get_ylim()` and `ax.set_ylim()` to accomplish this). 
-4. You may have noticed empty space on either side of the data in your previous plot. Use `ax.set_xlim()` to set the x limits of your plot to the minimum and maximum date values in each of your subset datasets. 
-5. Format the dates on the x-axis so they only show the month and the day. Angle the dates to increase legibility as well. 
-6. Make the x-axis week ticks only show up for every other week. 
+1. Create a data subset for the time periods:
+    * August 1st, 2003 - October 31st, 2003 
+    * August 1st, 2013 - October 31st, 2013 
+2. Plot the data from 2003 on a plot above of the data from 2013 using `matplotlib`. 
+3. Add titles to each plot and and label the axes.
+4. Use `fig.suptitle("title-here")` to add a title to your figure.
+5. Modify the y limits of both plots to range from 0 to the max value found in the 2013 data subset. 
+    * Hint: you can use `round(data-frame-name["disValue"].max(), -3)` to get the max value from your 2013 data. 
+    * use `ax.set_ylim(min-value, max-value)` to set the limits
+6. Format the dates on the x-axis as follows:
+    * Make sure date ticks only show the month and the day - example: `Aug-06`.
+    * Make the x-axis week ticks only display for every other week. 
 7. Use `plt.tight_layout()` to ensure your plots don't overlap each other. 
 
+OPTIONAL: You may have noticed empty space on either side of the x-axis in your previous plot. Use `ax.set_xlim()` to set the x limits of your plot to the minimum and maximum date values in each of your subset datasets. 
 </div>
 
 
@@ -217,7 +239,9 @@ The weekly data didn't seem to be very informative, so let's use the daily data 
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge: Get Data from Hydrofunctions
 
-There are many ways to get data into **python**. So far we've been using `et.data.get_data()` to download our data. There is another open source repository called **hydrofunctions** that can be used to download hydrologic data from the U.S. Geological Survey. For the bonus challenge, you'll be using **hydrofunctions** to download discharge data and plot it much like you did above. To get the data using **hydrofunctions**, run the code below.
+There are many ways to get data into **python**. So far you have used `et.data.get_data()` to download your data. However you can also access data directly using open source tools that access API's (automated tools that directly access and downoad data from the data servers). 
+
+**hydrofunctions** is an open source Python package that allows you to download hydrologic data from the U.S. Geological Survey. For the bonus challenge, you'll use **hydrofunctions** to download stream discharge data and plot it much like you did above. To get the data using **hydrofunctions**, run the code below.
 
 ```
 import hydrofunctions as hf
@@ -239,12 +263,13 @@ longmont_discharge = hf.extract_nwis_df(longmont_resp)
 
 Once you have the data into a **pandas** `DataFrame` using the code above, perform the following tasks: 
 
-1. Rename the columns to be called `discharge` and `flags`.
-2. Subset the data to be only data from `1970` and onwards.
-3. Resample the data to be the annual maximum for each year. 
-4. Plot the data using `matplotlib`. 
+1. Rename the columns (USGS:06730500:00060:00003, USGS:06730500:00060:00003_qualifiers)) `discharge` and `flags`. This will make the data a bit easier to work with. HINT: if you don't know how to rename a dataframe column, try looking it up using Google search!
+2. Subset the data to the time period: `1970` through the present.
+3. Resample the data calculate the annual maximum stream discharge value for each year. 
+4. Plot the data using `matplotlib`. Format the x and y axis so the labels are easy to read. Add a title to your plot.
 
 </div>
+
 
 
 
@@ -262,20 +287,31 @@ Once you have the data into a **pandas** `DataFrame` using the code above, perfo
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2: Plotting Precipitation and Discharge Side by Side 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2: Plot Precipitation and Stream Discharge In One Figure 
 
 For this challenge, you will open up the precipitation dataset also found in the `colorado-flood` download, and plot it side by side with discharge to see how they interact. For this challenge, you need to:
 
-1. Open the precipitation data in Pandas (the path is provided for you).
-2. Parse the date column ("DATE") and set it as the index.
-3. Set the `na_values` to `999.99`. 
-4. Subset the data to just be for the year 2013. 
-5. Subset the stream discharge data to be for the year 2013.
-6. Resample the discharge datset to be the weekly maximum values instead of daily. 
-7. Resample the precipitation datset to be the weekly sum of all values instead of hourly. 
-8. Plot the precipitation data and the discharge data side by side so we can see how the two compare. Use scatter plots. 
-9. Format your plots are we were doing before so they look good. Date formatting is up to you!
+### Precipitation Data Processing
+
+1. Open the precipitation data that you used previously (`colorado-flood/precipitation/805325-precip-daily-2003-2013.csv`) using **Pandas**.
+  * Make sure the date column ("DATE") is set as the index.
+  * Set the `na_values` to `999.99`. 
+2. Subset the precipitation data to the time period 2013. 
+3. Resample the precipitation data to provide a weekly `sum()` of all values instead of hourly. 
+
+### Stream Discharge Data Processing
+
+1. Subset the stream discharge data to the time period 2013.
+2. Resample the discharge data provide a the weekly maximum values instead of daily. 
+
+*******
+### Plot Your Data In One Figure
+
+* Plot the precipitation data and the discharge data as **scatter plots** stacked one on top of each other so you can compare the two visually. 
+*  Format your plots  with titles, x and y axis labels. Make sure the dates are easy to read.
 </div>
+
+# TODO - NATHAN WHY DID YOU SPECIFY MAX AND SUM -- they should show the same value i think?
 
 
 
