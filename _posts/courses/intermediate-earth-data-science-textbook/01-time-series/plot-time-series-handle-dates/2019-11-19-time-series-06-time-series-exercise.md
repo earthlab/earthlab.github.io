@@ -78,12 +78,12 @@ stream_discharge_path = os.path.join("colorado-flood",
 
 Before you begin working with files using **python**, it can be helpful 
 to look at the structure of the file itself. In some cases, text files 
-metadata at the top of the file that tell you more about the data within 
+have metadata at the top of the file that tell you more about the data within 
 the file itself. This information at the top of the text file can help 
 you make decisions about how you plan to import the data, and what cleanup 
 steps you may need to take.
 
-Open the file `earth-analytics/data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv`. Use this file to answer the questions below:
+Open the files `earth-analytics/data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv` and `earth-analytics/data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.txt` by clicking on them and review their contents. Use these files to answer the questions below:
 
 1. What is the delimiter used in `06730200-discharge-daily-1986-2013.csv`?
 2. What are the units for stream discharge in the data?
@@ -135,14 +135,15 @@ Your final plot should look like the plot below.
 
 
 
+
 <div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Subset the Data
 
-The 2013 Colorad Flood occurred in 2013. The plot above shows all of the stream discharge data over several decades. In this challenge you will subset the data to just the year and months during which the flood event occurred. 
+The 2013 Colorado Flood occurred in 2013 (as the name implies). The plot above shows all of the stream discharge data over several decades. In this challenge you will subset the data to just the year and months during which the flood event occurred. 
 
 Do the following: 
-1. Subset the data to including only discharge data from August 1st, 2013 through October 31, 2013
+1. Subset the data to include only discharge data from August 1st, 2013 through October 31, 2013
 2. Plot the newly subset data with **matplotlib**. Make sure your x-axis contains dates,  and your y-axis is contains the `disValue` column from your **pandas** `DataFrame`.
 3. Give your plot a title and label the axes.
 4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
@@ -161,7 +162,7 @@ The lessons below should help you complete this challenge:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_12_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_13_0.png">
 
 </figure>
 
@@ -194,7 +195,7 @@ HINT: The lessons below might help you complete this challenge:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_15_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_16_0.png">
 
 </figure>
 
@@ -231,7 +232,7 @@ OPTIONAL: You may have noticed empty space on either side of the x-axis in your 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_18_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_19_0.png">
 
 </figure>
 
@@ -276,7 +277,7 @@ above, perform the following tasks:
 
 1. Rename the columns (USGS:06730500:00060:00003, USGS:06730500:00060:00003_qualifiers)) `discharge` and `flags`. This will make the data a bit easier to work with. 
 2. Subset the data to the time period: `1970` through the present.
-3. Resample the data calculate the annual maximum stream discharge value for each year. 
+3. Resample the data to calculate the annual maximum stream discharge value for each year. 
 4. Plot the data using `matplotlib`. Format the x and y axis so the labels are easy to read. Add a title to your plot.
 
 ****
@@ -292,7 +293,7 @@ using a Google search!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_21_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_22_0.png">
 
 </figure>
 
@@ -335,7 +336,7 @@ discharge to see how they interact. For this challenge, you need to:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_24_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_25_0.png">
 
 </figure>
 
@@ -350,6 +351,5 @@ Look at the two plots above. Do you notice any patterns between the max precipit
 values and the max stream discharge values?
 
 </div>
-
 
 
