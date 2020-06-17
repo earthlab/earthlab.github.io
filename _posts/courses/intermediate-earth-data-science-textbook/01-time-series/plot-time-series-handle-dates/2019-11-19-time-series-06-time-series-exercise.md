@@ -83,11 +83,7 @@ the file itself. This information at the top of the text file can help
 you make decisions about how you plan to import the data, and what cleanup 
 steps you may need to take.
 
-Open up the folder that was downloaded above. The file should be in your 
-home directory under `earth-analytics/data/colorado-flood/discharge`. In 
-that folder you'll see three files, `README_dischargeMetadata.rtf`, `06730200-discharge-daily-1986-2013.csv`, and `06730200-discharge-daily-1986-2013.txt`. Use the 
-`06730200-discharge-daily-1986-2013.csv` file to answer the questions below:
-
+Open the file `earth-analytics/data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv`. Use this file to answer the questions below:
 
 1. What is the delimiter used in `06730200-discharge-daily-1986-2013.csv`?
 2. What are the units for stream discharge in the data?
@@ -96,6 +92,9 @@ that folder you'll see three files, `README_dischargeMetadata.rtf`, `06730200-di
 5. What does each number represent in the data (a single observation, minimum value, max value or mean value)?
 
 Write down your answers in the cell below as a comment.
+
+****
+HINT: You may also want to explore the `README_dischargeMetadata.rtf` file located in the same directory. This file contains metadata that describes in more detail the data that you are using
 
 
 <div class="notice--warning alert alert-info" markdown="1">
@@ -173,17 +172,19 @@ The lessons below should help you complete this challenge:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Resample the Data
 
-Next, summarize the stream discharge data by week. Additionally, you will clean up the date formatting on the x-axis. Do the following: 
+Next, summarize the stream discharge data by week. Additionally, you will 
+clean up the format of the date labels on the x-axis. Do the following: 
 
-1. Resample the dataframe that you made above for August - October, 2013 to represent the maximum stream discharge value for each week. 
-2. Plot the newly resampled data with `matplotlib`. Give your plot a title and label the axes.
-3. Make your plot a scatter plot to better demonstrate the data.
-4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
-5. Make the x-axis week ticks only show up for every other week. 
+1. Resample the `DataFrame` that you made above for August - October, 2013 to represent the maximum stream discharge value for each week. 
+2. Plot the newly resampled data as a scatterplot (`ax.scatter()`)using `matplotlib`. Give your plot a title and label the x and y axes.
+3. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
+4. Adjust the x-axis ticks and labels so you have one label and tick for **every other week**. 
 
 ****
-HINT: 
-If you need help, see [Check out the Pandas time series data resampling lesson to help you resample your data.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/)
+HINT: The lessons below might help you complete this challenge:
+
+* [Check out the Pandas time series data resampling lesson to help you resample your data.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/)
+* [Check out the customize time series plots lesson to help with adjusting the x axis ticks.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/)
 </div>
 
 
@@ -210,7 +211,7 @@ In this next challenge, you will compare daily max stream discharge for two time
     * August 1st, 2003 - October 31st, 2003 
     * August 1st, 2013 - October 31st, 2013 
 2. Plot the data from 2003 on a plot above of the data from 2013 using `matplotlib`. 
-3. Add titles to each plot and and label the axes.
+3. Add titles to each plot and and label the x and y axes.
 4. Use `fig.suptitle("title-here")` to add a title to your figure.
 5. Modify the y limits of both plots to range from 0 to the max value found in the 2013 data subset. 
     * Hint: you can use `round(data-frame-name["disValue"].max(), -3)` to get the max value from your 2013 data. 
@@ -241,9 +242,16 @@ OPTIONAL: You may have noticed empty space on either side of the x-axis in your 
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge: Get Data from Hydrofunctions
 
-There are many ways to get data into **python**. So far you have used `et.data.get_data()` to download your data. However you can also access data directly using open source tools that access API's (automated tools that directly access and downoad data from the data servers). 
+There are many ways to get data into **python**. So far you have used 
+`et.data.get_data()` to download your data. However you can also access 
+data directly using open source tools that access API's (automated tools 
+that directly access and downoad data from the data servers). 
 
-**hydrofunctions** is an open source Python package that allows you to download hydrologic data from the U.S. Geological Survey. For the bonus challenge, you'll use **hydrofunctions** to download stream discharge data and plot it much like you did above. To get the data using **hydrofunctions**, run the code below.
+**hydrofunctions** is an open source Python package that allows you to 
+download hydrologic data from the U.S. Geological Survey. For the bonus 
+challenge, you'll use **hydrofunctions** to download stream discharge data 
+and plot it much like you did above. To get the data using **hydrofunctions**, 
+run the code below.
 
 ```
 import hydrofunctions as hf
@@ -263,13 +271,17 @@ longmont_discharge = hf.extract_nwis_df(longmont_resp)
 
 ```
 
-Once you have the data into a **pandas** `DataFrame` using the code above, perform the following tasks: 
+Once you have imported the  data into a **pandas** `DataFrame` using the code 
+above, perform the following tasks: 
 
-1. Rename the columns (USGS:06730500:00060:00003, USGS:06730500:00060:00003_qualifiers)) `discharge` and `flags`. This will make the data a bit easier to work with. HINT: if you don't know how to rename a dataframe column, try looking it up using Google search!
+1. Rename the columns (USGS:06730500:00060:00003, USGS:06730500:00060:00003_qualifiers)) `discharge` and `flags`. This will make the data a bit easier to work with. 
 2. Subset the data to the time period: `1970` through the present.
 3. Resample the data calculate the annual maximum stream discharge value for each year. 
 4. Plot the data using `matplotlib`. Format the x and y axis so the labels are easy to read. Add a title to your plot.
 
+****
+HINT: if you don't know how to rename a dataframe column, try looking it up 
+using a Google search!
 </div>
 
 
@@ -291,7 +303,9 @@ Once you have the data into a **pandas** `DataFrame` using the code above, perfo
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2: Plot Precipitation and Stream Discharge In One Figure 
 
-For this challenge, you will open up the precipitation dataset also found in the `colorado-flood` download, and plot it side by side with discharge to see how they interact. For this challenge, you need to:
+For this challenge, you will open up the precipitation dataset also 
+found in the `colorado-flood` download, and plot it side by side with 
+discharge to see how they interact. For this challenge, you need to:
 
 ### Precipitation Data Processing
 
@@ -313,7 +327,6 @@ For this challenge, you will open up the precipitation dataset also found in the
 *  Format your plots  with titles, x and y axis labels. Make sure the dates are easy to read.
 </div>
 
-# TODO - NATHAN WHY DID YOU SPECIFY MAX AND SUM -- they should show the same value i think?
 
 
 
@@ -325,6 +338,18 @@ For this challenge, you will open up the precipitation dataset also found in the
 <img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_24_0.png">
 
 </figure>
+
+
+
+
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2b: Explore the Data 
+
+Look at the two plots above. Do you notice any patterns between the max precipitation
+values and the max stream discharge values?
+
+</div>
 
 
 
