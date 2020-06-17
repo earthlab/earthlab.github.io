@@ -143,6 +143,19 @@ For your titles and labels, be sure to think about the following pieces of infor
 
 </div>
 
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_6_0.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> BONUS Challenge: List Comprehensions in Python

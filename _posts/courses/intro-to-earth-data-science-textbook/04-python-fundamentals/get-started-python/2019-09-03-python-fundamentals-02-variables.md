@@ -535,3 +535,4 @@ c = a/b
 Use the `type()` function to determine what type of value is stored in each variable defined (`a`, `b`, and `c`).
 
 </div>
+

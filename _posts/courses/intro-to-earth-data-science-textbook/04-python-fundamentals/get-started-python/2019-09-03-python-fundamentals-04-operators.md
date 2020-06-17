@@ -201,6 +201,18 @@ question:
 1. What is the `type()` of the object: `march_precip_mm`?
 </div>
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    46.99
+
+
+
+
+
 ## Assignment Operators in Python
 
 While arithmetic operators are very useful for calculations, they do not change the original values of the variables being used. 
@@ -324,6 +336,18 @@ Create two variables:
 Using the `+=` operator (addition assignment), add `december_precip_nyc` to `annual_avg_precip_nyc`, so that `annual_avg_precip_nyc` represents the complete annual average precipitation in New York City. 
 
 </div>
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    46.23
+
+
+
+
 
 ## Output of Arithmetic Assignment Operators Does Not Automatically Print
 
@@ -596,8 +620,7 @@ variable.
 
 <i class="fa fa-star"></i> **Data Tip:** You do not need to put the operation below 
 `(3 > 2)` in parenthesis, as is done below. However, doing so makes the code a 
-bit easier to read.
-{: .notice--success }
+bit easier to read. {: .notice--success }
 
 {:.input}
 ```python
@@ -617,7 +640,21 @@ is_greater
 
 
 
+Relational operators can be extremely powerful as you begin to develop more complex 
+scripts. For example you may test whether a variable has a specific value. 
+If it does (the condition is true), then you tell the script to run a particular 
+operation.
 
+Example: 
+
+```python
+rainfall = 3
+
+if rainfall > 2:
+    # Perform some calculation 
+```
+
+You will learn more about <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/"> conditions statements in chapter 17 of the introduction to earth data science textbook</a>.
 
 ## Membership Operators in Python
 
