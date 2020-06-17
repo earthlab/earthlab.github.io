@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-04-01
+modified: 2020-06-16
 module-title: 'Work with Scientific Data Using Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'Pandas dataframes are a commonly used scientific data structure in Python that store tabular data using rows and columns with headers. Learn how to import data into pandas dataframes and how to run calculations, summarize, and select data from pandas dataframes.'
