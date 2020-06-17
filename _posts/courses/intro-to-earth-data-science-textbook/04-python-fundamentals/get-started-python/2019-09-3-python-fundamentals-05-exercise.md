@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-fundamentals-exercises/
 nav-title: "Python Fundamentals Exercises"
 dateCreated: 2019-07-01
-modified: 2020-06-16
+modified: 2020-06-17
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -20,6 +20,8 @@ order: 5
 topics:
   reproducible-science-and-programming: ['python']
 ---
+
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
