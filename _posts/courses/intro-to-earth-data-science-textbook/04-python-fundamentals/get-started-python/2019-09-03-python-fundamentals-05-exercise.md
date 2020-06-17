@@ -32,7 +32,7 @@ This page of exercises will test the skills that you learned in the previous les
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Lists and Variables  
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Create Lists from Data 
 
 The data below represent average monthly precipitation for <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank">Boulder, Colorado provided by the U.S. National Oceanic and Atmospheric Administration (NOAA).</a> 
 
@@ -69,7 +69,10 @@ And here are the months:
 
 </div>
 
-### Convert Precipitation Data From Inches to mm Within the List 
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Modify Values in Existing List
 
 Next, convert each floating point value in the `boulder_precip_inches` to 
 millimeters by creating a new list variable called `boulder_precip_mm`. 
@@ -93,7 +96,10 @@ a variable at the top of your notebook that stores the conversion value of
 `25.4`. A well named conversion variable will make your code easier to manage 
 and easier to read.
 
-### Create a List of Lists
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Create a List of Lists
 
 You can make a list of lists (a list which contains multiple sublists) using the following syntax:
 
@@ -102,9 +108,16 @@ You can make a list of lists (a list which contains multiple sublists) using the
 In the cell below, create a list called `all_boulder_data` that contains the 
 `boulder_precip_months` and `boulder_precip_mm` objects as sublists.
 
+{:.input}
+```python
+# Creating the list of lists
+
+all_boulder_data = [boulder_precip_months, boulder_precip_mm]
+```
+
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge Your Python Skills
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Plot the Data in the List of Lists
 
 Modify the following code to create a plot of your data. Be sure to use the 
 `all_boulder_data` object for your plot:
@@ -148,7 +161,7 @@ For your titles and labels, be sure to think about the following pieces of infor
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_6_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_9_0.png">
 
 </figure>
 
