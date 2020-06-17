@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-16
+modified: 2020-06-17
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -279,7 +279,7 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 In the cell below list the things that you think look "wrong" with the plot 
 above. 
@@ -884,8 +884,9 @@ plt.show()
 
 ## Subset Time Series Data by Time
 
-Once you have cleaned up your data, you can quickly begin to plot and summarize 
-data by time periods. Below you subset just the data for 2006
+Once you have cleaned up your data, and assigned a datetime index, 
+you can quickly begin to plot and summarize 
+data by time periods. Below you subset the data for 2006.
 
 {:.input}
 ```python
@@ -1060,6 +1061,52 @@ plt.show()
 
 
 
+## Resample Time Series Data
+
+Resampling time series data refers to the act of summarizing data 
+over different time periods. For example, above you have been working 
+with hourly data. However, you may want to plot data summarized by day.
+
+You can resample time series data in Pandas using the `resample()`
+method. Within that method you call the time frequency for which 
+you want to resample. Examples including day (`"D"`) or week `("w")`.
+
+When you resample data, you need to also tell Python how you wish 
+to summarize the data for that time period. For example do you want 
+to summarize or add all all values for each day?
+
+`precip_2005_clean.resample("D").sum()`
+
+or do you want a max value:
+
+`precip_2005_clean.resample("D").max()`
+
+Below you resample the 2005 data subset that you created above, and 
+then you plot it. [Resampling is discussed in more detail later in this 
+chapter.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/)
+
+{:.input}
+```python
+precip_2005_daily = precip_2005_clean.resample("D").sum()
+# Plot the data using native matplotlib
+f, ax = plt.subplots()
+ax.scatter(x=precip_2005_daily.index.values,
+       y=precip_2005_daily["HPCP"])
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_34_0.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1
@@ -1091,7 +1138,7 @@ Customize your plots with x and y axis labels and titles.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_34_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_36_0.png">
 
 </figure>
 
@@ -1122,7 +1169,7 @@ Add your plot code to the cell below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_36_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_38_0.png">
 
 </figure>
 
@@ -1154,7 +1201,7 @@ x-axis of a plot to adjust the xaxis to be </a>
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_38_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_40_0.png">
 
 </figure>
 
@@ -1187,7 +1234,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_39_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_41_0.png">
 
 </figure>
 
