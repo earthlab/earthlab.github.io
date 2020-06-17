@@ -96,6 +96,8 @@ a variable at the top of your notebook that stores the conversion value of
 `25.4`. A well named conversion variable will make your code easier to manage 
 and easier to read.
 
+</div>
+
 
 <div class="notice--warning" markdown="1">
 
@@ -107,6 +109,8 @@ You can make a list of lists (a list which contains multiple sublists) using the
 
 In the cell below, create a list called `all_boulder_data` that contains the 
 `boulder_precip_months` and `boulder_precip_mm` objects as sublists.
+
+</div>
 
 {:.input}
 ```python
