@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2020-06-16
+modified: 2020-06-17
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -164,6 +164,8 @@ Look at the list above called boulder_avg_precip. Why did the value `jan` transl
 
 </div>
 
+
+
 ### Use the Type() Function in Python to Determine the Object Type
 
 Similar to the previous lesson, you can use the `type()` function to confirm the type of 
@@ -230,6 +232,7 @@ Make a list called `precip_by_location` that has a length of 3 and contains a st
 Note that this means the float value for precipitation and the string value for units can be in any location, but the string for `New York City` needs to be at index `2`. 
 
 </div>
+
 
 ## Access Objects Stored in a Python List: Indexing
 
@@ -533,6 +536,18 @@ There are a lot of ways to update the `precip_by_location` object with the new v
 
 </div>
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    [1, 20.23, 'inches', 'Boulder', 'Colorado']
+
+
+
+
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Create a List of Lists
@@ -558,6 +573,7 @@ Run the code above, then answer the following questions:
 
 </div>
 
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Create a List of Lists
@@ -569,3 +585,15 @@ The syntax for accessing the second item in the first sublist is as follows:
 Access the second item in the second sublist. HINT: the value returned should be `9`.
 
 </div>
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    9
+
+
+
+

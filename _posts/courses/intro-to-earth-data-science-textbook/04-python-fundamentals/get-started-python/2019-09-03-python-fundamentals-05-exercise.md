@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-fundamentals-exercises/
 nav-title: "Python Fundamentals Exercises"
 dateCreated: 2019-07-01
-modified: 2020-06-16
+modified: 2020-06-17
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -20,6 +20,7 @@ order: 5
 topics:
   reproducible-science-and-programming: ['python']
 ---
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -141,6 +142,19 @@ For your titles and labels, be sure to think about the following pieces of infor
 
 </div>
 
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_6_0.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> BONUS Challenge: List Comprehensions in Python
@@ -171,3 +185,8 @@ the syntax above to help you create this list comprehension.
 For more information on loops and changing values within a list, you can check out <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/loops/" target="_blank">Earth Lab's lesson introducing loops in Python,</a> and you can go to <a href="https://www.pythonforbeginners.com/basics/list-comprehensions-in-python" target="_blank">this more in depth explanation on list comprehensions in Python.</a>
 
 </div>
+
+{:.input}
+```python
+boulder_precip_mm = [i * 25.4 for i in boulder_precip_inches]
+```
