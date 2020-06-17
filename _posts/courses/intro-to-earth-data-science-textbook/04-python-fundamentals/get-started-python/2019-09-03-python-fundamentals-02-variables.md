@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2020-06-16
+modified: 2020-06-17
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -115,7 +115,7 @@ underscore makes the variable name easier to read and follows **Python**
 <i class="fa fa-star"></i> **Data Tip:** Read more about expressive variable 
 names and clean code <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/expressive-variable-names-make-code-easier-to-read/">
 in this earth data science lesson.</a> 
-{ .notice-success } 
+{: .notice-success } 
 
 
 ### Variables Are Available In Your Coding Environment Once Defined 
