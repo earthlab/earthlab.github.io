@@ -112,7 +112,7 @@ Boulder Creek in Boulder, Colorado. Using **pandas**, do the following with the 
 4. Plot the newly opened data with **matplotlib**. Make sure your x-axis is the dates, and your y-axis is the `disValue` column from the **pandas** `DataFrame`.
 5. Give your plot a title and label the axes.
 
-If you need a refresher on how to plot time series data, check out [this lesson on working with time series data in Pandas.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/).
+If you need a refresher on how to plot time series data, check out [this lesson on working with time series data in Pandas.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/)
 
 Once you have created your plot, answer the following questions.
 
@@ -143,7 +143,7 @@ Your final plot should look like the plot below.
 The 2013 Colorad Flood occurred in 2013. The plot above shows all of the stream discharge data over several decades. In this challenge you will subset the data to just the year and months during which the flood event occurred. 
 
 Do the following: 
-1. Subset the data to including only discharge data from August 1st, 2013 through November 1, 2013
+1. Subset the data to including only discharge data from August 1st, 2013 through October 31, 2013
 2. Plot the newly subset data with **matplotlib**. Make sure your x-axis contains dates,  and your y-axis is contains the `disValue` column from your **pandas** `DataFrame`.
 3. Give your plot a title and label the axes.
 4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
@@ -173,15 +173,17 @@ The lessons below should help you complete this challenge:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Resample the Data
 
-Daily data might be to much information for this chart. Let's summarize the data by week and see if there's more clarity. Additionally, let's clean up the dates formatting on the x-axis. Do the following: 
+Next, summarize the stream discharge data by week. Additionally, you will clean up the date formatting on the x-axis. Do the following: 
 
-1. Resample your dataframe that you made for the 3 months of data to be the maximum value by week. 
+1. Resample the dataframe that you made above for August - October, 2013 to represent the maximum stream discharge value for each week. 
 2. Plot the newly resampled data with `matplotlib`. Give your plot a title and label the axes.
 3. Make your plot a scatter plot to better demonstrate the data.
 4. Format the dates on the x-axis so they only show the month and the day. Additionally, you can angle the dates using the line of code `fig.autofmt_xdate()`. 
 5. Make the x-axis week ticks only show up for every other week. 
 
-If you need help, see [this lesson](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/) for more information regarding resampling your data.
+****
+HINT: 
+If you need help, see [Check out the Pandas time series data resampling lesson to help you resample your data.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/)
 </div>
 
 
