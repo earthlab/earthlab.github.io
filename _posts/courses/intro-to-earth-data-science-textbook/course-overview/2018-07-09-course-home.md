@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Jenny Palomino']
 nav-title: "Intro to Earth Data Science Home"
 permalink: /courses/intro-to-earth-data-science/
 course: "intro-to-earth-data-science-textbook"
-modified: 2020-03-30
+modified: 2020-06-16
 module-type: 'overview'
 module-title: "Intro to Earth Data Science Textbook"
 week-landing: 0
