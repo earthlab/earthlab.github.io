@@ -284,7 +284,7 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Review Metadata
 
 In the cell below list the things that you think look "wrong" with the plot 
 above. 
@@ -301,7 +301,7 @@ HINT: the next few cells may help you explore the data to better understand
 what is going on with it. 
 </div>
 
-*List your answers to the above questions in this cell*
+
 
 ### Time Series Data Cleaning & Exploration
 
@@ -1110,7 +1110,7 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Plot Multiple Axes
 
 If you recall from previous lessons, you can create a figure with
 multiple subplots using: 
@@ -1146,9 +1146,10 @@ Customize your plots with x and y axis labels and titles.
 
 
 
+
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Modify x and y Limits
 
 Have a look at the min and max values in your plots above. Do you notice 
 anything about the y-axis that may make the data look similar when in 
@@ -1170,7 +1171,7 @@ Add your plot code to the cell below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_38_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_39_0.png">
 
 </figure>
 
@@ -1179,7 +1180,7 @@ Add your plot code to the cell below.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3 - Data Subsets
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Data Subsets
 
 Above you subset the data by year and plotted two years in the same figure.
 You can also create temporal subsets using dates to create subsets that 
@@ -1199,7 +1200,7 @@ November 1, 2013 (2013-11-01).
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_40_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_41_0.png">
 
 </figure>
 
@@ -1208,7 +1209,7 @@ November 1, 2013 (2013-11-01).
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge - Formatting Dates on the X-Axis
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge: Formatting Dates on the X-Axis
 
 You may have noticed the dates look a little messy on the x-axis. Remake the plot from above, but use <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/">this lesson</a> on customizing the format of time ticks on the x-axis of a plot to adjust the x-axis to be more legible.
 
@@ -1238,7 +1239,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_42_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_43_0.png">
 
 </figure>
 
