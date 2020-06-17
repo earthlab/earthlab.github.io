@@ -164,6 +164,8 @@ Look at the list above called boulder_avg_precip. Why did the value `jan` transl
 
 </div>
 
+
+
 ### Use the Type() Function in Python to Determine the Object Type
 
 Similar to the previous lesson, you can use the `type()` function to confirm the type of 
@@ -230,17 +232,6 @@ Make a list called `precip_by_location` that has a length of 3 and contains a st
 Note that this means the float value for precipitation and the string value for units can be in any location, but the string for `New York City` needs to be at index `2`. 
 
 </div>
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    [46.23, 'inches', 'New York City']
-
-
-
 
 
 ## Access Objects Stored in a Python List: Indexing
@@ -581,17 +572,6 @@ Run the code above, then answer the following questions:
 2. What is the object `type()` of `list_of_lists[0]`?
 
 </div>
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    [[1, 2, 3], [8, 9, 10]]
-
-
-
 
 
 <div class="notice--warning" markdown="1">

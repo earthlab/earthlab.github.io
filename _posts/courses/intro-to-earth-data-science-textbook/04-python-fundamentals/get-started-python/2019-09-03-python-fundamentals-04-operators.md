@@ -338,17 +338,6 @@ Using the `+=` operator (addition assignment), add `december_precip_nyc` to `ann
 </div>
 
 
-{:.output}
-{:.execute_result}
-
-
-
-    46.23
-
-
-
-
-
 ## Output of Arithmetic Assignment Operators Does Not Automatically Print
 
 Notice now that the output is not automatically printed when you use 
@@ -716,6 +705,8 @@ temp_1 = [70, 68, 74]
 
 
 
+
+
 ## Logical Operators
 
 Logical operators can be used to check combinations of booleans. The 
@@ -960,6 +951,7 @@ print(relational, identity, membership, logical)
 
 {:.output}
     False False False False
+
 
 
 

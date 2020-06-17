@@ -20,7 +20,6 @@ order: 5
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -186,3 +185,8 @@ the syntax above to help you create this list comprehension.
 For more information on loops and changing values within a list, you can check out <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/loops/" target="_blank">Earth Lab's lesson introducing loops in Python,</a> and you can go to <a href="https://www.pythonforbeginners.com/basics/list-comprehensions-in-python" target="_blank">this more in depth explanation on list comprehensions in Python.</a>
 
 </div>
+
+{:.input}
+```python
+boulder_precip_mm = [i * 25.4 for i in boulder_precip_inches]
+```

@@ -368,6 +368,7 @@ print(a, b)
 
 
 
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Interactive Activity  - Create Some Variables
@@ -391,6 +392,7 @@ print(a, b)
 ```
 
 </div>
+
 
 ## Check Variable Type
 
