@@ -89,6 +89,7 @@ To begin, import the packages that you need to work with tabular data in Python.
 {:.input}
 ```python
 # Import necessary packages
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -98,6 +99,10 @@ import earthpy as et
 # Handle date time conversions between pandas and matplotlib
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
+
+# Dealing with error thrown by one of the plots
+matplotlib_axes_logger.setLevel('ERROR')
+
 
 # Adjust font size and style of all plots in notebook with seaborn
 sns.set(font_scale=1.5, style="whitegrid")
@@ -260,7 +265,7 @@ the plot?
 {:.input}
 ```python
 boulder_precip_2003_2013.plot(x="DATE",
-                              y="HPCP", 
+                              y="HPCP",
                               title="Daily Precipitation ")
 plt.show()
 ```
@@ -284,8 +289,8 @@ plt.show()
 In the cell below list the things that you think look "wrong" with the plot 
 above. 
 
-Next, read the `PRECIP_HLY_documentation.pdf` metadata document that was included
-with the data. 
+**Next, read the `PRECIP_HLY_documentation.pdf` metadata document that was included
+with the data before answering items 1-4.**
 
 1. Do the data have a no data value?
 2. How are missing data "identified" in the table"?
@@ -355,13 +360,13 @@ boulder_precip_2003_2013.dtypes
 
 You may have observed several anomalies in the data.
 
-1. The data seem to have a very large number - 999.99. More often than note, a value of 999 represents a no data value that needs to be removed from your data. 
+1. The data seem to have a very large number: 999.99. More often than note, a value of 999 represents a no data value that needs to be removed from your data. 
 2. You may have noticed that your x axis date values in the plot look "messy". When you see an x-axis like this but you know your data are time series, it's most often caused by your datetime data not being read in properly as numeric date times. 
 
 You can address all of these issues using the following `read_csv()` parameters:
 
-* `parse_dates=`: description here
-* `na_values=`: description here
+* `parse_dates=`: Column containing date information that should be read into the `DataFrame` as a datetime object.
+* `na_values=`: Values in the file that should be replaced with `NaN` (Not a Number).
 * `index_col=1`: optional -- but this will make subsetting the data much easier
 
 
@@ -866,7 +871,7 @@ y-axis column.
 {:.input}
 ```python
 boulder_precip_2003_2013.plot(y="HPCP",
-                             title = "Hourly Precipitation")
+                              title="Hourly Precipitation")
 plt.show()
 ```
 
@@ -886,11 +891,11 @@ plt.show()
 
 Once you have cleaned up your data, and assigned a datetime index, 
 you can quickly begin to plot and summarize 
-data by time periods. Below you subset the data for 2006.
+data by time periods. Below you subset the data for 2005.
 
 {:.input}
 ```python
-# Subset data from 2005 
+# Subset data from 2005
 precip_2005 = boulder_precip_2003_2013['2005']
 precip_2005.head()
 ```
@@ -1012,24 +1017,20 @@ precip_2005_clean = precip_2005.dropna()
 {:.input}
 ```python
 # Plot the data using pandas
+
 precip_2005_clean.reset_index().plot(x="DATE",
                                      y="HPCP",
-                                     title="Hourly Precipitation", 
+                                     title="Hourly Precipitation",
                                      kind="scatter")
 plt.show()
 ```
-
-{:.output}
-    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_30_1.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_30_0.png">
 
 </figure>
 
@@ -1045,7 +1046,7 @@ plot of the data using `ax.scatter`.
 # Plot the data using native matplotlib
 f, ax = plt.subplots()
 ax.scatter(x=precip_2005_clean.index.values,
-       y=precip_2005_clean["HPCP"])
+           y=precip_2005_clean["HPCP"])
 plt.show()
 ```
 
@@ -1091,7 +1092,7 @@ precip_2005_daily = precip_2005_clean.resample("D").sum()
 # Plot the data using native matplotlib
 f, ax = plt.subplots()
 ax.scatter(x=precip_2005_daily.index.values,
-       y=precip_2005_daily["HPCP"])
+           y=precip_2005_daily["HPCP"])
 plt.show()
 ```
 
@@ -1180,7 +1181,7 @@ Add your plot code to the cell below.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3 - Data Subsets
 
-Above you subsetted the data by year and plotted two years in the same figure.
+Above you subset the data by year and plotted two years in the same figure.
 You can also create temporal subsets using dates to create subsets that 
 span across specific dates of the year - like this:
 
@@ -1189,9 +1190,6 @@ span across specific dates of the year - like this:
 In the cell below create a **scatter plot** of your precipitation data. 
 Subset the data to the date range September 1, 2013 (2013-09-01) to
 November 1, 2013 (2013-11-01).
-
-OPTIONAL -- <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/">use this lesson on customing the format of time ticks on the 
-x-axis of a plot to adjust the xaxis to be </a>
 
 </div>
 
@@ -1208,6 +1206,14 @@ x-axis of a plot to adjust the xaxis to be </a>
 
 
 
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge - Formatting Dates on the X-Axis
+
+You may have noticed the dates look a little messy on the x-axis. Remake the plot from above, but use <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/">this lesson</a> on customizing the format of time ticks on the x-axis of a plot to adjust the x-axis to be more legible.
+
+</div>
+
 {:.input}
 ```python
 from matplotlib.dates import DateFormatter
@@ -1215,18 +1221,16 @@ from matplotlib.dates import DateFormatter
 # Place your code to plot your data here
 flood_data = boulder_precip_2003_2013['2013-09-01':'2013-11-01']
 
-f, ax = plt.subplots(figsize=(10,6))
+f, ax = plt.subplots(figsize=(10, 6))
 
 ax.scatter(x=flood_data.index.values,
-       y=flood_data["HPCP"])
+           y=flood_data["HPCP"])
 
 # Define the date format
 date_form = DateFormatter("%m-%d")
 ax.xaxis.set_major_formatter(date_form)
 ax.set(title="Challenge 3 Optional \n Precipitation Sept - Nov 2013 \n Optional Plot with Dates Formatted Cleanly")
 plt.show()
-
-
 ```
 
 {:.output}
@@ -1234,7 +1238,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_41_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_42_0.png">
 
 </figure>
 
