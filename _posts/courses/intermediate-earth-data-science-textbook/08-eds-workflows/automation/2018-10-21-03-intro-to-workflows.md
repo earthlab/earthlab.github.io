@@ -4,7 +4,7 @@ title: "How Do You Design and Automate a Data Workflow"
 excerpt: "Designing and developing data workflows can help you complete your work more efficiently by allowing you to repeat and automate data tasks. Learn how to design and develop efficient workflows to automate data analyses in Python."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe', 'Jenny Palomino', 'Joe McGlinchy']
 dateCreated: 2018-10-21
-modified: 2020-03-30
+modified: 2020-04-07
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 module-title: 'How To Design and Automate a Workflow'

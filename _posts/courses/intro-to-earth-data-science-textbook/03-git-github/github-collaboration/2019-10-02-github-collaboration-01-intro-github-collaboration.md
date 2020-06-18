@@ -2,13 +2,13 @@
 layout: single
 title: 'Learn How To Use GitHub to Collaborate on Open Science Projects'
 excerpt: "GitHub is a website that supports git-based version control and collaborative project management. Learn how to use git and GitHub to collaborate on projects in support of open reproducible science."
-authors: ['Leah Wasser', 'Jenny Palomino']
+authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph']
 category: [courses]
 class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/
 nav-title: "GitHub for Collaboration"
 dateCreated: 2019-10-02
-modified: 2020-01-13
+modified: 2020-06-16
 module-title: 'GitHub for Collaboration'
 module-nav-title: 'GitHub for Collaboration'
 module-description: 'GitHub is a website that supports git version control and also collaborative project management. Learn how to use git and GitHub to collaborate on projects in support of reproducible open science.'
@@ -17,6 +17,8 @@ chapter: 8
 class-order: 2
 course: "intro-to-earth-data-science-textbook"
 week: 3
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

@@ -2,13 +2,13 @@
 layout: single
 title: 'Working Directories, Absolute and Relative Paths and Other Science Project Management Terms Defined'
 excerpt: "A directory refers to a folder on a computer that has relationships to other folders. Learn about directories, files, and paths, as they relate to creating reproducible science projects."
-authors: ['Leah Wasser','Jenny Palomino']
+authors: ['Leah Wasser','Jenny Palomino', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['work-with-files-directories-in-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/
 nav-title: "Computer Directories"
 dateCreated: 2019-09-18
-modified: 2019-10-05
+modified: 2020-06-16
 module-title: 'Introduction to Working with Files, Directories, and Paths in Python'
 module-nav-title: 'Files, Directories & Paths'
 module-description: 'Writing code that opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code that will work on any machine using the os package.'
@@ -17,6 +17,8 @@ class-order: 3
 chapter: 12
 course: "intro-to-earth-data-science-textbook"
 week: 4
+estimated-time: "1 hour"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

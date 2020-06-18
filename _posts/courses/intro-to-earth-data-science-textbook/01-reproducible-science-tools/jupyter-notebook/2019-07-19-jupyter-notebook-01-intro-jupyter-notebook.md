@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/
 nav-title: "Intro to Jupyter"
 dateCreated: 2019-07-15
-modified: 2020-01-14
+modified: 2020-06-16
 module-title: 'Jupyter For Python'
 module-nav-title: 'Jupyter For Python'
 module-description: 'This chapter teaches you how to use Jupyter Notebook, an interactive environment where you can write and run code such as Python and add text that describes your workflow using Markdown.'
@@ -17,6 +17,8 @@ chapter: 3
 class-order: 3
 course: "intro-to-earth-data-science-textbook"
 week: 1
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

@@ -38,7 +38,7 @@ redirect_from:
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter 1.5 - Flood Return and Exceedance Probability Calculations In Python - Earth Data Science Applications
 
 In this chapter, you will learn how to calculate flood return periods
-and exceedance probability using **Python**. 
+and exceedance probability using **Python**.
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
@@ -54,9 +54,9 @@ One way to analyze time series data - particularly related to events like floods
 In this lesson you will learn how "100-year floods" (and other flood frequencies) are calculated using some basic statistics. To begin, let's define two terms:
 
 1. **Exceedance probability:** the probability of a given magnitude event or greater to occur.
-    
+
 2. **Recurrence interval:** the average time of exceedance is the inverse of the exceedance probability.
-    
+
 ### Important Considerations
 
 * The above definitions assume that flood events in the time series are independent (i.e., that event magnitudes are not correlated with each other in time) and that the process is stationary (i.e., that the probability distribution of events is not changing through time).
@@ -86,9 +86,9 @@ Recurrence intervals for the annual peak streamflow at a given location change i
 
 This question points out the importance of proper terminology. The term "100-year flood" is used in an attempt to simplify the definition of a flood that statistically has a 1-percent chance of occurring in any given year. Likewise, the term "100-year storm" is used to define a rainfall event that statistically has this same 1-percent chance of occurring. In other words, over the course of 1 million years, these events would be expected to occur 10,000 times. But, just because it rained 10 inches in one day last year doesn't mean it can't rain 10 inches in one day again this year.
 
-### Recurrence intervals and probabilities of occurrences 
+### Recurrence intervals and probabilities of occurrences
 
-|Recurrance interval, in years | Probability of occurrence in any given year| Percent chance of occurrence in any given year | 
+|Recurrance interval, in years | Probability of occurrence in any given year| Percent chance of occurrence in any given year |
 |100|	1 in 100 |	1 |
 |50	|1 in 50	|2|
 |25|	1 in 25|	4|
@@ -103,9 +103,9 @@ The USGS and other agencies often refer to the percent chance of occurrence as a
 
 ****
 ## Calculate Probability in Python
-In this lesson, you will use streamflow data to explore the probabilities of a different magnitude events (e.g., discharge is measured in cubic feet per second). To do this, you will want long historic records to make your statistical inferences more robust. 
+In this lesson, you will use streamflow data to explore the probabilities of a different magnitude events (e.g., discharge is measured in cubic feet per second). To do this, you will want long historic records to make your statistical inferences more robust.
 
-You will use the `hydrofunctions` python package to access streamflow data via an API from the United States Geological Survey (USGS) National Water Information System (NWIS) website. 
+You will use the `hydrofunctions` python package to access streamflow data via an API from the United States Geological Survey (USGS) National Water Information System (NWIS) website.
 
 To begin, load all of your libraries.
 
@@ -145,11 +145,11 @@ sns.set(font_scale=1.5, style="whitegrid")
 
 ## Find A Station of Interest
 
-The `hf.draw_map()` function allows you to explore the station visually in a particular area. Explore the map below. Notice the gage locations in the Boulder, Colorado area. 
+The `hf.draw_map()` function allows you to explore the station visually in a particular area. Explore the map below. Notice the gage locations in the Boulder, Colorado area.
 
-For the purposes of this lesson, you will use gage `dv06730500` This gage along Boulder Creek survived the 2013 flood event and is one of the longest time series datasets along Boulder Creek. 
+For the purposes of this lesson, you will use gage `dv06730500` This gage along Boulder Creek survived the 2013 flood event and is one of the longest time series datasets along Boulder Creek.
 
-The map below also allows you to explore hydrographs for several stream gages at once if you click on the buttons at the bottom center of the map. 
+The map below also allows you to explore hydrographs for several stream gages at once if you click on the buttons at the bottom center of the map.
 
 ```python
 # Create map of stations
@@ -159,7 +159,7 @@ hf.draw_map()
 <iframe src="http://hydrocloud.org/" width="700" height="400"></iframe>
 
 
-You can get a list of all stations located in Colorado using the `hf.NWIS().get_data()` method. 
+You can get a list of all stations located in Colorado using the `hf.NWIS().get_data()` method.
 
 {:.input}
 ```python
@@ -186,18 +186,18 @@ PR.siteName[0:5]
 
 
 ## Download Stream Gage Data
-You are now ready to grab some data from the NWIS API. 
+You are now ready to grab some data from the NWIS API.
 
 ### Mean Daily vs Instantaneous Stream Flow Data
 
-There are two kinds of streamflow time-series data that the USGS provides online: 
+There are two kinds of streamflow time-series data that the USGS provides online:
 
 1. **Mean daily streamflow:** Mean daily streamflow is useful because it is a complete time series (except for days when the gage fails) and thus retains all recorded streamflow events over the period of record.
-1. **Annual maximum instantaneous streamflow:** Instantaneous data is not averaged over the entire day, but instead reflects continuous variations in the flood hydrograph recorded by the stream gage. As such, annual maximum instantaneous streamflow data are useful because they retain the maximum values of discharge recorded in a given year. 
+1. **Annual maximum instantaneous streamflow:** Instantaneous data is not averaged over the entire day, but instead reflects continuous variations in the flood hydrograph recorded by the stream gage. As such, annual maximum instantaneous streamflow data are useful because they retain the maximum values of discharge recorded in a given year.
 
 > How do you think flood frequencies characterized by these two different data types will compare?
 
-For this part of the lesson, you will download the mean daily discharge data. The code for this data in `dv` when using the `hydrofunctions` python package. 
+For this part of the lesson, you will download the mean daily discharge data. The code for this data in `dv` when using the `hydrofunctions` python package.
 
 ### Get Data Using Hydrofunctions API Interface for Python
 
@@ -205,11 +205,11 @@ To begin define a start and end date that you'd like to download. Also define th
 Use `USGS 06730500` as your selected site. This stream gage survived the 2013 flood event in Colorado. It also has a long record of measurement that will be helpful when calculating recurrence intervals and exceedance probability values below.  
 
 ## Station Selection
-In general, to select stream gages for flood frequency analysis you will want to carefully examine the metadata for candidate stations to check for the time period of operation, record completeness, and other comments on gage operation that might impact your interpretation of statistical results (e.g., Is there a dam upstream? When was it built? Other flow diversions? Did the gage malfunction during some events?) 
+In general, to select stream gages for flood frequency analysis you will want to carefully examine the metadata for candidate stations to check for the time period of operation, record completeness, and other comments on gage operation that might impact your interpretation of statistical results (e.g., Is there a dam upstream? When was it built? Other flow diversions? Did the gage malfunction during some events?)
 
 There are two subsets of USGS gages that have been specially identified for hydo-climatic analyses because station records are of high quality, cover a long time period, and human modification of the watershed is minimal (e.g., due to flow regulation or urban development): (1) Hydro-Climatic Data Network - 2009 (Lins, 2012) and (2) Geospatial attributes of gages for evaluating streamflow (Falcone, 2011).
 
-For this project, we followed the lead of scientists assessing the significance of the 2013 Colorado floods using methods similar to the ones introduced in this project (Yochum, 2015). For more context of data availability along rivers draining the Colorado Front Range, check out Table 2 of this regional flood frequency analysis. 
+For this project, we followed the lead of scientists assessing the significance of the 2013 Colorado floods using methods similar to the ones introduced in this project (Yochum, 2015). For more context of data availability along rivers draining the Colorado Front Range, check out Table 2 of this regional flood frequency analysis.
 
 
 
@@ -227,7 +227,7 @@ longmont_resp = hf.get_nwis(site, 'dv', start, end)
 ### View Site and Metadata Information
 You can explore the metadata for the site using the `get_nwis()` function. Below we request the metadata for the site and the "dv" or Daily Value data. Recall from above that dv is the mean daily value. `iv` provides the instantaneous values.
 
-You can also visit the <a href="https://waterdata.usgs.gov/nwis/inventory/?site_no=06730500" target = "_blank">USGS Site page</a> to learn more about this USGS station. 
+You can also visit the <a href="https://waterdata.usgs.gov/nwis/inventory/?site_no=06730500" target = "_blank">USGS Site page</a> to learn more about this USGS station.
 
 {:.input}
 ```python
@@ -549,7 +549,7 @@ longmont_discharge.tail()
 
 ## Plot Your Data
 Next, plot the time series using `matplotlib`. What do you notice?
-There is an unfortunate gap in the data. The good news that while this gap may not work for some analyses, it is acceptable when you calculate a recurrence interval (based on our assumptions of independence and stationarity). 
+There is an unfortunate gap in the data. The good news that while this gap may not work for some analyses, it is acceptable when you calculate a recurrence interval (based on our assumptions of independence and stationarity).
 
 Note that below I grab the site variable and add it to my plot title using the syntax:
 
@@ -599,16 +599,16 @@ There are two ways we can identify annual maxima for USGS stream gages.
 1. You can take the daily mean values to construct a series of the annual maximum value. This is done using `pandas resample` - you learned how to do this in a previous lesson!
 2. You can download the instantaneous annual maximum value dataset from <a href="https://nwis.waterdata.usgs.gov/nwis" target = "_blank">USGS  here</a>.
 
-Note that you will compare the data that you download to the analysis of mean dailydata you do below. 
-The instantaneous annual maxima data from the USGS is data collected every 5-30 minutes. 
+Note that you will compare the data that you download to the analysis of mean dailydata you do below.
+The instantaneous annual maxima data from the USGS is data collected every 5-30 minutes.
 
 The annual maxima that you derive below uses the mean daily value data that you downloaded above. Do you think you will get the same annual maxima each year?
 
-Let's find out. 
+Let's find out.
 
 ### Add a Year Column to Your Data
 
-Note that below you will add a 'year' column to the longmont discharge data. While this step is not necessary for resampling. It will make your life easier when you plot the data later. 
+Note that below you will add a 'year' column to the longmont discharge data. While this step is not necessary for resampling. It will make your life easier when you plot the data later.
 
 {:.input}
 ```python
@@ -694,7 +694,7 @@ longmont_discharge_annual_max.head()
 
 
 ### Import USGS Annual Peak Max Data
-Next import the USGS annual maxima data. 
+Next import the USGS annual maxima data.
 
 
 
@@ -702,7 +702,7 @@ Next import the USGS annual maxima data.
 ```python
 # download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
-download_path = os.path.join("data", "colorado-flood", 
+download_path = os.path.join("data", "colorado-flood",
                              "downloads", "annual-peak-flow.txt")
 
 urllib.request.urlretrieve(url, download_path)
@@ -722,7 +722,7 @@ urllib.request.urlretrieve(url, download_path)
 
 {:.input}
 ```python
-# A function that counts the number of lines with a comment 
+# A function that counts the number of lines with a comment
 def count_the(file_url):
     r = requests.get(file_url, stream=True)
     file = r.text
@@ -736,7 +736,7 @@ def count_the(file_url):
 line_to_skip = count_the(url)+1
 ```
 
-The data that you are downloading are `tab-delimited`. When you import, be sure to specify 
+The data that you are downloading are `tab-delimited`. When you import, be sure to specify
 
 `sep='\t'`
 
@@ -746,7 +746,7 @@ Your pandas read_csv function will include 4 arguments as follows:
 
 
 * `download_path`: this is the path where you file is saved
-* `header=[1,2]`: this tells pandas to import two header lines - lines 1 and 2 after the skipped rows 
+* `header=[1,2]`: this tells pandas to import two header lines - lines 1 and 2 after the skipped rows
 * `sep='\t'`: import the data as a tab delimited file
 * `skiprows = 63`: skip the first 63 rows of the data. IF you open the data in a text editor you will notice the entire top of the file is all metadata.
 * `parse_dates = [2]`: convert the second column in the data to a datetime format
@@ -886,7 +886,7 @@ usgs_annual_max[usgs_annual_max.duplicated(subset="year") == True]
 
 
 
-It looks like you have two years that have more than one data value - 1947 and 1993. For the purpose of this exercise let's only take the largest discharge value from each year. 
+It looks like you have two years that have more than one data value - 1947 and 1993. For the purpose of this exercise let's only take the largest discharge value from each year.
 
 {:.input}
 ```python
@@ -984,7 +984,7 @@ plt.show()
 
 ## Optional - Difference Bar Plot
 
-To further more quickly explore differences between the USGS annual max data set and the annual max that you calculated using the mean daily value data, you can calculate a difference value between the USGS max value and your annual max calculated from daily mean data. You don't need to do this for your homework however! It's just setup for you to see what the differences look like. 
+To further more quickly explore differences between the USGS annual max data set and the annual max that you calculated using the mean daily value data, you can calculate a difference value between the USGS max value and your annual max calculated from daily mean data. You don't need to do this for your homework however! It's just setup for you to see what the differences look like.
 
 {:.input}
 ```python
@@ -999,7 +999,7 @@ usgs_calculated["diff"] = usgs_calculated["peak_va"] - \
     usgs_calculated["discharge"]
 ```
 
-Once you have calculated a difference column, create a barplot. 
+Once you have calculated a difference column, create a barplot.
 
 
 {:.input}
@@ -1037,23 +1037,23 @@ Now that you have both datasets, you are ready to calculate the return period fr
 1.	Sort your data from smallest to largest.
 2.	Calculate exceedance probabilities using the equation below where `n` is length of the record and `i` is the rank.
 3.	Calculate the inverse of the exceedance probabilities to determine return period in years.
-4.	Plot flood magnitudes against return time. It is common to plot these kinds of data on log-linear or log-log axes. 
+4.	Plot flood magnitudes against return time. It is common to plot these kinds of data on log-linear or log-log axes.
 
 ****
 
-Exceedance probability equation: 
+Exceedance probability equation:
 
 $$Probablity = \frac{n-i+1}{n+1}$$
 
 
-where i is the rank order (smallest to largest) from 1 to n. Note that the limits of this equation vary from n/(n+1) ~ 1 for the smallest events and 1/(n+1) for the largest events (i.e., the largest events have a very small exceedance probability). 
+where i is the rank order (smallest to largest) from 1 to n. Note that the limits of this equation vary from n/(n+1) ~ 1 for the smallest events and 1/(n+1) for the largest events (i.e., the largest events have a very small exceedance probability).
 
 ****
 
 <i class="fa fa-star"></i> **Data Tip:** If you want to extrapolate beyond the observations that you have - for instance to predict what a 1000 year flood would be given only 100 years of data - then you would need to fit a model to the data.
 {: .notice--success}
 
-The steps that you will need to implement are below. 
+The steps that you will need to implement are below.
 
 {:.input}
 ```python
@@ -1073,8 +1073,8 @@ longmont_discharge_sorted["return-years"] = (
     1 / longmont_discharge_sorted["probability"])
 ```
 
-You will ultimately perform the steps above several times for both the discharge data and the precipitation data as a part of your homework. Turning these steps into a function will help you more efficiently process your data. 
-An example of what this function could look like is below. For your homework, you will add documentation to this function. 
+You will ultimately perform the steps above several times for both the discharge data and the precipitation data as a part of your homework. Turning these steps into a function will help you more efficiently process your data.
+An example of what this function could look like is below. For your homework, you will add documentation to this function.
 
 {:.input}
 ```python
@@ -1091,16 +1091,16 @@ def calculate_return(df, colname):
     '''
     # Sort data smallest to largest
     sorted_data = df.sort_values(by=colname)
-    
+
     # Count total obervations
     n = sorted_data.shape[0]
-    
+
     # Add a numbered column 1 -> n to use in return calculation for rank
     sorted_data.insert(0, 'rank', range(1, 1 + n))
-    
+
     # Calculate probability
     sorted_data["probability"] = (n - sorted_data["rank"] + 1) / (n + 1)
-    
+
     # Calculate return - data are daily to then divide by 365?
     sorted_data["return-years"] = (1 / sorted_data["probability"])
 
@@ -1315,7 +1315,7 @@ usgs_annual_prob.head()
 
 ### Plot Event Probability
 
-Below, you plot Discharge on the x-axis and the probability that an event of that size will occur on the y-axis. 
+Below, you plot Discharge on the x-axis and the probability that an event of that size will occur on the y-axis.
 
 
 {:.input}
@@ -1366,7 +1366,7 @@ plt.show()
 
 ## Plot Stream Discharge Return Period
 
-And then you plot steram dicharge vs return period. This plot shows you the frequency in years that you can expect an event of any magnitude to occur upon. But remember that this doesn't mean that this size of an event will occur every x years! The probability plot above tells you what the probability is that any event of any size might occur in any particular year. 
+And then you plot steram dicharge vs return period. This plot shows you the frequency in years that you can expect an event of any magnitude to occur upon. But remember that this doesn't mean that this size of an event will occur every x years! The probability plot above tells you what the probability is that any event of any size might occur in any particular year.
 
 
 {:.input}
@@ -1416,6 +1416,3 @@ Falcone, J. A. (2011). GAGES-II: Geospatial attributes of gages for evaluating s
 Lins, H. F. (2012). USGS hydro-climatic data network 2009 (HCDN-2009). US Geological Survey Fact Sheet, 3047(4).
 
 Yochum, S. E. (2015, April). Colorado Front Range Flood of 2013: Peak flows and flood frequencies. In Proceedings of the 3rd Joint Federal Interagency Conference on Sedimentation and Hydrologic Modeling, Reno, NV, USA (pp. 19-23).
-
-
-

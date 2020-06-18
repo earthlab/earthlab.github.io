@@ -67,7 +67,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 ## Download Stream Gage Data
 
-Picking up from the previous lesson... 
+Picking up from the previous lesson...
 
 {:.input}
 ```python
@@ -261,7 +261,7 @@ longmont_discharge_annual_max.head()
 # Download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
 
-download_path = os.path.join("data", "colorado-flood", 
+download_path = os.path.join("data", "colorado-flood",
                              "downloads", "annual-peak-flow.txt")
 
 urllib.request.urlretrieve(url, download_path)
@@ -358,17 +358,17 @@ usgs_annual_max.head()
 # Plot calculated vs USGS annual max flow values
 fig, ax = plt.subplots(figsize = (11,9))
 
-ax.plot(usgs_annual_max["year"], 
+ax.plot(usgs_annual_max["year"],
         usgs_annual_max["peak_va"],
         color = "purple",
-        linestyle=':', 
-        marker='o', 
+        linestyle=':',
+        marker='o',
         label = "USGS Annual Max")
 
-ax.plot(longmont_discharge_annual_max["year"], 
+ax.plot(longmont_discharge_annual_max["year"],
         longmont_discharge_annual_max["discharge"],
         color = "lightgrey",
-        linestyle=':', 
+        linestyle=':',
         marker='o', label = "Calculated Annual Max")
 
 ax.legend()
@@ -392,7 +392,7 @@ plt.show()
 
 ## Calculate Cumulative Sum
 
-Next you will create a plot that shows both stream discharge the the total cumulative runnof that it represents over the time period of interest. This plot is useful as you will be able to compare this to a plot of precipitation that you create for your homework. 
+Next you will create a plot that shows both stream discharge the the total cumulative runnof that it represents over the time period of interest. This plot is useful as you will be able to compare this to a plot of precipitation that you create for your homework.
 
 Together - stream runoff and precipitation can be explored to better understand the mass balance of water in your watershed of interest. The total precipitation in the watershed minus the total runoff can be used to calculate how much water is being "lost" in the system to evapotranspiration. The steps are as follows:
 
@@ -534,7 +534,7 @@ longmont_discharge.head()
 Finally you can plot cumulative sum on top of your discharge values. This plot is an interesting way to to view increases and decreases in discharge as they occur over time.
 
 ### Creating this Plot
-Notice below you have two sets of data with different Y axes on the same plot. The key to making this work is 
+Notice below you have two sets of data with different Y axes on the same plot. The key to making this work is
 this:
 
 `ax2 = ax.twinx()`
@@ -553,10 +553,10 @@ ax.tick_params('y', colors='b')
 
 ax2 = ax.twinx()
 
-ax2.scatter(x=longmont_discharge.index, 
-        y=longmont_discharge["discharge"], 
+ax2.scatter(x=longmont_discharge.index,
+        y=longmont_discharge["discharge"],
         marker="o",
-        s=4, 
+        s=4,
         color ="purple", label="Daily Mean")
 
 ax2.set_ylabel('Stream Discharge (CFS)', color='purple')
@@ -583,6 +583,3 @@ plt.show()
 <figcaption>Cumulative sum plot for stream discharge.</figcaption>
 
 </figure>
-
-
-

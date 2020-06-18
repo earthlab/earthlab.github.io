@@ -2,7 +2,7 @@
 layout: single
 title: 'Computing raster statistics around buffered spatial points Python'
 date: 2016-07-15
-modified: 2020-04-08
+modified: 2020-04-20
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute raster statistics like the mean and variance around buffered spatial points in Python.'
@@ -74,11 +74,11 @@ Our first objective is to read in the data that we want to use. We'll be working
     gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W123.tif cache/N41/N41W122.tif
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt
+    cp SRTM1.vrt SRTM1.a696d7f97ba14cb8b8f7fda62dc521e5.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.ce74d7f7a9fa408b84ed7f5c0e08fb71.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.a696d7f97ba14cb8b8f7fda62dc521e5.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.a696d7f97ba14cb8b8f7fda62dc521e5.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
