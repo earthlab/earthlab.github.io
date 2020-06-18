@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-17
+modified: 2020-06-18
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -1230,7 +1230,7 @@ ax.scatter(x=flood_data.index.values,
 # Define the date format
 date_form = DateFormatter("%m-%d")
 ax.xaxis.set_major_formatter(date_form)
-ax.set(title="Challenge 3 Optional \n Precipitation Sept - Nov 2013 \n Optional Plot with Dates Formatted Cleanly")
+ax.set(title="Optional Challenge \n Precipitation Sept - Nov 2013 \n Optional Plot with Dates Formatted Cleanly")
 plt.show()
 ```
 
