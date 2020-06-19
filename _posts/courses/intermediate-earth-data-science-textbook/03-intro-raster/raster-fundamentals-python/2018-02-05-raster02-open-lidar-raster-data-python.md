@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Rasters are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-04-07
+modified: 2020-06-19
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 3
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
@@ -68,6 +68,12 @@ sns.set(font_scale=1.5, style="white")
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Note that you imported the **rasterio** library using the shortname `rio`.
 

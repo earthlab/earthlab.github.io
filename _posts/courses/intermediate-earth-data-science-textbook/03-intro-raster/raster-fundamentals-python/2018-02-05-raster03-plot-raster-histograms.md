@@ -4,7 +4,7 @@ title: "Plot Histograms of Raster Values in Python"
 excerpt: "Histograms of raster data provide the distribution of pixel values in the dataset. Learn how to explore and plot the distribution of values within a raster using histograms."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-06-19
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/plot-raster-histograms/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
   spatial-data-and-gis: ['raster-data']
