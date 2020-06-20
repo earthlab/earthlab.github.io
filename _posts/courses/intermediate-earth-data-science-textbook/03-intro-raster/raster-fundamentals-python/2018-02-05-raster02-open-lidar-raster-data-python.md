@@ -83,12 +83,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 Below, you define the path to a lidar derived digital elevation model (DEM)
 that was created using NEON (the National Ecological Observatory Network) data. 
 
-Data Tip** DEM's are also sometimes referred to as DTM (Digital Terrain Model or 
-DTM). You can learn more about the 3 lidar derived elevation data types: DEMs,
-Canopy Height Models (CHM) and Digital Surface Models (DSMs) in the lidar chapter
-of this textbook. 
-
-
 <div class='notice--success alert alert-info' markdown="1">
 <i class="fa fa-star"></i> **Data Tip:** DEM's are also sometimes referred to 
 as DTM (Digital Terrain Model or 
@@ -293,7 +287,7 @@ You can acccess the spatial metadata within the context manager using
 `dem_src.profile`. Notice that the `.profile` object contains information including
 the no data values for your data, the shape, the file type and even the coordinate 
 reference system. You will learn more about 
-<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-metadata-in-python/" target=_blank">raster metadata in the raster metadata lesson in this chapter.</a>
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-metadata-in-python/" target="_blank">raster metadata in the raster metadata lesson in this chapter.</a>
 
 
 {:.input}
@@ -345,7 +339,7 @@ with rio.open(`file-path-here`) as file_src:
 Notice that the first line of the context manager is not indented.
 It contains two parts
 
-1 `rio.open()`: This is the code that will open a connection to your .tif file using a path you provide. 
+1. `rio.open()`: This is the code that will open a connection to your .tif file using a path you provide. 
 2. `file_src`: this is a rasterio reader object that you can use to read in the actual data. You can also use this object to access the metadata for the raster file.
 
 The second line of your with statement 
