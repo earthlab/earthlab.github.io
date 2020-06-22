@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Spatial Data Formats for Earth Data Science'
-excerpt: "There are two primary spatial data formats that are useful for earth data science, vector and raster. Learn about these two common spatial data formats for earth data science workflows."
+excerpt: "Two of the major spatial data formats used in earth data science are vector and raster data. Learn about these two common spatial data formats for earth data science workflows in this chapter."
 authors: ['Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['spatial-data-formats']
@@ -23,7 +23,7 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  reproducible-science-and-programming: ['data-management']
+  spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}

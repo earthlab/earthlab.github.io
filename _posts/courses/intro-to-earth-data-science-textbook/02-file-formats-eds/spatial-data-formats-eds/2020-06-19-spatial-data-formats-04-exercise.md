@@ -18,7 +18,7 @@ author_profile: false
 comments: true
 order: 2
 topics:
-  reproducible-science-and-programming: ['data-management']
+    spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
 {:.input}
 ```python

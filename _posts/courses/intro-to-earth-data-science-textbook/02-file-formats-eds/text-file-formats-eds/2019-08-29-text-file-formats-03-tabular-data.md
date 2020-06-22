@@ -18,12 +18,12 @@ author_profile: false
 comments: true
 order: 2
 topics:
-  reproducible-science-and-programming: ['data-management']
+  file-formats: ['csv']
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--success alert alert-info" markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
@@ -77,7 +77,7 @@ They can be then imported into **Python** using **Pandas** for further explorati
 and processing. 
 
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--success alert alert-info" markdown="1">
 <i class="fa fa-star"></i> **Data Tip:** The challenge with graphical user 
 interface (GUI) based tools like Excel
 is that they often have limitations when it comes to working with larger files. 
@@ -134,7 +134,7 @@ will also explore some of the cleanup steps that you need to import and begin to
 the data. 
 
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--success alert alert-info" markdown="1">
 
 <i class="fa fa-star"></i> **Data Tip:** Not all text files store tabular text (character) based data. The `.asc` file format is a text based format that stores spatial raster data.  
 </div>
@@ -158,7 +158,7 @@ and notice that is has:
 in Python always starts at 0 rather than 1. 
 
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--success alert alert-info" markdown="1">
 
 <i class="fa fa-star"></i> **Data Tip:** You can learn more about zero-based indexing in the <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/#list-index-in-python" target = "_link" >chapter on lists in this textbook </a>  
 
@@ -366,7 +366,7 @@ Do the following:
 2. Add `kind="bar"` to the `.plot()` method. 
 3. Specify the color of each bar using the `color=""` parameter. 
 
-Run your cell and see what the final plot looks like. You can select 
+Run your code and see what the final plot looks like. You can select 
 any color that you wish to complete your plot. 
 
 Use this link to find a list of colors (open it in a new browser tab!) https://het.as.utexas.edu/HET/Software/Matplotlib/api/colors_api.html
@@ -400,7 +400,7 @@ documented in the metadata for that file.
 Next you will explore some temperature data that need to be cleaned up. 
 
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--success alert alert-info" markdown="1">
 
 <i class="fa fa-star"></i> **Data Tip:** You can visit <a href="https://www.ncdc.noaa.gov/cag/city/time-series/" target = "_link" >the NOAA NCDC website to learn more about the data you are 
 using below.</a>  
@@ -693,7 +693,7 @@ x-axis and `"value"` on the y-axis.
 </div>
 
 
-<div class="notice--warning alert alert-info" markdown="1">
+<div class="notice--info alert alert-info" markdown="1">
 
 ## Additional Resources
 

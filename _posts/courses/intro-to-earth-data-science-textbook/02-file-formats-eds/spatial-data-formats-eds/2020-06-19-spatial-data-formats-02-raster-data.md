@@ -18,7 +18,7 @@ author_profile: false
 comments: true
 order: 2
 topics:
-  reproducible-science-and-programming: ['data-management']
+    spatial-data-and-gis: ['raster-data']
 ---
 <div class='notice--success alert alert-info' markdown="1">
 
@@ -524,7 +524,7 @@ plt.show()
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  Plot NAIP Imagery Post Fire 
 
-In the cell below, you see a path to a NAIP dataset that was collected 
+In the code below, you see a path to a NAIP dataset that was collected 
 after the fire in Colorado. Use that path to:
 
 1. Open the post fire data
