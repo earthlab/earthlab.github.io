@@ -4,7 +4,7 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-06-16
+modified: 2020-06-22
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
@@ -166,7 +166,7 @@ import earthpy.plot as ep
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
@@ -179,55 +179,150 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```python
 # Get list of all pre-cropped data and sort the data
 
-path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                    "LC080340322016072301T1-SC20180214145802", "crop")
+# Create the path to your data
+landsat_post_fire_path = os.path.join("cold-springs-fire", 
+                    "landsat_collect", 
+                    "LC080340322016072301T1-SC20180214145802", 
+                    "crop")
 
-all_landsat_post_bands = glob(path + "/*band*.tif")
+# Generate a list of just the tif files
+post_fire_tifs_list = glob(os.path.join(landsat_post_fire_path, 
+                                        "*band*.tif"))
 
-all_landsat_post_bands.sort()
+# Sort the data to ensure bands are in the correct order
+post_fire_tifs_list.sort()
+post_fire_tifs_list
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
+
+
+
+
+
 
 {:.input}
 ```python
 # Create an output array of all the landsat data stacked
-landsat_post_fire_path = os.path.join("data", "cold-springs-fire",
-                                      "outputs", "landsat_post_fire.tif")
+landsat_post_fire_path = os.path.join("cold-springs-fire",
+                                      "outputs", 
+                                      "landsat_post_fire.tif")
 
 # This will create a new stacked raster with all bands
-land_stack, land_meta = es.stack(all_landsat_post_bands,
+landsat_post_fire_arr, land_meta = es.stack(post_fire_tifs_list,
                                  landsat_post_fire_path)
+# View output numpy array
+landsat_post_fire_arr
 ```
 
-#### Open The New Raster Stack 
+{:.output}
+{:.execute_result}
 
-Once you have stacked your data, you can import it and work with it as you need to!
+
+
+    array([[[ 446,  476,  487, ...,  162,  220,  260],
+            [ 393,  457,  488, ...,  200,  235,  296],
+            [ 364,  393,  388, ...,  246,  298,  347],
+            ...,
+            [ 249,  283,  363, ...,  272,  268,  284],
+            [ 541,  474,  364, ...,  260,  269,  285],
+            [ 219,  177,  250, ...,  271,  271,  286]],
+    
+           [[ 515,  547,  572, ...,  181,  233,  261],
+            [ 440,  519,  571, ...,  211,  251,  322],
+            [ 411,  460,  449, ...,  264,  326,  387],
+            ...,
+            [ 387,  326,  427, ...,  288,  278,  301],
+            [ 554,  654,  433, ...,  276,  276,  293],
+            [ 291,  174,  291, ...,  292,  290,  304]],
+    
+           [[ 782,  772,  843, ...,  335,  390,  411],
+            [ 684,  771,  836, ...,  363,  412,  511],
+            [ 656,  725,  706, ...,  425,  518,  599],
+            ...,
+            [ 685,  588,  718, ...,  422,  438,  470],
+            [ 881,  909,  680, ...,  412,  431,  468],
+            [ 464,  289,  427, ...,  408,  435,  484]],
+    
+           ...,
+    
+           [[2445, 2271, 2417, ..., 1734, 1904, 2101],
+            [2662, 2465, 2532, ..., 1736, 1824, 2165],
+            [2880, 2872, 2750, ..., 1897, 2116, 2300],
+            ...,
+            [1900, 1917, 2076, ..., 1722, 1891, 1890],
+            [1779, 1893, 1983, ..., 1645, 1847, 2090],
+            [1553, 1440, 1587, ..., 1562, 1689, 1964]],
+    
+           [[2864, 2974, 3108, ...,  983, 1195, 1271],
+            [2527, 2827, 3008, ..., 1132, 1293, 1546],
+            [2141, 2427, 2433, ..., 1324, 1652, 1922],
+            ...,
+            [1662, 1757, 1922, ..., 1463, 1472, 1519],
+            [1786, 1532, 1554, ..., 1374, 1423, 1450],
+            [1071,  943,  975, ..., 1524, 1461, 1518]],
+    
+           [[1920, 1979, 2098, ...,  537,  660,  687],
+            [1505, 1863, 1975, ...,  651,  747,  924],
+            [1240, 1407, 1391, ...,  769, 1018, 1189],
+            ...,
+            [1216, 1190, 1398, ...,  877,  890,  928],
+            [1517, 1184, 1078, ...,  846,  810,  820],
+            [ 660,  593,  623, ...,  984,  909,  880]]], dtype=int16)
+
+
+
 
 
 {:.input}
 ```python
-with rio.open(landsat_post_fire_path) as src:
-    landsat_post_fire = src.read()
+# Plot all bands
+ep.plot_bands(landsat_post_fire_arr)
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_6_0.png">
+
+</figure>
+
+
+
 
 ## Plot RGB image
 
-Just like you did with NAIP data, you can plot 3 band color composite images with Landsat too. Below you will plot an RGB image using landsat. Refer to the landsat bands in the table
-at the top of this page to figure out the red, green and blue bands. Or read the
+Just like you did with NAIP data, you can plot 3 band color composite images 
+for Landsat using the **earthpy** `ep.plot_rgb()` function. Refer to the 
+landsat bands in the table at the top of this page to figure out the red, 
+green and blue bands. Or read the
 <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
 
-To make plotting less code intensive we have created a plot_rgb function that allows you to quickly make a 3 band raster plot. To use it simply provide 
+`ep.plot_rgb()` requires:
 
 1. the numpy array containing the bands that you wish to plot. 
-
 IMPORTANT: this array should be in rasterio band order (bands first). 
 
-2. The bands that you wish to plot in the array.
+2. The numeric location of bands that you wish to plot in the array.
 
-Optionally you can chose to provide a title for the plot, and the figure size if you'd like. 
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_post_fire,
+ep.plot_rgb(landsat_post_fire_arr,
             rgb=[3, 2, 1],
             title="RGB Composite Image\n Post Fire Landsat Data")
 plt.show()
@@ -279,7 +374,7 @@ Below you use the stretch argument built into the earthpy `plot_rgb()` function.
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_post_fire,
+ep.plot_rgb(landsat_post_fire_arr,
             rgb=[3, 2, 1],
             title="Landsat RGB Image\n Linear Stretch Applied",
             stretch=True,
@@ -303,7 +398,7 @@ plt.show()
 {:.input}
 ```python
 # Adjust the amount of linear stretch to futher brighten the image
-ep.plot_rgb(landsat_post_fire,
+ep.plot_rgb(landsat_post_fire_arr,
             rgb=[3, 2, 1],
             title="Landsat RGB Image\n Linear Stretch Applied",
             stretch=True,
@@ -334,7 +429,7 @@ You can create a histogram to view the distribution of pixel values in the rgb b
 band_titles = ["Band 1", "Blue", "Green", "Red",
                "NIR", "Band 6", "Band7"]
 
-ep.hist(landsat_post_fire,
+ep.hist(landsat_post_fire_arr,
         title=band_titles)
 
 plt.show()
@@ -363,7 +458,8 @@ Next, create a color infrared image (CIR) using landsat bands: 4,3,2.
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_post_fire, rgb=[4, 3, 2],
+ep.plot_rgb(landsat_post_fire_arr, 
+            rgb=[4, 3, 2],
             title="CIR Landsat Image Pre-Cold Springs Fire",
             figsize=(10, 10))
 plt.show()
