@@ -4,7 +4,7 @@ title: "What is Raster Data"
 excerpt: "Rasters are gridded data composed of pixels that store values. Learn more about the structure of raster data and how to use them to store data, such as imagery or elevation values."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-06-19
+modified: 2020-06-23
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/
@@ -61,7 +61,9 @@ You will need a computer with internet access to complete this lesson.
 
 The <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/" target="_blank">data story on Lidar data</a> reviews the basic principles behind Lidar raster datasets.
 
-In this chapter, you will learn how to open and plot a lidar raster dataset in **Python**. You will also learn about key attributes of a raster dataset:
+In previous chapters you learned <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/" target="_blank">how to use the open source 
+Python package **Geopandas** to open vector data stored in shapefile
+format.</a> In this chapter you will learn how to use the open source Python packages **rasterio** combined with **numpy** and **earthpy** to open, manipulate and plot raster data in **Python**. In this chapter, you will learn how to open and plot a lidar raster dataset in **Python**. You will also learn about key attributes of a raster dataset:
 
 1. Spatial resolution
 2. Spatial extent and
