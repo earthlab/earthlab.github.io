@@ -4,7 +4,7 @@ title: "Open and Crop Landsat Remote Sensing Data in Open Source Python"
 excerpt: "Learn how to open up a stack of Landsat images and crop them to a certain extent using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-03-25
-modified: 2020-06-22
+modified: 2020-06-23
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/open-and-crop-data/
@@ -30,9 +30,9 @@ topics:
 
 After completing this lesson, you will be able to:
 
-* Create a list of landsat .tif files using `glob` and `os.path.join`
-* Crop a list of landsat .tif files to a defined crop extent boundary
-* Stack a list of landsat .tif files into one output .tif file OR one numpy array
+* Create a list of landsat `.tif` files using `glob` and `os.path.join`
+* Crop a list of landsat `.tif` files to a defined crop extent boundary
+* Stack a list of landsat `.tif` files into one output `.tif` file OR one **numpy** array
 
 </div>
 
@@ -86,14 +86,13 @@ import earthpy.spatial as es
 import earthpy.plot as ep
 
 # Download data and set working directory
-data = et.data.get_data('cs-test-landsat')
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
-    Extracted output to /root/earth-analytics/data/cs-test-landsat/.
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
 
 
 
@@ -152,9 +151,9 @@ Begin exploring `glob()` by grabbing everything in the directory using `/*`.
 {:.input}
 ```python
 landsat_post_fire_path = os.path.join("cold-springs-fire",
-                                      "landsat_collect", 
+                                      "landsat_collect",
                                       "LC080340322016072301T1-SC20180214145802",
-                                     "crop")
+                                      "crop")
 
 
 glob(os.path.join(landsat_post_fire_path, "*"))
@@ -165,16 +164,16 @@ glob(os.path.join(landsat_post_fire_path, "*"))
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -201,16 +200,16 @@ glob(os.path.join(landsat_post_fire_path, "*.tif"))
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -222,7 +221,8 @@ This tells python to look for the word band anywhere before the `.tif` extension
 
 {:.input}
 ```python
-all_landsat_post_bands = glob(os.path.join(landsat_post_fire_path, "*band*.tif"))
+all_landsat_post_bands = glob(os.path.join(
+    landsat_post_fire_path, "*band*.tif"))
 all_landsat_post_bands
 ```
 
@@ -231,13 +231,13 @@ all_landsat_post_bands
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -367,17 +367,17 @@ To use **earthpy** `crop_all()`, you need to:
 {:.input}
 ```python
 cropped_dir = os.path.join("cold-springs-fire",
-                              "outputs",
-                              "landsat_post_crop")
+                           "outputs",
+                           "landsat_post_crop")
 
 # Make the directory if it doesn't already exist
 if not os.path.isdir(cropped_dir):
     os.mkdir(cropped_dir)
 
 # Crop your data
-cropped_file_list = es.crop_all(raster_paths = all_landsat_post_bands,
-                                output_dir = cropped_dir,
-                                geoms =fire_boundary_utmz13,
+cropped_file_list = es.crop_all(raster_paths=all_landsat_post_bands,
+                                output_dir=cropped_dir,
+                                geoms=fire_boundary_utmz13,
                                 overwrite=True,
                                 verbose=True)
 
@@ -403,7 +403,7 @@ cropped_file_list
 
 
 
-### Use EarthPy Stack() To Create Raster Stack of All Landsat Bands in Python
+## Use EarthPy Stack() To Create Raster Stack of All Landsat Bands in Python
 
 Once you have a list of tif files that you wish to work with in Python, you 
 can stack them. The **earthpy** `es.stack()` function takes 2 arguments:
@@ -420,11 +420,6 @@ package to make it simpler to stack sets of remote sensing files together.
 
 {:.input}
 ```python
-# # Create a path to the folder where you wish to store your output stacked file
-# landsat_post_fire_path = os.path.join("cold-springs-fire",
-#                                       "outputs", 
-#                                       "landsat_post_fire.tif")
-
 # This will create a new stacked raster with all bands
 land_stack, land_meta = es.stack(band_paths=cropped_file_list)
 land_stack
@@ -489,7 +484,7 @@ land_stack
 
 
 
-#### Plot Your Raster Stack
+### Plot Your Raster Stack
 
 Once you have stacked your data, you can plot it or work with it as you need to.
 
@@ -529,5 +524,33 @@ also create a new stacked .tif file if you wish by using the
 `outpath` parameter.
 
 `es.stack(band_paths=list-of-files-to-stack, outpath="output/dir/filename.tif")`
+
+You can learn more about stacking and cropped data by reading the 
+<a href="https://earthpy.readthedocs.io/en/latest/gallery_vignettes/plot_raster_stack_crop.html#id1" target="_blank">earthpy documentation.</a>
+</div>
+
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Open And Crop Your Data
+
+Above, you opened up the landsat scene in the directory: `LC080340322016072301T1-SC20180214145802`. This data covers 
+an area which a file occured near Nederland, Colorado. For this challenge, you will
+work with data that was collected before the fire for the same area. 
+Do the following:
+
+1. Crop all of the bands (tif files with the word "band" in them,  in the `LC080340322016070701T1-SC20180214145604` directory using earthpy `crop_all()`.
+2. Next stack the cropped tif files using `es.stack()`.
+3. Finally plot the data using `ep.plot_bands()`
+
+</div>
+
+<div class="notice--warning alert alert-info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2 (Optional): Calculate & Plot NDVI 
+
+Plot a color RGB image of the Landsat Data.??
+or link to the NDVI lesson and have them calculate NDVI??
+
+** these challenge activities might be nice at the end of the chapter 
 
 </div>
