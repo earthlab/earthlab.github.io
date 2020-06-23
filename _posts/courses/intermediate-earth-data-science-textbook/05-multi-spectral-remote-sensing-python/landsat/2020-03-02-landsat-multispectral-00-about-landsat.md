@@ -4,14 +4,14 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-06-22
+modified: 2020-06-23
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
 nav-title: 'About Landsat Data'
 module-title: 'Learn How to Work With Landsat Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to work with Landsat multi-band raster data stored in .tif format in Python using Rasterio'
-module-nav-title: 'Landsat'
+module-nav-title: 'Landsat Data'
 module-type: 'class'
 week: 5
 chapter: 9
@@ -34,7 +34,7 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Nine - Landsat Data in Python
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Nine - Landsat Data in Open Source Python
 
 In this chapter, you will learn how to work with Landsat multi-band raster data stored in `.tif` format in **Python** using **rasterio**.
 
@@ -56,12 +56,18 @@ You will need a computer with internet access to complete this lesson and the Co
 </div>
 
 
-In the previous lessons in this textbook, you learned how to import a multi-band image into **Python** using
-**rasterio**. You then plotted the data as a composite, RGB (and CIR) image using `imshow()` and calculated NDVI. 
+In the <a href="http://localhost:4000/courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/" target="_blank">NAIP data chapter in this textbook,</a> you learned how to 
+import a multi-band image into **Python** using
+**rasterio**. You then plotted the data as a composite, 
+RGB (and CIR) image using `imshow()` and calculated NDVI. 
 
-In that case, all bands of the data were stored in a single `.tif` file. However, sometimes data are downloaded in individual bands rather than a single file.
+In that case, all bands of the data were stored in a single `.tif` file. 
+However, sometimes data are downloaded in individual bands rather than a single file.
 
-In this chapter, you will learn how to work with Landsat data in **Python**. Each band in a landsat scene is often stored in an individual `.tif` file.  Thus you will need to grab the bands that you want to work with and then bring them into a `numpy` array. 
+In this chapter, you will learn how to work with Landsat data in **Python**. 
+Each band in a landsat scene is often stored in an individual `.tif` file. 
+Thus you will need to grab the bands that you want to work with and then bring 
+them into a `numpy` array. 
 
 
 ## About Landsat Data
@@ -211,7 +217,6 @@ post_fire_tifs_list
 
 
 
-
 {:.input}
 ```python
 # Create an output array of all the landsat data stacked
@@ -297,7 +302,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_6_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_5_0.png">
 
 </figure>
 
@@ -333,7 +338,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_8_0.png" alt = "Landsat 8 3 band color RGB composite.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_7_0.png" alt = "Landsat 8 3 band color RGB composite.">
 <figcaption>Landsat 8 3 band color RGB composite.</figcaption>
 
 </figure>
@@ -387,7 +392,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_10_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_9_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch applied.</figcaption>
 
 </figure>
@@ -411,7 +416,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_11_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_10_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch and more clip applied.</figcaption>
 
 </figure>
@@ -440,7 +445,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_13_0.png" alt = "Landsat 8 histogram for each band.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_12_0.png" alt = "Landsat 8 histogram for each band.">
 <figcaption>Landsat 8 histogram for each band.</figcaption>
 
 </figure>
@@ -470,7 +475,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_16_0.png" alt = "Landsat 8 CIR color composite image.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-about-landsat/2020-03-02-landsat-multispectral-00-about-landsat_15_0.png" alt = "Landsat 8 CIR color composite image.">
 <figcaption>Landsat 8 CIR color composite image.</figcaption>
 
 </figure>
