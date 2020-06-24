@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-06-19
+modified: 2020-06-24
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -56,9 +56,12 @@ You discussed spatial extent and resolution in the previous lesson. When you wor
 geotiffs the spatial information that describes the raster data are embedded within
 the file itself.
 
-<i class="fa fa-star"></i> **Data Tip:**  Your camera uses embedded tags to store
+<div class='notice--success alert alert-info' markdown="1">
+
+<i class="fa fa-star"></i> **Data Tip:** Your camera uses embedded tags to store
 information about pictures that you take including the camera make and model,
 and the time the image was taken.
+</div>
 {: .notice--success }
 
 More about the  `.tif` format:
@@ -185,6 +188,7 @@ lidar_dem_mask
 
 
 
+<div class='notice--success alert alert-info' markdown="1">
 
 <i class = "fa fa-star"></i> **Data Tip:** Read more about attributes associated with rasterio objects and how they map to gdal objects.
 {: .notice--success }
@@ -198,7 +202,7 @@ The information returned from the various attributes called above includes:
 and more.
 
 You can also extract or view individual metadata attributes.
-
+</div>
 
 {:.input}
 ```python

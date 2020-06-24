@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-06-20
+modified: 2020-06-24
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -40,11 +40,52 @@ redirect_from:
 
 ## Open Raster Data in Open Source Python
 
-In previous chapters you learned <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/" target="_blank">how to use the open source 
-Python package **Geopandas** to open vector data stored in shapefile
-format.</a> In this chapter you will learn how to use the open source packages **rasterio** combined with **numpy** and **earthpy** to open, manipulate and plot raster data in **Python**. 
+Remember from the previous lesson that raster or “gridded” data are stored as a 
+grid of values which are rendered on a map as pixels. Each pixel value 
+represents an area on the Earth’s surface. A raster file is composed of 
+regular grid of cells, all of which are the same size. Raster data can 
+be used to store many different types of scientific data including 
 
-To begin load the packages that you need to process your raster data.
+* elevation data
+* canopy height models
+* surface temperature 
+* climate model data outputs
+* landuse / landcover data
+* and more.
+
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/raster-data/raster-concept.png" target="_blank">
+   <img src="{{ site.url }}/images/earth-analytics/raster-data/raster-concept.png" alt="Raster data concept diagram."></a>
+   <figcaption>A raster is composed of a regular grid of cells. Each cell is the same
+   size in the x and y direction. Source: Colin Williams, NEON.
+   </figcaption>
+</figure>
+
+In this lesson you will learn more about working with lidar derived raster data
+that represents both terrain / elevation data (elevation of the earth's surface),
+and surface elevation (elevation at the tops of trees, buildings etc above the earth's
+surface). If you want to read more about how lidar data are used to derive 
+raster based surface models, you can check out <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/what-is-lidar-data/" target="_blank"> this chapter on lidar remote sensing data and the various raster data products derived from lidar data.</a> 
+
+<figure>
+   <a href="https://www.earthdatascience.org/images/earth-analytics/lidar-raster-data/lidarTree-height.png">
+   <img src="https://www.earthdatascience.org/images/earth-analytics/lidar-raster-data/lidarTree-height.png" alt="Lidar derived DSM, DTM and CHM."></a>
+   <figcaption>Digital Surface Model (DSM), Digital Elevation Models (DEM) and
+   the Canopy Height Model (CHM) are the most common raster format lidar
+   derived data products. One way to derive a CHM is to take
+   the difference between the digital surface model (DSM, tops of trees, buildings
+   and other objects) and the Digital Terrain Model (DTM, ground level). The CHM
+   represents the actual height of trees, buildings, etc. with the influence of
+   ground elevation removed. Graphic: Colin Williams, NEON
+   </figcaption>
+</figure>
+
+<i class="fa fa-star"></i> **Data Tip:** 
+The data used in this lesson are NEON (National Ecological Observatory Network) data. 
+{: .notice--success }
+
+To begin load the 
+packages that you need to process your raster data.
 
 {:.input}
 ```python
@@ -78,12 +119,11 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 
 
-
-
 Below, you define the path to a lidar derived digital elevation model (DEM)
 that was created using NEON (the National Ecological Observatory Network) data. 
 
 <div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** DEM's are also sometimes referred to 
 as DTM (Digital Terrain Model or 
 DTM). You can learn more about the 3 lidar derived elevation data types: <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/" >DEMs,
@@ -96,21 +136,24 @@ You then open the data using `rio.open("path-to-raster-here")`.
 {:.input}
 ```python
 # Define relative path to file
-lidar_dem_path = os.path.join("colorado-flood", "spatial",
+dem_pre_path = os.path.join("colorado-flood", "spatial",
                               "boulder-leehill-rd", "pre-flood", "lidar",
                               "pre_DTM.tif")
 
 # Open the file using a context manager ("with rio.open" statement)
-with rio.open(lidar_dem_path) as dem_src:
-    lidar_dem_arr = dem_src.read(1)
+with rio.open(dem_pre_path) as dem_src:
+    dtm_pre_arr = dem_src.read(1)
 ```
 
-Finally you can plot your data using earthpy `plot_bands()`.
+When you open raster data using **rasterio** you are creating a numpy array.
+Numpy is an efficient way to work with and process raster format data. You can 
+plot your data using earthpy `plot_bands()` which takes a 
+numpy array as an input and generates a plot. 
 
 {:.input}
 ```python
 # Plot your data using earthpy
-ep.plot_bands(lidar_dem_arr,
+ep.plot_bands(dtm_pre_arr,
               title="Lidar Digital Elevation Model (DEM) \n Boulder Flood 2013",
               cmap="Greys")
 
@@ -122,7 +165,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_8_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_7_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO.">
 <figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO.</figcaption>
 
 </figure>
@@ -140,8 +183,8 @@ Below you check out the min and max values of the data.
 
 {:.input}
 ```python
-print("the minimum raster value is: ", lidar_dem_arr.min())
-print("the maximum raster value is: ", lidar_dem_arr.max())
+print("the minimum raster value is: ", dtm_pre_arr.min())
+print("the maximum raster value is: ", dtm_pre_arr.max())
 ```
 
 {:.output}
@@ -154,7 +197,7 @@ print("the maximum raster value is: ", lidar_dem_arr.max())
 ```python
 # A histogram can also be helpful to look at the range of values in your data
 # What do you notice about the histogram below?
-ep.hist(lidar_dem_arr,
+ep.hist(dtm_pre_arr,
        figsize=(10,6))
 plt.show()
 ```
@@ -164,12 +207,14 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_11_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_10_0.png">
 
 </figure>
 
 
 
+
+## Raster Data Exploration - Min and Max Values
 
 Looking at the minimum value of the data, there is one of two things going on
 that need to be fixed
@@ -185,9 +230,9 @@ in the data and masking no data values using rasterio. To do this, you will use 
 {:.input}
 ```python
 # Read in your data and mask the no data values
-with rio.open(lidar_dem_path) as dem_src:
+with rio.open(dem_pre_path) as dem_src:
     # Masked=True will mask all no data values
-    lidar_dem_arr = dem_src.read(1, masked=True)
+    dtm_pre_arr = dem_src.read(1, masked=True)
 ```
 
 Notice that now the minimum value looks more like
@@ -195,8 +240,8 @@ an elevation value (which should most often not be negative).
 
 {:.input}
 ```python
-print("the minimum raster value is: ", lidar_dem_arr.min())
-print("the maximum raster value is: ", lidar_dem_arr.max())
+print("the minimum raster value is: ", dtm_pre_arr.min())
+print("the maximum raster value is: ", dtm_pre_arr.max())
 ```
 
 {:.output}
@@ -208,7 +253,7 @@ print("the maximum raster value is: ", lidar_dem_arr.max())
 {:.input}
 ```python
 # A histogram can also be helpful to look at the range of values in your data
-ep.hist(lidar_dem_arr,
+ep.hist(dtm_pre_arr,
        figsize=(10,6),
        title="Histogram of the Data with No Data Values Removed")
 plt.show()
@@ -219,7 +264,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_16_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_15_0.png">
 
 </figure>
 
@@ -231,7 +276,7 @@ Plot your data again to see how it looks.
 {:.input}
 ```python
 # Plot data using earthpy
-ep.plot_bands(lidar_dem_arr,
+ep.plot_bands(dtm_pre_arr,
               title="Lidar Digital Elevation Model (DEM) \n Boulder Flood 2013",
               cmap="Greys")
 
@@ -243,7 +288,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_18_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_17_0.png">
 
 </figure>
 
@@ -267,7 +312,7 @@ datascience textbook chapter on Numpy arrays. </a>
 
 {:.input}
 ```python
-with rio.open(lidar_dem_path) as dem_src:
+with rio.open(dem_pre_path) as dem_src:
     lidar_dem_im = dem_src.read(1, masked=True)
 
 print("Numpy Array Shape:", lidar_dem_im.shape)
@@ -292,7 +337,7 @@ reference system. You will learn more about
 
 {:.input}
 ```python
-with rio.open(lidar_dem_path) as dem_src:
+with rio.open(dem_pre_path) as dem_src:
     lidar_dem_im = dem_src.read(1, masked=True)
     # Create an object called lidar_dem_meta that contains the spatial metadata
     lidar_dem_meta = dem_src.profile
@@ -333,7 +378,7 @@ original data.
 
 ```
 with rio.open(`file-path-here`) as file_src:
-   lidar_dem_arr = dem_src.read(1, masked=True)
+   dtm_pre_arr = dem_src.read(1, masked=True)
 ```
 
 Notice that the first line of the context manager is not indented.
@@ -344,7 +389,7 @@ It contains two parts
 
 The second line of your with statement 
 
-  `lidar_dem_arr = dem_src.read(1, masked=True)`
+  `dtm_pre_arr = dem_src.read(1, masked=True)`
 
 is indented. Any code that is indented
 directly below the with statement will become a part of the context manager.
@@ -366,7 +411,7 @@ a context manager using the syntax below. This approach however is generally
 not recommended. 
 
 ```
-lidar_dem = rio.open(lidar_dem_path)
+lidar_dem = rio.open(dem_pre_path)
 lidar_dem.close()
 ```
 </div>
@@ -374,7 +419,7 @@ lidar_dem.close()
 {:.input}
 ```python
 # Notice here the src object is printed and returns an "open" DatasetReader object
-with rio.open(lidar_dem_path) as src:
+with rio.open(dem_pre_path) as src:
     print(src)
 ```
 
@@ -429,7 +474,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_28_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_27_0.png">
 
 </figure>
 
@@ -442,9 +487,9 @@ spatial information associated with it.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,5))
+fig, ax = plt.subplots(figsize=(4,10))
 
-ep.plot_bands(lidar_dem_arr, ax=ax)
+ep.plot_bands(dtm_pre_arr, ax=ax)
 
 site_bound_shp.plot(color='teal',
                     edgecolor='black', ax=ax)
@@ -457,7 +502,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_30_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_29_0.png">
 
 </figure>
 
@@ -466,7 +511,7 @@ plt.show()
 
 {:.input}
 ```python
-with rio.open(lidar_dem_path) as dem_src:
+with rio.open(dem_pre_path) as dem_src:
     lidar_dem_im = dem_src.read(1, masked=True)
     # Create an object called lidar_dem_meta that contains the spatial metadata
     lidar_dem_plot_ext = plotting_extent(dem_src)
@@ -493,7 +538,7 @@ to specify the plotting extent within `ep.plot_bands()`
 ```python
 fig, ax = plt.subplots()
 
-ep.plot_bands(lidar_dem_arr,
+ep.plot_bands(dtm_pre_arr,
               ax=ax,
               extent=lidar_dem_plot_ext)
 
@@ -511,7 +556,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_33_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_32_0.png">
 
 </figure>
 
@@ -521,15 +566,15 @@ plt.show()
 
 
 
-<div class="notice--success" markdown="1">
+<div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** Customizing Raster Plot Color Ramps
 To change the color of a raster plot you set the colormap. Matplotlib has a list of  <a href="https://matplotlib.org/users/colormaps.html" target="_blank">pre-determined color ramps that you can chose from.</a> You can reverse a color ramp by adding `_r` at the end of the color ramp's name, for example `cmap = 'viridis'` vs `cmap = 'viridis_r'`. 
 
 </div>
 
-
-
-
+You now have the basic skills needed to open and plot raster data. Complete
+the challenges below to test your skills. 
 
 
 
