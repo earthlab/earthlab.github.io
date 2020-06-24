@@ -4,7 +4,7 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-06-23
+modified: 2020-06-24
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
@@ -483,7 +483,8 @@ plt.show()
 
 
 
-<div class="notice--success" markdown="1">
+<div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** Landsat 8 Pre Collections Data
 
 If you are working with Landsat data downloaded pre USGS collections, your data may be formatted and named slightly differently than the example shown on this page. Below is an explanation of the legacy Landsat 8 naming convention. 
@@ -513,6 +514,7 @@ File: `LC08_L1TP_034032_20160707_20170221_01_T1_sr_band1_crop.tif`
 * VV = Archive Version
 
 <a href="http://gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
+</div>
 
 ## Julian day
 

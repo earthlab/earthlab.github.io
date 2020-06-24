@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-06-23
+modified: 2020-06-24
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -123,6 +123,7 @@ Below, you define the path to a lidar derived digital elevation model (DEM)
 that was created using NEON (the National Ecological Observatory Network) data. 
 
 <div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** DEM's are also sometimes referred to 
 as DTM (Digital Terrain Model or 
 DTM). You can learn more about the 3 lidar derived elevation data types: <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/" >DEMs,
@@ -565,7 +566,8 @@ plt.show()
 
 
 
-<div class="notice--success" markdown="1">
+<div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** Customizing Raster Plot Color Ramps
 To change the color of a raster plot you set the colormap. Matplotlib has a list of  <a href="https://matplotlib.org/users/colormaps.html" target="_blank">pre-determined color ramps that you can chose from.</a> You can reverse a color ramp by adding `_r` at the end of the color ramp's name, for example `cmap = 'viridis'` vs `cmap = 'viridis_r'`. 
 
@@ -629,6 +631,7 @@ layers are on the same figure.
 *****
 
 <div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** 
 
 * <a href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/" target="_blank">Check out this lesson on overlaying rasters if you get stuck trying to complete this challenge.</a>
@@ -666,6 +669,7 @@ will be needed to add this final layer to your plot.
 *****
 
 <div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** Plotting Raster and Vector Together
 
 You can learn more about overlaying vector data on top of raster data to 
@@ -721,9 +725,6 @@ colorado-flood dataset downloaded using earthpy.
 <img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_44_0.png">
 
 </figure>
-
-
-
 
 
 
