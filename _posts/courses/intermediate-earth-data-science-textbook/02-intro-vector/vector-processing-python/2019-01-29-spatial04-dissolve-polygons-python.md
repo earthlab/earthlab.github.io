@@ -4,7 +4,7 @@ title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "When you dissolve polygons, you remove the interior boundaries of a set of polygons with the same attribute value and create one new merged or combined polygon for each attribute value. Learn how to dissolve polygons in Python using GeoPandas."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/dissolve-polygons-in-python-geopandas-shapely/

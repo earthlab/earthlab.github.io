@@ -3,7 +3,7 @@ layout: single
 title: 'Use Twitter Data to Explore the 2013 Colorado Flood Using Open Source Python'
 excerpt: 'In this lesson you will learn how to parse a JSON file containing twitter data to better understand the 2013 Colorado Floods using Open Source Python tools.'
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2020-04-01
+modified: 2020-04-07
 category: [courses]
 class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/intro-to-apis/json-colorado-flood-twitter-data/
@@ -450,7 +450,7 @@ tweets_nsw_nc[2]
 
 {:.output}
     [nltk_data] Downloading package stopwords to /root/nltk_data...
-    [nltk_data]   Package stopwords is already up-to-date!
+    [nltk_data]   Unzipping corpora/stopwords.zip.
 
 
 
@@ -608,7 +608,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/07-apis-twitter/02-twitter-api/2020-03-25-twitter-06-boulder-flood-tweets/2020-03-25-twitter-06-boulder-flood-tweets_25_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/07-apis-twitter/02-twitter-api/2020-03-25-twitter-06-boulder-flood-tweets/2020-03-25-twitter-06-boulder-flood-tweets_25_0.png" alt = "Horizontal bar graph showing most common words found in tweets (without stop words).">
+<figcaption>Horizontal bar graph showing most common words found in tweets (without stop words).</figcaption>
 
 </figure>
 
@@ -710,7 +711,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/07-apis-twitter/02-twitter-api/2020-03-25-twitter-06-boulder-flood-tweets/2020-03-25-twitter-06-boulder-flood-tweets_29_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/07-apis-twitter/02-twitter-api/2020-03-25-twitter-06-boulder-flood-tweets/2020-03-25-twitter-06-boulder-flood-tweets_29_0.png" alt = "Network plot showing grouped terms found in the tweets.">
+<figcaption>Network plot showing grouped terms found in the tweets.</figcaption>
 
 </figure>
 

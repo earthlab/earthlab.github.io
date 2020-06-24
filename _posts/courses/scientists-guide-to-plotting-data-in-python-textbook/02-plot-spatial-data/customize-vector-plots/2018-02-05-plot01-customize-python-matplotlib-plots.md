@@ -4,7 +4,7 @@ title: "Customize Map Legends and Colors in Python using Matplotlib: GIS in Pyth
 excerpt: "When making maps, you often want to add legends and customize the map colors. Learn how to customize legends and colors in matplotlib maps created using vector data in Python."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-04-03
+modified: 2020-04-04
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/

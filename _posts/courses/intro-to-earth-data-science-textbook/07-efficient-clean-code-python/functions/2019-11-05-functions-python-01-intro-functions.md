@@ -8,7 +8,7 @@ class-lesson: ['intro-functions-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/
 nav-title: "Intro to Functions"
 dateCreated: 2019-11-05
-modified: 2020-03-13
+modified: 2020-06-16
 module-title: 'Introduction to Functions in Python'
 module-nav-title: 'Intro to Functions in Python'
 module-description: 'A function is a reusable block of code that performs a specific task and can help you to eliminate repetition and improve efficiency in your code through modularity. Learn how to write functions in Python to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -17,6 +17,8 @@ class-order: 4
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
 week: 7
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

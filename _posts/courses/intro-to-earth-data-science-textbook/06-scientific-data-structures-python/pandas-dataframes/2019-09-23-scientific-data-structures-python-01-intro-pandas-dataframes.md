@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-12
+modified: 2020-06-16
 module-title: 'Work with Scientific Data Using Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'Pandas dataframes are a commonly used scientific data structure in Python that store tabular data using rows and columns with headers. Learn how to import data into pandas dataframes and how to run calculations, summarize, and select data from pandas dataframes.'
@@ -17,6 +17,8 @@ chapter: 15
 class-order: 2
 course: "intro-to-earth-data-science-textbook"
 week: 6
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false
@@ -188,62 +190,62 @@ avg_monthly_precip
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Jan</td>
       <td>0.70</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Feb</td>
       <td>0.75</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Mar</td>
       <td>1.85</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Apr</td>
       <td>2.93</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>May</td>
       <td>3.05</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>June</td>
       <td>2.02</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>July</td>
       <td>1.93</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Aug</td>
       <td>1.62</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Sept</td>
       <td>1.84</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>Oct</td>
       <td>1.31</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>Nov</td>
       <td>1.39</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>Dec</td>
       <td>0.84</td>
     </tr>
