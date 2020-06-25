@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
 modified: 2020-06-25
 category: [courses]
-class-lesson: ['customize-raster-plots']
+class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/
 nav-title: 'Plot Activities'
 week: 3

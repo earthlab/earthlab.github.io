@@ -6,14 +6,14 @@ authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
 modified: 2020-06-25
 category: [courses]
-class-lesson: ['customize-raster-plots']
+class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
 nav-title: 'Plot Time Series Data'
 module-title: 'Practice Your Python Plotting Skills'
 module-description: 'This chapter provides a series of activities that allow you to practice your Python plotting skills using differen types of data.'
 module-nav-title: 'Practice Plotting'
 module-type: 'class'
-chapter: 4
+chapter: 5
 week: 2
 sidebar:
   nav:
