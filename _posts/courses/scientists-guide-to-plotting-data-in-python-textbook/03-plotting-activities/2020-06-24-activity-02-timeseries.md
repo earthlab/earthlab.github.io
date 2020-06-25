@@ -14,13 +14,13 @@ module-description: 'This chapter provides a series of activities that allow you
 module-nav-title: 'Practice Plotting'
 module-type: 'class'
 chapter: 5
-week: 2
+week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 1
-class-order: 2
+class-order: 1
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 topics:
   reproducible-science-and-programming:
@@ -30,23 +30,13 @@ topics:
 
 {% include toc title="Section Three" icon="file-text" %}
 
-<div class="notice--info" markdown="1">
+<div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Section Three - Open Source Python Plotting Activities 
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Five - Practice Your Plotting Skills
 
-In section two of this textbook, you will test your skills with plotting different 
-types of data using open source **Python**. 
-
-
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-
-After completing this section of the Scientist's Guide to Plotting Data in Python online textbook, you will be able to:
-
-* Plot different types of data using open source python approaches. 
+In this chapter, you will practice your skills creating different types of plots in **Python** using **earthpy**, **matplotlib**, and **folium**. 
 
 </div>
-
-{% include textbook-section-toc.html %}
 
 
 <div class='notice--success' markdown="1">
