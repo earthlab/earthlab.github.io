@@ -60,9 +60,6 @@ sidebar:
 
 <div class="notice--info" markdown="1">
 **Check out our *new* Earth Data Science Textbooks**
-<div id = "right" >
-<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Graduate Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
-</div>
 </div>
 
 {% include feature_row id="feature_row2" %}
