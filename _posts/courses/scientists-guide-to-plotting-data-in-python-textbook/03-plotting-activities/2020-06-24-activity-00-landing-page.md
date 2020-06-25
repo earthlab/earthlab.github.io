@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "Plotting Spatial Data"
-permalink: /courses/scientists-guide-to-plotting-data-in-python/python-plotting-activities/
+permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/
 week-landing: 3
 dateCreated: 2020-01-10
 modified: 2020-06-25

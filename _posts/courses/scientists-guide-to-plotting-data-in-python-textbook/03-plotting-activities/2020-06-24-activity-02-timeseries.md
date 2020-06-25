@@ -1,19 +1,33 @@
 ---
 layout: single
-category: courses
-title: "Plot Time Series Data Using Open Source Python"
-permalink: /courses/scientists-guide-to-plotting-data-in-python/python-timeseries-plotting-activity/
-week-landing: 3
-dateCreated: 2020-06-24
+title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
+excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
+authors: ['Leah Wasser', 'Nathan Korinek']
+dateCreated: 2020-02-26
 modified: 2020-06-25
-week: 3
+category: [courses]
+class-lesson: ['customize-raster-plots']
+permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
+nav-title: 'Plot Time Series Data'
+module-title: 'Practice Your Python Plotting Skills'
+module-description: 'This chapter provides a series of activities that allow you to practice your Python plotting skills using differen types of data.'
+module-nav-title: 'Practice Plotting'
+module-type: 'class'
+chapter: 4
+week: 2
 sidebar:
   nav:
-comments: false
 author_profile: false
+comments: true
+order: 1
+class-order: 2
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
-module-type: 'session'
+topics:
+  reproducible-science-and-programming:
+  data-exploration-and-analysis: ['data-visualization']
+  spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
+
 {% include toc title="Section Three" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
@@ -102,7 +116,7 @@ os.chdir(os.path.join(et.io.HOME, "earth-analytics", "data"))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-plot-data-activity-timeseries/2020-06-24-plot-data-activity-timeseries_7_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-timeseries/2020-06-24-activity-02-timeseries_7_0.png">
 
 </figure>
 
