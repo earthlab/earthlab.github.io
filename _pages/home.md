@@ -12,6 +12,25 @@ header:
 excerpt: 'Learn to use earth science and other data in R & Python'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
+feature_row2:
+  - image_path: learn.png
+    alt: "Introduction to Earth Data Science Textbook."
+    title: "Intro to Earth Data Science Textbook"
+    excerpt: "Learn about using core data science tools including Python programming, Git, GitHub and Bash to support developing scientific data workflows in Open Source Python."
+    url: "/courses/intro-to-earth-data-science/"
+    btn_label: "Learn More"
+  - image_path: learn.png
+    alt: "Intermediate to Earth Data Science Textbook."
+    title: "Intermediate Earth Data Science Textbook"
+    excerpt: "Dive into working with different types of data including GIS, remote sensing, twitter data and more. Explore different data types and structures including geotiff, HDF, CSV, & JSON."
+    url: "/courses/use-data-open-source-python/"
+    btn_label: "Learn More"
+  - image_path: learn.png
+    alt: "Python Open Source Plotting Guide"
+    title: "Python Open Source Plotting Guide"
+    excerpt: "Plotting different types of data can be tricky. Learn how to create maps, plot time series data and more in this open source Python plotting guidebook."
+    url: "/courses/use-data-open-source-python/"
+    btn_label: "Learn More"
 feature_row:
   - image_path: learn.png
     alt: "Learn more about our lab."
@@ -38,6 +57,15 @@ github:
 sidebar:
   nav: earth-analytics-2017
 ---
+
+<div class="notice--info" markdown="1">
+**Check out our *new* Earth Data Science Textbooks**
+<div id = "right" >
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Graduate Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
+</div>
+</div>
+
+{% include feature_row id="feature_row2" %}
 
 <!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
