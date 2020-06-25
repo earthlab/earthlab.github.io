@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-04-02
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -139,7 +139,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_4_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_4_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
 <figcaption>RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.</figcaption>
 
 </figure>
@@ -244,7 +244,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
@@ -392,7 +392,7 @@ Below is the plot of the reclassified raster mask created from the `_create_mask
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_28_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_28_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
 <figcaption>Landsat image in which the masked pixels (cloud) are rendered in light purple.</figcaption>
 
 </figure>
@@ -458,7 +458,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_35_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_35_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -481,7 +481,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_36_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_36_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>

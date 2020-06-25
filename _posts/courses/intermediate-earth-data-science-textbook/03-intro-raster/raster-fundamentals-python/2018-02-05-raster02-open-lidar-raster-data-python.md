@@ -3,8 +3,8 @@ layout: single
 title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2018-02-05
-modified: 2020-06-24
+dateCreated: 2018-02-06
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/

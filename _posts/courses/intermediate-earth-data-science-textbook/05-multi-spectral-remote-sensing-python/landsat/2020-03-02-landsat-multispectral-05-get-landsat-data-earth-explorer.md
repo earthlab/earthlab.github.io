@@ -4,7 +4,7 @@ title: "Find and Download Landsat 8 Remote Sensing Data From the USGS Earth Expl
 excerpt: "Learn how to find and download Landsat 8 remote sensing data from the USGS Earth Explorer website."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-04-02
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/get-landsat-data-earth-explorer/

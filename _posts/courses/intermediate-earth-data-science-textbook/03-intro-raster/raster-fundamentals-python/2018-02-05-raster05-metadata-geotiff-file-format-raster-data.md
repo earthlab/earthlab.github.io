@@ -3,8 +3,8 @@ layout: single
 title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2018-02-05
-modified: 2020-06-24
+dateCreated: 2018-02-06
+modified: 2020-06-25
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/

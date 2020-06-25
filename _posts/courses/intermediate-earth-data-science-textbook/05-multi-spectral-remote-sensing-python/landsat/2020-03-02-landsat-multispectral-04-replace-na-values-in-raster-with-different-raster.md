@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-04-02
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -69,6 +69,12 @@ data_2 = et.data.get_data('cs-test-landsat')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
+    Extracted output to /root/earth-analytics/data/cs-test-landsat/.
+
+
+
 First, open the masked raster stack that you exported in the previous lesson. If you did not complete the previous lesson, you will need to make a masked raster stack of the cold springs cloud data to continue on with this lesson. (If you exported your masked raster stack from the last lesson, you can read that file in and skip the following code.)
 
 {:.input}
@@ -126,7 +132,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_6_0.png" alt = "Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster_6_0.png" alt = "Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.">
 <figcaption>Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.</figcaption>
 
 </figure>
@@ -222,7 +228,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_13_0.png" alt = "Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster_13_0.png" alt = "Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.">
 <figcaption>Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.</figcaption>
 
 </figure>
@@ -344,7 +350,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_25_0.png" alt = "Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-04-replace-na-values-in-raster-with-different-raster_25_0.png" alt = "Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.">
 <figcaption>Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.</figcaption>
 
 </figure>
