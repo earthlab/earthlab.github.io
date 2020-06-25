@@ -4,7 +4,11 @@ title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "Raster metadata includes the coordinate reference system (CRS), resolution, and spatial extent. Learn about these metadata and how to access them in Python"
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
+<<<<<<< HEAD:_posts/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster04-raster-metadata.md
 modified: 2020-06-19
+=======
+modified: 2020-06-24
+>>>>>>> c0f0340953fc6f0d080fd31fdfbbdb2549ae7c4a:_posts/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster04-raster-metadata.md
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-metadata-in-python/

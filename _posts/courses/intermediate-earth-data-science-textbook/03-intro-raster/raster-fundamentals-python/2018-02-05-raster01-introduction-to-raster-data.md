@@ -4,7 +4,11 @@ title: "What is Raster Data"
 excerpt: "Rasters are gridded data composed of pixels that store values. Learn more about the structure of raster data and how to use them to store data, such as imagery or elevation values."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
+<<<<<<< HEAD
 modified: 2020-06-23
+=======
+modified: 2020-06-24
+>>>>>>> c0f0340953fc6f0d080fd31fdfbbdb2549ae7c4a
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/
