@@ -4,7 +4,7 @@ title: "Practice Opening and Plotting Landsat Data in Python Using Rasterio"
 excerpt: "A set of activities for you to practice your skills using Landsat Data in Open Source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-24
-modified: 2020-06-24
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/landsat-exercises/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -72,7 +72,7 @@ Do the following:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-05-landsat-data-exercises/2020-03-02-landsat-multispectral-05-landsat-data-exercises_4_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_4_0.png">
 
 </figure>
 
@@ -105,7 +105,7 @@ turn our properly.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-05-landsat-data-exercises/2020-03-02-landsat-multispectral-05-landsat-data-exercises_6_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_6_0.png">
 
 </figure>
 
