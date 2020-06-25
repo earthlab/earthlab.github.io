@@ -4,11 +4,7 @@ title: "What is Raster Data"
 excerpt: "Rasters are gridded data composed of pixels that store values. Learn more about the structure of raster data and how to use them to store data, such as imagery or elevation values."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-<<<<<<< HEAD
-modified: 2020-06-23
-=======
-modified: 2020-06-24
->>>>>>> c0f0340953fc6f0d080fd31fdfbbdb2549ae7c4a
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/
@@ -53,7 +49,7 @@ After completing this chapter, you will be able to:
 * Open raster data using **Python**.
 * Be able to list and identify 3 spatial attributes of a raster dataset: extent, crs and resolution.
 * Explore and plot the distribution of values within a raster using histograms.
-* Access metadata stored within a GeoTIFF raster file via TIF tags in **Python**.
+* Access metadata stored in a GeoTIFF raster file via TIF tags in **Python**.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 

@@ -3,8 +3,8 @@ layout: single
 title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python "
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
-dateCreated: 2020-06-24
-modified: 2020-06-24
+dateCreated: 2020-06-23
+modified: 2020-06-25
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
