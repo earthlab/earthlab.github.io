@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/use-tabular-data/
 nav-title: "Use Tabular Data"
 dateCreated: 2020-06-20
-modified: 2020-06-22
+modified: 2020-06-26
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -327,7 +327,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_9_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/04-text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_9_0.png">
 
 </figure>
 
