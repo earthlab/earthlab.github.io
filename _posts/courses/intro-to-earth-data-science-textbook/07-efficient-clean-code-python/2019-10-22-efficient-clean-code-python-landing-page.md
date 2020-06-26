@@ -1,10 +1,10 @@
 ---
 layout: single
 category: courses
-title: "Write Efficient, Clean Code in Python"
+title: "Write Efficient, Clean Code Using Open Source Python"
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/
 week-landing: 7
-modified: 2020-01-08
+modified: 2020-06-26
 week: 7
 sidebar:
   nav:
