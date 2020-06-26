@@ -78,6 +78,7 @@ and processing.
 
 
 <div class="notice--success alert alert-info" markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** The challenge with graphical user 
 interface (GUI) based tools like Excel
 is that they often have limitations when it comes to working with larger files. 
@@ -120,7 +121,9 @@ There are many different types of delimiters including:
 * 1 (or more) spaces
 
 Sometimes you will find other characters used as delimiters but the above-listed options are the most common. 
-<div class='notice--success' markdown="1">
+
+<div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** The `.csv` file format is most often delimited by a comma. Hence the name: 
 </div>
 
@@ -337,7 +340,7 @@ plt.show()
 <div class="notice--warning alert alert-info" markdown="1">
 
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 * Use Python to determine the `type` of data stored in `avg_monthly_precip`
 
@@ -348,7 +351,7 @@ HINT: you learned how to determine the type of an object in the variables lesson
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 In most programming languages, you can customize the options for how a function 
 runs by using parameters. Examples of parameters in the plot above include: 
@@ -641,7 +644,7 @@ miami_temp.head()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Now that you have imported temperature data for Miami, plot the 
 data using the code example above!! In your plot code, set `Date` as your 
@@ -651,7 +654,7 @@ data using the code example above!! In your plot code, set `Date` as your
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Use the link below to open and plot temperature data for Seattle, Washington. 
 
@@ -662,7 +665,7 @@ https://www.ncdc.noaa.gov/cag/city/time-series/USW00013895-tmax-1-5-1895-2020.cs
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge -- OPTIONAL
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge -- OPTIONAL
 
 Copy the code below into your code. Run the code. 
 It should download and open a new dataset that has CO2 emissions for a field site
