@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/dry-modular-code/
 nav-title: "DRY Modular Code"
 dateCreated: 2019-09-03
-modified: 2020-01-08
+modified: 2020-06-26
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -194,17 +194,7 @@ In the upcoming chapters of this textbook, you will learn more about creating fu
 to both write clean DRY code and also to automated your workflows. 
 
 
-<div class="notice--info" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Additional Resources
-
-* <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">The PEP 8 Style Guide</a>.
-
-* <a href="https://realpython.com/python-pep8/" target="_blank">How To Write Beautiful Python Code with PEP 8</a>.
-
-* <a href="https://www.safaribooksonline.com/library/view/the-hitchhikers-guide/9781491933213/ch04.html" target="_blank">The Hitchhiker's Guide to Python by Tanya Schlusser and Kenneth Reitz</a>.
-    
-</div>
+<div class="notice--success" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Practice Applying PEP 8 To Your Code
 
@@ -229,6 +219,18 @@ Object Naming Issues
 
 </div>
 
+
+<div class="notice--info" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Additional Resources
+
+* <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">The PEP 8 Style Guide</a>.
+
+* <a href="https://realpython.com/python-pep8/" target="_blank">How To Write Beautiful Python Code with PEP 8</a>.
+
+* <a href="https://www.safaribooksonline.com/library/view/the-hitchhikers-guide/9781491933213/ch04.html" target="_blank">The Hitchhiker's Guide to Python by Tanya Schlusser and Kenneth Reitz</a>.
+    
+</div>
 
 {:.input}
 ```python
