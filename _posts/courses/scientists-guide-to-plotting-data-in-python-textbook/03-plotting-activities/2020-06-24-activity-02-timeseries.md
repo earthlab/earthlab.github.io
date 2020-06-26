@@ -4,7 +4,7 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-06-25
+modified: 2020-06-26
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
@@ -41,9 +41,13 @@ In this chapter, you will practice your skills creating different types of plots
 
 <div class='notice--success' markdown="1">
 
+## Plot Time Series Data in Python
+
+One of the most common tasks the chapters have covered is plotting time series data. Time series data is a very common and important data type when it comes to earth analytics. It can be used to store precipitation data, temperature data, land change data, and much more. The chapters have covered information about common file types for time series data storage, such as `.txt` and `.csv` files, as well as how to read in and handle time series data in **Python** with the **pandas** package. The chapters also showed how to modify time series plots with **matplotlib** to make them communicate the time series data more effectively. 
+
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Time Series Data Using Open Source Python
 
-One of the most common data plot the chapters have covered is time series data. Below is a challenge to refresh your memory on how to plot time series and modify certain aspects of it. 
+Below is a challenge to refresh your memory on how to plot time series using **matplotlib** and modify certain aspects of it with **pandas**. 
 </div>
 
 {:.input}
@@ -81,7 +85,7 @@ to the present using NOAA data. To make this plot, you will have to do the follo
 ****
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For help with this challenge, see your previous activities involving time series, or [the time series chapters](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/) from the EarthLab website. 
+<i class="fa fa-star"></i> **Data Tip:** [To learn more about time series data and how to plot it, see this chapter of the earth data science Use Data for Earth and Environmental Science in Open Source Python textbook.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/)  
 
 </div>
 

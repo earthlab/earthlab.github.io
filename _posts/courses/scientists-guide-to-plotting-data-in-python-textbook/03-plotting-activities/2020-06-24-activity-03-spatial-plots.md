@@ -26,9 +26,13 @@ topics:
 
 <div class='notice--success' markdown="1">
 
+## Plot Spatial Data in Python
+
+Throughout these chapters, one of the main focuses has been opening, modifying, and plotting all forms of spatial data. The chapters have covered a wide array of these types of data, including all types of vector data, elevation data, imagery data, and more! You've used a combination of multiple libraries to open and plot spatial data, including **pandas**, **geopandas**, **matplotlib**, **earthpy**, and various others. Often earth analytics will combine vector and raster data to do more meaningful analysis on a research question. Plotting these various types of data together can be challenging, but also very informative. 
+
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Different Types of Spatial Data Using Open Source Python
 
-Throughout these chapters, you've learned a lot on how to plot many different types of data. You've used a combination of multiple libraries to plot data, including **pandas**, **geopandas**, **matplotlib**, **earthpy**, and various others. This challenge will challenge you to use the appropriate packages and tools to plot each type of data that have been covered so far. First, you will plot out various forms of vector data, then raster data, and finally you will plot a combination of the raster and vector data. 
+In this challenge you will be asked to use the appropriate packages and tools to plot each type of spatial data that have been covered so far. First, you will plot out various forms of vector data, then raster data, and finally you will plot a combination of the raster and vector data. 
 </div>
 
 {:.input}
@@ -83,7 +87,9 @@ ax.legend(handles, labels)
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For help with this challenge, see your previous activities involving vector plotting, [this chapter explaining reprojecting data into a new CRS](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/) from the EarthLab website, or [this chapter covering vector and legend plotting](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/). 
+<i class="fa fa-star"></i> **Data Tip:** 
+- [If you're struggling with reprojecting the GeoDataFrames, check out this lesson explaining reprojecting data into a new CRS.](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/reproject-vector-data-in-python/) 
+- [If you get stuck trying to add a legend to the plot, this lesson covering legends in vector plot may be useful.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/). 
 
 </div>
 
@@ -147,7 +153,7 @@ Next you will create a base map to put your trails on. In order to do this, you 
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Note:** The data for this challenge was acquired through the [National Map](https://viewer.nationalmap.gov/basic/), a website that the U.S. Geological Survey uses to distribute data. This data is a DEM with 30 Meter resolution, which is to say that every pixel of the image represents a 30 by 30 meter square on the ground. 
+<i class="fa fa-star"></i> **Data Note:** [The elevation data for this challenge was acquired through the National Map, a website that the U.S. Geological Survey uses to distribute data. This data is a DEM with 30 Meter resolution, which is to say that every pixel of the image represents a 30 by 30 meter square on the ground.](https://viewer.nationalmap.gov/basic/)
 
 </div>
 
@@ -155,7 +161,7 @@ Next you will create a base map to put your trails on. In order to do this, you 
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For help with this challenge, please see [this chapter](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/) on the EarthLab website covering raster data plots, as well as your previous lessons on plotting raster data. 
+<i class="fa fa-star"></i> **Data Tip:** [For more information about plotting raster data, see this chapter from the earth data science Scientist's Guide to Plotting Data in Python textbook.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/) 
 
 </div>
 
@@ -204,7 +210,7 @@ ned_cl_extent = plotting_extent(clipped_data[0], clipped_metadata["transform"])
 ******
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For help with this challenge, please see [this chapter](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/) on the EarthLab website covering plotting extents and overlaying datatypes. 
+<i class="fa fa-star"></i> **Data Tip:** [If plotting extents are causing you trouble, this lesson covering plotting extents may help you.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/)  
 </div>
 
 
@@ -236,7 +242,7 @@ Below is a map that was made with **folium** to create an interactive map of the
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For help with this challenge, please see [this chapter](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/interactive-leaflet-maps-in-python-folium/) on the EarthLab website covering interactive maps, and [this chapter](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/interactive-maps/) covering a similar topic. 
+<i class="fa fa-star"></i> **Data Tip:** [For more information on interactive maps and adding vector data to them, please see this lesson from the earth data science Scientist's Guide to Plotting Data in Python textbook.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/interactive-maps/)
 </div>
 
 {:.input}
