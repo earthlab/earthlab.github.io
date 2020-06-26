@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Plotting Spatial Data"
+title: "Python Plot Activities"
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/
 week-landing: 3
 dateCreated: 2020-01-10
