@@ -29,7 +29,7 @@ feature_row2:
     alt: "Python Open Source Plotting Guide"
     title: "Python Open Source Plotting Guide"
     excerpt: "Plotting different types of data can be tricky. Learn how to create maps, plot time series data and more in this open source Python plotting guidebook."
-    url: "/courses/use-data-open-source-python/"
+    url: "/courses/scientists-guide-to-plotting-data-in-python/"
     btn_label: "Learn More"
 feature_row:
   - image_path: learn.png
