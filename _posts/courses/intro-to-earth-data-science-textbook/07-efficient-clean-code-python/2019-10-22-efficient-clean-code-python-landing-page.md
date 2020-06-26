@@ -19,9 +19,9 @@ redirect_from:
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Section Seven - Write Efficient and Clean Code in Python
+## <i class="fa fa-ship" aria-hidden="true"></i> Section Seven - Write Efficient and Clean Code Using Open Source Python
 
-In section seven of this textbook, you will learn about best practices and resources for writing clean, expressive code, including the PEP 8 Style Guide for **Python**, which provides useful standards for naming conventions and organization of code to support code readibility. You will also learn how to implement DRY (i.e. Do Not Repeat Yourself) code in **Python** using conditional statements to control the flow of your code as well as loops and custom functions to automate tasks. 
+In section seven of this textbook, you will learn about best practices and resources for writing clean, expressive code, including the PEP 8 Style Guide for **Python**, which provides useful standards for naming conventions and organization of code to support code readability. You will also learn how to implement DRY (i.e. Do Not Repeat Yourself) code in **Python** using conditional statements to control the flow of your code as well as loops and custom functions to automate tasks. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -29,7 +29,7 @@ In section seven of this textbook, you will learn about best practices and resou
 After completing this section of the introduction to earth data science online textbook, you will be able to:
 
 * Explain best practices for writing clean, expressive code. 
-* List key components of the PEP 8 Style Guide and explain how to apply these standards to your **Python** code.
+* List key components of the **PEP 8** Style Guide and explain how to apply these standards to your **Python** code.
 * Explain how conditional statements, loops, and functions help you to write DRY code in **Python**.
 * Write conditional statements, loops, and functions in **Python** to control the flow of code and automate tasks. 
 
