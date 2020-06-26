@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-06-22
+modified: 2020-06-26
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -20,6 +20,8 @@ order: 2
 topics:
     spatial-data-and-gis: ['raster-data']
 ---
+{% include toc title="In This Chapter" icon="file-text" %}
+
 <div class='notice--success alert alert-info' markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Fundamentals of Raster Data in Python 
@@ -314,7 +316,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png">
 
 </figure>
 
@@ -493,7 +495,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_20_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_20_0.png">
 
 </figure>
 
@@ -513,7 +515,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png">
 
 </figure>
 

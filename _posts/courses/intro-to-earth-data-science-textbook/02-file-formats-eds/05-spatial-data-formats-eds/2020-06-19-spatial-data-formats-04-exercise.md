@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/file-formats-exercise/
 nav-title: "File Formats Exercise"
 dateCreated: 2020-06-20
-modified: 2020-06-22
+modified: 2020-06-26
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -16,10 +16,14 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 4
 topics:
     spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
+{% include toc title="In This Chapter" icon="file-text" %}
+
+
+
 {:.input}
 ```python
 # Importing packages needed to complete this lesson
