@@ -8,12 +8,12 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/
 nav-title: "Intro to Spatial Data Formats"
 dateCreated: 2019-08-29
-modified: 2020-06-22
+modified: 2020-06-26
 module-title: 'Spatial Data Formats for Earth Data Science'
 module-nav-title: 'Spatial Data Formats'
 module-description: 'There are two primary spatial data formats that are useful for earth data science, vector and raster. Learn about these two common spatial data formats for earth data science workflows.'
 module-type: 'class'
-chapter: 4
+chapter: 5
 class-order: 1
 course: "intro-to-earth-data-science-textbook"
 week: 2
