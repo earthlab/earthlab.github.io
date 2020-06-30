@@ -11,7 +11,7 @@ module-type: 'overview'
 module-title: "Earth Data Science Corps"
 week-landing: 0
 week: 0
-estimated-time: "5 weeks"
+estimated-time: "11 weeks"
 difficulty: "beginner"
 sidebar:
   nav:

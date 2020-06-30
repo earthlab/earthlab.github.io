@@ -22,31 +22,30 @@ sidebar:
 ## Instructors
 
 * **Primary Instructor:** Dr. Leah A. Wasser
-    * Email: leah.wasser at colorado.edu
-    
 * **Teaching Assistant:** Nathan Korinek
 * **Teaching Assistant:** Jenny Palomino
 * **Teaching Assistant:** Lauren Herwehe
 * **Teaching Assistant:** Nate Quarderer
 
-## Zoom Links for Events
-
-* You will receive Zoom links for events through email and calendar invites.
-
 </div>
 
-## Get Help
+## Getting Help
 
 There are several ways that you can get help when you get stuck in this program:
 
-1. Attend the scheduled office hours.
-2. Post your question on the Discourse Forum - https://earthlab.earthdatascience.org/
-3. Post your question on the Slack channel - https://app.slack.com/client/T013ZA21V8E/C014626KARG
+1. Attend office hours (see schedule below).
+2. Post your question on the Discourse Forum: https://earthlab.earthdatascience.org/
+3. Post your question on the Slack channel: https://app.slack.com/client/T013ZA21V8E/C014626KARG
+
+## Course Requirements
+
+All students will need a working laptop with internet to complete this program.
 
 ## Program Components
 
-### Workshops & Webinars
-Workshops and webinars will be hosted via Zoom on the schedule outlined below.
+### Workshops, Webinars, & Office Hours
+
+All program activities will occur via Zoom on the schedule outlined in the calendar below. You will receive Zoom links for events through email and calendar invites.
 
 ### Homework Assignments
 
@@ -54,7 +53,7 @@ Each week there will be a homework assignment. Use the materials on the website
 including readings, tutorials and links to other resources in addition to skills
 and concepts that you learn in workshops to complete the assignment.
 
-You can use JupyterHub (which is already set up with the tools you need) for all of your summer activities (e.g. assignments, project). Log in to the hub here - https://hub.earthdatascience.org/edsc-hub/hub/login
+You can use JupyterHub (which is already set up with the tools you need) for all of your summer activities (e.g. assignments, project). Log in to the hub with this link - https://hub.earthdatascience.org/edsc-hub/hub/login.
 
 ### Weekly Readings
 
@@ -71,10 +70,6 @@ is subject to change. This course content schedule is not designed as a
 contract. Rather, it is
 an overview guide to the materials that you will review during the semester.
 {: .notice--success}
-
-## Course Requirements
-
-All students will need a working laptop with internet to use for workshops.
 
 ## Weekly Schedule
 

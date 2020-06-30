@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "Earth Data Science Corps - Week Three"
-permalink: /courses/earth-data-science-corps/week-3-tabular-data/
+permalink: /courses/earth-data-science-corps/intro-to-tabular-data/
 week-landing: 3
 modified: 2020-06-30
 week: 3
@@ -17,10 +17,13 @@ module-type: 'session'
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week Three!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 3
+
+Welcome to week 3 of the Earth Data Science Corps! This week you will learn to work with tabular data in Python.
+
 </div>
 
-## <i class="fa fa-pencil"></i> Homework 1: Due Next Week
+## <i class="fa fa-pencil"></i> Homework 3: Due Next Week - Thurs, June 25 (9am MT / 10am CT)
 
 For this assignment, you will work through self-paced exercises that introduce core concepts in Python programming including:
 * Complete the readings below which review common spatial data types and formats that you can use in Python to complete scientific analyses, including spatial vector data and raster data.
@@ -46,25 +49,25 @@ Please post a response to this <a href="https://earthlab.earthdatascience.org/c/
 
 ## <i class="fa fa-book"></i> Workshop Agenda
 
-### Students & Instructors
-* 9:00-9:30am MT / 10:00-10:30am CT: Welcome to Workshop 3! (EDSC)
+* **9:00-9:30am MT / 10:00-10:30am CT**: Welcome to Workshop 3! (EDSC)
     * Survey, Questions
 
-* 9:30-10:05am MT / 10:30-11:05am CT: Intro to time series data in Python
+* **9:30-10:05am MT / 10:30-11:05am CT**: Intro to time series data in Python
     * Review and questions
 
-* 10:05-10:15am MT / 11:05-11:15am CT -- quick break
+* **10:05-10:15am MT / 11:05-11:15am CT** -- quick break
 
-* 10:15-11:00am MT / 11:15-12:00pm CT: Break-out Session 1
+* **10:15-11:00am MT / 11:15-12:00pm CT**: Break-out Session 1
     * Work through Jupyter Notebooks to review how tabular data formats are used to store scientific data (e.g. using rows and columns). 
 
-* 11:00-11:40am MT / 12:00-12:40pm CT: Lunch Break
+* **11:00-11:40am MT / 12:00-12:40pm CT**: Lunch Break
 
-* 11:40-12:00am MT / 12:40-1:00pm CT: Question / Answer Session
+* **11:40-12:00am MT / 12:40-1:00pm CT**: Question / Answer Session
 
-* 12:00-12:50pm MT / 1:00-1:50pm CT: Break-out Session 2
+* **12:00-12:50pm MT / 1:00-1:50pm CT**: Break-out Session 2
     * Work on challenges
 
-* 12:50-1:00pm MT / 1:50-2:00pm CT: 
+* **12:50-1:00pm MT / 1:50-2:00pm CT**: 
     * Wrap up / Feedback / Next Steps
+
 
