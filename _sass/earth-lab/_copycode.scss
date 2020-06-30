@@ -23,6 +23,10 @@ div.highlight {
     position: relative;
 }
 
+::selection {
+  color: #fff;
+  background: #000;
+  }
 
 /* Copy buttons */
 .btn a.copybtn {
