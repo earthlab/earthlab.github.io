@@ -85,8 +85,7 @@ an overview guide to the materials that you will review during the semester.
 | 4 | Workshop: Introduction to Raster Spatial Data in Python | Thurs, June 26th, 9-1pm MT | 
 | 5 | JULY 4th HOLIDAY! | |
 | 6 | Workshop: Introduction to Tabular Data in Python | Thurs, June 18th, 9-1pm MT |
-| 6 | Office Hours | Fri, July 10th, 10-11:30am MT |
-| 6 | Webinar: Careers in Earth Data Science | Fri, July 10th, 12-1pm MT |
+| 6 | Workshop: Science Communication | Fri, July 10th, 10am-12pm MT |
 | 9 | Project Status Presentations and Peerf Feedback | TBD |
 | 11 | Final Project Presentations| TBD |
 
