@@ -24,7 +24,7 @@ div.highlighter-rouge, figure.highlight {
   margin-top: 1em;
   margin-bottom: 1em;
   padding-left:1em;
-  padding-top: 1em;
+  /*padding-top: 1em;*/
 
   &:before {
     position: absolute;
@@ -45,6 +45,7 @@ div.highlighter-rouge, figure.highlight {
     font-family: $monospace;
     font-size: $type-size-7;
     line-height: 1.8;
+    padding: 1em; /* Add padding to make space for copy button */
   }
 }
 

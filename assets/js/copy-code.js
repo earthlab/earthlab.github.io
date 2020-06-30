@@ -11,7 +11,7 @@ $(this).attr('id', currentId);
 // create a button that's configured for clipboard.js
 // point it to the text that's in this code block
 // add the button just after the text in the code block w/ jquery
-var clipButton = '<button class="btn copybtn" data-tooltip="Copy" data-clipboard-target="#' + currentId + '"><img src="/images/copy-button.svg" width="13" alt="Copy to clipboard"></button>';
+var clipButton = '<button class="btn copybtn" data-tooltip="Copy" data-clipboard-target="#' + currentId + '"><img src="/images/copy-button.svg" width="17" alt="Copy to clipboard"></button>';
    $(this).after(clipButton);
 });
 
