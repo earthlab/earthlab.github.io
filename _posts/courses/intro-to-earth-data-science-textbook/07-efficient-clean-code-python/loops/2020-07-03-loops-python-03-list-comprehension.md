@@ -7,8 +7,8 @@ category: [courses]
 class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehension
 nav-title: "List Comprehension"
-dateCreated: 2019-10-23
-modified: 2020-07-07
+dateCreated: 2020-07-07
+modified: 2020-07-08
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -17,7 +17,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
 ---
@@ -81,8 +81,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 6.47 ms, sys: 274 µs, total: 6.74 ms
-    Wall time: 6.71 ms
+    CPU times: user 7.68 ms, sys: 0 ns, total: 7.68 ms
+    Wall time: 7.64 ms
 
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 3.25 ms, sys: 0 ns, total: 3.25 ms
-    Wall time: 3.25 ms
+    CPU times: user 4.4 ms, sys: 0 ns, total: 4.4 ms
+    Wall time: 4.38 ms
 
 
 
