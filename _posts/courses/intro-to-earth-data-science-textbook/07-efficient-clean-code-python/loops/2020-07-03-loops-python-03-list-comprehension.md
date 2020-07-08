@@ -31,7 +31,7 @@ After completing this chapter, you will be able to:
 
 * Modify values in a list using list comprehension
 * Apply a function to values in a list with list comprehension
-* Apply conditions to a list modification
+* Apply conditionals to a list
  
 </div>
 
@@ -81,8 +81,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 7.68 ms, sys: 0 ns, total: 7.68 ms
-    Wall time: 7.64 ms
+    CPU times: user 7.72 ms, sys: 0 ns, total: 7.72 ms
+    Wall time: 7.69 ms
 
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 4.4 ms, sys: 0 ns, total: 4.4 ms
-    Wall time: 4.38 ms
+    CPU times: user 4.19 ms, sys: 0 ns, total: 4.19 ms
+    Wall time: 4.17 ms
 
 
 
