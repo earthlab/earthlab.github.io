@@ -144,6 +144,8 @@ If these rules are followed, any integer will eventually reach one. Using a `whi
 2. The `while` loop will run until the input number equals one. But you also need to remember not to run the code on the number if it does equal one. So in the odd calculation, make sure that the number doesn't equal one before you run the calculation on it. 
 
 Print out the number variable with each pass through of the while loop. Have your number variable equal `10000` before the `while` loop is run. Careful with this, it shouldn't take long to run. If it is taking a long time to run, there's probably a mistake in your code and your while loop will be running forever until you stop it! Once your code runs, change the number variable to see it run on any number you want!
+
+For further explanation on the Collatz Conjecture, and what it looks like to implement it, [this YouTube video explains the basics of the math behind it](https://www.youtube.com/watch?v=5mFpVDpKX70) and [the Wikipedia page on the number has more in depth explanations of the math](https://en.wikipedia.org/wiki/Collatz_conjecture).
 </div>
 
 
