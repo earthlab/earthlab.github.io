@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/use-tabular-data/
 nav-title: "Use Tabular Data"
 dateCreated: 2020-06-20
-modified: 2020-06-26
+modified: 2020-07-09
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -78,6 +78,7 @@ and processing.
 
 
 <div class="notice--success alert alert-info" markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** The challenge with graphical user 
 interface (GUI) based tools like Excel
 is that they often have limitations when it comes to working with larger files. 
@@ -120,7 +121,9 @@ There are many different types of delimiters including:
 * 1 (or more) spaces
 
 Sometimes you will find other characters used as delimiters but the above-listed options are the most common. 
-<div class='notice--success' markdown="1">
+
+<div class='notice--success alert alert-info' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** The `.csv` file format is most often delimited by a comma. Hence the name: 
 </div>
 
@@ -337,7 +340,7 @@ plt.show()
 <div class="notice--warning alert alert-info" markdown="1">
 
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 * Use Python to determine the `type` of data stored in `avg_monthly_precip`
 
@@ -346,9 +349,21 @@ HINT: you learned how to determine the type of an object in the variables lesson
 </div>
 
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    pandas.core.frame.DataFrame
+
+
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 In most programming languages, you can customize the options for how a function 
 runs by using parameters. Examples of parameters in the plot above include: 
@@ -385,6 +400,19 @@ plt.show()
 
 </div>
 
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/04-text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_13_0.png">
+
+</figure>
+
+
+
+
 ## Cleaning Tabular Text Files So You Can Open Them in Python
 
 ## Missing Data Values & Headers in Text Files
@@ -413,7 +441,7 @@ using below.</a>
 {:.input}
 ```python
 # Open temperature data for Miami, Florida
-miami_temp_url = "https://www.ncdc.noaa.gov/cag/city/time-series/USW00012839-tmax-12-12-1895-2020.csv" 
+miami_temp_url = "https://www.ncdc.noaa.gov/cag/city/time-series/USW00012839-tmax-12-12-1895-2020.csv"
 
 miami_temp = pd.read_csv(miami_temp_url)
 miami_temp
@@ -473,14 +501,14 @@ miami_temp
     <tr>
       <th>3</th>
       <td>194812</td>
-      <td>84.5</td>
+      <td>84.6</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
       <td>194912</td>
-      <td>83.9</td>
+      <td>84.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -508,21 +536,21 @@ miami_temp
     <tr>
       <th>72</th>
       <td>201712</td>
-      <td>85.1</td>
+      <td>85.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>73</th>
       <td>201812</td>
-      <td>85.0</td>
+      <td>84.9</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>74</th>
       <td>201912</td>
-      <td>85.6</td>
+      <td>85.3</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -571,8 +599,8 @@ in Pandas in the <a href="https://www.earthdatascience.org/courses/use-data-open
 ```python
 # Open the Miami data skipping the first 3 rows and setting no data values
 miami_temp = pd.read_csv(miami_temp_url,
-                        skiprows=3,
-                        na_values=-99)
+                         skiprows=3,
+                         na_values=-99)
 
 # View the first 5 rows of the data
 miami_temp.head()
@@ -609,27 +637,27 @@ miami_temp.head()
     <tr>
       <th>0</th>
       <td>194812</td>
-      <td>84.5</td>
+      <td>84.6</td>
     </tr>
     <tr>
       <th>1</th>
       <td>194912</td>
-      <td>83.9</td>
+      <td>84.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>195012</td>
-      <td>83.2</td>
+      <td>83.3</td>
     </tr>
     <tr>
       <th>3</th>
       <td>195112</td>
-      <td>83.6</td>
+      <td>83.7</td>
     </tr>
     <tr>
       <th>4</th>
       <td>195212</td>
-      <td>84.2</td>
+      <td>84.3</td>
     </tr>
   </tbody>
 </table>
@@ -641,7 +669,7 @@ miami_temp.head()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Now that you have imported temperature data for Miami, plot the 
 data using the code example above!! In your plot code, set `Date` as your 
@@ -649,9 +677,22 @@ data using the code example above!! In your plot code, set `Date` as your
 
 </div>
 
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/04-text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_19_0.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Use the link below to open and plot temperature data for Seattle, Washington. 
 
@@ -660,9 +701,22 @@ https://www.ncdc.noaa.gov/cag/city/time-series/USW00013895-tmax-1-5-1895-2020.cs
 </div>
 
 
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/04-text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_21_0.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## Challenge -- OPTIONAL
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge -- OPTIONAL
 
 Copy the code below into your code. Run the code. 
 It should download and open a new dataset that has CO2 emissions for a field site
@@ -691,6 +745,320 @@ import the data. HINT: remember when you use `skiprows` to consider 0-based inde
 x-axis and `"value"` on the y-axis.
 
 </div>
+
+
+
+{:.output}
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 564 entries, 0 to 563
+    Data columns (total 17 columns):
+     #   Column         Non-Null Count  Dtype  
+    ---  ------         --------------  -----  
+     0   site_code      564 non-null    object 
+     1   year           564 non-null    int64  
+     2   month          564 non-null    int64  
+     3   day            564 non-null    int64  
+     4   hour           564 non-null    int64  
+     5   minute         564 non-null    int64  
+     6   second         564 non-null    int64  
+     7   time_decimal   564 non-null    float64
+     8   value          557 non-null    float64
+     9   value_std_dev  564 non-null    float64
+     10  nvalue         564 non-null    int64  
+     11  latitude       564 non-null    float64
+     12  longitude      564 non-null    float64
+     13  altitude       564 non-null    float64
+     14  elevation      564 non-null    float64
+     15  intake_height  564 non-null    float64
+     16  qcflag         564 non-null    object 
+    dtypes: float64(8), int64(7), object(2)
+    memory usage: 75.0+ KB
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_code</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>hour</th>
+      <th>minute</th>
+      <th>second</th>
+      <th>time_decimal</th>
+      <th>value</th>
+      <th>value_std_dev</th>
+      <th>nvalue</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>altitude</th>
+      <th>elevation</th>
+      <th>intake_height</th>
+      <th>qcflag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BRW</td>
+      <td>1973</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1973.000000</td>
+      <td>NaN</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.00</td>
+      <td>11.0</td>
+      <td>16.00</td>
+      <td>*..</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BRW</td>
+      <td>1973</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1973.084932</td>
+      <td>NaN</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.00</td>
+      <td>11.0</td>
+      <td>16.00</td>
+      <td>*..</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BRW</td>
+      <td>1973</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1973.161644</td>
+      <td>NaN</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.00</td>
+      <td>11.0</td>
+      <td>16.00</td>
+      <td>*..</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BRW</td>
+      <td>1973</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1973.246575</td>
+      <td>NaN</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.00</td>
+      <td>11.0</td>
+      <td>16.00</td>
+      <td>*..</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BRW</td>
+      <td>1973</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1973.328767</td>
+      <td>NaN</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.00</td>
+      <td>11.0</td>
+      <td>16.00</td>
+      <td>*..</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>559</th>
+      <td>BRW</td>
+      <td>2019</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2019.580822</td>
+      <td>400.46</td>
+      <td>1.46</td>
+      <td>27</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.46</td>
+      <td>11.0</td>
+      <td>16.46</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>560</th>
+      <td>BRW</td>
+      <td>2019</td>
+      <td>9</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2019.665753</td>
+      <td>404.35</td>
+      <td>2.90</td>
+      <td>22</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.46</td>
+      <td>11.0</td>
+      <td>16.46</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>561</th>
+      <td>BRW</td>
+      <td>2019</td>
+      <td>10</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2019.747945</td>
+      <td>409.49</td>
+      <td>2.28</td>
+      <td>25</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.46</td>
+      <td>11.0</td>
+      <td>16.46</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>562</th>
+      <td>BRW</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2019.832877</td>
+      <td>414.14</td>
+      <td>1.76</td>
+      <td>25</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.46</td>
+      <td>11.0</td>
+      <td>16.46</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>563</th>
+      <td>BRW</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2019.915068</td>
+      <td>416.80</td>
+      <td>1.18</td>
+      <td>29</td>
+      <td>71.323</td>
+      <td>-156.611</td>
+      <td>27.46</td>
+      <td>11.0</td>
+      <td>16.46</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<p>564 rows × 17 columns</p>
+</div>
+
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/04-text-file-formats-eds/2019-08-29-text-file-formats-03-tabular-data/2019-08-29-text-file-formats-03-tabular-data_24_0.png">
+
+</figure>
+
+
 
 
 <div class="notice--info alert alert-info" markdown="1">

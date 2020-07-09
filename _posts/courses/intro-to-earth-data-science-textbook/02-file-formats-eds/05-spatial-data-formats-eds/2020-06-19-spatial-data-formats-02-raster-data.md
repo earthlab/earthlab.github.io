@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-06-26
+modified: 2020-07-09
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -360,6 +360,40 @@ Hint: Don't forget to use `rio.open()` and assign the output to a variable!
 </div>
 
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(
+      data=[[2020.22998046875, 2019.419921875, 2018.8099365234375, ...,
+             1695.5799560546875, 1695.5299072265625, 1695.5299072265625],
+            [2019.989990234375, 2019.22998046875, 2018.5499267578125, ...,
+             1695.659912109375, 1695.52001953125, 1695.5699462890625],
+            [2019.8299560546875, 2019.0599365234375, 2018.3900146484375, ...,
+             1695.52001953125, 1695.429931640625, 1695.489990234375],
+            ...,
+            [1911.739990234375, 1911.5699462890625, 1911.409912109375, ...,
+             1682.8699951171875, 1682.8099365234375, 1682.8099365234375],
+            [1911.3199462890625, 1911.169921875, 1911.0599365234375, ...,
+             1682.39990234375, 1682.5499267578125, 1682.6300048828125],
+            [1910.919921875, 1910.72998046875, 1910.6400146484375, ...,
+             1682.18994140625, 1682.2799072265625, 1682.3499755859375]],
+      mask=[[False, False, False, ..., False, False, False],
+            [False, False, False, ..., False, False, False],
+            [False, False, False, ..., False, False, False],
+            ...,
+            [False, False, False, ..., False, False, False],
+            [False, False, False, ..., False, False, False],
+            [False, False, False, ..., False, False, False]],
+      fill_value=-3.4028235e+38,
+      dtype=float32)
+
+
+
+
+
 ## Imagery - Another Type of Raster Data 
 
 Another type of raster data that you may see is imagery. 
@@ -495,7 +529,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_20_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png">
 
 </figure>
 
@@ -515,7 +549,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_22_0.png">
 
 </figure>
 
@@ -557,6 +591,54 @@ naip_post_fire_path
 
 
 
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_0.png">
+
+</figure>
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_1.png">
+
+</figure>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_0.png">
+
+</figure>
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_1.png">
+
+</figure>
 
 
 

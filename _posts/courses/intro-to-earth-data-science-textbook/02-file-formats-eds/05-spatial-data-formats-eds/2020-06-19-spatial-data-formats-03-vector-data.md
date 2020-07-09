@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-vector-data/
 nav-title: "Use Vector Data"
 dateCreated: 2020-06-20
-modified: 2020-06-26
+modified: 2020-07-09
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -546,6 +546,29 @@ Check the geometry type of the `cities` object that you opened above in your cod
 </div>
 
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    0       Point
+    1       Point
+    2       Point
+    3       Point
+    4       Point
+            ...  
+    1244    Point
+    1245    Point
+    1246    Point
+    1247    Point
+    1248    Point
+    Length: 1249, dtype: object
+
+
+
+
+
 ## Creating Maps Using Multiple Shapefiles
 
 You can create maps using multiple shapefiles with **Geopandas** in a similar way
@@ -576,7 +599,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_20_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_21_0.png">
 
 </figure>
 
@@ -605,7 +628,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_22_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_23_0.png">
 
 </figure>
 
@@ -628,7 +651,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_24_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_0.png">
 
 </figure>
 
@@ -640,7 +663,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_24_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_1.png">
 
 </figure>
 
@@ -688,6 +711,25 @@ Finally, add a title to your map using
 
 
 
+{:.output}
+    Downloading from https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_50m_admin_0_countries
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_27_1.png">
+
+</figure>
+
+
+
+
+
 <div class="notice--success alert alert-info" markdown="1">
 <i class="fa fa-star"></i> **Data Tip:** There are many options to customize plots in Python. Below are 
 a few lessons that cover some of this information!
@@ -696,13 +738,6 @@ a few lessons that cover some of this information!
 
 * <a href="https://geopandas.org/gallery/plotting_with_geoplot.html" target="_blank">Geopandas plotting tutorial</a>
 </div>
-
-
-{:.output}
-    Downloading from https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip
-    Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_50m_admin_0_countries
-
-
 
 
 ## Spatial Data Attributes
@@ -977,7 +1012,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_32_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_33_0.png">
 
 </figure>
 
@@ -995,6 +1030,30 @@ HINT: checkout <a href="https://geopandas.org/mapping.html" target="_blank">this
 
 </div>
 
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7fcaa4439ad0>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_35_1.png">
+
+</figure>
+
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Plot Cities Data Using Quantiles -- Categorical Plot
@@ -1007,6 +1066,19 @@ Set the following parameters:
 * `scheme="quantiles`
 
 </div>
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_37_0.png">
+
+</figure>
+
+
 
 
 ## Optional: Geoprocessing Vector Data Geoprocessing in Python: Clip Data
@@ -1058,7 +1130,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_36_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_39_0.png">
 
 </figure>
 
@@ -1083,7 +1155,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_37_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_40_0.png">
 
 </figure>
 
@@ -1112,9 +1184,16 @@ included in the output dataset.
 
 </div>
 
-{:.input}
-```python
-# Add your code here to complete the challenge 
 
 
-```
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_43_0.png">
+
+</figure>
+
+
+
