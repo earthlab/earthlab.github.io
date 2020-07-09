@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/loops-exercise
 nav-title: "Loops Exercise"
 dateCreated: 2020-07-08
-modified: 2020-07-08
+modified: 2020-07-09
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -33,14 +33,17 @@ This page of exercises will test the skills that you learned in the previous les
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Modify Numeric Values in a List
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Print Numbers in a list 
 
-Below is a list of values that represents the average monthly high temperature in Boulder, CO., collected by NOAA. They are currently in Fahrenheit, but can be converted to Celsius by subtracting 32, and multiplying by 5/9. 
-```
-(F - 32) * 5/9 = C
-```
+The list below contains temperature values for a location in Boulder, Colorado.
+Create a for loop that loops through each value in the list and prints the 
+value like this: `
 
-Create a new list with these same temperatures converted to Celsius using a for loop.
+`temp: 47`
+
+HINT: you can print a string and a variable together using the syntax:
+
+`print("temp:", variable_name_here)`
 
 </div>
 
@@ -62,7 +65,56 @@ boulder_avg_high_temp_f = [
     55,
     47
 ]
+
+boulder_avg_high_temp_f
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    [47, 49, 57, 64, 72, 83, 89, 87, 79, 67, 55, 47]
+
+
+
+
+
+
+{:.output}
+    temp: 47
+    temp: 49
+    temp: 57
+    temp: 64
+    temp: 72
+    temp: 83
+    temp: 89
+    temp: 87
+    temp: 79
+    temp: 67
+    temp: 55
+    temp: 47
+
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Modify Numeric Values in a List
+
+Below is a list of values that represents the average monthly high temperature in Boulder, CO., collected by NOAA. They are currently in Fahrenheit, but can be converted to Celsius by subtracting 32, and multiplying by 5/9. 
+
+```
+celcius = (fahrenheit - 32) * 5/9
+```
+
+Create a **new list** with these same temperatures converted to Celsius using a for loop.
+Call your new list: `boulder_avg_high_temp_c`
+
+HINT: to complete this challenge you may want to create a new empty list first. 
+Then you can use `list_name.append()` in each loop iteration to add a new 
+value to your list. 
+
+</div>
 
 
 {:.output}
@@ -89,11 +141,11 @@ boulder_avg_high_temp_f = [
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Modify String Values in a List
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Round Values In a List  
 
-Currently the Celsius list you created is a list of float values, but they don't have any context. For this exercise, take the list you just created and turn the float values into strings, and add on "° Celsius" to the string. Additionally, the conversion has made all of the temperatures have very long decimal values. Please also truncate the data to only have 2 decimal values for each temperature. 
+Create a loop that rounds the values in the list that you created above: `boulder_avg_high_temp_c` to only two decimal places. 
 
-To truncate decimal values, you can use the standard **Python** function `round()` to round a number to a certain number of decimal points. The first argument in the `round()` function is the number to round, and the second argument is the number of decimals you want after it's been rounded. See how this works below.
+To round your data, you can use the **Python** function `round()`. The first argument in the `round()` function is the number to round, and the second argument is the number of decimals you want after it's been rounded. See how this works below.
 
 ```
 c = 7.3848234
@@ -102,7 +154,8 @@ round(c, 2)
 # 7.38
 ```
 
-Do all this inside a `for` loop going over your old list. 
+Create a new list called `boulder_avg_high_temp_c_round` that contains temperature
+data that has been rounded. 
 
 </div>
 
@@ -112,20 +165,91 @@ Do all this inside a `for` loop going over your old list.
 
 
 
-    ['8.33° Celsius',
-     '9.44° Celsius',
-     '13.89° Celsius',
-     '17.78° Celsius',
-     '22.22° Celsius',
-     '28.33° Celsius',
-     '31.67° Celsius',
-     '30.56° Celsius',
-     '26.11° Celsius',
-     '19.44° Celsius',
-     '12.78° Celsius',
-     '8.33° Celsius']
+    [8.33,
+     9.44,
+     13.89,
+     17.78,
+     22.22,
+     28.33,
+     31.67,
+     30.56,
+     26.11,
+     19.44,
+     12.78,
+     8.33]
 
 
+
+
+
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 4: Print A List of Directories  
+
+The code below creates a list of directories called `all_dirs`.
+Create a **for loop** that prints each directory name.
+
+</div>
+
+{:.input}
+```python
+import os 
+from glob import glob
+import earthpy as et 
+
+# Download data on average monthly temp for two California sites
+file_url = "https://ndownloader.figshare.com/files/21894528"
+out_path = et.data.get_data(url = file_url)
+
+
+# Set working directory to earth-analytics
+os.chdir(os.path.join(et.io.HOME, 
+                      "earth-analytics", 
+                      "data",
+                      "earthpy-downloads"))
+
+# Create a loop for just the San-Diego data
+# stuff about glob -- remmeber from chapter XX you can use glob to generate a list of files.
+# loop through and print all of the files in the San-Diego directory
+
+
+data_dirs = os.path.join(out_path, "*")
+all_dirs = glob(data_dirs)
+
+```
+
+{:.input}
+```python
+# Add your code here 
+
+```
+
+
+{:.output}
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
+
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 5: Print A List of All Files Within Each Directory  
+
+Above, you printed the name of each directory stored in a list of directories. 
+Use the same for loop that you created above to print a list of all files  in
+each directory. 
+
+HINT: you will want to use the glob function to create a list of files within each directory. 
+
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/os-glob-manipulate-file-paths/">More on using the glob function here</a>
+</div>
+
+
+{:.output}
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv']
 
 
 
