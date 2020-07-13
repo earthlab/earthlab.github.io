@@ -1,0 +1,58 @@
+
+
+/* Copy buttons */
+
+button.copybtn {
+  transition: opacity .5s;
+  opacity: .3;
+  padding: 2px 6px;
+  position: absolute;
+  top: .8em;
+  right: .2em;
+  background-color: #fff !important;
+  user-select: none;
+}
+
+div.highlight:hover .copybtn, div.highlight .copybtn:focus {
+    opacity: .3;
+}
+div.highlight .copybtn:hover {
+    opacity: 1;
+}
+div.highlight {
+    position: relative;
+}
+
+::selection {
+  color: #fff;
+  background: #000;
+  }
+
+/* Copy buttons */
+.btn a.copybtn {
+    position: absolute;
+    top: .2em;
+    right: .2em;
+    width: 1em;
+    height: 1em;
+	  opacity: .3;
+    transition: opacity 0.5s;
+    border: none;
+    user-select: none;
+}
+
+div.highlight  {
+    position: relative;
+}
+
+a.copybtn > img {
+    vertical-align: top;
+    margin: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.highlight:hover .copybtn {
+	opacity: 1;
+}
