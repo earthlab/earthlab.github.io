@@ -5,8 +5,8 @@ splash_header: 'Free online courses, tutorials and tools'
 title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
-  cta_label: "Join our meetup!"
-  cta_url: "/meetup/"
+  cta_label: "Get a Professional Graduate Certificate in Earth Analytics"
+  cta_url: "https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Learn to use earth science and other data in R & Python'
@@ -31,6 +31,26 @@ feature_row2:
     excerpt: "Plotting different types of data can be tricky. Learn how to create maps, plot time series data and more in this open source Python plotting guidebook."
     url: "/courses/scientists-guide-to-plotting-data-in-python/"
     btn_label: "Learn More"
+feature_row_courses:
+  - image_path: learn.png
+    alt: "Earth Analytics Bootcamp Course"
+    title: "Earth Analytics Bootcamp Course"
+    excerpt: "This course, aimed at beginners, provides an introduction to core scientific programming skills in Python, version control using Git and GitHub and command line using Bash."
+    url: "/courses/earth-analytics-bootcamp/"
+    btn_label: "View Course"
+  - image_path: learn.png
+    alt: "Earth Analytics Course"
+    title: "Earth Analytics Course"
+    excerpt: "This course focuses on data intensive approaches to science challenges. The second in a series of 3 courses that make up our professional program."
+    url: "/courses/earth-analytics-python//"
+    btn_label: "View Course"
+  - image_path: learn.png
+    alt: "Earth Analytics R Course"
+    title: "Earth Analytics R Course"
+    excerpt: "The original earth analytics course was taught in the R programming
+    language."
+    url: "/courses/earth-analytics/"
+    btn_label: "View Course"
 feature_row:
   - image_path: learn.png
     alt: "Learn more about our lab."
@@ -58,11 +78,7 @@ sidebar:
   nav: earth-analytics-2017
 ---
 
-<div class="notice--info" markdown="1">
-**Check out our *new* Earth Data Science Textbooks**
-</div>
 
-{% include feature_row id="feature_row2" %}
 
 <!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
@@ -99,13 +115,19 @@ Also be sure to check back often as we are posting a suite of new `Python` lesso
 </div>
 </div>
 
+<div class="notice--info" markdown="1">
+**Check out our *new* Earth Data Science Textbooks**
+</div>
 
-## Online Earth Data Science Courses
+{% include feature_row id="feature_row2" %}
 
-{% assign courses = site.posts | where:"overview-order", 1 %}
-{% for course in courses %}
-* <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
-{% endfor %}
+<div class="notice--info" markdown="1">
+**Check out our Earth Data Science Courses**
+These are the courses that we teach in our program. They are supported by the
+companion textbooks listed above.
+</div>
+
+{% include feature_row id="feature_row_courses" %}
 
 
 ## Earth Analytics Workshops
