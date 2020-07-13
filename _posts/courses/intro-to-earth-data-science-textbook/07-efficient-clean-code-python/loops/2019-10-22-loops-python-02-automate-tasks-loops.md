@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2020-03-06
+modified: 2020-07-08
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -698,9 +698,7 @@ os.listdir(data_dir)
 
 
 
-    ['monthly-precip-2002-2013.csv',
-     'precip-2002-2013-months-seasons.csv',
-     'avg-monthly-precip.txt']
+    ['monthly-precip-2002-2013.csv', 'avg-monthly-precip.txt']
 
 
 

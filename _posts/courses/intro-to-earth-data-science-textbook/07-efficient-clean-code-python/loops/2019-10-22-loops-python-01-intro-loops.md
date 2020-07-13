@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Intro to Loops in Python"
+title: "Introduction to Using Loops to Automate Workflows in Open Source Python"
 excerpt: "Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn about the basic types of loops in Python and how they can be used to write Do Not Repeat Yourself, or DRY, code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/
-nav-title: "Intro to Loops"
+nav-title: "Introduction to Loops"
 dateCreated: 2019-10-23
-modified: 2020-06-16
+modified: 2020-07-08
 module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops in Python'
 module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -57,25 +57,289 @@ Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/
 </div>
 
 
-## Why Use Loops
+## Why Use Loops -- Make Your Code DRY
 
-A loop is a sequence of operations that are performed over and over in some specified order. Loops can help you to eliminate repetition in code by replacing duplicate lines of code with an iteration, meaning that you can iteratively execute the same code line or block until it reaches a specified end point.
+A loop is a sequence of operations that are performed over and over in some 
+specified order. Following the DRY (Don't Repeat Yourself) principle of clean 
+coding, loops can help you to eliminate repetition in code by replacing 
+duplicate lines of code with an iteration, meaning that you can iteratively 
+execute the same code line or block until it reaches a specified end point.
 
 Instead of copying and pasting the same code over and over to run it multiple times (say, on multiple variables or files), you can create a loop that contains one instance of the code and that executes that code block on a range or list of values that you provide. 
 
-For example, the following lines could be replaced by a loop that iterates over a list of variable names and executes the `print()` function until it reaches the end of the list:
+For example, the following lines could be replaced by a loop that iterates 
+over a list of variable names and executes the `print()` function until it 
+reaches the end of the list:
 
+
+{:.input}
 ```python
+# Create 3 objects
+avg_monthly_precip = [.5, 0, 2]
+months = [1, 2, 3]
+total_precip_2000_2010 = [55]
+
+# Print each object separately
 print(avg_monthly_precip)
 print(months)
-print(precip_2002_2013)
+print(total_precip_2000_2010)
 ```
 
-You can create lists of variables, filenames, or other objects like data structures upon which you want to execute the same code. These lists can then be used to execute the code iteratively on each item in the list.
+{:.output}
+    [0.5, 0, 2]
+    [1, 2, 3]
+    [55]
 
-You can also provide a numerical range of values to control how many times the code is executed. 
 
-In **Python**, there are two primary structures for loops: `while` and `for`. Below you will learn about each one and how they can help you to write DRY (Don't Repeat Yourself) code. 
+
+Notice that creating a loop below, creates the same output with less redundant code.
+
+{:.input}
+```python
+# Create 3 objects
+avg_monthly_precip = [.5, 0, 2]
+months = [1, 2, 3]
+total_precip_2000_2010 = [55]
+
+# Create a list of lists
+all_objects = [avg_monthly_precip, months, total_precip_2000_2010]
+
+# Cycle through each object and print
+for object in all_objects:
+    print(object)
+```
+
+{:.output}
+    [0.5, 0, 2]
+    [1, 2, 3]
+    [55]
+
+
+
+You can create lists of variables, filenames, or other objects like data 
+structures upon which you want to execute the same code. These lists can then 
+be used to execute the code iteratively on each item in the list. You can also 
+provide a numerical range of values to control how many times the code is executed. 
+
+In **Python**, there are two primary structures for loops: `while` and `for`. 
+Below you will learn about each one and how they can help you to write DRY 
+(Don't Repeat Yourself) code.
+
+
+ 
+## Create For Loops in Python
+
+A `for` loop will iteratively execute code for each item in a pre-defined list. 
+This list can be composed of numeric values, filenames, individual characters 
+in a text string and objects such as data structures. Similar to the `while` (discussed below)
+loop, the syntax of a `for` loop includes rule (followed by a colon `:`) and 
+indentations of the code lines that will be iterated. 
+
+The main differences are that the loop begins with the word `for` and that a 
+pre-defined list is explicitly referenced in the loop (e.g. `item_list` in the 
+example below). The list to iterate upon is defined before the code for the `for` loop. 
+
+```python
+item_list = [item_1, item_2, item_3]
+
+for i in item_list:
+    execute some code here
+```
+
+There is also a placeholder in the loop (e.g. `i`) that represents the items 
+of the list. The initial value of `i` is equal to the first item in the list; 
+as the loop iterates through the list, the value of `i` changes to hold the 
+value of the next item in the list.
+
+In the first example below, a list with 4 non-sequential values is created. 
+The loop executes the provided code (e.g. `print()`) on each item in the list. 
+
+{:.input}
+```python
+# Create list of integers
+num_list = [12, 5, 136, 47]
+
+# For each item in list, add 10 and print new value
+for i in num_list:
+    i += 10
+    print(i)
+```
+
+{:.output}
+    22
+    15
+    146
+    57
+
+
+
+Note that in this example, the values are not in sequential order or follow any 
+kind of pattern. However, the loop is executed on each item, in the same order 
+in which they are defined in the list. This is a unique characteristic of 
+`for` loops; the placeholder represents the 
+value of whichever item is being accessed from the list in that iteration. Thus, 
+`i` is not a pre-defined variable, but rather a placeholder for the current 
+item that the loop is working with in each iteration of the code.  
+
+This means that you could use any word or character to indicate the placeholder, 
+with the exception of numeric values. You simply need to reuse that same word 
+or character in the code lines that are 
+being executed, in order to use the placeholder to access the items in the list. 
+For example, the placeholder could be called `x`, or even something completely 
+unrelated like `banana`. 
+
+{:.input}
+```python
+# Create list of integers
+num_list = [12, 5, 136, 47]
+
+# For each item in list, add 10 and print new value
+for x in num_list:
+    x += 10
+    print("The value of the variable 'x' is:", x)
+```
+
+{:.output}
+    The value of the variable 'x' is: 22
+    The value of the variable 'x' is: 15
+    The value of the variable 'x' is: 146
+    The value of the variable 'x' is: 57
+
+
+
+{:.input}
+```python
+# Create list of integers
+num_list = [12, 5, 136, 47]
+
+# For each item in list, add 10 and print new value
+for banana in num_list:
+    banana += 10
+    print("The value of the variable 'banana' is:", banana)
+```
+
+{:.output}
+    The value of the variable 'banana' is: 22
+    The value of the variable 'banana' is: 15
+    The value of the variable 'banana' is: 146
+    The value of the variable 'banana' is: 57
+
+
+
+In this first example, `num_list` contains only numeric values, but you can also iterate on lists that contain other types, such as text strings for the names of files or data structures (including even the names of other lists!).  
+
+### Create For Loops with Text Strings
+
+In the example below, a list called `files` is defined with two text strings that represent two filenames. The `for` loop will run iteratively on each text string (represented by the placeholder `fname` in each iteration). 
+
+In the first iteration of the loop, `fname` is equal to the text string `"months.txt"`; in the second iteration, `fname` represents the text string `"avg-monthly-precip.txt"`. 
+
+{:.input}
+```python
+# List of filenames
+files = ["months.txt", "avg-monthly-precip.txt"]
+
+# For each item in list, print value
+for fname in files:
+    print("The value of the variable 'fname' is:", fname)
+```
+
+{:.output}
+    The value of the variable 'fname' is: months.txt
+    The value of the variable 'fname' is: avg-monthly-precip.txt
+
+
+
+Note that `print()` returns the text string that is the filename, but not the 
+values in the file. This is because the list only contains text strings for the 
+filenames, but does not actually contain the contents of the file. In fact, 
+**Python** does not know that these text strings are filenames; it simply 
+treats these as text string items in a list.  
+
+Taking another look at the definition of the list, you can notice that the 
+items are just text strings identified by quotes `""`.  The list does not 
+contain variables or objects that have been defined (e.g. **numpy** arrays, 
+**pandas** dataframes, or even other lists). 
+
+Thus, it is important to remember that the objects that you use in the loop 
+will determine what output you will receive.
+
+### For Loops on Data Structures
+
+For example, you can define a list that contains multiple objects (say, other lists). 
+In the example below, the `print()` returns the actual values in each item in the list because the items are defined objects (in this example, each item is its own list of data values). 
+
+In each iteration of the loop, `dlist` represents the data lists that you defined: in first iteration, `months`, and `avg_monthly_precip` in the second iteration. 
+
+{:.input}
+```python
+# Create list of abbreviated month names
+months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+          "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+
+# Create list of average monthly precip (inches) in Boulder, CO
+avg_monthly_precip = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02,
+                      1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
+
+# List of list names
+lists = [months, avg_monthly_precip]
+
+# For each item in list, print value
+for dlist in lists:
+    print("The value of the variable 'dlist' is:", dlist)
+```
+
+{:.output}
+    The value of the variable 'dlist' is: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+    The value of the variable 'dlist' is: [0.7, 0.75, 1.85, 2.93, 3.05, 2.02, 1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
+
+
+
+When working with data structures such as lists, **numpy** arrays, or 
+**pandas** dataframes, the code that is executed in the loop is still subject 
+to the object type that is provided. For example, because the items in `lists` 
+are lists, then you can execute any code that can run on the list object type, 
+such as querying the length of the list or for a specific index value. 
+
+{:.input}
+```python
+# For each list in lists, print the length
+for dlist in lists:
+    print("The length of the variable 'dlist' is:", len(dlist))
+```
+
+{:.output}
+    The length of the variable 'dlist' is: 12
+    The length of the variable 'dlist' is: 12
+
+
+
+{:.input}
+```python
+# For each list in lists, print the value at last index
+for dlist in lists:
+    print(dlist[-1])
+```
+
+{:.output}
+    Dec
+    0.84
+
+
+
+However, you would not be able to call a method or attribute that does not exist for that data structure.
+
+For example, while `.shape` is an attribute of **numpy** arrays that provides the number of elements, or rows and columns, `.shape` is not an attribute of lists.
+
+An attempt to call `.shape` on a list would result in an error, and thus, a failure of the loop as it cannot execute that code.
+
+```python
+# For each list in lists, print attribute shape
+for dlist in lists:
+    print(dlist.shape)
+```
+
+`AttributeError: 'list' object has no attribute 'shape'`
 
 
 ## While Loops
@@ -146,7 +410,7 @@ x = 0
 while x < 10:
     print(x)
     x += 1
-    
+
 print("Final value:", x)
 ```
 
@@ -243,7 +507,7 @@ The range is inclusive of the starting value, but not of the ending value.
 x = 1
 
 # Add 1 to x, while x is between 1 and 5
-while x in range(1,5):
+while x in range(1, 5):
     x += 1
     print(x)
 ```
@@ -256,211 +520,15 @@ while x in range(1,5):
 
 
 
-Note that the structure of the `while` loop remains the same, regarding the use of a condition, colon, and indentations of the code that will be iterated. 
-
-In this example, rather than using an explicit comparison operator, you are stating that the code below can continue to execute as long as the value of `x` remains within a certain range.
-
-Specifically, the code will execute as long as the value of `x` exists within a numeric range that begins at `1` to and ends with `5`, but is not inclusive of `5`. 
-
-Thus, the loop ends when `x` reaches `5` and does not execute another iteration of the code.   
-
-
-## For Loops
-
-Another useful loop is a `for` loop, which will iteratively execute code for each item in a pre-defined list. 
-
-This list can be composed of numeric values, filenames, individual characters in a text string, objects such as data structures, etc.  
-
-Similar to the `while` loop, the syntax of a `for` loop includes rule (followed by a colon `:`) and indentations of the code lines that will be iterated. 
-
-The main differences are that the loop begins with the word `for` and that a pre-defined list is explicitly referenced in the loop (e.g. `item_list` in the example below). The list to iterate upon is defined before the code for the `for` loop. 
-
-```python
-item_list = [item_1, item_2, item_3]
-
-for i in item_list:
-    execute some code here
-```
-
-There is also a placeholder in the loop (e.g. `i`) that represents the items of the list. The initial value of `i` is equal to the first item in the list; as the loop iterates through the list, the value of `i` changes to hold the value of the next item in the list.
-
-In the first example below, a list with 4 non-sequential values is created. The loop executes the provided code (e.g. `print()`) on each item in the list. 
-
-{:.input}
-```python
-# Create list of integers
-num_list = [12, 5, 136, 47]
-
-# For each item in list, add 10 and print new value
-for i in num_list:
-    i += 10
-    print(i)    
-```
-
-{:.output}
-    22
-    15
-    146
-    57
-
-
-
-Note that in this example, the values are not in sequential order or follow any kind of pattern. However, the loop is executed on each item, in the same order in which they are defined in the list. 
-
-This is a unique characteristic of `for` loops; the placeholder represents the value of whichever item is being accessed from the list in that iteration. 
-
-Thus, `i` is not a pre-defined variable, but rather a placeholder for the current item that the loop is working with in each iteration of the code.  
-
-This means that you could use any word or character to indicate the placeholder, with the exception of numeric values. 
-
-You simply need to reuse that same word or character in the code lines that are being executed, in order to use the placeholder to access the items in the list. 
-
-For example, the placeholder could be called `x`, or even something completely unrelated like `banana`. 
-
-{:.input}
-```python
-# Reset list of integers
-num_list = [12, 5, 136, 47]
-
-# For each item in list, add 10 and print new value
-for x in num_list:
-    x += 10
-    print(x)   
-```
-
-{:.output}
-    22
-    15
-    146
-    57
-
-
-
-{:.input}
-```python
-# Reset list of integers
-num_list = [12, 5, 136, 47]
-
-# For each item in list, add 10 and print new value
-for banana in num_list:
-    banana += 10
-    print(banana)   
-```
-
-{:.output}
-    22
-    15
-    146
-    57
-
-
-
-In this first example, `num_list` contains only numeric values, but you can also iterate on lists that contain other types, such as text strings for the names of files or data structures (including even the names of other lists!).  
-
-### For Loops on Text Strings
-
-In the example below, a list called `files` is defined with two text strings that represent two filenames. The `for` loop will run iteratively on each text string (represented by the placeholder `fname` in each iteration). 
-
-In the first iteration of the loop, `fname` is equal to the text string `"months.txt"`; in the second iteration, `fname` represents the text string `"avg-monthly-precip.txt"`. 
-
-{:.input}
-```python
-# List of filenames
-files = ["months.txt", "avg-monthly-precip.txt"]
-
-# For each item in list, print value
-for fname in files:
-    print(fname)   
-```
-
-{:.output}
-    months.txt
-    avg-monthly-precip.txt
-
-
-
-Note that `print()` returns the text string that is the filename, but not the values in the file. 
-
-This is because the list only contains text strings for the filenames, but does not actually contain the contents of the file. In fact, **Python** does not know that these text strings are filenames; it simply treats these as text string items in a list.  
-
-Taking another look at the definition of the list, you can notice that the items are just text strings identified by quotes `""`.  The list does not contain variables or objects that have been defined (e.g. **numpy** arrays, **pandas** dataframes, or even other lists). 
-
-Thus, it is important to remember that the objects that you use in the loop will determine what output you will receive.
-
-### For Loops on Data Structures
-
-For example, you can define a list that contains multiple objects (say, other lists). 
-
-In the example below, the `print()` returns the actual values in each item in the list because the items are defined objects (in this example, each item is its own list of data values). 
-
-In each iteration of the loop, `dlist` represents the data lists that you defined: in first iteration, `months`, and `avg_monthly_precip` in the second iteration. 
-
-{:.input}
-```python
-# Create list of abbreviated month names
-months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
-         "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-
-# Create list of average monthly precip (inches) in Boulder, CO
-avg_monthly_precip = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02, 
-                      1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
-
-# List of list names
-lists = [months, avg_monthly_precip]
-
-# For each item in list, print value
-for dlist in lists:
-    print(dlist)   
-```
-
-{:.output}
-    ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-    [0.7, 0.75, 1.85, 2.93, 3.05, 2.02, 1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
-
-
-
-When working with data structures such as lists, **numpy** arrays, or **pandas** dataframes, the code that is executed in the loop is still subject to the object type that is provided. 
-
-For example, because the items in `lists` are lists, then you can execute any code that can run on the list object type, such as querying the length of the list or for a specific index value. 
-
-{:.input}
-```python
-# For each list in lists, print the length
-for dlist in lists:
-    print(len(dlist))   
-```
-
-{:.output}
-    12
-    12
-
-
-
-{:.input}
-```python
-# For each list in lists, print the value at last index
-for dlist in lists:
-    print(dlist[-1])
-```
-
-{:.output}
-    Dec
-    0.84
-
-
-
-However, you would not be able to call a method or attribute that does not exist for that data structure.
-
-For example, while `.shape` is an attribute of **numpy** arrays that provides the number of elements, or rows and columns, `.shape` is not an attribute of lists.
-
-An attempt to call `.shape` on a list would result in an error, and thus, a failure of the loop as it cannot execute that code.
-
-```python
-# For each list in lists, print attribute shape
-for dlist in lists:
-    print(dlist.shape)
-```
-
-`AttributeError: 'list' object has no attribute 'shape'`
-
-In the rest of this chapter, you will continue to apply loops to data structures, including lists,**numpy** arrays and **pandas dataframes** and learn how to automate data tasks using loops.
+Note that the structure of the `while` loop remains the same, regarding the use 
+of a condition, colon, and indentations of the code that will be iterated. In 
+this example, rather than using an explicit comparison operator, you are stating 
+that the code below can continue to execute as long as the value of `x` remains 
+within a certain range.
+
+Specifically, the code will execute as long as the value of `x` exists within 
+a numeric range that begins at `1` to and ends with `5`, but is not inclusive 
+of `5`. Thus, the loop ends when `x` reaches `5` and does not execute another 
+iteration of the code.  
+
+In the rest of this chapter, you will continue to apply loops to data structures, including lists, **numpy** arrays and **pandas dataframes** and learn how to automate data tasks using loops.
