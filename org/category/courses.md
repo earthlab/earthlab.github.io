@@ -6,7 +6,7 @@ splash_header: 'Free Earth Data Science Courses & Textbooks'
 excerpt: "Learn scientific programming, reproducible open science workflows and data science today."
 permalink: /courses/
 header:
-  overlay_color: "#333"
+  overlay_filter: rgba(0, 0, 0, 0.5)
   overlay_image: about-header.jpg
 comments: false
 author_profile: false
