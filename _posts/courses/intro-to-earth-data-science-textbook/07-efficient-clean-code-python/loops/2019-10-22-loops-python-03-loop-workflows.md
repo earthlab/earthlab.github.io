@@ -77,7 +77,7 @@ os.listdir(out_path)
 
 
 
-    ['Sonoma', 'San-Diego']
+    ['San-Diego', 'Sonoma']
 
 
 
@@ -100,8 +100,8 @@ for a_dir in all_dirs:
 ```
 
 {:.output}
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
 
 
 
@@ -120,8 +120,8 @@ for a_dir in all_dirs:
 ```
 
 {:.output}
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv']
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv']
 
 
 
@@ -144,16 +144,16 @@ for a_dir in all_dirs:
 ```
 
 {:.output}
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
 
 
 
@@ -183,16 +183,16 @@ temp_data_df
 ```
 
 {:.output}
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
 
 
 
@@ -237,19 +237,19 @@ temp_data_df
   <tbody>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
-      <td>69.5</td>
-      <td>66</td>
-      <td>66.9</td>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87</td>
+      <td>83.5</td>
+      <td>85</td>
+      <td>82.7</td>
+      <td>61</td>
+      <td>56.4</td>
     </tr>
   </tbody>
 </table>
@@ -317,86 +317,6 @@ pd.concat(all_df)
   <tbody>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2003</td>
-      <td>58.9</td>
-      <td>61.8</td>
-      <td>66.4</td>
-      <td>61.5</td>
-      <td>74.2</td>
-      <td>81.1</td>
-      <td>87.0</td>
-      <td>83.5</td>
-      <td>85.0</td>
-      <td>82.7</td>
-      <td>61.0</td>
-      <td>56.4</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2002</td>
-      <td>55.8</td>
-      <td>62.9</td>
-      <td>63.5</td>
-      <td>66.9</td>
-      <td>74.5</td>
-      <td>84.2</td>
-      <td>82.8</td>
-      <td>82.1</td>
-      <td>84.5</td>
-      <td>75.7</td>
-      <td>67.6</td>
-      <td>57.4</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>71.4</td>
       <td>64.6</td>
@@ -410,6 +330,38 @@ pd.concat(all_df)
       <td>73.1</td>
       <td>67.4</td>
       <td>64.6</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>62.2</td>
+      <td>61.7</td>
+      <td>63.7</td>
+      <td>63.6</td>
+      <td>67.5</td>
+      <td>72.0</td>
+      <td>73.0</td>
+      <td>73.5</td>
+      <td>73.2</td>
+      <td>71.1</td>
+      <td>66.9</td>
+      <td>63.3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
     </tr>
     <tr>
       <th>0</th>
@@ -446,34 +398,82 @@ pd.concat(all_df)
     <tr>
       <th>0</th>
       <td>2001</td>
-      <td>62.2</td>
-      <td>61.7</td>
-      <td>63.7</td>
-      <td>63.6</td>
-      <td>67.5</td>
-      <td>72.0</td>
-      <td>73.0</td>
-      <td>73.5</td>
-      <td>73.2</td>
-      <td>71.1</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>55.8</td>
+      <td>62.9</td>
+      <td>63.5</td>
       <td>66.9</td>
-      <td>63.3</td>
+      <td>74.5</td>
+      <td>84.2</td>
+      <td>82.8</td>
+      <td>82.1</td>
+      <td>84.5</td>
+      <td>75.7</td>
+      <td>67.6</td>
+      <td>57.4</td>
     </tr>
     <tr>
       <th>0</th>
       <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
       <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87.0</td>
+      <td>83.5</td>
+      <td>85.0</td>
+      <td>82.7</td>
+      <td>61.0</td>
+      <td>56.4</td>
     </tr>
   </tbody>
 </table>
@@ -555,91 +555,6 @@ pd.concat(all_df)
   <tbody>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2003</td>
-      <td>58.9</td>
-      <td>61.8</td>
-      <td>66.4</td>
-      <td>61.5</td>
-      <td>74.2</td>
-      <td>81.1</td>
-      <td>87.0</td>
-      <td>83.5</td>
-      <td>85.0</td>
-      <td>82.7</td>
-      <td>61.0</td>
-      <td>56.4</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2002</td>
-      <td>55.8</td>
-      <td>62.9</td>
-      <td>63.5</td>
-      <td>66.9</td>
-      <td>74.5</td>
-      <td>84.2</td>
-      <td>82.8</td>
-      <td>82.1</td>
-      <td>84.5</td>
-      <td>75.7</td>
-      <td>67.6</td>
-      <td>57.4</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>71.4</td>
       <td>64.6</td>
@@ -653,6 +568,40 @@ pd.concat(all_df)
       <td>73.1</td>
       <td>67.4</td>
       <td>64.6</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>62.2</td>
+      <td>61.7</td>
+      <td>63.7</td>
+      <td>63.6</td>
+      <td>67.5</td>
+      <td>72.0</td>
+      <td>73.0</td>
+      <td>73.5</td>
+      <td>73.2</td>
+      <td>71.1</td>
+      <td>66.9</td>
+      <td>63.3</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
       <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
     </tr>
     <tr>
@@ -692,35 +641,86 @@ pd.concat(all_df)
     <tr>
       <th>0</th>
       <td>2001</td>
-      <td>62.2</td>
-      <td>61.7</td>
-      <td>63.7</td>
-      <td>63.6</td>
-      <td>67.5</td>
-      <td>72.0</td>
-      <td>73.0</td>
-      <td>73.5</td>
-      <td>73.2</td>
-      <td>71.1</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>55.8</td>
+      <td>62.9</td>
+      <td>63.5</td>
       <td>66.9</td>
-      <td>63.3</td>
+      <td>74.5</td>
+      <td>84.2</td>
+      <td>82.8</td>
+      <td>82.1</td>
+      <td>84.5</td>
+      <td>75.7</td>
+      <td>67.6</td>
+      <td>57.4</td>
       <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
     </tr>
     <tr>
       <th>0</th>
       <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
       <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87.0</td>
+      <td>83.5</td>
+      <td>85.0</td>
+      <td>82.7</td>
+      <td>61.0</td>
+      <td>56.4</td>
       <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
     </tr>
   </tbody>
@@ -790,91 +790,6 @@ all_data
   <tbody>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-      <td>Sonoma</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-      <td>Sonoma</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
-      <td>Sonoma</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2003</td>
-      <td>58.9</td>
-      <td>61.8</td>
-      <td>66.4</td>
-      <td>61.5</td>
-      <td>74.2</td>
-      <td>81.1</td>
-      <td>87.0</td>
-      <td>83.5</td>
-      <td>85.0</td>
-      <td>82.7</td>
-      <td>61.0</td>
-      <td>56.4</td>
-      <td>Sonoma</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2002</td>
-      <td>55.8</td>
-      <td>62.9</td>
-      <td>63.5</td>
-      <td>66.9</td>
-      <td>74.5</td>
-      <td>84.2</td>
-      <td>82.8</td>
-      <td>82.1</td>
-      <td>84.5</td>
-      <td>75.7</td>
-      <td>67.6</td>
-      <td>57.4</td>
-      <td>Sonoma</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>71.4</td>
       <td>64.6</td>
@@ -888,6 +803,40 @@ all_data
       <td>73.1</td>
       <td>67.4</td>
       <td>64.6</td>
+      <td>San-Diego</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>62.2</td>
+      <td>61.7</td>
+      <td>63.7</td>
+      <td>63.6</td>
+      <td>67.5</td>
+      <td>72.0</td>
+      <td>73.0</td>
+      <td>73.5</td>
+      <td>73.2</td>
+      <td>71.1</td>
+      <td>66.9</td>
+      <td>63.3</td>
+      <td>San-Diego</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
       <td>San-Diego</td>
     </tr>
     <tr>
@@ -927,6 +876,174 @@ all_data
     <tr>
       <th>0</th>
       <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+      <td>Sonoma</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+      <td>Sonoma</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>55.8</td>
+      <td>62.9</td>
+      <td>63.5</td>
+      <td>66.9</td>
+      <td>74.5</td>
+      <td>84.2</td>
+      <td>82.8</td>
+      <td>82.1</td>
+      <td>84.5</td>
+      <td>75.7</td>
+      <td>67.6</td>
+      <td>57.4</td>
+      <td>Sonoma</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
+      <td>Sonoma</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87.0</td>
+      <td>83.5</td>
+      <td>85.0</td>
+      <td>82.7</td>
+      <td>61.0</td>
+      <td>56.4</td>
+      <td>Sonoma</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+### Plotting the Data
+
+With the new column that specifies where the data was collected, you can use the **pandas** `groupby` function to plot a chart for each location! The `groupby` function will create a new plot for each unique entry in a column. Since there are two locations in the `location` column, we can produce two graphs, one for each location. 
+
+Below, you can create a new column that is the mean of all of the monthly readings for the average temperature in each location. With that column, we can plot the average annual temperature of each location by year using the `groupby` function.
+
+{:.input}
+```python
+# Creating a dataframe that is just the columns for temperature from each month.
+just_monthly_data_df = all_data.loc[: , "January":"December"]
+
+# Getting the average of each row in that dataframe and assigning the output to a new column in the original dataframe
+all_data['annual_average_temp'] = just_monthly_data_df.mean(axis=1)
+all_data
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+      <th>location</th>
+      <th>annual_average_temp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>71.4</td>
+      <td>64.6</td>
+      <td>66.5</td>
+      <td>65.2</td>
+      <td>66.9</td>
+      <td>67.4</td>
+      <td>74.3</td>
+      <td>77.5</td>
+      <td>74.0</td>
+      <td>73.1</td>
+      <td>67.4</td>
+      <td>64.6</td>
+      <td>San-Diego</td>
+      <td>69.408333</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
       <td>62.2</td>
       <td>61.7</td>
       <td>63.7</td>
@@ -940,6 +1057,7 @@ all_data
       <td>66.9</td>
       <td>63.3</td>
       <td>San-Diego</td>
+      <td>67.641667</td>
     </tr>
     <tr>
       <th>0</th>
@@ -957,6 +1075,133 @@ all_data
       <td>66.0</td>
       <td>66.9</td>
       <td>San-Diego</td>
+      <td>69.308333</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>65.2</td>
+      <td>64.9</td>
+      <td>63.6</td>
+      <td>64.6</td>
+      <td>64.4</td>
+      <td>66.9</td>
+      <td>72.7</td>
+      <td>72.7</td>
+      <td>71.4</td>
+      <td>77.7</td>
+      <td>67.4</td>
+      <td>67.6</td>
+      <td>San-Diego</td>
+      <td>68.258333</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>63.0</td>
+      <td>66.2</td>
+      <td>63.6</td>
+      <td>63.7</td>
+      <td>66.1</td>
+      <td>68.7</td>
+      <td>71.8</td>
+      <td>73.4</td>
+      <td>75.5</td>
+      <td>68.4</td>
+      <td>71.4</td>
+      <td>63.7</td>
+      <td>San-Diego</td>
+      <td>67.958333</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+      <td>Sonoma</td>
+      <td>72.025000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+      <td>Sonoma</td>
+      <td>70.241667</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>55.8</td>
+      <td>62.9</td>
+      <td>63.5</td>
+      <td>66.9</td>
+      <td>74.5</td>
+      <td>84.2</td>
+      <td>82.8</td>
+      <td>82.1</td>
+      <td>84.5</td>
+      <td>75.7</td>
+      <td>67.6</td>
+      <td>57.4</td>
+      <td>Sonoma</td>
+      <td>71.491667</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
+      <td>Sonoma</td>
+      <td>70.258333</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87.0</td>
+      <td>83.5</td>
+      <td>85.0</td>
+      <td>82.7</td>
+      <td>61.0</td>
+      <td>56.4</td>
+      <td>Sonoma</td>
+      <td>71.625000</td>
     </tr>
   </tbody>
 </table>
@@ -966,15 +1211,11 @@ all_data
 
 
 
-### Plotting the Data
-
-With the new column that specifies where the data was collected, you can use the **pandas** `groupby` function to plot a chart for each location! The `groupby` function will create a new plot for each unique entry in a column. Since there are two locations in the `location` column, we can produce two graphs, one for each location. 
-
 {:.input}
 ```python
 # Plotting the data by location for comparison.
 for title, group in all_data.groupby('location'):
-    group.plot(x='Year', y='January', legend=False, kind="barh", title=title + " January Average Temperature ºF")
+    group.plot(x='Year', y='annual_average_temp', legend=False, kind="bar", title=title + " Annual Average Temperature ºF")
 ```
 
 {:.output}
@@ -982,7 +1223,7 @@ for title, group in all_data.groupby('location'):
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_17_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_18_0.png">
 
 </figure>
 
@@ -994,7 +1235,7 @@ for title, group in all_data.groupby('location'):
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_17_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_18_1.png">
 
 </figure>
 
