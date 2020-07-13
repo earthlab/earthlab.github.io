@@ -24,6 +24,61 @@ cd $(The repo you just cloned)
 
 ## 2. Install all gems
 
+### Installation for Windows Users
+
+1. Install Ruby
+If you are on windows you will need to install `ruby`
+
+https://rubyinstaller.org/downloads/
+We suggest installing ruby version `2.6.6.1+dev kit`. Other versions
+may work but have not been tested.
+
+When you install ruby, be sure that you also check the box to install `MSYS2`.
+
+at the end of the `ruby` install, it will ask you if you want to install `MSYS2`.
+Install the base installation
+
+2. Next, install the bundler.
+
+`gem install bundler`
+
+
+Once you have completed this you can install all of the needed gems to run the
+website by cd'ing into the earthlab.github.io:
+
+`cd earthlab.github.io`
+
+then run:
+
+```
+# install the correct version of each gem specified in the gem file.
+# Run this inside the cloned earthlab.github.io directory
+bundle install
+```
+
+Once you have done this, and everything installs correctly, you are ready to
+build the website locally!
+
+** Note: you may need to run the above installations as an administrator on your
+machine.
+
+## Linux Installation Instructions
+
+1. install ruby version 2.5 or 2.6
+
+` sudo apt-get ruby-dev`
+
+2. Next, install the bundler using admin permissions:
+
+`sudo gem install bundler`
+
+3. CD into the earthlab.github.io repository and run:
+
+`sudo bundle install`
+
+You are now ready to build the website locally.
+
+## MAC and
 ```
 # install the correct version of each gem specified in the gem file. Run this IN the cloned directory
 bundle install
@@ -61,4 +116,4 @@ Currently, we are using less. to install less
 ## License
 
 Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
-If you use our materials following license guidelines - please cite us! 
+If you use our materials following license guidelines - please cite us!
