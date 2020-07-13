@@ -4,7 +4,7 @@ title: "Activity: Plot Spatial Raster Data in Python"
 excerpt: "Practice your skills creating maps of raster and vector data using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-06-26
+modified: 2020-07-13
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/practice-making-maps-python/
@@ -69,8 +69,8 @@ hiking trails in Rocky Mountain National Park (RMNP) - which is located in Color
 To make this plot, do the following: 
 
 1. Read in the trails, trailsheads and ranger zones data for the Rocky Mountain National Park trails and the National Parks Service boundaries. The code to open the data is in the cell below for you to run.
-2. Create a new GeoDataFrame that only contains the South Zone of the RMNP ranger zones `ranger_zones[ranger_zones["SUBDISTRIC"] == "SOUTH"]` data  for the park.
-3. Change the Coordinate Reference System of the boundary dataset to match the trails dataset. To get the Coordinate Reference System of the trails dataset, you can use `trails_dataframe_name.crs`. To set it to the boundary dataset, you can use the `to_crs()` function like so: `boundary_dataframe_name.to_crs(trails_dataframe_name.crs)`
+2. Create a new GeoDataFrame that only contains the South Zone of the RMNP ranger zones `ranger_zones[ranger_zones["SUBDISTRIC"] == ["SOUTH"]` data  for the park.
+3. Change the Coordinate Reference System of the boundary dataset to match the trails dataset. To get the Coordinate Reference System of the trails dataset, you can use `trails_dataframe_name.crs`. To set it to the boundary dataset, you can use the `to_crs()` function like so: `south_zone_boundary_geodataframe_name.to_crs(trails_dataframe_name.crs)`
 4. Plot the trails data and the trailheads data together in a map. 
 5. Add the polygon boundary of the South Ranger zone to the map. 
 6. Change the symbology for the lines and points on the map. For lines, you will change the `linestyle=` argument [options for this argument here](https://matplotlib.org/3.1.0/gallery/lines_bars_and_markers/linestyles.html) and for points you will modify the `marker=` arguement [options for this argument here](https://matplotlib.org/api/markers_api.html).
@@ -81,6 +81,8 @@ ax.legend(handles, labels)
 ```
 8. Add a title to your plot. 
 
+Your plot should look similar to the plot below.
+
 </div>
 
 ****
@@ -88,8 +90,8 @@ ax.legend(handles, labels)
 <div class='notice--success alert alert-info' markdown="1">
 
 <i class="fa fa-star"></i> **Data Tip:** 
-- [If you're struggling with reprojecting the GeoDataFrames, check out this lesson explaining reprojecting data into a new CRS.](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/reproject-vector-data-in-python/) 
-- [If you get stuck trying to add a legend to the plot, this lesson covering legends in vector plot may be useful.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/). 
+- <a href="{{ site.baseurl }}/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/reproject-vector-data-in-python/">If you're struggling with reprojecting the GeoDataFrames, check out this lesson explaining reprojecting data into a new CRS.</a>
+- <a href="{{ site.baseurl }}/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/">If you get stuck trying to add a legend to the plot, this lesson covering legends in vector plot may be useful.</a> 
 
 </div>
 
@@ -142,10 +144,12 @@ Next you will create a base map to put your trails on. In order to do this, you 
 
 1. Read in the USGS DEM into a numpy array using rasterio. 
 2. Clip the data to the extent of the south zone boundary you plotted earlier using this syntax inside of the context manager you used to open the array: 
-```clipped_data, clipped_metadata = es.crop_image(rasterio_variable_name, south_zone_geodataframe_variable_name)```
-3. Create a hillshade from the clipped DEM using the syntax: `es.hillshade(dem-numpy-array-name-here)`. This function outputs a numpy array with the hillshade data.
+```clipped_data, clipped_metadata = es.crop_image(rasterio_variable_name, south_zone_boundary_geodataframe_name)```
+3. Create a hillshade from the clipped DEM using the syntax: `es.hillshade(clipped_data[0])`. This function outputs a numpy array with the hillshade data.
 4. Overlay the clipped DEM array on top of the hillshade array you just created. 
 5. Be sure to add a title to your plot.
+
+Your plot should look similar to the plot below.
 
 </div>
 
@@ -161,7 +165,7 @@ Next you will create a base map to put your trails on. In order to do this, you 
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** [For more information about plotting raster data, see this chapter from the earth data science Scientist's Guide to Plotting Data in Python textbook.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/) 
+<i class="fa fa-star"></i> **Data Tip:** <a href="{{ site.baseurl }}/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/">For more information about plotting raster data, see this chapter from the earth data science Scientist's Guide to Plotting Data in Python textbook.</a>
 
 </div>
 
@@ -205,12 +209,14 @@ ned_cl_extent = plotting_extent(clipped_data[0], clipped_metadata["transform"])
 2. The legibility of data will change with the background data, so be sure to adjust colors/thickness of your data if you need to in order to make it visible. 
 3. Be sure to add a title to your map. 
 
+Your plot should look similar to the plot below.
+
 </div>
 
 ******
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** [If plotting extents are causing you trouble, this lesson covering plotting extents may help you.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/)  
+<i class="fa fa-star"></i> **Data Tip:** <a href="{{ site.baseurl }}/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/">If plotting extents are causing you trouble, this lesson covering plotting extents may help you.</a> 
 </div>
 
 
@@ -242,7 +248,7 @@ Below is a map that was made with **folium** to create an interactive map of the
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** [For more information on interactive maps and adding vector data to them, please see this lesson from the earth data science Scientist's Guide to Plotting Data in Python textbook.](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/interactive-maps/)
+<i class="fa fa-star"></i> **Data Tip:** <a href="{{ site.baseurl }}/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/interactive-maps">For more information on interactive maps and adding vector data to them, please see this lesson from the earth data science Scientist's Guide to Plotting Data in Python textbook.</a>
 </div>
 
 {:.input}

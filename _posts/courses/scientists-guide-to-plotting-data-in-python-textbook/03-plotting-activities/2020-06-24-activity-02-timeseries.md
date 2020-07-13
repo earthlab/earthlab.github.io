@@ -4,7 +4,7 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-06-26
+modified: 2020-07-13
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
@@ -43,7 +43,7 @@ In this chapter, you will practice your skills creating different types of plots
 
 ## Plot Time Series Data in Python
 
-One of the most common tasks the chapters have covered is plotting time series data. Time series data is a very common and important data type when it comes to earth analytics. It can be used to store precipitation data, temperature data, land change data, and much more. The chapters have covered information about common file types for time series data storage, such as `.txt` and `.csv` files, as well as how to read in and handle time series data in **Python** with the **pandas** package. The chapters also showed how to modify time series plots with **matplotlib** to make them communicate the time series data more effectively. 
+Time series data formats apply to many different types of data including precipitation, temperature, land use change data, and much more. Plotting time series data can be particularly tricky given varying time stamp formats, time zone differences and your analysis needs. In this lesson you will practice you skills associated with plotting time series data in Python. To review how to work with time series data using Pandas,  <a href="{{ site.baseurl }}/courses/use-data-open-source-python/use-time-series-data-in-python/introduction-to-time-series-in-pandas-python/">check out the chapter of time series data in the intermediate earth data science textbook.</a>
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Time Series Data Using Open Source Python
 
@@ -85,7 +85,7 @@ to the present using NOAA data. To make this plot, you will have to do the follo
 ****
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** [To learn more about time series data and how to plot it, see this chapter of the earth data science Use Data for Earth and Environmental Science in Open Source Python textbook.](https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/)  
+<i class="fa fa-star"></i> **Data Tip:** <a href="{{ site.baseurl }}/courses/use-data-open-source-python/use-time-series-data-in-python/">To learn more about time series data and how to plot it, see this chapter of the earth data science Use Data for Earth and Environmental Science in Open Source Python textbook.</a>
 
 </div>
 
