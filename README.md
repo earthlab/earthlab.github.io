@@ -27,6 +27,7 @@ cd $(The repo you just cloned)
 ### Installation for Windows Users
 
 1. Install Ruby
+
 If you are on windows you will need to install `ruby`
 
 https://rubyinstaller.org/downloads/
