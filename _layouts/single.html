@@ -9,7 +9,7 @@ layout: default
   <div>{% include page__hero.html %}</div>
 {% endif %}
 
-{% if page.course == "earth-analytics" %}
+{% if page.course == "earth-analytics" or page.course == "earth-analytics-bootcamp" or page.course == "earth-analytics-python" or page.course == "intermediate-earth-data-science-textbook" or page.course == "intro-to-earth-data-science-textbook" or page.course == "scientists-guide-to-plotting-data-in-python-textbook" %}
 <div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site.url }}/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
   <div class="wrapper">
         <h1 class="page__title" itemprop="headline">
