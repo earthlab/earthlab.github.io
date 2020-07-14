@@ -36,8 +36,8 @@ may work but have not been tested.
 
 When you install ruby, be sure that you also check the box to install `MSYS2`.
 
-at the end of the `ruby` install, it will ask you if you want to install `MSYS2`.
-Install the base installation
+At the end of the `ruby` install, it will ask you if you want to install `MSYS2`.
+Install the base installation.
 
 2. Next, install the bundler.
 
