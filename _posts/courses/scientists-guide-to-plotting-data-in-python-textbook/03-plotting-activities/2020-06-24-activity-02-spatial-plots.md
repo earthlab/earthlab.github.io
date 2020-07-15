@@ -130,7 +130,7 @@ trailheads = gpd.read_file(
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-03-spatial-plots/2020-06-24-activity-03-spatial-plots_8_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_8_0.png">
 
 </figure>
 
@@ -189,7 +189,7 @@ ned_30m_path = os.path.join("earthpy-downloads", "USGS_1_n41w106.tif")
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-03-spatial-plots/2020-06-24-activity-03-spatial-plots_11_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_11_0.png">
 
 </figure>
 
@@ -226,7 +226,7 @@ Your plot should look similar to the plot below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-03-spatial-plots/2020-06-24-activity-03-spatial-plots_13_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_13_0.png">
 
 </figure>
 

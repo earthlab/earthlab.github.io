@@ -110,7 +110,7 @@ os.chdir(os.path.join(et.io.HOME, "earth-analytics", "data"))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-timeseries/2020-06-24-activity-02-timeseries_7_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-timeseries/2020-06-24-activity-01-timeseries_7_0.png">
 
 </figure>
 
