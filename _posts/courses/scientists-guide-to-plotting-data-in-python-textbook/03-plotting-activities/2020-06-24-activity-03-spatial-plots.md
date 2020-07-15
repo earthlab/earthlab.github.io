@@ -4,7 +4,7 @@ title: "Activity: Plot Spatial Raster Data in Python"
 excerpt: "Practice your skills creating maps of raster and vector data using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-13
+modified: 2020-07-15
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/practice-making-maps-python/
@@ -24,11 +24,12 @@ topics:
 {% include toc title="Section Three" icon="file-text" %}
 
 
-<div class='notice--success' markdown="1">
-
 ## Plot Spatial Data in Python
 
 Throughout these chapters, one of the main focuses has been opening, modifying, and plotting all forms of spatial data. The chapters have covered a wide array of these types of data, including all types of vector data, elevation data, imagery data, and more! You've used a combination of multiple libraries to open and plot spatial data, including **pandas**, **geopandas**, **matplotlib**, **earthpy**, and various others. Often earth analytics will combine vector and raster data to do more meaningful analysis on a research question. Plotting these various types of data together can be challenging, but also very informative. 
+
+
+<div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Different Types of Spatial Data Using Open Source Python
 

@@ -4,7 +4,7 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-13
+modified: 2020-07-15
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
@@ -39,11 +39,11 @@ In this chapter, you will practice your skills creating different types of plots
 </div>
 
 
-<div class='notice--success' markdown="1">
-
 ## Plot Time Series Data in Python
 
 Time series data formats apply to many different types of data including precipitation, temperature, land use change data, and much more. Plotting time series data can be particularly tricky given varying time stamp formats, time zone differences and your analysis needs. In this lesson you will practice you skills associated with plotting time series data in Python. To review how to work with time series data using Pandas,  <a href="{{ site.baseurl }}/courses/use-data-open-source-python/use-time-series-data-in-python/introduction-to-time-series-in-pandas-python/">check out the chapter of time series data in the intermediate earth data science textbook.</a>
+
+<div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Time Series Data Using Open Source Python
 
