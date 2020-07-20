@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2020-07-08
+modified: 2020-07-20
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -121,7 +121,7 @@ Previously in the textbook, you learned how to append items to the end of an exi
 
 You can add do this with your loop with only two new lines of code:
 1. First, you create an empty list that will receive new values using `listname = []`. 
-2. Then, you can add a new line of code to append each value after it is calculated using `listname += [value]`. 
+2. Then, you can add a new line of code to append each value after it is calculated using `listname.append(value)`. 
 
 {:.input}
 ```python
@@ -131,7 +131,7 @@ avg_monthly_precip_mm = []
 # Convert each item from in to mm and add to new list
 for month in avg_monthly_precip_in:
     month *= 25.4 
-    avg_monthly_precip_mm += [month] 
+    avg_monthly_precip_mm.append(month)
 ```
 
 You can print the values in both lists to see that the original list has not changed, and that the new list contains the converted values. 
@@ -267,10 +267,10 @@ monthly_precip_median = []
 # Calculate sum and median for each numpy array and add to new lists
 for arr in arr_list:    
     arr_sum = np.sum(arr)
-    monthly_precip_sum += [arr_sum]
+    monthly_precip_sum.append(arr_sum)
     
     arr_median = np.median(arr)    
-    monthly_precip_median += [arr_median]
+    monthly_precip_median.append(arr_median)
 ```
 
 ### Review the List Being Iterated Upon and the Placeholder in Loop
@@ -687,8 +687,10 @@ The files that you downloaded with the loop above will be listed in the contents
 {:.input}
 ```python
 # Create path for data directory
-data_dir = os.path.join(et.io.HOME, "earth-analytics", 
-                        "data", "earthpy-downloads")
+data_dir = os.path.join(et.io.HOME, 
+                        "earth-analytics", 
+                        "data", 
+                        "earthpy-downloads")
 
 os.listdir(data_dir)
 ```
@@ -706,4 +708,4 @@ os.listdir(data_dir)
 
 Congratulations - you have automated your first tasks in this textbook using **Python**!
 
-In the next chapter, you will learn how to write custom functions in **Python**, so that you can customize your code as needed to reduce repetition and automate tasks even further. 
+In the next chapter, you will learn how to write custom functions in **Python**, so that you can customize your code as needed to reduce repetition and automate tasks using more advanced approaches. 
