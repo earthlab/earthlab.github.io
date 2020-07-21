@@ -37,13 +37,9 @@ topics:
 
 Throughout these chapters, one of the main focuses has been opening, modifying, and plotting all forms of spatial data. The chapters have covered a wide array of these types of data, including all types of vector data, elevation data, imagery data, and more! You've used a combination of multiple libraries to open and plot spatial data, including **pandas**, **geopandas**, **matplotlib**, **earthpy**, and various others. Often earth analytics will combine vector and raster data to do more meaningful analysis on a research question. Plotting these various types of data together can be challenging, but also very informative. 
 
-
-<div class='notice--success' markdown="1">
-
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Different Types of Spatial Data Using Open Source Python
-
+## Challenge Your Skills
 In this challenge you will be asked to use the appropriate packages and tools to plot each type of spatial data that have been covered so far. First, you will plot out various forms of vector data, then raster data, and finally you will plot a combination of the raster and vector data. 
-</div>
+
 
 {:.input}
 ```python
