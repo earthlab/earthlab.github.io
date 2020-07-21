@@ -122,7 +122,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps02-overlay-rasters/2018-02-05-maps02-overlay-rasters_5_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/raster-plots/2018-02-05-maps02-overlay-rasters/2018-02-05-maps02-overlay-rasters_5_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
 <figcaption>Plot of the Digital Elevation Model overlayed on top of a hillshade.</figcaption>
 
 </figure>

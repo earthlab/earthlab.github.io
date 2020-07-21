@@ -138,7 +138,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_8_0.png" alt = "Plot showing the North American roads overlaid on the continental US without x and y limits being set.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot03-set-plot-x-y-limits-python/2018-02-05-plot03-set-plot-x-y-limits-python_8_0.png" alt = "Plot showing the North American roads overlaid on the continental US without x and y limits being set.">
 <figcaption>Plot showing the North American roads overlaid on the continental US without x and y limits being set.</figcaption>
 
 </figure>
@@ -191,7 +191,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_12_0.png" alt = "Plot showing the North American roads overlaid on the continental US with x and y limits being set to the extent of the US layer.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot03-set-plot-x-y-limits-python/2018-02-05-plot03-set-plot-x-y-limits-python_12_0.png" alt = "Plot showing the North American roads overlaid on the continental US with x and y limits being set to the extent of the US layer.">
 <figcaption>Plot showing the North American roads overlaid on the continental US with x and y limits being set to the extent of the US layer.</figcaption>
 
 </figure>

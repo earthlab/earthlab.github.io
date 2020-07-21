@@ -143,7 +143,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_9_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_9_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -217,7 +217,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_13_0.png" alt = "One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_13_0.png" alt = "One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.">
 <figcaption>One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.</figcaption>
 
 </figure>
@@ -254,7 +254,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_15_0.png" alt = "Here the line width is adjusted on the roads layer.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_15_0.png" alt = "Here the line width is adjusted on the roads layer.">
 <figcaption>Here the line width is adjusted on the roads layer.</figcaption>
 
 </figure>
@@ -305,7 +305,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_17_0.png" alt = "You can refine plot symbology to make nicer looking plots.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_17_0.png" alt = "You can refine plot symbology to make nicer looking plots.">
 <figcaption>You can refine plot symbology to make nicer looking plots.</figcaption>
 
 </figure>
@@ -338,7 +338,7 @@ Create a plot of roads using the following line thicknesses:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_19_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_19_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -395,7 +395,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_21_0.png" alt = "If you set the label argument in your plot, that will be added to your legend when you call ax.legend().">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_21_0.png" alt = "If you set the label argument in your plot, that will be added to your legend when you call ax.legend().">
 <figcaption>If you set the label argument in your plot, that will be added to your legend when you call ax.legend().</figcaption>
 
 </figure>
@@ -434,7 +434,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_23_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_23_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -478,7 +478,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_25_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_25_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -529,7 +529,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_27_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_27_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -686,7 +686,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_31_0.png" alt = "A similar approach can be taken to customize points on a plot.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_31_0.png" alt = "A similar approach can be taken to customize points on a plot.">
 <figcaption>A similar approach can be taken to customize points on a plot.</figcaption>
 
 </figure>
@@ -742,7 +742,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_34_0.png" alt = "You can customize points and lines in one plot by using the ax object for both plots.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/vector-plots/2018-02-05-plot02-customize-python-matplotlib-plots/2018-02-05-plot02-customize-python-matplotlib-plots_34_0.png" alt = "You can customize points and lines in one plot by using the ax object for both plots.">
 <figcaption>You can customize points and lines in one plot by using the ax object for both plots.</figcaption>
 
 </figure>

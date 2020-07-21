@@ -135,7 +135,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps04-customize-matplotlib-colorbars-raster/2018-02-05-maps04-customize-matplotlib-colorbars-raster_10_0.png" alt = "Map of a lidar canopy height model with a custom legend.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/raster-plots/2018-02-05-maps04-customize-matplotlib-colorbars-raster/2018-02-05-maps04-customize-matplotlib-colorbars-raster_10_0.png" alt = "Map of a lidar canopy height model with a custom legend.">
 <figcaption>Map of a lidar canopy height model with a custom legend.</figcaption>
 
 </figure>
@@ -176,7 +176,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps04-customize-matplotlib-colorbars-raster/2018-02-05-maps04-customize-matplotlib-colorbars-raster_13_0.png" alt = "Map of a lidar canopy height model with a custom colorbar legend.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/02-plot-spatial-data/raster-plots/2018-02-05-maps04-customize-matplotlib-colorbars-raster/2018-02-05-maps04-customize-matplotlib-colorbars-raster_13_0.png" alt = "Map of a lidar canopy height model with a custom colorbar legend.">
 <figcaption>Map of a lidar canopy height model with a custom colorbar legend.</figcaption>
 
 </figure>
