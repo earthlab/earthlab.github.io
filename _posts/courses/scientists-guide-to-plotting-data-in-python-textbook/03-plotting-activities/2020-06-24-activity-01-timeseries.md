@@ -4,7 +4,7 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-15
+modified: 2020-07-21
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
@@ -39,21 +39,28 @@ In this chapter, you will practice your skills creating different types of plots
 </div>
 
 
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+* Apply your skills in plotting time series data using matplotlib and pandas in open source Python. 
+
+</div>
+
+
 ## Plot Time Series Data in Python
 
 Time series data formats apply to many different types of data including precipitation, temperature, land use change data, and much more. Plotting time series data can be particularly tricky given varying time stamp formats, time zone differences and your analysis needs. In this lesson you will practice you skills associated with plotting time series data in Python. To review how to work with time series data using Pandas,  <a href="{{ site.baseurl }}/courses/use-data-open-source-python/use-time-series-data-in-python/introduction-to-time-series-in-pandas-python/">check out the chapter of time series data in the intermediate earth data science textbook.</a>
 
-<div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Challenge: Plot Time Series Data Using Open Source Python
+Below is you will find a challenge activity that you can use to practice your 
+plotting skills for plot time series data using **matplotlib** and **pandas**. 
+The packages that you will need to complete this activity are listed below. 
 
-Below is a challenge to refresh your memory on how to plot time series using **matplotlib** and modify certain aspects of it with **pandas**. 
-</div>
 
 {:.input}
 ```python
 # Import Packages
-
 import os
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -81,6 +88,9 @@ to the present using NOAA data. To make this plot, you will have to do the follo
 6. Open and look at the metadata found in the `README.md` file of your download, to find out what the units for the `Mean cumulative mass balance` are.
 
 </div>
+
+The plot below is an example of what your final plot should look like after 
+completing this challenge. 
 
 ****
 <div class='notice--success alert alert-info' markdown="1">

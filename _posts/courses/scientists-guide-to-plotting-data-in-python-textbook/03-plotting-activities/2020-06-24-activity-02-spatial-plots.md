@@ -4,7 +4,7 @@ title: "Activity: Plot Spatial Raster Data in Python"
 excerpt: "Practice your skills creating maps of raster and vector data using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-15
+modified: 2020-07-21
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/practice-making-maps-python/
@@ -22,6 +22,15 @@ topics:
   spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
 {% include toc title="Section Three" icon="file-text" %}
+
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+* Apply your skills in plotting spatial raster data using open source Python. 
+
+</div>
 
 
 ## Plot Spatial Data in Python
