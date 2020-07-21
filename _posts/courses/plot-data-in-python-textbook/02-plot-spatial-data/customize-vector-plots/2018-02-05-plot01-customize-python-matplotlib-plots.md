@@ -54,7 +54,7 @@ import earthpy as et
 
 # Get the data & set working dir
 data = et.data.get_data('spatial-vector-lidar')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
@@ -70,7 +70,7 @@ Next, import and explore your spatial data. In this case you are importing the s
 {:.input}
 ```python
 # Import roads shapefile
-sjer_roads_path = os.path.join("data", "spatial-vector-lidar", 
+sjer_roads_path = os.path.join("spatial-vector-lidar", 
                                "california", "madera-county-roads", 
                                "tl_2013_06039_roads.shp")
 
@@ -553,9 +553,11 @@ If you recall, this layer contains 3 plot_types: grass, soil and trees.
 {:.input}
 ```python
 # Import points layer
-sjer_plots_path = os.path.join("data", "spatial-vector-lidar", 
-                               "california", "neon-sjer-site", 
-                               "vector_data", "SJER_plot_centroids.shp")
+sjer_plots_path = os.path.join("spatial-vector-lidar", 
+                               "california", 
+                               "neon-sjer-site", 
+                               "vector_data", 
+                               "SJER_plot_centroids.shp")
 
 sjer_plots = gpd.read_file(sjer_plots_path)
 
