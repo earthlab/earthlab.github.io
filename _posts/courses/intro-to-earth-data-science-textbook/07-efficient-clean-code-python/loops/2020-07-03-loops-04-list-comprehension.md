@@ -5,7 +5,7 @@ excerpt: "A list comprehensions in Python is a type of loop that is often faster
 authors: ['Nathan Korinek', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehension
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehensions
 nav-title: "List Comprehensions"
 dateCreated: 2020-07-07
 modified: 2020-07-22
@@ -81,7 +81,7 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 10.6 ms, sys: 0 ns, total: 10.6 ms
+    CPU times: user 10.5 ms, sys: 0 ns, total: 10.5 ms
     Wall time: 10.5 ms
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 5.03 ms, sys: 0 ns, total: 5.03 ms
-    Wall time: 4.96 ms
+    CPU times: user 3.21 ms, sys: 0 ns, total: 3.21 ms
+    Wall time: 3.22 ms
 
 
 
