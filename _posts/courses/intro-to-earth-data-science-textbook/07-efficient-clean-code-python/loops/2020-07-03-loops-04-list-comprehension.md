@@ -6,7 +6,7 @@ authors: ['Nathan Korinek', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehension
-nav-title: "List Comprehension"
+nav-title: "List Comprehensions"
 dateCreated: 2020-07-07
 modified: 2020-07-22
 module-type: 'class'
@@ -81,8 +81,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 6.45 ms, sys: 340 µs, total: 6.79 ms
-    Wall time: 6.74 ms
+    CPU times: user 10.6 ms, sys: 0 ns, total: 10.6 ms
+    Wall time: 10.5 ms
 
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 3.16 ms, sys: 12 µs, total: 3.17 ms
-    Wall time: 3.18 ms
+    CPU times: user 5.03 ms, sys: 0 ns, total: 5.03 ms
+    Wall time: 4.96 ms
 
 
 
