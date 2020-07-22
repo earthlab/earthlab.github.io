@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehension
 nav-title: "List Comprehension"
 dateCreated: 2020-07-07
-modified: 2020-07-20
+modified: 2020-07-22
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -74,28 +74,28 @@ Because of differences in how **Python** implements for loops and list comprehen
 {:.input}
 ```python
 %%time
-# Timing a cell using a for loop
+# Time a cell using a for loop
 for_list = []
 for i in range(50000):
     for_list.append(i*i)
 ```
 
 {:.output}
-    CPU times: user 6.95 ms, sys: 0 ns, total: 6.95 ms
-    Wall time: 6.92 ms
+    CPU times: user 3.82 ms, sys: 4 ms, total: 7.83 ms
+    Wall time: 7.74 ms
 
 
 
 {:.input}
 ```python
 %%time
-# Timing a cell using list comprehension
+# Time a cell using list comprehension
 comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 4.17 ms, sys: 23 µs, total: 4.2 ms
-    Wall time: 4.17 ms
+    CPU times: user 3.26 ms, sys: 0 ns, total: 3.26 ms
+    Wall time: 3.26 ms
 
 
 

@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2020-07-20
+modified: 2020-07-22
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -89,7 +89,7 @@ Which type of loop structure is used in the code below?
 
 {:.input}
 ```python
-# Convert each item in list from in to mm
+# Convert each item in list from inches to mm
 for month in avg_monthly_precip_in:
     month *= 25.4
     print(month)
@@ -700,7 +700,7 @@ os.listdir(data_dir)
 
 
 
-    ['monthly-precip-2002-2013.csv', 'avg-monthly-precip.txt']
+    ['avg-monthly-precip.txt', 'monthly-precip-2002-2013.csv']
 
 
 
