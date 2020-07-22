@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'List Comprehensions in Python: Write More Efficient Loops'
+title: 'Introduction to List Comprehensions in Python: Write More Efficient Loops'
 excerpt: "List comprehension can be a faster and more legible option to create lists than loops. Learn how to use list comprehension for common tasks in Python."
 authors: ['Nathan Korinek', 'Leah Wasser']
 category: [courses]
@@ -81,8 +81,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 3.82 ms, sys: 4 ms, total: 7.83 ms
-    Wall time: 7.74 ms
+    CPU times: user 7.04 ms, sys: 0 ns, total: 7.04 ms
+    Wall time: 7 ms
 
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 3.26 ms, sys: 0 ns, total: 3.26 ms
-    Wall time: 3.26 ms
+    CPU times: user 3.19 ms, sys: 0 ns, total: 3.19 ms
+    Wall time: 3.19 ms
 
 
 
