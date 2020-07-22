@@ -29,7 +29,7 @@ topics:
 
 After completing this chapter, you will be able to:
 
-* Modify values in a list using list comprehension
+* Modify values in a list using a list comprehension
 * Apply a function to values in a list with list comprehension
 * Apply conditionals to a list
  
@@ -81,8 +81,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 10.5 ms, sys: 0 ns, total: 10.5 ms
-    Wall time: 10.5 ms
+    CPU times: user 2.93 ms, sys: 3.87 ms, total: 6.8 ms
+    Wall time: 6.78 ms
 
 
 
@@ -94,8 +94,8 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 3.21 ms, sys: 0 ns, total: 3.21 ms
-    Wall time: 3.22 ms
+    CPU times: user 2.85 ms, sys: 316 µs, total: 3.16 ms
+    Wall time: 3.17 ms
 
 
 
