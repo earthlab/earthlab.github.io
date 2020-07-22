@@ -2,13 +2,13 @@
 layout: single
 title: 'Automate Data Tasks With Loops in Python'
 excerpt: "Loops can be used to automate data tasks in Python by iteratively executing the same code on multiple data structures. Learn how to automate data tasks in Python using data structures such as lists, numpy arrays, and pandas dataframes."
-authors: ['Nathan Korinek', 'Jenny Palomino', 'Leah Wasser']
+authors: ['Leah Wasser', 'Nathan Korinek']
 category: [courses]
 class-lesson: ['intro-loops-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/data-workflows-with-loops/
 nav-title: "Automate Data Tasks With Loops"
-dateCreated: 2019-10-23
-modified: 2020-07-13
+dateCreated: 2020-07-07
+modified: 2020-07-20
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -20,10 +20,6 @@ comments: true
 order: 3
 topics:
   reproducible-science-and-programming: ['python']
-redirect_from:
-  - "/courses/earth-analytics-bootcamp/loops/automate-tasks-loops/"
-  - "/courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/"
-  - "/courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -42,28 +38,34 @@ After completing this chapter, you will be able to:
 
 ## Build a Data Workflow 
 
-Often, data you encounter can be messy and hard to access. It will be spread out over multiple files in many directories. This is not something you would want to manually code for every file in every folder, so it can be much easier to automate the process in **Python** with `for` loops! This lesson will cover utilizing loops to create workflows for analyzing data in a clean and reproducible way. 
+Often, the data that you need for your workflow is messy and sometimes 
+difficult to access. It can be spread out over multiple files in many 
+directories. Manually processing data in multiple files and directories 
+manually is time consuming. It can be much easier to automate the process in 
+**Python** with `for` loops! This lesson will cover using loops to automate 
+data workflows where you have many different files that you need to work with. 
 
 {:.input}
 ```python
 import os
 from glob import glob
+import matplotlib.pyplot as plt
 import pandas as pd
 import earthpy as et
 
 # Download data on average monthly temp for two California sites
 file_url = "https://ndownloader.figshare.com/files/21894528"
-out_path = et.data.get_data(url = file_url)
-out_path
+data_path = et.data.get_data(url=file_url)
+data_path
 
 # Set working directory to earth-analytics
-os.chdir(os.path.join(et.io.HOME, 
-                      "earth-analytics", 
+os.chdir(os.path.join(et.io.HOME,
+                      "earth-analytics",
                       "data",
                       "earthpy-downloads"))
 
-# List of directories the data you just downloaded are stored in.
-os.listdir(out_path)
+# List directories for the data you just downloaded
+os.listdir(data_path)
 ```
 
 {:.output}
@@ -83,16 +85,45 @@ os.listdir(out_path)
 
 
 
-### Print All Files in a Directory
+The data downloaded above contain temperature data for two cities in California, 
+USA: Sonoma and San Diego. Within each directory you will find temperature
+data for the year stored in individual **.csv** files. Like this:
 
-In order to work on all files in a directory, you first have to make a list of all the files. There are a few ways to do this, but here we will do it with the `glob` package. If you remember from chapter 4 of this textbook, `glob` is an easy way to create a list of files that match certain criteria. We can use `glob` to get every file in a list of directories into one list, and then iterate through those lists with `for` loops to perform an operation on each file.
 
-Here, you create a list using `glob` of all of the folders in the data you downloaded, and then iterate through that list with a `for` loop to print out the name of each folder within the main directory.
+```
+Sonoma-1999-temp.csv
+Sonoma-2000-temp.csv
+Sonoma-2001-temp.csv
+```
+
+You analysis goal is to create a plot of temperature across all years that you
+have data and for both locations. To create this plot, you will need to:
+
+1. open each file
+2. combine the data for each year into a single dataframe
+3. add an attribute that specifies the location and year to the `data.frame` 
+
+The above steps will allow you to summarize the plot the data.
+
+### Explore Your Data Using Loops
+
+It's normal to open and look at your directory structure after you download new data.
+You can however also explore the data using glob to list directories and files 
+within each directories. To begin, create a list of all the directories in your 
+new download directory. While there are a few ways to do this, here you will 
+do it with the `glob` package. If you remember from <a href="{{ site.baseurl }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/os-glob-manipulate-file-paths/">Chapter 12 of this textbook, </a> you can use 
+`glob` to create a list of files that match certain criteria. You can use `glob` 
+to get every file in a list of directories into one list, and then iterate 
+through those lists with `for` loops to perform an operation on each file.
+
+Here, you create a list using `glob` of all of the folders in the data you 
+downloaded, and then iterate through that list with a `for` loop to print 
+out the name of each folder within the main directory.
 
 {:.input}
 ```python
-# Create a to print all folders found by glob
-data_dirs = os.path.join(out_path, "*")
+# Print all dirs found by glob
+data_dirs = os.path.join(data_path, "*")
 all_dirs = glob(data_dirs)
 
 for a_dir in all_dirs:
@@ -120,8 +151,8 @@ for a_dir in all_dirs:
 ```
 
 {:.output}
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv']
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv']
 
 
 
@@ -140,20 +171,19 @@ for a_dir in all_dirs:
     # Create a nested loop which loops through each directory
     for a_file_path in all_file_paths:
         print(a_file_path)
-    
 ```
 
 {:.output}
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
 
 
 
@@ -179,20 +209,20 @@ for a_dir in all_dirs:
         print(a_file_path)
         # Read the file into a pandas dataframe and assign it to a variable
         temp_data_df = pd.read_csv(a_file_path)
-temp_data_df   
+temp_data_df
 ```
 
 {:.output}
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv
 
 
 
@@ -237,19 +267,19 @@ temp_data_df
   <tbody>
     <tr>
       <th>0</th>
-      <td>2003</td>
-      <td>58.9</td>
-      <td>61.8</td>
-      <td>66.4</td>
-      <td>61.5</td>
-      <td>74.2</td>
-      <td>81.1</td>
-      <td>87</td>
-      <td>83.5</td>
-      <td>85</td>
-      <td>82.7</td>
-      <td>61</td>
-      <td>56.4</td>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
     </tr>
   </tbody>
 </table>
@@ -261,7 +291,7 @@ temp_data_df
 
 {:.input}
 ```python
-# Create a list outside of the for loop to store data 
+# Create a list outside of the for loop to store data
 all_df = []
 
 for a_dir in all_dirs:
@@ -273,7 +303,7 @@ for a_dir in all_dirs:
         all_df.append(temp_data_df)
 
 # Combine all the dataframes stored in the all_df list into one pandas dataframe
-pd.concat(all_df) 
+pd.concat(all_df)
 ```
 
 {:.output}
@@ -349,22 +379,6 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
-      <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>1999</td>
       <td>65.2</td>
       <td>64.9</td>
@@ -397,35 +411,19 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
     </tr>
     <tr>
       <th>0</th>
@@ -445,22 +443,6 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>58.9</td>
       <td>61.8</td>
@@ -474,6 +456,54 @@ pd.concat(all_df)
       <td>82.7</td>
       <td>61.0</td>
       <td>56.4</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
     </tr>
   </tbody>
 </table>
@@ -505,12 +535,12 @@ for a_dir in all_dirs:
     all_file_paths = (glob(dir_path))
     for a_file_path in all_file_paths:
         temp_data_df = pd.read_csv(a_file_path)
-        # Reading the pathname from each directory into the dataframe. 
+        # Reading the pathname from each directory into the dataframe.
         # Notice how it reads in the entire pathname.
         temp_data_df["location"] = a_dir
         all_df.append(temp_data_df)
-        
-pd.concat(all_df) 
+
+pd.concat(all_df)
 ```
 
 {:.output}
@@ -589,23 +619,6 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
-      <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>1999</td>
       <td>65.2</td>
       <td>64.9</td>
@@ -640,36 +653,19 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
       <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
     </tr>
     <tr>
@@ -691,23 +687,6 @@ pd.concat(all_df)
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>58.9</td>
       <td>61.8</td>
@@ -721,6 +700,57 @@ pd.concat(all_df)
       <td>82.7</td>
       <td>61.0</td>
       <td>56.4</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+      <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
       <td>/root/earth-analytics/data/earthpy-downloads/a...</td>
     </tr>
   </tbody>
@@ -739,12 +769,12 @@ for a_dir in all_dirs:
     all_file_paths = (glob(dir_path))
     for a_file_path in all_file_paths:
         temp_data_df = pd.read_csv(a_file_path)
-        # Reading the pathname from each directory into the dataframe. 
+        # Reading the pathname from each directory into the dataframe.
         # Notice how it reads just the last folder name into the column now.
         temp_data_df["location"] = os.path.basename(a_dir)
         all_df.append(temp_data_df)
-        
-all_data = pd.concat(all_df) 
+
+all_data = pd.concat(all_df)
 all_data
 ```
 
@@ -824,23 +854,6 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
-      <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
-      <td>San-Diego</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>1999</td>
       <td>65.2</td>
       <td>64.9</td>
@@ -875,19 +888,53 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
+      <td>San-Diego</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>55.8</td>
+      <td>62.9</td>
+      <td>63.5</td>
+      <td>66.9</td>
+      <td>74.5</td>
+      <td>84.2</td>
+      <td>82.8</td>
+      <td>82.1</td>
+      <td>84.5</td>
+      <td>75.7</td>
+      <td>67.6</td>
+      <td>57.4</td>
+      <td>Sonoma</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2003</td>
+      <td>58.9</td>
+      <td>61.8</td>
+      <td>66.4</td>
+      <td>61.5</td>
+      <td>74.2</td>
+      <td>81.1</td>
+      <td>87.0</td>
+      <td>83.5</td>
+      <td>85.0</td>
+      <td>82.7</td>
+      <td>61.0</td>
+      <td>56.4</td>
       <td>Sonoma</td>
     </tr>
     <tr>
@@ -909,19 +956,19 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2002</td>
-      <td>55.8</td>
-      <td>62.9</td>
-      <td>63.5</td>
-      <td>66.9</td>
-      <td>74.5</td>
-      <td>84.2</td>
-      <td>82.8</td>
-      <td>82.1</td>
-      <td>84.5</td>
-      <td>75.7</td>
-      <td>67.6</td>
-      <td>57.4</td>
+      <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
       <td>Sonoma</td>
     </tr>
     <tr>
@@ -941,23 +988,6 @@ all_data
       <td>58.5</td>
       <td>Sonoma</td>
     </tr>
-    <tr>
-      <th>0</th>
-      <td>2003</td>
-      <td>58.9</td>
-      <td>61.8</td>
-      <td>66.4</td>
-      <td>61.5</td>
-      <td>74.2</td>
-      <td>81.1</td>
-      <td>87.0</td>
-      <td>83.5</td>
-      <td>85.0</td>
-      <td>82.7</td>
-      <td>61.0</td>
-      <td>56.4</td>
-      <td>Sonoma</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -966,7 +996,7 @@ all_data
 
 
 
-### Plotting the Data
+### Plot Your Temperature Data
 
 With the new column that specifies where the data was collected, you can use the **pandas** `groupby` function to plot a chart for each location! The `groupby` function will create a new plot for each unique entry in a column. Since there are two locations in the `location` column, we can produce two graphs, one for each location. 
 
@@ -975,9 +1005,9 @@ Below, you can create a new column that is the mean of all of the monthly readin
 {:.input}
 ```python
 # Creating a dataframe that is just the columns for temperature from each month.
-just_monthly_data_df = all_data.loc[: , "January":"December"]
+just_monthly_data_df = all_data.loc[:, "January":"December"]
 
-# Getting the average of each row in that dataframe and assigning the output to a new column in the original dataframe
+# Get the average of each row in that dataframe and assigning the output to a new column in the original dataframe
 all_data['annual_average_temp'] = just_monthly_data_df.mean(axis=1)
 all_data
 ```
@@ -1061,24 +1091,6 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>65.8</td>
-      <td>65.3</td>
-      <td>63.7</td>
-      <td>67.7</td>
-      <td>69.1</td>
-      <td>72.4</td>
-      <td>73.5</td>
-      <td>76.3</td>
-      <td>75.5</td>
-      <td>69.5</td>
-      <td>66.0</td>
-      <td>66.9</td>
-      <td>San-Diego</td>
-      <td>69.308333</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>1999</td>
       <td>65.2</td>
       <td>64.9</td>
@@ -1115,39 +1127,21 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2001</td>
-      <td>56.5</td>
-      <td>58.4</td>
-      <td>68.0</td>
-      <td>66.7</td>
-      <td>83.1</td>
-      <td>86.1</td>
-      <td>81.2</td>
-      <td>85.3</td>
-      <td>81.0</td>
-      <td>78.4</td>
-      <td>64.0</td>
-      <td>55.6</td>
-      <td>Sonoma</td>
-      <td>72.025000</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1999</td>
-      <td>56.1</td>
-      <td>56.6</td>
-      <td>58.7</td>
-      <td>68.3</td>
-      <td>72.7</td>
-      <td>80.6</td>
-      <td>80.9</td>
-      <td>82.9</td>
-      <td>81.3</td>
-      <td>79.1</td>
-      <td>64.2</td>
-      <td>61.5</td>
-      <td>Sonoma</td>
-      <td>70.241667</td>
+      <td>2000</td>
+      <td>65.8</td>
+      <td>65.3</td>
+      <td>63.7</td>
+      <td>67.7</td>
+      <td>69.1</td>
+      <td>72.4</td>
+      <td>73.5</td>
+      <td>76.3</td>
+      <td>75.5</td>
+      <td>69.5</td>
+      <td>66.0</td>
+      <td>66.9</td>
+      <td>San-Diego</td>
+      <td>69.308333</td>
     </tr>
     <tr>
       <th>0</th>
@@ -1169,24 +1163,6 @@ all_data
     </tr>
     <tr>
       <th>0</th>
-      <td>2000</td>
-      <td>56.8</td>
-      <td>58.0</td>
-      <td>64.8</td>
-      <td>69.5</td>
-      <td>75.0</td>
-      <td>79.5</td>
-      <td>81.4</td>
-      <td>83.7</td>
-      <td>83.4</td>
-      <td>71.8</td>
-      <td>60.7</td>
-      <td>58.5</td>
-      <td>Sonoma</td>
-      <td>70.258333</td>
-    </tr>
-    <tr>
-      <th>0</th>
       <td>2003</td>
       <td>58.9</td>
       <td>61.8</td>
@@ -1203,6 +1179,60 @@ all_data
       <td>Sonoma</td>
       <td>71.625000</td>
     </tr>
+    <tr>
+      <th>0</th>
+      <td>1999</td>
+      <td>56.1</td>
+      <td>56.6</td>
+      <td>58.7</td>
+      <td>68.3</td>
+      <td>72.7</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>82.9</td>
+      <td>81.3</td>
+      <td>79.1</td>
+      <td>64.2</td>
+      <td>61.5</td>
+      <td>Sonoma</td>
+      <td>70.241667</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2001</td>
+      <td>56.5</td>
+      <td>58.4</td>
+      <td>68.0</td>
+      <td>66.7</td>
+      <td>83.1</td>
+      <td>86.1</td>
+      <td>81.2</td>
+      <td>85.3</td>
+      <td>81.0</td>
+      <td>78.4</td>
+      <td>64.0</td>
+      <td>55.6</td>
+      <td>Sonoma</td>
+      <td>72.025000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>56.8</td>
+      <td>58.0</td>
+      <td>64.8</td>
+      <td>69.5</td>
+      <td>75.0</td>
+      <td>79.5</td>
+      <td>81.4</td>
+      <td>83.7</td>
+      <td>83.4</td>
+      <td>71.8</td>
+      <td>60.7</td>
+      <td>58.5</td>
+      <td>Sonoma</td>
+      <td>70.258333</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -1213,9 +1243,38 @@ all_data
 
 {:.input}
 ```python
-# Plotting the data by location for comparison.
+# Sort the data by year for nicer plotting
+all_data.sort_values("Year", inplace=True)
+```
+
+{:.input}
+```python
+# Nathan -- i think having this on the same figure like below is best.
+# can you please just clean up the x axis to represent each year as an integer
+# fix the label for each group - if you need the forloop that's fine
+# then add a nice circle marker for each datapoint and make the line lighter and dashed
+# it doesn't really make sense to connect the dots here but it does show an increasing trend so worth having as a dashed line
+
+
+## Also please make sure that you are using "you" not "we" in the text for all lessons
+# i removed some here but would lik e you to edit the rest out!
+
+# you can remove this cell when you are done making these changes!
+```
+
+{:.input}
+```python
+f, ax = plt.subplots()
 for title, group in all_data.groupby('location'):
-    group.plot(x='Year', y='annual_average_temp', legend=False, kind="bar", title=title + " Annual Average Temperature ºF")
+    group.groupby('location').plot(x='Year', 
+                                   y='annual_average_temp',
+                                   title="Annual Average Temperature ºF",
+                                   label=title,
+                                   ax=ax)
+    
+ax.set(xlabel="Year", ylabel="Temperature (F)")
+
+plt.show()
 ```
 
 {:.output}
@@ -1223,21 +1282,15 @@ for title, group in all_data.groupby('location'):
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_18_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-03-workflows/2019-10-22-loops-03-workflows_20_0.png">
 
 </figure>
 
 
 
 
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/07-efficient-clean-code-python/loops/2019-10-22-loops-python-03-loop-workflows/2019-10-22-loops-python-03-loop-workflows_18_1.png">
-
-</figure>
-
-
-
+{:.input}
+```python
+# Here add a challenge to summarize the data by max temp value and plot it. 
+# include the answer plot but hide the code! 
+```
