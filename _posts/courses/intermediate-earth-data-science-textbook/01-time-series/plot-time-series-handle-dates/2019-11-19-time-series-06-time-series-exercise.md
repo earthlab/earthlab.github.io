@@ -3,7 +3,7 @@ layout: single
 title: "Summary Activity for Time Series Data"
 excerpt: "An activity to practice all of the skills you just learned in ."
 authors: ['Leah Wasser', 'Nathan Korinek']
-modified: 2020-06-30
+modified: 2020-07-15
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
