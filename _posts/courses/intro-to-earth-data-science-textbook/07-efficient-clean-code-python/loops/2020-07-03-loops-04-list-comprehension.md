@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/list-comprehensions
 nav-title: "List Comprehensions"
 dateCreated: 2020-07-07
-modified: 2020-07-22
+modified: 2020-07-23
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -36,9 +36,15 @@ After completing this chapter, you will be able to:
 </div>
 
 ## List Comprehension Basics
-Loops, as you've seen, can be a very powerful tool to manipulate and create data. However, they're not the only option when it comes to these types of operations. Another popular method is list comprehension. It's a concise and quick way to modify values in a list and create a new list from the output. It works in a similar way to a `for` loop, but has slightly different syntax. One can be translated to the other fairly easily! 
+Loops, as you've seen, can be a very powerful tool to manipulate and create data. 
+However, they're not the only option when it comes to these types of operations. 
+Another popular method is list comprehension. It's a concise and quick way to modify 
+values in a list and create a new list from the output. It works in a similar way to 
+a `for` loop, but has slightly different syntax. One can be translated to the other fairly 
+easily! 
 
-To perform list comprehension, you have to put the for loop and the desired outcome inside of a list. So this:
+To perform list comprehension, you have to put the for loop and the desired outcome inside 
+of a list. So this:
 
 ```
 new_list = []
@@ -50,7 +56,8 @@ becomes this:
 new_list = [i*i for i in list]
 ```
 
-You can see that the code takes up less space, and uses similar words to the for loop. However, the execution is different.
+You can see that the code takes up less space, and uses similar words to the for loop. 
+However, the execution is different.
 
 ### Benefits and Downsides of List Comprehension
 There are many pros and cons to consider when using list comprehension. 
@@ -63,13 +70,18 @@ Cons:
 * Can be less legible in certain situations.
 * Can be harder to implement for complicated operations in for loops. 
 
-
-
-In this lesson, you will go over things you learned how to do with traditional `for` loops and see how to do them with list comprehension. 
+In this lesson, you will go over things you learned how to do with traditional `for` 
+loops and see how to do them with list comprehension. 
 
 ## Time Saved with List Comprehension
 
-Because of differences in how **Python** implements for loops and list comprehension, list comprehensions are almost always faster than for loops when performing operations. Below, the same operation is performed by list comprehension and by for loop. It's a simple operation, it's just creating a list of the squares of numbers from 1 to 50000. From the timed cells below, you can see that the list comprehension runs almost twice as fast as the for loop for this calculation. This is one of the primary benefits of using list comprehension.  
+Because of differences in how **Python** implements for loops and list comprehension, 
+list comprehensions are almost always faster than for loops when performing operations. 
+Below, the same operation is performed by list comprehension and by for loop. It's a simple 
+operation, it's just creating a list of the squares of numbers from 1 to 50000. From the 
+timed cells below, you can see that the list comprehension runs almost twice as fast as the 
+for loop for this calculation. This is one of the primary benefits of using list 
+comprehension.  
 
 {:.input}
 ```python
@@ -81,8 +93,8 @@ for i in range(50000):
 ```
 
 {:.output}
-    CPU times: user 7.08 ms, sys: 0 ns, total: 7.08 ms
-    Wall time: 7.05 ms
+    CPU times: user 7.98 ms, sys: 0 ns, total: 7.98 ms
+    Wall time: 7.95 ms
 
 
 
@@ -94,14 +106,17 @@ comp_list = [i*i for i in range(50000)]
 ```
 
 {:.output}
-    CPU times: user 3.26 ms, sys: 0 ns, total: 3.26 ms
-    Wall time: 3.26 ms
+    CPU times: user 3.23 ms, sys: 0 ns, total: 3.23 ms
+    Wall time: 3.23 ms
 
 
 
 ## Modify Values with List Comprehension
 
-Operations previously done by for loops can use list comprehension. You have converted inches to millimeters many times in these lessons. A cleaner way to do this is using list comprehension. Below is a list of Boulder precipitation values in inches being modified to millimeters with list comprehension.
+Operations previously done by for loops can use list comprehension. You have 
+converted inches to millimeters many times in these lessons. A cleaner way to 
+do this is using list comprehension. Below is a list of Boulder precipitation 
+values in inches being modified to millimeters with list comprehension.
 
 {:.input}
 ```python
@@ -137,7 +152,10 @@ avg_monthly_precip_in = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02,
 
 ## Apply a Function to a List
 
-Similar to modifying a value in a list, it's possible to use list comprehension to apply a function to every value in a list. This can be useful for more complicated operations that need to be performed. This can also be done with the `map` function. More info on mapping can be found here. 
+Similar to modifying a value in a list, it's possible to use list comprehension 
+to apply a function to every value in a list. This can be useful for more complicated 
+operations that need to be performed. This can also be done with the `map` function. 
+More info on mapping can be found in the Data Tip below.
 
 <div class='notice--success alert alert-info' markdown="1">
 
@@ -183,7 +201,9 @@ def convert_in_to_mm(num):
 
 ### If Condition Only
 
-Conditionals can be implemented in list comprehension. This is can be an easy way to filter out unwanted variables from a list. If the conditional doesn't have an `else` statement, the `if` condition is put after the for loop.
+Conditionals can be implemented in list comprehension. This is can be an easy way 
+to filter out unwanted variables from a list. If the conditional doesn't have an 
+`else` statement, the `if` condition is put after the for loop.
 
 {:.input}
 ```python
@@ -204,7 +224,9 @@ Conditionals can be implemented in list comprehension. This is can be an easy wa
 
 ### If Else Conditionals
 
-If your conditional has an else statement, it is formatted differently. In this case, it would go before the for loop, with the operation for the `if` condition going before `if`, and the operation for the `else` condition going after `else`. 
+If your conditional has an else statement, it is formatted differently. In this 
+case, it would go before the for loop, with the operation for the `if` condition 
+going before `if`, and the operation for the `else` condition going after `else`. 
 
 {:.input}
 ```python

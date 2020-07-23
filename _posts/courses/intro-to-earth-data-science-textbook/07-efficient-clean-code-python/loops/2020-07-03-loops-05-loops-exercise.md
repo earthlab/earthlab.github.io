@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/loops-exercise/
 nav-title: "Loops Exercise"
 dateCreated: 2020-07-08
-modified: 2020-07-22
+modified: 2020-07-23
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -27,7 +27,9 @@ topics:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-This page of exercises will test the skills that you learned in the previous lessons in this chapter. You will practice using loops to help with common coding tasks, using for and while loops, and looping over different types of data. 
+This page of exercises will test the skills that you learned in the previous lessons 
+in this chapter. You will practice using loops to help with common coding tasks, using 
+for and while loops, and looping over different types of data. 
 
 </div>
 
@@ -101,7 +103,9 @@ boulder_avg_high_temp_f
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Modify Numeric Values in a List
 
-Below is a list of values that represents the average monthly high temperature in Boulder, CO., collected by NOAA. They are currently in Fahrenheit, but can be converted to Celsius by subtracting 32, and multiplying by 5/9. 
+Below is a list of values that represents the average monthly high temperature 
+in Boulder, CO., collected by NOAA. They are currently in Fahrenheit, but can be 
+converted to Celsius by subtracting 32, and multiplying by 5/9. 
 
 ```
 celcius = (fahrenheit - 32) * 5/9
@@ -143,9 +147,13 @@ value to your list.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Round Values In a List  
 
-Create a loop that rounds the values in the list that you created above: `boulder_avg_high_temp_c` to only two decimal places. 
+Create a loop that rounds the values in the list that you created above: 
+`boulder_avg_high_temp_c` to only two decimal places. 
 
-To round your data, you can use the **Python** function `round()`. The first argument in the `round()` function is the number to round, and the second argument is the number of decimals you want after it's been rounded. See how this works below.
+To round your data, you can use the **Python** function `round()`. The 
+first argument in the `round()` function is the number to round, and the 
+second argument is the number of decimals you want after it's been rounded. 
+See how this works below.
 
 ```
 c = 7.3848234
@@ -228,8 +236,8 @@ all_dirs = glob(data_dirs)
 
 
 {:.output}
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego
 
 
 
@@ -248,8 +256,8 @@ HINT: you will want to use the glob function to create a list of files within ea
 
 
 {:.output}
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv']
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -257,9 +265,16 @@ HINT: you will want to use the glob function to create a list of files within ea
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 1: Get Data from List of Files
 
-Above, you created a list inside of a `for` loop to view all of the files stored in two separate folders. These files are `csv` files that can be opened with **pandas** as a `DataFrame`. The files contain the average monthly temperature for two different study locations, Sonoma and San Diego. Their are `csv` files for each location for the years between 1999 and 2003. 
+Above, you created a list inside of a `for` loop to view all of the files 
+stored in two separate folders. These files are `csv` files that can be opened 
+with **pandas** as a `DataFrame`. The files contain the average monthly temperature 
+for two different study locations, Sonoma and San Diego. Their are `csv` files for 
+each location for the years between 1999 and 2003. 
 
-For this challenge, use nested `for` loops to get data from the files and find the average temperature in January over the years for the two sites. The end result should be two variables that represent the average January temperature for each site. Their are many ways to get this data, so don't be afraid to get creative!
+For this challenge, use nested `for` loops to get data from the files and find the 
+average temperature in January over the years for the two sites. The end result
+should be two variables that represent the average January temperature for each site. 
+Their are many ways to get this data, so don't be afraid to get creative!
 
 {:.input}
 ```python
@@ -297,17 +312,26 @@ print("Sonoma January Mean Temperature from 1999 to 2003: " + str(round(sonoma_j
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 2: Collatz Conjecture
 
-The Collatz Conjecture is a mathematic rule that says that if the following rules are performed on any positive interger, the number will eventually reach 1. The rules are:
+The Collatz Conjecture is a mathematic rule that says that if the following 
+rules are performed on any positive interger, the number will eventually reach 
+1. The rules are:
 
 1. If the integer is even, the next integer is one half of the current integer.
 2. If the integer is odd, the next term is 3 times the current integer plus 1. 
 
-If these rules are followed, any integer will eventually reach one. Using a `while` loop, implement these rules so that a variable you enter into the while loop has these rules run on it until it equals one. Here are some helpful hints to help you implement these rules:
+If these rules are followed, any integer will eventually reach one. Using a `while` 
+loop, implement these rules so that a variable you enter into the while loop has these 
+rules run on it until it equals one. Here are some helpful hints to help you implement 
+these rules:
 
 1. To check if a number is odd or even in **Python**, it is common practice to see if the remainder of the number divided by 2 equals zero. If you remember, `%` will get the remainder of a number divided by another number. So, to see if a number is even, the code `n%2 == 0` will return `True` if `n` is even, and `False` if `n` is odd.
 2. The `while` loop will run until the input number equals one. But you also need to remember not to run the code on the number if it does equal one. So in the odd calculation, make sure that the number doesn't equal one before you run the calculation on it. 
 
-Print out the number variable with each pass through of the while loop. Have your number variable equal `10000` before the `while` loop is run. Careful with this, it shouldn't take long to run. If it is taking a long time to run, there's probably a mistake in your code and your while loop will be running forever until you stop it! Once your code runs, change the number variable to see it run on any number you want!
+Print out the number variable with each pass through of the while loop. Have your number 
+variable equal `10000` before the `while` loop is run. Careful with this, it shouldn't 
+take long to run. If it is taking a long time to run, there's probably a mistake in your 
+code and your while loop will be running forever until you stop it! Once your code runs, 
+change the number variable to see it run on any number you want!
 
 For further explanation on the Collatz Conjecture, and what it looks like to implement it, [this YouTube video explains the basics of the math behind it](https://www.youtube.com/watch?v=5mFpVDpKX70) and [the Wikipedia page on the number has more in depth explanations of the math](https://en.wikipedia.org/wiki/Collatz_conjecture).
 </div>
