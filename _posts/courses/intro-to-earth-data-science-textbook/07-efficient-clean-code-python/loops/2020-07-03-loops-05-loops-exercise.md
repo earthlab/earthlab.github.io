@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/loops-exercise/
 nav-title: "Loops Exercise"
 dateCreated: 2020-07-08
-modified: 2020-07-23
+modified: 2020-07-24
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -228,6 +228,12 @@ all_dirs = glob(data_dirs)
 
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/21894528
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr
+
+
+
 {:.input}
 ```python
 # Add your code here 
@@ -236,8 +242,8 @@ all_dirs = glob(data_dirs)
 
 
 {:.output}
-    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
     /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego
+    /root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma
 
 
 
@@ -254,10 +260,16 @@ HINT: you will want to use the glob function to create a list of files within ea
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/os-glob-manipulate-file-paths/">More on using the glob function here</a>
 </div>
 
+{:.input}
+```python
+# Add your code here 
+
+```
+
 
 {:.output}
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv']
-    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv']
+    ['/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv', '/root/earth-analytics/data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv']
 
 
 
@@ -278,29 +290,13 @@ Their are many ways to get this data, so don't be afraid to get creative!
 
 {:.input}
 ```python
+# You will need pandas for this challenge
 import pandas as pd
 
-all_df = []
-for a_dir in all_dirs:
-    dir_path = os.path.join(a_dir, "*")
-    all_file_paths = (glob(dir_path))
-    for a_file_path in all_file_paths:
-        temp_data_df = pd.read_csv(a_file_path)
-        temp_data_df["location"] = os.path.basename(a_dir)
-        all_df.append(temp_data_df)
-        
-all_data = pd.concat(all_df) 
-
-san_diego_df_mean = all_data[all_data["location"] == "San-Diego"].mean()
-sonoma_df_mean = all_data[all_data["location"] == "Sonoma"].mean()
-
-san_diego_jan_mean = san_diego_df_mean["January"]
-sonoma_jan_mean = sonoma_df_mean["January"]
-
-print("San Diego January Mean Temperature from 1999 to 2003: " + str(round(san_diego_jan_mean, 2)) + " ºF")
-print("Sonoma January Mean Temperature from 1999 to 2003: " + str(round(sonoma_jan_mean, 2)) + " ºF")
+# Add your code here 
 
 ```
+
 
 {:.output}
     San Diego January Mean Temperature from 1999 to 2003: 65.52 ºF
@@ -335,6 +331,12 @@ change the number variable to see it run on any number you want!
 
 For further explanation on the Collatz Conjecture, and what it looks like to implement it, [this YouTube video explains the basics of the math behind it](https://www.youtube.com/watch?v=5mFpVDpKX70) and [the Wikipedia page on the number has more in depth explanations of the math](https://en.wikipedia.org/wiki/Collatz_conjecture).
 </div>
+
+{:.input}
+```python
+# Add your code here 
+
+```
 
 
 {:.output}
