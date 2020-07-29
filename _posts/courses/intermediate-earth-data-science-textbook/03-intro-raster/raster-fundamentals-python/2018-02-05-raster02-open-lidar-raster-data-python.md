@@ -465,7 +465,7 @@ print(src)
 
 
 
-Now let's look at what .read() does. Below we use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
+Now  look at what `.read()` does. Below we use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
 
 {:.input}
 ```python
