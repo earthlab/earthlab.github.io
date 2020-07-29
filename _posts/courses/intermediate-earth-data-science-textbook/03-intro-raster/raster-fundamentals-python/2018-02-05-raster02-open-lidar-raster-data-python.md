@@ -438,7 +438,7 @@ dem_pre_path
 
 
 
-Now use the dem_pre_path in the context manager to open and close the file.
+Now use the `dem_pre_path` in the context manager to open and close the file.
 
 {:.input}
 ```python
