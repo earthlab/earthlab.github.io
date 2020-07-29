@@ -419,7 +419,7 @@ lidar_dem.close()
 
 You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line.
 
-Let's start by checking what the path to our dem_pre file is.
+Start by checking what the path to your `dem_pre` file is.
 
 {:.input}
 ```python
