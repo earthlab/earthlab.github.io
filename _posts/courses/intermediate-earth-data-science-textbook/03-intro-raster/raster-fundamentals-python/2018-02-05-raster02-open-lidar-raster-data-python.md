@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-06-30
+modified: 2020-07-29
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -499,7 +499,7 @@ dtm_pre_arr
 
 
 
-You can use .profile to create an object with metadata on your raster image. The metadata object below contains information like the coordinate reference system and size of the raster image.
+You can use the `.profile` attribute to create an object with metadata on your raster image. The metadata object below contains information like the coordinate reference system and size of the raster image.
 
 {:.input}
 ```python
