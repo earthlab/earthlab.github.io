@@ -5,7 +5,7 @@ authors: ['Leah Wasser', 'Nathan Korinek','Jenny Palomino', 'Lauren Herwehe', 'N
 category: courses
 excerpt:
 nav-title: Course Syllabus
-modified: 2020-06-30
+modified: 2020-07-30
 comments: no
 permalink: /courses/earth-data-science-corps/earth-data-science-corps-syllabus/
 author_profile: no
