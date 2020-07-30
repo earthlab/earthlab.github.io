@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-07-29
+modified: 2020-07-30
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -417,9 +417,7 @@ lidar_dem.close()
 
 
 
-You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line.
-
-Start by checking what the path to your `dem_pre` file is.
+You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line. Start by checking what the path to your `dem_pre` file is.
 
 {:.input}
 ```python
@@ -465,7 +463,7 @@ print(src)
 
 
 
-Now  look at what `.read()` does. Below we use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
+Now look at what `.read()` does. Below you use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
 
 {:.input}
 ```python
@@ -522,7 +520,7 @@ lidar_dem_meta
 
 
 
-Finally, let's take a look at what the plotting_extent() function does. Note below that when you run the plotting_extent() function on your dem_pre raster image, you get the extent of the image as an output.
+Finally, take a look at what the `plotting_extent()` function does. Note below that when you run the `plotting_extent()` function on your `dem_pre` raster image, you get the extent of the image as an output.
 
 {:.input}
 ```python
