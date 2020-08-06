@@ -2,9 +2,9 @@
 layout: single
 category: courses
 title: "Earth Data Science Corps - Week Three"
-permalink: /courses/earth-data-science-corps/intro-to-tabular-data/
+permalink: /courses/earth-data-science-corps/intro-to-tabular-data-python/
 week-landing: 3
-modified: 2020-06-30
+modified: 2020-08-06
 week: 3
 sidebar:
   nav:
@@ -32,15 +32,16 @@ For this assignment, you will work through self-paced exercises that introduce c
 
 ### Readings
 
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/">Introduction to Spatial Vector Data:</a> Chapter 2 in the Introduction to Earth Data Science online textbook.  
+* Read all lessons in: 
+    * <a href="{{ site.url }}/courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/">Chapter 2: Spatial Data in Python</a> in the Introduction to Earth Data Science online textbook.  
 
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/">Introduction to Processing Spatial vector Data with GeoPandas:</a> Chapter 3 in the Introduction to Earth Data Science online textbook. 
+    * <a href="{{ site.url }}/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/">Chapter 3: Processing Spatial Vector Data in Python</a> in the Introduction to Earth Data Science online textbook. 
 
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/">Introduction to Raster Data:</a> Chapter 4 in the Introduction to Earth Data Science online textbook. 
+    * <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/">Chapter 4: Introduction to Raster Data in Python</a> in the Introduction to Earth Data Science online textbook. 
 
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/">Introduction to Data Processing:</a> Chapter 5 in the Introduction to Earth Data Science online textbook. 
+    * <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/">Chapter 5: Processing Raster Data in Python</a> in the Introduction to Earth Data Science online textbook. 
 
-If you would like to follow the code in the readings, you can use <a href="https://hub.earthdatascience.org/edsc-hub/hub/login">the JupyterHub environment</a> which is accessible via a web browser with an active internet connection. Recall that you need to use your GitHub account to login.  You can also use your local computer if you have successfully <a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/">set-up your local computing environment</a>.
+If you would like to follow the code in the readings, you can use the JupyterHub environment which is accessible via a web browser with an active internet connection. Recall that you need to use your GitHub account to login.  You can also use your local computer if you have successfully <a href="{{ site.url }}/workshops/setup-earth-analytics-python/">set-up your local computing environment</a>.
 
 ###  Assignment Submission
 
@@ -52,17 +53,17 @@ Please post a response to this <a href="https://earthlab.earthdatascience.org/c/
 * **9:00-9:30am MT / 10:00-10:30am CT**: Welcome to Workshop 3! (EDSC)
     * Survey, Questions
 
-* **9:30-10:05am MT / 10:30-11:05am CT**: Intro to time series data in Python
+* **9:30-10:05am MT / 10:30-11:05am CT**: Intro to <a href="{{ site.url }}/courses/use-data-open-source-python/use-time-series-data-in-python/introduction-to-time-series-in-pandas-python/">time series data in Python</a>
     * Review and questions
 
 * **10:05-10:15am MT / 11:05-11:15am CT** -- quick break
 
 * **10:15-11:00am MT / 11:15-12:00pm CT**: Break-out Session 1
-    * Work through Jupyter Notebooks to review how tabular data formats are used to store scientific data (e.g. using rows and columns). 
+    * Work through <a href="{{ site.url }}/courses/intro-to-earth-data-science/file-formats/use-spatial-data/file-formats-exercise/">Jupyter Notebook exercises</a> to review how tabular data formats are used to store scientific data (e.g. using rows and columns). 
 
 * **11:00-11:40am MT / 12:00-12:40pm CT**: Lunch Break
 
-* **11:40-12:00am MT / 12:40-1:00pm CT**: Question / Answer Session
+* **11:40am-12:00pm MT / 12:40-1:00pm CT**: Question / Answer Session
 
 * **12:00-12:50pm MT / 1:00-1:50pm CT**: Break-out Session 2
     * Work on challenges
