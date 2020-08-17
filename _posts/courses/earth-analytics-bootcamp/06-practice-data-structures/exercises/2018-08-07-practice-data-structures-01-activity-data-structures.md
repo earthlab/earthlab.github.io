@@ -8,7 +8,7 @@ class-lesson: ['practice-data-structures']
 permalink: /courses/earth-analytics-bootcamp/practice-data-structures/activity-data-structures/
 nav-title: "Activity on Data Structures"
 dateCreated: 2018-07-23
-modified: 2018-09-10
+modified: 2020-08-17
 module-title: 'Practice Working With Data Structures in Python'
 module-nav-title: 'Practice Working With Data Structures'
 module-description: 'This tutorial provides an opportunity to practice working with commonly used Python data structures for scientific data: lists, numpy arrays, and pandas dataframes.'
@@ -95,6 +95,7 @@ Dec | 0.99 |
 **Notice anything unusual about this table?**
 
 
+
 {:.output}
     [0.0, 2.0, 5.0, 9.56, 14.39, 21.72, 16.72, 11.61, 4.89, 0.99]
 
@@ -150,16 +151,18 @@ Using the completed `Python` list from the previous question, create and print a
 
 ### Quesion 6: Download Text File and Import Into Numpy Arrays
 
-Use `.urllib.request` to download the following file of average monthly temperature (Celsius) for Boulder, Colorado, to your `data` directory:
+Use `earthpy` to download the following file of average monthly temperature (Celsius) for Boulder, Colorado, to your `data` directory:
 
 `avg-monthly-temp.txt` from `https://ndownloader.figshare.com/files/12732467`
 
-Recall that you need to set your working directory (e.g. `/home/jpalomino/earth-analytics-bootcamp/`) before running the commands to download data. 
+Recall that you need to set your working directory before running the commands to download data. 
 
 Use the appropriate function to import `avg-monthly-temp.txt` into a `numpy array`. 
 
 
+
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12732467
     datasets downloaded successfully
 
 
@@ -310,6 +313,7 @@ Use the appropriate function to import `avg-temp-months-seasons.csv` into a `pan
 
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12739457
     datasets downloaded successfully
 
 
@@ -716,3 +720,4 @@ To submit your `Jupyter Notebook` for this activity, follow the `Git`/`Github` w
 
 
 2. <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request">Guided Activity to Submit Pull Request</a> to submit a pull request of your `Jupyter Notebook` for this activity to the Earth Lab repository (`https://github.com/earthlab-education/ea-bootcamp-practice-data-structures`). 
+
