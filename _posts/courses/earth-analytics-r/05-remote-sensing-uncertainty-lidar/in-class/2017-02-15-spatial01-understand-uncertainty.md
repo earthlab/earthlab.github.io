@@ -3,7 +3,7 @@ layout: single
 title: "Sources of Error in Lidar and Human Measured Estimates of Tree Height"
 excerpt: "There are difference sources of error when you measure tree height using Lidar. Learn about accuracy, precision and the sources of error associated with lidar remote sensing data."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
@@ -14,6 +14,8 @@ module-nav-title: 'Uncertainty in Scientific Data & Metadata '
 module-type: 'class'
 course: "earth-analytics"
 week: 5
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
@@ -232,73 +234,13 @@ site location on the map below.
 
 
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="90%" />
-
-## Study Area Plots
-
-At this study site, you have both lidar data - specifically a canopy height model
-that was processed by NEON (National Ecological Observatory Network). You also
-have some "ground truth" data. That is you have measured tree height values collected
-at a set of field site plots by technicians at NEON. You call these measured
-values *in situ* measurements.
-
-A map of your study plots is below overlaid on top of the canopy height mode.
-
-<img src="{{ site.url }}/images/courses/earth-analytics-r/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="90%" />
-
-### Compare Lidar Derived Height to In Situ Measurements
-
-You can compare maximum tree height values at each plot to the maximum pixel value
-in your `CHM` for each plot. To do this, you define the geographic boundary of your plot
-using a polygon - in the case below you use a circle as the boundary. You then extract
-the raster cell values for each circle and calculate the max value for all of the
-pixels that fall within the plot area.
-
-Then, you calculate the max height of your measured plot tree height data.
-
-Finally you compare the two using a scatter plot to see how closely the data relate.
-Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
-
-<figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="buffer circular">
-    <figcaption>The extract function in R allows you to specify a circular buffer
-    radius around an x,y point location. Values for all pixels in the specified
-    raster that fall within the circular buffer are extracted. In this case, you
-    will tell R to extract the maximum value of all pixels using the fun=max
-    command. Source: Colin Williams, NEON
-    </figcaption>
-</figure>
-
-<img src="{{ site.url }}/images/courses/earth-analytics-r/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="90%" />
-
-### How Different are the Data?
-
-<img src="{{ site.url }}/images/courses/earth-analytics-r/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
-
-## View Interactive Scatterplot
-
-<a href="https://plot.ly/~leahawasser/170/" target="_blank">View scatterplot plotly</a>
-
-
-## View Interactive Difference Barplot
-
-<a href="https://plot.ly/~leahawasser/158/chm-minus-insitu-differences/
-" target="_blank">View scatterplot differences</a>
 
 
 
-<div class="notice--info" markdown="1">
-## Additional Resources
 
-The materials on this page were compiled using many internet resources including:
 
-* <a href="http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf" target="_blank">Pdf presentation on uncertainty in remote sensing</a>
-* <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm" target="_blank">An overview of key uncertainty terms</a>
 
-##  QGIS Imagery Layer
 
-* Code to add imagery to qgis via the python console:
- `qgis.utils.iface.addRasterLayer("http://server.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer?f=json&pretty=true", "raster")`
 
-`<qgis._core.QgsRasterLayer object at 0x12739ee90>`
-</div>
+
+

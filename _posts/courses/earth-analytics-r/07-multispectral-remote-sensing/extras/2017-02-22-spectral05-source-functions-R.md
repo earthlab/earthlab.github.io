@@ -3,7 +3,7 @@ layout: single
 title: "How to Reuse Functions That You Create In Scripts - Source a Function in R"
 excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/
@@ -14,6 +14,8 @@ module-nav-title: 'Source Functions in R'
 week: 7
 module-type: 'class'
 course: "earth-analytics"
+estimated-time: "1 hour"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false

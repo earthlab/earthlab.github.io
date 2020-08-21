@@ -3,6 +3,7 @@ layout: single
 category: course-materials
 title: "Earth Analytics Course: Learn Data Science"
 excerpt: "Earth Analytics is a multidisciplinary course that explores how to use different types of data to address major Earth science questions. Learn more about the course."
+authors: ['Leah Wasser']
 nav-title: "Course Home Page"
 permalink: /courses/earth-analytics/
 course: "earth-analytics"
@@ -10,6 +11,8 @@ module-type: 'overview'
 module-title: "Earth Analytics R Course"
 week-landing: 0
 week: 0
+estimated-time: "12 weeks"
+difficulty: "intermediate"
 sidebar:
   nav:
 comments: false
