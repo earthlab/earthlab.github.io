@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot Spatial Data and Create Custom Legends in R"
 excerpt: "In this lesson you break down the steps required to create a custom legend for spatial data in R. You learn about creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/r-create-custom-legend-with-base-plot/
@@ -14,6 +14,8 @@ module-nav-title: 'Custom Maps in R'
 module-type: 'class'
 week: 4
 course: "earth-analytics"
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
