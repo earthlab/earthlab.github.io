@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Final Project
-modified: 2020-08-17
+modified: 2020-08-21
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/
 author_profile: no
@@ -554,35 +554,11 @@ Hint:
 
 
 {:.output}
-{:.execute_result}
-
-
-
-    [None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None]
-
-
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_15_1.png" alt = "This plot displays an example plot of total number of fires each year in California for 1992-2015.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_15_0.png" alt = "This plot displays an example plot of total number of fires each year in California for 1992-2015.">
 <figcaption>This plot displays an example plot of total number of fires each year in California for 1992-2015.</figcaption>
 
 </figure>
@@ -802,35 +778,11 @@ Hint:
 
 
 {:.output}
-{:.execute_result}
-
-
-
-    [None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None,
-     None]
-
-
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_23_1.png" alt = "This plot displays an example plot of mean fire size (hectares) in California for 1992-2015.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_23_0.png" alt = "This plot displays an example plot of mean fire size (hectares) in California for 1992-2015.">
 <figcaption>This plot displays an example plot of mean fire size (hectares) in California for 1992-2015.</figcaption>
 
 </figure>
