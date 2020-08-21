@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Final Project
-modified: 2018-08-23
+modified: 2020-08-17
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/
 author_profile: no
@@ -21,13 +21,13 @@ sidebar:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Final Project
 
-For this assignment, you will create a `Jupyter Notebook` with your answers to the questions below, and submit this `Jupyter Notebook` to a Github repository for the Final Project following the instructions below **Part II: Submit Your Jupyter Notebook to GitHub**. 
+For this assignment, you will create a `Jupyter Notebook` with your answers to the questions below, and submit this `Jupyter Notebook` to a `Github` repository for the Final Project following the instructions below **Part II: Submit Your Jupyter Notebook to GitHub**. 
 
 ### Structure of Final Project
 
 In your `Jupyter Notebook`, provide your answers for **Sections 1 AND 2** and then choose **one option for Section 3: either option A or B**. Indicate in your `Markdown` documentation which option you have chosen for Section 3.
 
-For all sections, you will be asked to use data on fire occurrence in California from 1992 to 2015 provided by <a href="https://www.fs.usda.gov/rds/archive/Product/RDS-2013-0009.4/" target="_blank">the United States Forest Service</a>.
+For all sections, you will be asked to use data on fire occurrence in California from 1992 to 2015 provided by <a href="https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4/" target="_blank">the United States Forest Service</a>.
 
 ### Due Date 
 
@@ -66,19 +66,26 @@ Also, be sure to use clear function names that tell the user what the function d
 
 In the questions below, you will be working with `numpy arrays` and `pandas dataframes`. 
 
-You will also be downloading files using `urllib.request` and accessing directories and files on your computer using `os`. Last, you will also be creating plots of your data.
+You will also be downloading files using `earthpy` and accessing directories and files on your computer using `os`. Last, you will also be creating plots of your data.
 
 Import all of the necessary `Python` packages to accomplish these tasks.
+
 
 ## Section 1: Questions 1-10 Using Pandas Dataframes
 
 ### Get Data
 
-Use `.urllib.request` to download the following .csv file of fires in California and import the data to a `pandas dataframe`:
+Use `earthpy` to download the following .csv file of fires in California and import the data to a `pandas dataframe`:
 
 1. `CA_fires_1992_2015_gt_100_acres.csv` from `https://ndownloader.figshare.com/files/12835340`
 
 The data contains one record for every fire greater than 100 acres that occurred between 1992 and 2015. The dataset has columns for the size of the fire (acres) and for the year and month of the fire, along with other details about the cause, reporting agency, county name, etc. 
+
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12835340
+
+
 
 ### Question 1: Explore Structure of the Pandas Dataframe (2 pts)
 
@@ -547,9 +554,38 @@ Hint:
 
 
 {:.output}
+{:.execute_result}
+
+
+
+    [None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None]
+
+
+
+
+
+{:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project_13_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_15_1.png" alt = "This plot displays an example plot of total number of fires each year in California for 1992-2015.">
+<figcaption>This plot displays an example plot of total number of fires each year in California for 1992-2015.</figcaption>
+
+</figure>
 
 
 
@@ -557,6 +593,7 @@ Hint:
 ### Question 6: Convert Units For Fire Size (4 pts)
 
 Write a **function** to convert the units of fire size from acres to hectares (i.e. a standard unit that represents 10,000 square meters). One hectare is equal to 2.47105 acres. 
+
 
 ### Question 7: Apply Function to Column (4 pts)
 
@@ -765,9 +802,38 @@ Hint:
 
 
 {:.output}
+{:.execute_result}
+
+
+
+    [None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None,
+     None]
+
+
+
+
+
+{:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project_20_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_23_1.png" alt = "This plot displays an example plot of mean fire size (hectares) in California for 1992-2015.">
+<figcaption>This plot displays an example plot of mean fire size (hectares) in California for 1992-2015.</figcaption>
+
+</figure>
 
 
 
@@ -786,11 +852,16 @@ Write a few sentences (2-3) on each of the following:
 
 ### Get Data
 
-Use `.urllib.request` to download the following .csv file of the number of fires by month and year in California and import the data to `numpy arrays`:
+Use `earthpy` to download the following .csv file of the number of fires by month and year in California and import the data to `numpy arrays`:
 
 1. `CA-fires-month-count-1992-to-2015.csv` from `https://ndownloader.figshare.com/files/12835346`
 
 The dataset contains a row for each year specified in the dataset name and contains a column for each month (starting with January through December). The values represent the number of fires that occurred in that month and year, based on fires greater than 100 acres that occurred between 1992 and 2015.
+
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12835346
+
 
 
 {:.output}
@@ -859,6 +930,7 @@ Hints:
 * Recall which existing `numpy` function you can use to calculate a sum. You will include this function within the function you write to answer this question.  
 * Review the lessons on functions to review the use of axes to calculate a statistic across the rows or columns of a `numpy array`.
 
+
 ### Question 12: Execute Function to Calculate Sum Across Columns (2 pts)
 
 Run the function created in the previous question (i.e. to calculate sum across columns in a `numpy array`) on the `numpy array` you created for `CA-fires-month-count-1992-to-2015.csv`. Save the output to a new `numpy array`.
@@ -883,6 +955,7 @@ Write a **function** that calculates the sum across rows of a `numpy array`.
 Hints: 
 * Recall which existing `numpy` function you can use to calculate a sum. You will include this function within the function you write to answer this question.  
 * Review the lessons on functions to review the use of axes to calculate a statistic across the rows or columns of a `numpy array`.
+
 
 ### Question 14: Execute Function to Calculate Sum Across Rows (2 pts)
 
@@ -1629,11 +1702,16 @@ Hints:
 
 ### Get Data
 
-Use `.urllib.request` to download the following .csv file of the mean size of fires in California by month and import the data to `numpy arrays`:
+Use `earthpy` to download the following .csv file of the mean size of fires in California by month and import the data to `numpy arrays`:
 
 1. `CA-fires-month-mean-size-1992-to-2015.csv` from `https://ndownloader.figshare.com/files/12835349`
 
 The dataset contains a row for each year specified in the dataset name and contains a column for each month (starting with January through December). The values represent the mean size of fires that occurred in that month and year, based on fires greater than 100 acres that occurred between 1992 and 2015.
+
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12835349
+
 
 
 {:.output}
@@ -1698,6 +1776,7 @@ The dataset contains a row for each year specified in the dataset name and conta
 
 Write a **function** to convert the units of fire size (acres) to square kilometers. One square kilometer is equal to 247.105 acres. 
 
+
 ### Question 26: Write Function to Calculate Mean Across Columns (4 pts)
 
 Write a **function** that calculates the mean across columns of a `numpy array`.
@@ -1706,12 +1785,14 @@ Hints:
 * Recall which existing `numpy` function you can use to calculate a mean. You will include this function within the function you write to answer this question.  
 * Review the lessons on functions to see the use of axes to calculate a statistic across the rows or columns of a `numpy array`.
 
+
 ### Question 27: Write Function to Execute Multiple Tasks (4 pts)
 
 Write a **function** that executes both of the functions you wrote in Questions 25 and 26, in the appropriate order: the conversion from acres to square kilometers and then, the calculation of the mean of the columns on an input `numpy array`.
 
 Hint:
 * Review how to pass an implicit variable from one function to another (i.e. the output of the first function becomes the input of the second function). 
+
 
 ### Question 28: Execute Function and Save Output (2 pts)
 
@@ -1765,7 +1846,12 @@ Hints:
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project_60_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-09-final-project/2018-07-16-co-09-final-project_68_0.png" alt = "This plot displays an example plot of mean fire size (sq. km.) for California in 1992-2015.">
+<figcaption>This plot displays an example plot of mean fire size (sq. km.) for California in 1992-2015.</figcaption>
+
+</figure>
 
 
 
