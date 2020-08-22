@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-07-30
+modified: 2020-08-22
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -136,8 +136,11 @@ You then open the data using `rio.open("path-to-raster-here")`.
 {:.input}
 ```python
 # Define relative path to file
-dem_pre_path = os.path.join("colorado-flood", "spatial",
-                            "boulder-leehill-rd", "pre-flood", "lidar",
+dem_pre_path = os.path.join("colorado-flood", 
+                            "spatial",
+                            "boulder-leehill-rd", 
+                            "pre-flood", 
+                            "lidar",
                             "pre_DTM.tif")
 
 # Open the file using a context manager ("with rio.open" statement)
