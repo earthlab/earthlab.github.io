@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-06-25
+modified: 2020-08-22
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -136,9 +136,12 @@ You then open the data using `rio.open("path-to-raster-here")`.
 {:.input}
 ```python
 # Define relative path to file
-dem_pre_path = os.path.join("colorado-flood", "spatial",
-                              "boulder-leehill-rd", "pre-flood", "lidar",
-                              "pre_DTM.tif")
+dem_pre_path = os.path.join("colorado-flood", 
+                            "spatial",
+                            "boulder-leehill-rd", 
+                            "pre-flood", 
+                            "lidar",
+                            "pre_DTM.tif")
 
 # Open the file using a context manager ("with rio.open" statement)
 with rio.open(dem_pre_path) as dem_src:
@@ -198,7 +201,7 @@ print("the maximum raster value is: ", dtm_pre_arr.max())
 # A histogram can also be helpful to look at the range of values in your data
 # What do you notice about the histogram below?
 ep.hist(dtm_pre_arr,
-       figsize=(10,6))
+        figsize=(10, 6))
 plt.show()
 ```
 
@@ -254,8 +257,8 @@ print("the maximum raster value is: ", dtm_pre_arr.max())
 ```python
 # A histogram can also be helpful to look at the range of values in your data
 ep.hist(dtm_pre_arr,
-       figsize=(10,6),
-       title="Histogram of the Data with No Data Values Removed")
+        figsize=(10, 6),
+        title="Histogram of the Data with No Data Values Removed")
 plt.show()
 ```
 
@@ -357,7 +360,6 @@ lidar_dem_meta
 
 
 
-
 ## Context Managers to Open and Close File Connections
 
 The steps above represent the steps you need to open and plot a raster 
@@ -416,8 +418,32 @@ lidar_dem.close()
 ```
 </div>
 
+
+
+You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line. Start by checking what the path to your `dem_pre` file is.
+
 {:.input}
 ```python
+# Look at the path to your dem_pre file
+dem_pre_path
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    'colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif'
+
+
+
+
+
+Now use the `dem_pre_path` in the context manager to open and close the file.
+
+{:.input}
+```python
+# Opening the file with the dem_pre_path
 # Notice here the src object is printed and returns an "open" DatasetReader object
 with rio.open(dem_pre_path) as src:
     print(src)
@@ -437,6 +463,86 @@ print(src)
 
 {:.output}
     <closed DatasetReader name='colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif' mode='r'>
+
+
+
+Now look at what `.read()` does. Below you use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
+
+{:.input}
+```python
+# Open the file using a context manager and get the values as a numpy array with .read()
+with rio.open(dem_pre_path) as dem_src:
+    dtm_pre_arr = dem_src.read(1)
+
+dtm_pre_arr
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    array([[-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6956300e+03,  1.6954199e+03,  1.6954299e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6956000e+03,  1.6955399e+03,  1.6953600e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6953800e+03,  1.6954399e+03,  1.6953700e+03],
+           ...,
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6814500e+03,  1.6813900e+03,  1.6812500e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6817200e+03,  1.6815699e+03,  1.6815599e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6818900e+03,  1.6818099e+03,  1.6817400e+03]], dtype=float32)
+
+
+
+
+
+You can use the `.profile` attribute to create an object with metadata on your raster image. The metadata object below contains information like the coordinate reference system and size of the raster image.
+
+{:.input}
+```python
+with rio.open(dem_pre_path) as dem_src:
+    # Create an object called lidar_dem_meta that contains the spatial metadata
+    lidar_dem_meta = dem_src.profile
+
+lidar_dem_meta
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4000, 'height': 2000, 'count': 1, 'crs': CRS.from_epsg(32613), 'transform': Affine(1.0, 0.0, 472000.0,
+           0.0, -1.0, 4436000.0), 'blockxsize': 128, 'blockysize': 128, 'tiled': True, 'compress': 'lzw', 'interleave': 'band'}
+
+
+
+
+
+Finally, take a look at what the `plotting_extent()` function does. Note below that when you run the `plotting_extent()` function on your `dem_pre` raster image, you get the extent of the image as an output.
+
+{:.input}
+```python
+with rio.open(dem_pre_path) as dem_src:
+    # Create an object called lidar_dem_plot_ext that contains the spatial metadata
+    lidar_dem_plot_ext = plotting_extent(dem_src)
+
+# This plotting extent object will be used below to ensure your data overlay correctly
+lidar_dem_plot_ext
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (472000.0, 476000.0, 4434000.0, 4436000.0)
+
+
 
 
 
@@ -474,7 +580,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_27_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_35_0.png">
 
 </figure>
 
@@ -487,7 +593,7 @@ spatial information associated with it.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(4,10))
+fig, ax = plt.subplots(figsize=(4, 10))
 
 ep.plot_bands(dtm_pre_arr, ax=ax)
 
@@ -502,7 +608,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_29_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_37_0.png">
 
 </figure>
 
@@ -513,7 +619,7 @@ plt.show()
 ```python
 with rio.open(dem_pre_path) as dem_src:
     lidar_dem_im = dem_src.read(1, masked=True)
-    # Create an object called lidar_dem_meta that contains the spatial metadata
+    # Create an object called lidar_dem_plot_ext that contains the spatial metadata
     lidar_dem_plot_ext = plotting_extent(dem_src)
 
 # This plotting extent object will be used below to ensure your data overlay correctly
@@ -556,7 +662,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_32_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_40_0.png">
 
 </figure>
 
