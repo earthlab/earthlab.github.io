@@ -420,7 +420,9 @@ lidar_dem.close()
 
 
 
-You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line. Start by checking what the path to your `dem_pre` file is.
+You can get a better understanding of how the rasterio context manager works by taking a look at what it is doing line by line. Start by looking at the `dem_pre_path` object.
+Notice that this object is a path to the file `pre_DEM.tif`. The context manager needs 
+to know where the file is that you want to open with **Rasterio**.
 
 {:.input}
 ```python
@@ -439,7 +441,15 @@ dem_pre_path
 
 
 
-Now use the `dem_pre_path` in the context manager to open and close the file.
+Now use the `dem_pre_path` in the context manager to open and close your connection
+to the file. Notice that if you print the "`src`" object within the 
+context manager (notice that the print statement is indented which is how you 
+know that you are inside the context manager), the returl is an 
+
+`open DatasetReader` 
+
+The name of the reader is the path to your file. This means there is an open
+and active connection to the file. 
 
 {:.input}
 ```python
@@ -454,6 +464,13 @@ with rio.open(dem_pre_path) as src:
 
 
 
+If you print that same `src` object outside of the context manager, 
+notice that it is now a `closed datasetReader` object. It is closed
+because it is being called outside of the context manager. Once
+the connection is closed, you can no longer access the data. This 
+is a good thing as it protects you from inadvertently modifying 
+the file itself!
+
 {:.input}
 ```python
 # Note that the src object is now closed because it's not within the indented
@@ -466,7 +483,8 @@ print(src)
 
 
 
-Now look at what `.read()` does. Below you use the context manager to both open the file and read it. See that the output is a numpy array of raster cell values.
+Now look at what `.read()` does. Below you use the context manager to both open the file and read it. See that the `read()` method, returns a numpy array that contains the 
+raster cell values in your file.
 
 {:.input}
 ```python
@@ -474,6 +492,42 @@ Now look at what `.read()` does. Below you use the context manager to both open 
 with rio.open(dem_pre_path) as dem_src:
     dtm_pre_arr = dem_src.read(1)
 
+dtm_pre_arr
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    array([[-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6956300e+03,  1.6954199e+03,  1.6954299e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6956000e+03,  1.6955399e+03,  1.6953600e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6953800e+03,  1.6954399e+03,  1.6953700e+03],
+           ...,
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6814500e+03,  1.6813900e+03,  1.6812500e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6817200e+03,  1.6815699e+03,  1.6815599e+03],
+           [-3.4028235e+38, -3.4028235e+38, -3.4028235e+38, ...,
+             1.6818900e+03,  1.6818099e+03,  1.6817400e+03]], dtype=float32)
+
+
+
+
+
+Because you created an object within the context manager that contains 
+those raster values as a numpy array, you can now access the data values
+without needing to have an open connection to your file. This ensures once 
+again that you are not modifying your original file and that all 
+connections to it are closed. You are now free to play with the numpy 
+array and process your data!
+
+{:.input}
+```python
+# View numpy array of your data
 dtm_pre_arr
 ```
 
@@ -580,7 +634,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_35_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_38_0.png">
 
 </figure>
 
@@ -608,7 +662,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_37_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_40_0.png">
 
 </figure>
 
@@ -662,7 +716,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_40_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-lidar-raster-data-python/2018-02-05-raster02-open-lidar-raster-data-python_43_0.png">
 
 </figure>
 
