@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-08-12
+modified: 2020-08-24
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -59,9 +59,7 @@ Raster or “gridded” data are stored as a grid of values which are rendered o
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.
-
-</div>
+<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.</div>
 
 ## Raster Data Can Have One or More Layers 
 
@@ -173,10 +171,10 @@ Below, you create a path to the file you want to open.
 {:.input}
 ```python
 # Create a path to file
-lidar_dtm_path = os.path.join("colorado-flood", 
+lidar_dtm_path = os.path.join("colorado-flood",
                               "spatial",
-                              "boulder-leehill-rd", 
-                              "pre-flood", 
+                              "boulder-leehill-rd",
+                              "pre-flood",
                               "lidar",
                               "pre_DTM.tif")
 lidar_dtm_path
@@ -306,10 +304,10 @@ Finally you can plot your data. For plotting you will use `earthpy.plot_bands`.
 
 {:.input}
 ```python
-ep.plot_bands(lidar_dtm, 
-              scale=False, 
+ep.plot_bands(lidar_dtm,
+              scale=False,
               cmap='Greys',
-             title="Lidar Digital Terrain Model")
+              title="Lidar Digital Terrain Model")
 plt.show()
 ```
 
@@ -318,7 +316,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png" alt = "Plot of Lidar digital terrain model.">
+<figcaption>Plot of Lidar digital terrain model.</figcaption>
 
 </figure>
 
@@ -327,7 +326,7 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  Explore Elevation Data Values
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1:  Explore Elevation Data Values
 
 Look closely at the plot above. What do you think the colors and numbers 
 represent in the plot? 
@@ -337,7 +336,7 @@ What units do the numbers represents?
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  Open a Raster Dataset
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2:  Open & Plot a Raster Dataset
 
 The above lidar DTM that you opened represents a dataset produced before a flood occurred in 2013 in Colorado. A path to a second lidar dataset which is for the same area but from data collected after the flood is below. 
 
@@ -359,39 +358,21 @@ lidar_dem_path_post_flood = os.path.join("data", "colorado-flood", "spatial",
 ```
 
 Hint: Don't forget to use `rio.open()` and assign the output to a variable!
+
+An example of what your plot should look like is below. 
 </div>
 
 
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_15_0.png" alt = "Challenge 2 Plot: Lidar Digital Terrain Model">
+<figcaption>Challenge 2 Plot: Lidar Digital Terrain Model</figcaption>
 
-    masked_array(
-      data=[[2020.22998046875, 2019.419921875, 2018.8099365234375, ...,
-             1695.5799560546875, 1695.5299072265625, 1695.5299072265625],
-            [2019.989990234375, 2019.22998046875, 2018.5499267578125, ...,
-             1695.659912109375, 1695.52001953125, 1695.5699462890625],
-            [2019.8299560546875, 2019.0599365234375, 2018.3900146484375, ...,
-             1695.52001953125, 1695.429931640625, 1695.489990234375],
-            ...,
-            [1911.739990234375, 1911.5699462890625, 1911.409912109375, ...,
-             1682.8699951171875, 1682.8099365234375, 1682.8099365234375],
-            [1911.3199462890625, 1911.169921875, 1911.0599365234375, ...,
-             1682.39990234375, 1682.5499267578125, 1682.6300048828125],
-            [1910.919921875, 1910.72998046875, 1910.6400146484375, ...,
-             1682.18994140625, 1682.2799072265625, 1682.3499755859375]],
-      mask=[[False, False, False, ..., False, False, False],
-            [False, False, False, ..., False, False, False],
-            [False, False, False, ..., False, False, False],
-            ...,
-            [False, False, False, ..., False, False, False],
-            [False, False, False, ..., False, False, False],
-            [False, False, False, ..., False, False, False]],
-      fill_value=-3.4028235e+38,
-      dtype=float32)
-
+</figure>
 
 
 
@@ -442,10 +423,10 @@ et.data.get_data(url="https://ndownloader.figshare.com/files/23070791")
 ```python
 # Create a path for the data file - notice it is a .tif file
 naip_pre_fire_path = os.path.join("earthpy-downloads",
-                             "naip-before-after",
-                             "pre-fire",
-                             "crop",
-                             "m_3910505_nw_13_1_20150919_crop.tif")
+                                  "naip-before-after",
+                                  "pre-fire",
+                                  "crop",
+                                  "m_3910505_nw_13_1_20150919_crop.tif")
 
 naip_pre_fire_path
 ```
@@ -466,7 +447,7 @@ naip_pre_fire_path
 # Open the data using rasterio
 with rio.open(naip_pre_fire_path) as naip_prefire_src:
     naip_pre_fire = naip_prefire_src.read()
-    
+
 naip_pre_fire
 ```
 
@@ -522,7 +503,7 @@ similar to the image that your camera stores when you take a picture.
 {:.input}
 ```python
 # Plot each layer or band of the image separately
-ep.plot_bands(naip_pre_fire, figsize=(10,5))
+ep.plot_bands(naip_pre_fire, figsize=(10, 5))
 plt.show()
 ```
 
@@ -531,7 +512,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png" alt = "Plot of all NAIP Data Bands using earthpy plot_bands()">
+<figcaption>Plot of all NAIP Data Bands using earthpy plot_bands()</figcaption>
 
 </figure>
 
@@ -542,7 +524,7 @@ plt.show()
 ```python
 # Plot color image
 ep.plot_rgb(naip_pre_fire,
-           title="naip data pre-fire")
+            title="naip data pre-fire")
 plt.show()
 ```
 
@@ -551,7 +533,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_22_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_22_0.png" alt = "RGB color image plot of NAIP data using earthpy plot_rgb()">
+<figcaption>RGB color image plot of NAIP data using earthpy plot_rgb()</figcaption>
 
 </figure>
 
@@ -576,10 +559,10 @@ after the fire in Colorado. Use that path to:
 # Add the code here to open the raster and read the numpy array inside it
 # Create a path for the data file - notice it is a .tif file
 naip_post_fire_path = os.path.join("earthpy-downloads",
-                             "naip-before-after",
-                             "post-fire",
-                             "crop",
-                             "m_3910505_nw_13_1_20170902_crop.tif")
+                                   "naip-before-after",
+                                   "post-fire",
+                                   "crop",
+                                   "m_3910505_nw_13_1_20170902_crop.tif")
 
 naip_post_fire_path
 ```
@@ -601,7 +584,8 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_0.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
+<figcaption>Plot of NAIP bands on top and below a NAIP color RGB image.</figcaption>
 
 </figure>
 
@@ -613,7 +597,8 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_1.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
+<figcaption>Plot of NAIP bands on top and below a NAIP color RGB image.</figcaption>
 
 </figure>
 
@@ -626,7 +611,8 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_0.png" alt = "Plot of RGB NAIP data before and after the fire.">
+<figcaption>Plot of RGB NAIP data before and after the fire.</figcaption>
 
 </figure>
 
@@ -638,7 +624,8 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_1.png" alt = "Plot of RGB NAIP data before and after the fire.">
+<figcaption>Plot of RGB NAIP data before and after the fire.</figcaption>
 
 </figure>
 
