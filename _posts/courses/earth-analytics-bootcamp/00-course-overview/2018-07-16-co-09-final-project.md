@@ -5,11 +5,11 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Final Project
-modified: 2020-08-21
+modified: 2020-08-24
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/
 author_profile: no
-overview-order: 10
+overview-order: 11
 module-type: 'overview'
 course: "earth-analytics-bootcamp"
 sidebar:
