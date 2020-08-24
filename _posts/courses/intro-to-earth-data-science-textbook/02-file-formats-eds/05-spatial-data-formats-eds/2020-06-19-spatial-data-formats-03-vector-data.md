@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-vector-data/
 nav-title: "Use Vector Data"
 dateCreated: 2020-06-20
-modified: 2020-07-09
+modified: 2020-08-24
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -1036,7 +1036,7 @@ HINT: checkout <a href="https://geopandas.org/mapping.html" target="_blank">this
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fcaa4439ad0>
+    <AxesSubplot:>
 
 
 
