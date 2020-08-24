@@ -4,7 +4,7 @@ title: "GIS in R: Intro to Vector Format Spatial Data - Points, Lines and Polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -16,6 +16,8 @@ module-nav-title: 'Spatial Data in R'
 module-type: 'class'
 course: "earth-analytics"
 week: 4
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false

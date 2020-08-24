@@ -7,30 +7,8 @@ layout: default
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   <div>{% include page__hero.html %}</div>
-{% endif %}
-
-{% if page.course == "earth-analytics" %}
-<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site.url }}/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
-  <div class="wrapper">
-        <h1 class="page__title" itemprop="headline">
-          Earth Data Analytics Online Certificate
-        </h1>
-        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
-  </div>
-</div>
-{% endif %}
-
-
-{% if page.category contains "tutorials" %}
-
-<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site.url }}/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
-  <div class="wrapper">
-        <h1 class="page__title" itemprop="headline">
-          Earth Data Analytics Online Certificate
-        </h1>
-        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
-  </div>
-</div>
+{% else %}
+  {% include eda-certificate.html %}
 {% endif %}
 
 
@@ -141,6 +119,7 @@ layout: default
 
 
       <section class="page__content" itemprop="text">
+
         <!-- would like to include the TOC automatically but this does weird things-->
         {% if page.class-lesson %}
 

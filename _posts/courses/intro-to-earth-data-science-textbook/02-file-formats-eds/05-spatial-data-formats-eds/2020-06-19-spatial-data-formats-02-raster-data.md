@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-07-09
+modified: 2020-08-12
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -59,7 +59,9 @@ Raster or “gridded” data are stored as a grid of values which are rendered o
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.</div>
+<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.
+
+</div>
 
 ## Raster Data Can Have One or More Layers 
 

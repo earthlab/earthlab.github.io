@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/use-tabular-data/
 nav-title: "Use Tabular Data"
 dateCreated: 2020-06-20
-modified: 2020-07-09
+modified: 2020-07-15
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 3
 topics:
   file-formats: ['csv']
 ---

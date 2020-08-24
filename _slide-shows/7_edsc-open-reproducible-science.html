@@ -1,0 +1,239 @@
+---
+layout: slides
+title: 'Intro to Open, Reproducible Science'
+author: ["Leah A. Wasser"]
+categories: [slide-shows]
+class-lesson: ['open-reproducible-science']
+sitemap: false
+---
+
+name: inverse
+class: center, middle, inverse
+
+# What is Open, Reproducible Science?
+
+Leah A. Wasser - Director of Earth Analytics Education, Earth Lab
+---
+
+class: middle, inverse
+## What Is Reproducible Science?
+
+Let's start with the reproducible part.
+
+* What is it?
+* Why is it important?
+
+---
+class: center, middle, inverse
+
+## What Is Reproducible Science?
+
+Your workflow can be run by someone else on any computer.
+
+---
+class: center, middle, inverse
+
+## What Makes A Project Open?
+
+---
+class: middle, inverse
+
+## A Few Characteristics of Open Reproducible Science Projects
+
+* Data and tools are freely available (open)
+* Workflow can be run from start to finish
+* Approach and methods are well documented
+* Code is ideally clean, well written, easy to read
+
+---
+class: center, middle, inverse
+
+## Why Use Reproducible Methods?
+
+
+---
+class: middle, inverse
+
+## Reproducibility Benefits You
+
+1. Helps to avoid / more quickly identify mistakes.
+2. Makes it easier to collaborate on projects.
+3. Reproducibility helps others build upon your work.
+4. Ensures that more people have access to your work.
+
+---
+class: middle
+
+## How to Make Your Work Reproducible
+
+> Make your data, code and documentation publicly available in a form that
+> other people can find and use.
+
+
+---
+class: middle
+
+## Four Aspects of Reproducibility
+
+1. Organization & Clean Code
+1. Documentation
+1. Automation
+1. Communication / Dissemination (Sharing)
+
+---
+class: middle
+
+## 1. Organization - Files & Directories
+
+* Create self explanatory file structures.
+* Organize files in well-named directories
+
+<a href="https://earthlab.github.io/slide-shows/2-file-naming-jenny-bryan/" target="_blank">Click for more on file naming & organization</a>
+---
+
+.wCaption[
+  ![Basmati Rice Graphic ]({{ site.baseurl }}/images/slide-shows/intro-rr/basmati-rice.png)
+]
+
+---
+class: top
+
+### Which Filenames Are Most Self-explanatory?
+
+![human readible file names]({{ site.baseurl }}/images/slide-shows/intro-rr/human-readable-jenny.png)
+
+---
+class: middle
+## 1. Use Expressive Variable Names
+
+* Use self explanatory variable names.
+* Comment code so your future self can understand it.
+
+```python
+# This is hard to understand
+myvar = var1 - var2
+
+# This uses more expressive variable names
+canopy_height_model = lidar_dsm - lidar_dtm
+
+```
+
+---
+## Use Standard Syntax PEP8
+
+```python
+
+#this is not useful or formatted correctly
+randomVariableName
+
+```
+
+```python
+
+# This is a nicely formatted comment space after the # sign
+use_snake_case_for_variable_names
+
+```
+
+[Learn More About Pep8 Here:](https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/)
+
+---
+class: middle
+## PEP 8 Says: Import ALL Packages At the Top Of Your Code Document
+
+```
+# Import Packages
+import pandas as pd
+import geopandas as gpd
+
+# Insert code below
+
+```
+---
+class: middle, inverse
+
+## 2. Document all workflow steps:
+
+* Remind your future self of your workflow.
+* Others can see and understand your work.
+* You can use markdown in Jupyter Notebooks to document a workflow!
+
+---
+class: middle
+
+## Documentation Pro-Tips
+> * Use open file formats: text files (.txt, .md) that don't require special tools to open.
+> * Use Jupyter Notebooks (or RMarkdown) to connect data cleaning, analysis & results
+
+---
+class: middle
+## 3. Automate Your Workflows
+
+* Write code vs. graphical interface tools like ArcGIS or excel that require mouse "clicks".
+* Don't repeat code: Using modular approaches instead including loops and functions.
+* Develop scripted workflows using jupyter notebooks, scripts and other tools.
+
+---
+class: inverse, center, middle
+
+## DRY
+
+Don't Repeat Yourself
+
+> If your code has lines that repeat, it will be more time consuming to use.
+
+<a href="http://reproducible-science-curriculum.github.io/2015-09-24-reproducible-science-duml/slides/01-automation-slides.html#9" target="_blank">Click to Learn More - Automation</a>
+
+---
+
+```python
+# Whoops! Forgot to import glob lol
+
+import glob
+
+csv_list = glob.glob("My_Data2003-boulder.csv")
+csv_list.append(glob.glob("My_Data2004-boulder.csv"))
+csv_list.append(glob.glob("My_Data2005-boulder.csv"))
+csv_list.append(glob.glob("My_Data2006-boulder.csv"))
+csv_list.append(glob.glob("My_Data2007-boulder.csv"))
+csv_list.append(glob.glob("My_Data2011-boulder.csv"))
+csv_list.append(glob.glob("My_Data2012-boulder.csv"))
+csv_list.append(glob.glob("My_Data2013-boulder.csv"))
+csv_list.append(glob.glob("My_Data2008-boulder.csv"))
+csv_list.append(glob.glob("My_Data2009-boulder.csv"))
+```
+
+---
+class: center, middle
+
+## Automation - Create Modular Code
+
+Use functions to write code in reusable chunks.
+We won't learn about functions today but they are ideal to write cleaner code.
+
+---
+
+## 4. Communication: Tell People About Your Work
+
+> Completing a project is only a part of the process. Communicating well will
+> help you get a job and share you work with others.
+
+---
+## Facets of Reproducibility: Tools / Skills
+
+1. Documentation: Jupyter Notebooks, Comments, GitHub
+2. Organization:  File naming / organization, Expressive variable names, PEP8.
+3. Automation: Loops, Functions, Writing code!
+4. Communication: Jupyter Notebooks, GitHub, Blog Posts
+
+---
+name: inverse
+class: center, middle, inverse
+
+## Improve This Presentation
+
+This presentation was created using markdown and built via jekyll / github.
+
+Suggest changes via a PR or an issue in the repo:
+<a href="https://github.com/lwasser/class-activities/blob/master/_slide-shows/7_edsc-open-reproducible-science.html" target="_blank">
+  View on GitHub </a>

@@ -1,12 +1,12 @@
 ---
 layout: single
-authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
+authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry', 'Reproducible Science Curriculum Community']
 category: [courses]
 title: 'Install & Set Up R and RStudio on Your Computer'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn how to download and install R and RStudio on your computer.'
 dateCreated: 2016-12-12
-modified: '2019-09-03'
+modified: '2020-03-30'
 module-title: 'Set up R, RStudio and your working directory'
 module-description: 'This module walks you through getting R and RStudio set up on your
 laptop. It also introduces file organization strategies.'
@@ -15,6 +15,8 @@ module-nav-title: 'Set up R'
 module-type: 'class'
 class-order: 2
 week: 1
+estimated-time: "1 hour"
+difficulty: "intermediate"
 sidebar:
   nav:
 course: 'earth-analytics'
