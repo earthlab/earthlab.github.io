@@ -539,7 +539,7 @@ cities.head()
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  What Geometry Type Are Your Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1:  What Geometry Type Are Your Data
 
 Check the geometry type of the `cities` object that you opened above in your code. 
 
@@ -672,7 +672,7 @@ plt.show()
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Create a Global Map
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Create a Global Map
 
 The code below will download one additional file for you that contains global country 
 boundaries. Your goal is to create a map that contains 3 layers:
@@ -996,13 +996,13 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 f, ax1 = plt.subplots(figsize=(10, 6))
 
 divider = make_axes_locatable(ax1)
-cax = divider.append_axes("right", 
-                          size="5%", 
+cax = divider.append_axes("right",
+                          size="5%",
                           pad=0.1)
 
 countries.plot(column='POP_EST',
                legend=True,
-               ax=ax1, 
+               ax=ax1,
                cax=cax)
 plt.show()
 ```
@@ -1116,11 +1116,12 @@ Below you do the following:
 
 {:.input}
 ```python
-# Subset the countries data to just a single 
-united_states_boundary = countries.loc[countries['SOVEREIGNT'] == 'United States of America']
+# Subset the countries data to just a single
+united_states_boundary = countries.loc[countries['SOVEREIGNT']
+                                       == 'United States of America']
 
 # Notice in the plot below, that only the boundary for the USA is in the new variable
-f, ax = plt.subplots(figsize=(10,6))
+f, ax = plt.subplots(figsize=(10, 6))
 united_states_boundary.plot(ax=ax)
 plt.show()
 ```
@@ -1130,7 +1131,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_39_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_39_0.png" alt = "Plot of the United States using Geopandas.">
+<figcaption>Plot of the United States using Geopandas.</figcaption>
 
 </figure>
 
@@ -1155,7 +1157,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_40_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_40_0.png" alt = "Plot of cities in the United States using Geopandas.">
+<figcaption>Plot of cities in the United States using Geopandas.</figcaption>
 
 </figure>
 
