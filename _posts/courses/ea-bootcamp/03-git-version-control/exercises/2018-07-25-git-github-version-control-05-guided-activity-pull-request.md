@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2020-04-03
+modified: 2020-08-25
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -56,7 +56,6 @@ This step only needs to be done once. You begin by making a copy of the repo in 
 In the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a>, you added, committed, and pushed changed files to your forked repository on `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername`. 
 
 To submit changed files to the original repository owned by earthlab-education (`https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`), you need to submit a pull request on `GitHub.com`. 
-
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">

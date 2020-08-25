@@ -8,7 +8,7 @@ class-lesson: ['practice-data-structures']
 permalink: /courses/earth-analytics-bootcamp/practice-data-structures/activity-data-structures/
 nav-title: "Activity on Data Structures"
 dateCreated: 2018-07-23
-modified: 2020-08-21
+modified: 2020-08-25
 module-title: 'Practice Working With Data Structures in Python'
 module-nav-title: 'Practice Working With Data Structures'
 module-description: 'This tutorial provides an opportunity to practice working with commonly used Python data structures for scientific data: lists, numpy arrays, and pandas dataframes.'
@@ -16,6 +16,8 @@ module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
 week: 6
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

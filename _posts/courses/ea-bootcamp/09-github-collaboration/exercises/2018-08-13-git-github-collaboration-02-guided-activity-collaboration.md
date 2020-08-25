@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-collaboration/
 nav-title: "Guided Activity on Git/Github.com For Collaboration"
 dateCreated: 2018-07-25
-modified: 2020-04-03
+modified: 2020-08-25
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
