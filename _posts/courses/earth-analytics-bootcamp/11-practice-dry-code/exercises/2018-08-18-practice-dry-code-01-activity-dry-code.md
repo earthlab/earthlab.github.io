@@ -8,7 +8,7 @@ class-lesson: ['practice-dry-code']
 permalink: /courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/
 nav-title: "Activity on Dry Code"
 dateCreated: 2018-08-18
-modified: 2018-09-10
+modified: 2020-08-21
 module-title: 'Practice Writing DRY (i.e. Do Not Repeat Yourself) Code in Python'
 module-nav-title: 'Practice Writing DRY Code'
 module-description: 'This tutorial provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.'
@@ -75,11 +75,12 @@ You will also be downloading files using `urllib.request` and accessing director
 
 Import all of the necessary `Python` packages to accomplish these tasks.
 
+
 ### Get Data
 
 #### Numpy Arrays
 
-Use `.urllib.request` to download the following .csv files of monthly precipitation (inches) and  import the data to `numpy arrays`:
+Use `earthpy` to download the following .csv files of monthly precipitation (inches) and  import the data to `numpy arrays`:
 
 1. `monthly-precip-1988-to-1992.csv` from `https://ndownloader.figshare.com/files/12807380`
 
@@ -89,7 +90,7 @@ Each dataset contains a row for each year specified in the dataset name and cont
 
 #### Pandas Dataframes
 
-Use `.urllib.request` to download the following .csv files of monthly temperature (Fahrenheit) and import the data to `pandas dataframes`:
+Use earhpy to download the following .csv files of monthly temperature (Fahrenheit) and import the data to `pandas dataframes`:
 
 1. `temp-1991-to-1995-months.csv` from `https://ndownloader.figshare.com/files/12807389`
 
@@ -98,6 +99,15 @@ Use `.urllib.request` to download the following .csv files of monthly temperatur
 Each dataset contains a row for each year specified in the dataset name and a column for each month (starting with January through December). 
 
 **Note:** you are not required to write a loop to accomplish these tasks. You can follow the same process that you have before to download and import files.
+
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12807380
+    Downloading from https://ndownloader.figshare.com/files/12807383
+    Downloading from https://ndownloader.figshare.com/files/12807389
+    Downloading from https://ndownloader.figshare.com/files/12807386
+
+
 
 
 {:.output}
@@ -494,41 +504,45 @@ Hint:
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 5 entries, 0 to 4
     Data columns (total 13 columns):
-    Year         5 non-null int64
-    January      5 non-null float64
-    February     5 non-null float64
-    March        5 non-null float64
-    April        5 non-null float64
-    May          5 non-null float64
-    June         5 non-null float64
-    July         5 non-null float64
-    August       5 non-null float64
-    September    5 non-null float64
-    October      5 non-null float64
-    November     5 non-null float64
-    December     5 non-null float64
+     #   Column     Non-Null Count  Dtype  
+    ---  ------     --------------  -----  
+     0   Year       5 non-null      int64  
+     1   January    5 non-null      float64
+     2   February   5 non-null      float64
+     3   March      5 non-null      float64
+     4   April      5 non-null      float64
+     5   May        5 non-null      float64
+     6   June       5 non-null      float64
+     7   July       5 non-null      float64
+     8   August     5 non-null      float64
+     9   September  5 non-null      float64
+     10  October    5 non-null      float64
+     11  November   5 non-null      float64
+     12  December   5 non-null      float64
     dtypes: float64(12), int64(1)
-    memory usage: 600.0 bytes
+    memory usage: 648.0 bytes
     None
     
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 5 entries, 0 to 4
     Data columns (total 13 columns):
-    Year         5 non-null int64
-    January      5 non-null float64
-    February     5 non-null float64
-    March        5 non-null float64
-    April        5 non-null float64
-    May          5 non-null float64
-    June         5 non-null float64
-    July         5 non-null float64
-    August       5 non-null float64
-    September    5 non-null float64
-    October      5 non-null float64
-    November     5 non-null float64
-    December     5 non-null float64
+     #   Column     Non-Null Count  Dtype  
+    ---  ------     --------------  -----  
+     0   Year       5 non-null      int64  
+     1   January    5 non-null      float64
+     2   February   5 non-null      float64
+     3   March      5 non-null      float64
+     4   April      5 non-null      float64
+     5   May        5 non-null      float64
+     6   June       5 non-null      float64
+     7   July       5 non-null      float64
+     8   August     5 non-null      float64
+     9   September  5 non-null      float64
+     10  October    5 non-null      float64
+     11  November   5 non-null      float64
+     12  December   5 non-null      float64
     dtypes: float64(12), int64(1)
-    memory usage: 600.0 bytes
+    memory usage: 648.0 bytes
     None
     
 
@@ -676,6 +690,7 @@ Hints:
 * Recall which existing `numpy` function you can use to calculate a mean. You will include this function within the function you write to answer this question.  
 * Review the lessons on functions to see the use of axes to calculate a statistic across the rows or columns of a `numpy array`.
 
+
 ### Question 9: Execute Function and Save Output to New Numpy Array
 
 Run the function created in the previous question (i.e. to calculate mean of columns in a `numpy array`) on the `numpy array` containing data for 1993 to 1997. Save the output to a new `numpy array`.
@@ -709,3 +724,4 @@ To submit your `Jupyter Notebook` for this activity, follow the `Git`/`Github` w
 
 
 2. <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request">Guided Activity to Submit Pull Request</a> to submit a pull request of your `Jupyter Notebook` for this activity to the Earth Lab repository (`https://github.com/earthlab-education/ea-bootcamp-practice-dry-code`). 
+
