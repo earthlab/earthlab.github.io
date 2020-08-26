@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-06-18
+modified: 2020-07-23
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -1149,7 +1149,7 @@ Customize your plots with x and y axis labels and titles.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Modify x and y Limits
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Modify Plot x and y Limits
 
 Have a look at the min and max values in your plots above. Do you notice 
 anything about the y-axis that may make the data look similar when in 
