@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Spatial and Spectral Resolution: Multispectral Imagery"
 excerpt: "Multispectral imagery can be provided at different resolutions and may contain different bands or types of light. Learn about spectral vs spatial resolution as it relates to spectral data."
 authors: ['Leah Wasser']
-modified: '2020-01-08'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
@@ -14,6 +14,8 @@ module-nav-title: 'Fire / Spectral Remote Sensing Data in R'
 module-type: 'class'
 course: "earth-analytics"
 week: 7
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false

@@ -3,7 +3,7 @@ layout: single
 title: "Time Series Data: Work with Dates in R"
 excerpt: "Times series data can be manipulated efficiently in R. Learn how to work with, plot and subset data with dates in R. "
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2019-09-03'
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/
@@ -14,6 +14,8 @@ module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
 class-order: 2
 week: 2
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
