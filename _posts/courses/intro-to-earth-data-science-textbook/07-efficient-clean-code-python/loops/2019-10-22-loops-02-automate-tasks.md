@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2020-07-23
+modified: 2020-08-26
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -752,4 +752,3 @@ os.listdir(data_dir)
 
 Congratulations - you have automated your first tasks in this textbook using **Python**!
 
-In the next chapter, you will learn how to write custom functions in **Python**, so that you can customize your code as needed to reduce repetition and automate tasks using more advanced approaches. 
