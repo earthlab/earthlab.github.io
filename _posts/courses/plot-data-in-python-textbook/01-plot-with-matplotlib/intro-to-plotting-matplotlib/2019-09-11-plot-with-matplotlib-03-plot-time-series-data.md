@@ -7,9 +7,9 @@ dateCreated: 2019-09-11
 modified: 2020-09-02
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
-course: 'plot-data-in-python'
+course: 'scientists-guide-to-plotting-data-in-python-textbook'
 nav-title: 'Custom Plot Date Tick Formats'
-permalink: /courses/plot-data-in-python/plot-with-matplotlib/intro-plotting-matplotlib/plot-time-series-data-in-python/
+permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/plot-time-series-data-in-python/
 module-type: 'class'
 week: 1
 sidebar:
