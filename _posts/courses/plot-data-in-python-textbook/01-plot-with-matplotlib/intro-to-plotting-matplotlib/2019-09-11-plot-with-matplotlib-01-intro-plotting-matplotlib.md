@@ -4,7 +4,7 @@ title: "Introduction to Plotting in Python Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to create plots using the matplotlib object oriented approach.'
 authors: ['Jenny Palomino', 'Leah Wasser']
 dateCreated: 2019-09-11
-modified: 2020-07-21
+modified: 2020-09-02
 module-title: 'Introduction to Plotting with Matplotlib'
 module-nav-title: 'Intro to Plotting with Matplotlib'
 module-description: 'Matplotlib is the most commonly used plotting library in Python. Learn how to get started with creating and customizing plots using matplotlib.'
