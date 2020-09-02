@@ -29,7 +29,7 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Customize date formats on a **matplotlib** plot in **Python**
-
+</div>
 
 {:.input}
 ```python
