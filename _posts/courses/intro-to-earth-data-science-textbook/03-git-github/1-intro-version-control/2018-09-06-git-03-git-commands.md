@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
-nav-title: "Git Commands for Version Control"
+nav-title: "Git Commands"
 dateCreated: 2019-09-06
 modified: 2020-09-03
 module-type: 'class'
