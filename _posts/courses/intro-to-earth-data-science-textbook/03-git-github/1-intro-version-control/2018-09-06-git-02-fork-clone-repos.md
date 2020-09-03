@@ -120,7 +120,7 @@ Once you have forked a repository, you will now have a copy of that repository i
 Later in this textbook, you will learn how to suggest changes to the original repository, receive updates from the original repository to your fork, and collaborate with others. 
 
 
-## Copy Files From GitHub.com to Your Local Computer (`git clone`)
+## Copy Files From GitHub.com to Your Computer (`git clone`)
 
 To work locally with a **GitHub** repository (including forked repos), you need to create a local copy of that repository on your computer (a task referred to as `cloining` a repo). You can clone **GitHub** repositories that you own or that are owned by others (e.g. repositories that you have forked to your **GitHub** account).
 
