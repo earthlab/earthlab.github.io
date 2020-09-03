@@ -71,7 +71,7 @@ or it returns nothing, you will need <a href="{{ site.url }}/courses/intro-to-ea
 
 If your username and email are both setup correctly, you can proceed to the next step.
 
-<i class="fa fa-star"></i> **Data tip:** You can also use `$ git config --list` to view all confirmation settings for **git** on your machine.</a>
+<i class="fa fa-star"></i> **Data tip:** You can also use `$ git config --list` to view all configuration settings for **git** on your machine.</a>
 {: .notice--success }
 
 
@@ -148,7 +148,7 @@ Congratulations! You've now successfully modified files in a **GitHub** repo and
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1
 
 * Rename the Jupyter Notebook in your repository. Then add and commit the file.
 Push the renamed file up to Github. Then check that it's there by going to github.com!
