@@ -4,8 +4,8 @@ title: 'Guided Activity to Submit Pull Requests'
 excerpt: "A pull request allows anyone to suggest changes to a repository on GitHub that can be easily reviewed by others. Learn how to submit pull requests on GitHub.com to suggest changes to a GitHub repository."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
-class-lesson: ['version-control-git-github']
-permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-pull-request/
+class-lesson: ['git-github-collaboration-tb']
+permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
 modified: 2020-09-03
@@ -20,6 +20,8 @@ comments: true
 order: 6
 topics:
   reproducible-science-and-programming: ['git']
+redirect_from:
+  - "/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/"
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
