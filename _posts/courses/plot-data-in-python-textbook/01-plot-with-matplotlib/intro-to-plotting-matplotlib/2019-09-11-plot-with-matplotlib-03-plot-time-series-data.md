@@ -4,19 +4,19 @@ title: "Customize Matplotlibe Dates Ticks on the x-axis in Python"
 excerpt: 'When you plot time series data in matplotlib, you often want to customize the date format that is presented on the plot. Learn how to customize the date format in a Python matplotlib plot.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
 dateCreated: 2019-09-11
-modified: 2020-07-21
+modified: 2020-09-02
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
-course: 'plot-data-in-python'
+course: 'scientists-guide-to-plotting-data-in-python-textbook'
 nav-title: 'Custom Plot Date Tick Formats'
-permalink: /courses/plot-data-in-python/plot-with-matplotlib/intro-plotting-matplotlib/plot-time-series-data-in-python/
+permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/plot-time-series-data-in-python/
 module-type: 'class'
 week: 1
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
@@ -29,7 +29,7 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Customize date formats on a **matplotlib** plot in **Python**
-
+</div>
 
 {:.input}
 ```python
@@ -57,6 +57,12 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 sns.set(font_scale=1.5)
 sns.set_style("whitegrid")
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 In this lesson you will learn how to plot time series using matplotlib in Python.
 You will use the same data that you used in the previous lesson. To begin download the data. 
@@ -217,7 +223,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-00-plot-time-series-data/2019-09-11-plot-with-matplotlib-00-plot-time-series-data_7_0.png" alt = "Scatterplot showing daily precipitation in Boulder, Colorado.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-03-plot-time-series-data/2019-09-11-plot-with-matplotlib-03-plot-time-series-data_7_0.png" alt = "Scatterplot showing daily precipitation in Boulder, Colorado.">
 <figcaption>Scatterplot showing daily precipitation in Boulder, Colorado.</figcaption>
 
 </figure>
@@ -269,7 +275,7 @@ ax.xaxis.set_major_formatter(date_form)
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-00-plot-time-series-data/2019-09-11-plot-with-matplotlib-00-plot-time-series-data_9_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up so they are easier to read.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-03-plot-time-series-data/2019-09-11-plot-with-matplotlib-03-plot-time-series-data_9_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up so they are easier to read.">
 <figcaption>Scatterplot showing daily precipitation with the x-axis dates cleaned up so they are easier to read.</figcaption>
 
 </figure>
@@ -306,7 +312,7 @@ ax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=2))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-00-plot-time-series-data/2019-09-11-plot-with-matplotlib-00-plot-time-series-data_11_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up and the format customized so they are easier to read.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-03-plot-time-series-data/2019-09-11-plot-with-matplotlib-03-plot-time-series-data_11_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up and the format customized so they are easier to read.">
 <figcaption>Scatterplot showing daily precipitation with the x-axis dates cleaned up and the format customized so they are easier to read.</figcaption>
 
 </figure>
