@@ -1,23 +1,22 @@
 ---
 layout: single
-title: 'Guided Activity on Version Control with Git/GitHub'
-excerpt: "Version control allows you to track and manage changes to your files. Learn how to implement version control using Git and GitHub."
+title: 'Practice Using Git and GitHub to Manage Files'
+excerpt: "Practice your skills setting up git locally, committing changes to files and pushing and pulling files to GitHub.com"
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
-nav-title: "Guided Activity on Version Control with Git/GitHub"
+nav-title: "Practice Using Git & GitHub"
 dateCreated: 2018-07-25
 modified: 2020-09-03
-odule-type: 'class'
-class-order: 2
+module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
+order: 5
 week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
 topics:
   reproducible-science-and-programming: ['git']
 ---
@@ -48,7 +47,7 @@ You will need:
 
 ## Git and GitHub Workflow For Version Control
 
-In the lesson on getting files from GitHub, you learned how to `fork` and `clone` existing `GitHub` repositories to make copies of other users' repositories and download them to your computer. 
+In the previous lessons, you learned how to `fork` and `clone` existing `GitHub` repositories to make copies of other users' repositories and download them to your computer. 
 
 In this lesson, you expand on those skills to:
 
@@ -59,37 +58,44 @@ In this lesson, you expand on those skills to:
 
 In later lessons, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`master`) copy of a repository.  
 
-## Configure `Git` Settings On Your Computer:
+## 1. Check `Git` Configuration Settings On Your Computer
 
-1. In the terminal, set your `GitHub.com` username by typing: `git config --global user.name "Your UserName"`.
+To begin, check your github configuration. Type the following in bash:  
 
-2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
+`$ git config user.name`
 
-Note that you only have to configure these settings once on your computer. You can check your config settings for user.name and user.email using the following commands:
+`$ git config user.email`
 
-`git config user.name` or `git config user.email`
+The output of the above commands should return your username and email for git. If it does not
+or it returns nothing, you will need <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/git-commands/">to review the instructions for configuring **git** locally on your computer</a>. 
+
+If your username and email are both setup correctly, you can proceed to the next step.
+
+<i class="fa fa-star"></i> **Data tip:** You can also use `$ git config --list` to view all confirmation settings for **git** on your machine.</a>
+{: .notice--success }
 
 
-## Make Changes to Files and Directories
+## 2. Make Changes to Files and Directories
 
-Begin by using Shell to navigate to your forked repository (the `ea-bootcamp-hw-1-yourusername` directory) and launching Jupyter Notebook. 
+Use **Shell** to navigate to your forked repository (the `practice-git-skillz` directory).
 
-Open the `Jupyter Notebook` file for Homework 1 (`ea-bootcamp-hw-1.ipynb`) and make some changes.
+If you don't ave this repo locally - you can clone it using the following url: `https://github.com/your-user-name-here/practice-git-skillz` 
 
-* If you previously started working on Homework 1 or complete the optional challenge from the previous lesson on `Markdown`, then you already have some changes that can be added to version control and pushed to `GitHub`.   
-    
-* If you have not modified Homework 1, you can make a simple change in `Jupyter Notebook` to add a new `Markdown` cell below the existing cells and include:
-    * A title for the notebook (e.g. `Earth Analytics Bootcamp - Homework 1`)
-    * A **bullet list** with:
-        * A bold word for `Author:` and then add text for your name. 
-        * A bold word for `Date:` and then add text for today's date.
-     
+Launch Jupyter Notebook inside that directory. 
 
-## Check the Status of Changes
+Open the `Jupyter Notebook` file in that directory(`homework-example.ipynb`) and make some changes.
 
-In the `terminal`, navigate to your `ea-bootcamp-hw-1-yourusername` repository that you forked and cloned to your computer. 
+* Add a markdown cell to the notebook
+* In the call add a **heading** and then some text below. 
 
-Run the command `git status` to check that changes have been made to your files that have not been pushed back to `GitHub`. 
+
+## 3. Check the Status of Your Changed File
+
+Return to your **shell** tool. Run the command:
+
+`git status` 
+
+to check the status of current changes. It should show that there is a change to the file. 
 
 ```bash
 git status
@@ -99,20 +105,19 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   ea-bootcamp-hw-1.ipynb
+	modified:   homework-example.ipynb
     
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from `git status` indicates that you have modified the file `ea-bootcamp-hw-1.ipynb`.
-
-To keep track of changes to this file, you need to:
+The output from `git status` indicates that you have modified the file `homework-example.ipynb`.
+To add these changes to your git history you need to:
 
 1. `add` the changes, and then
-2. `commit` the changes.
+2. `commit` the changes using a useful message that describes what you changed.
 
 
-## Add and Commit Changed Files
+## 4. Add and Commit Changed Files
 
 You will use the add and commit functions to `add` and `commit` your changed files.
 
@@ -122,6 +127,16 @@ You will use the add and commit functions to `add` and `commit` your changed fil
 
 These two commands make up the bulk of many workflows that use git for version control.
 
+## 5. Push Your Changes to GitHub.com
+
+Once you have added and commited your changes, you are ready to push them to GitHub.com. Use:
+
+`git push` 
+
+to push the changes to your fork.
+
+Congratulations! You've now successfully modified files in a **GitHub** repo and pushed them back up to github.com.
+
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png">
    <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png" alt="Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014)."></a>
@@ -129,61 +144,15 @@ These two commands make up the bulk of many workflows that use git for version c
    </figcaption>
 </figure>
 
-### Add Files
 
-You can add an individual file or groups of files to git tracking. To add a single file, use: 
-
-`git add file-name.extension`.
-
-For example, to add the `ea-bootcamp-hw-1.ipynb` file that you just modified, you’d use: 
-
-`git add ea-bootcamp-hw-1.ipynb`.
-
-You can also add all of the files that you have edited at the same time using: 
-
-`git add .`
-
-However, **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files that you do not want to change in the `GitHub` repository. 
-
-
-### Commit Files
-
-Once you are ready to make a snapshot of the current state of your repository, you can use `git commit`. 
-
-The `git commit` command requires a commit message that describes the snapshot (i.e. changes) that you made in that commit. A commit message should outline what changed and why. These messages:
-
-1. help collaborators and your future self understand what was changed and why
-2. allow you and your collaborators to find (and undo if necessary) changes that were previously made.
-
-Since you are not committing a lot of changes, you can create a short one line commit message using the -m flag:
-
-`git commit -m "Update title and author name in homework 1"`
-
-You will learn about including longer commit messages later in this course.
-
-
-## Push Changed Files to GitHub
-
-So far we have only modified our local copy of the repository. To update the files in your `GitHub` repository, you need to `push` the changed files to `GitHub`.
-
-You can push your changes to `GitHub` with:
-
-`git push origin master`
-
-You will then be prompted for your `Github.com` username and password. 
-
-After you have pushed your commits, visit your repository on `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername` and notice that your changes are reflected there. Also notice that you have access to the full commit history for your repository!
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2
 
-Rename your Homework 1 file and update it on `GitHub`!
+* Rename the Jupyter Notebook in your repository. Then add and commit the file.
+Push the renamed file up to Github. Then check that it's there by going to github.com!
 
-1. Practice your `Jupyter Notebook` skills  to rename your `Jupyter Notebook` file for Homework 1 (`ea-bootcamp-hw-1.ipynb`) by adding your first initial and last name to the filename (e.g. `jpalomino-ea-bootcamp-hw-1.ipynb`).
-
-2. Use your new `Git` skills to `add` and `commit` the changes and then `push` the changes to your `ea-bootcamp-hw-1-yourusername` repository on `GitHub`. 
-
-3. Visit your repository on `Github.com` and see your change! What happened to the original file `ea-bootcamp-hw-1.ipynb`?
-
+* Add a new file to the repo, commit the change and push it to github.com. Check. to see that it's there. 
+* Use `git log` to view the history of changes that you've made.  
 </div>

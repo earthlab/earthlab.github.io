@@ -52,7 +52,7 @@ Or you can undo all changes (including all changes that have not been committed!
 
 Follow the steps below to practice undoing changes that occur before `git add`. 
 
-First, modify the README.md file in a repository. You can do this by opening the file in a text editor (e.g. Atom) and making/saving changes there. Or, you can use `bash` to add some text to the file using the `echo` command, as shown below. Be sure that you have `cd` to the directory for the repository. 
+First, modify the **README.md** file in a repository. You can do this by opening the file in a text editor (e.g. Atom) and making/saving changes there. Or, you can use `bash` to add some text to the file using the `echo` command, as shown below. Be sure that you have `cd` to the directory for the repository. 
 
 See the example below (you do not need to type the comment after #):
 
@@ -100,7 +100,7 @@ On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
-The contents of your README.md file has been reverted to the last saved or committed version. 
+The contents of your **README.md** file has been reverted to the last saved or committed version. 
 
 Thus, you have discarded the most recent changes. You can open the file in a text editor to confirm!
 
@@ -270,3 +270,4 @@ nothing to commit, working directory clean
 ```
 
 You have now learned how to undo changes using **git** at various stages of the version control process before changed files get pushed to **Github.com**. 
+
