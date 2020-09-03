@@ -5,7 +5,7 @@ excerpt: "A pull request allows anyone to suggest changes to a repository on Git
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['git-github-collaboration-tb']
-permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/guided-activity-pull-request/
+permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/practice-pull-requests/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
 modified: 2020-09-03
