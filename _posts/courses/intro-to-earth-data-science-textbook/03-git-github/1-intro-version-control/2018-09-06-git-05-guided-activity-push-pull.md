@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Guided Activity on Version Control with Git/GitHub'
+title: 'Guided Activity on Version Control with Git and GitHub'
 excerpt: "Version control allows you to track and manage changes to your files. Learn how to implement version control using Git and GitHub."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
