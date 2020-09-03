@@ -2,7 +2,7 @@
 layout: single
 title: 'Practice Using Git and GitHub to Manage Files'
 excerpt: "Practice your skills setting up git locally, committing changes to files and pushing and pulling files to GitHub.com"
-authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
+authors: ['Leah Wasser', 'Max Joseph', 'Jenny Palomino']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
