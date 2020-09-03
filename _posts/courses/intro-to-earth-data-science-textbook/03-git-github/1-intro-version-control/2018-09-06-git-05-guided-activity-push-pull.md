@@ -37,11 +37,11 @@ After completing this lesson, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Before completing this lesson and the challenges, be sure that you have forked and cloned the repository for Homework 1. If you have not, first complete the challenge posted at the bottom of the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/">Get Files From GitHub.</a>
+You will need:
 
-Be sure that you have also completed the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/manage-jupyter-notebooks/">Manage Jupyter Notebook Files</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/">Markdown in Jupyter Notebook</a>.
-
-You will also need a web browser and your `GitHub.com` login (username and password). 
+* an active GitHub account with your username and password
+* to fork and clone the <a href="https://github.com/earthlab-education/practice-git-skillz">practice github repository </a> to complete this lesson.
+* a web browser with internet access 
 
 </div>
 
