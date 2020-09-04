@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-vector-data/
 nav-title: "Use Vector Data"
 dateCreated: 2020-06-20
-modified: 2020-08-24
+modified: 2020-09-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -272,7 +272,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_10_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_10_0.png" alt = "Global coastline boundaries.">
+<figcaption>Global coastline boundaries.</figcaption>
 
 </figure>
 
@@ -537,7 +538,7 @@ cities.head()
 
 
 
-<div class="notice--warning" markdown="1">
+<div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1:  What Geometry Type Are Your Data
 
@@ -599,7 +600,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_21_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_21_0.png" alt = "Global coastline boundaries.">
+<figcaption>Global coastline boundaries.</figcaption>
 
 </figure>
 
@@ -628,7 +630,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_23_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_23_0.png" alt = "Global coastline boundaries and major cities plotted together.">
+<figcaption>Global coastline boundaries and major cities plotted together.</figcaption>
 
 </figure>
 
@@ -651,7 +654,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_0.png" alt = "Global coastline boundaries plotted in one plot, and another plot with global cities.">
+<figcaption>Global coastline boundaries plotted in one plot, and another plot with global cities.</figcaption>
 
 </figure>
 
@@ -663,14 +667,15 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_25_1.png" alt = "Global coastline boundaries plotted in one plot, and another plot with global cities.">
+<figcaption>Global coastline boundaries plotted in one plot, and another plot with global cities.</figcaption>
 
 </figure>
 
 
 
 
-<div class="notice--warning" markdown="1">
+<div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Create a Global Map
 
@@ -722,7 +727,8 @@ Finally, add a title to your map using
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_27_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_27_1.png" alt = "Global political boundaries with major cities.">
+<figcaption>Global political boundaries with major cities.</figcaption>
 
 </figure>
 
@@ -1012,7 +1018,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_33_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_33_0.png" alt = "Countries symbolized on a color gradient by how large their population is.">
+<figcaption>Countries symbolized on a color gradient by how large their population is.</figcaption>
 
 </figure>
 
@@ -1047,7 +1054,8 @@ HINT: checkout <a href="https://geopandas.org/mapping.html" target="_blank">this
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_35_1.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_35_1.png" alt = "Global cities plotted without boundaries.">
+<figcaption>Global cities plotted without boundaries.</figcaption>
 
 </figure>
 
@@ -1074,7 +1082,8 @@ Set the following parameters:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_37_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_37_0.png" alt = "Global cities symoblized on a color gradient by population.">
+<figcaption>Global cities symoblized on a color gradient by population.</figcaption>
 
 </figure>
 
@@ -1194,7 +1203,8 @@ included in the output dataset.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_43_0.png">
+<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-03-vector-data/2020-06-19-spatial-data-formats-03-vector-data_43_0.png" alt = "Plot of cities clipped to the Canadian border.">
+<figcaption>Plot of cities clipped to the Canadian border.</figcaption>
 
 </figure>
 
