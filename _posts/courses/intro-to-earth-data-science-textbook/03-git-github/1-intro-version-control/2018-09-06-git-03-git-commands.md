@@ -6,9 +6,9 @@ authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
-nav-title: "Git Commands for Version Control"
+nav-title: "Git Commands"
 dateCreated: 2019-09-06
-modified: 2019-09-23
+modified: 2020-09-03
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -39,46 +39,44 @@ After completing this page, you will be able to:
 
 ## Git and GitHub Workflow For Version Control
 
-Previously, you learned how to `fork` **GitHub** repositories to make copies of other users' repositories, and you also learned how to download copies of (i.e. `clone`) **GitHub** repositories to your computer. 
+Previously, you learned how to `fork` **GitHub** repositories to make copies of other users' repositories, and you also learned how to download copies of (i.e. `clone`) **GitHub** repositories to your computer. On this page, you will learn to use **git** to implement the three important steps of version control:
 
-On this page, you expand on those skills to use **git** to implement the three key steps of version control:
 * `git add` changed files to version control tracking.
 * `git commit` the changed files to create a unique snapshot of the local repository.
 * `git push` those changed files from the local copy of a repository to the cloud (**GitHub.com**).
 
 
+## Configure git Username and Email On Your Computer
 
-## Configure git Settings On Your Computer
-
-The first time that you use **git**, you will need to configure a few settings including the username and email address that you want to be associated with the changes that you make using **git**. 
+The first time that you use **git** on a computer, you will need to configure your **GitHub.com** username and email address. This information will be used to document who made changes to files in **git**. It is important to use the same email address and username that you setup on **GitHub.com**.
 
 You can set your **Github.com** username in the **terminal** by typing: 
  
-`git config --global user.name "username"`.
+`$ git config --global user.name "username"`.
 
 Next, you can set the email for your **Github.com** account by typing: 
 
-`git config --global user.email "email@email.com"`.
+`$ git config --global user.email "email@email.com"`.
 
-Using the `--global` configuration option, you are telling **git** to use these settings for all **git** repositories that you work with on your computer. 
+Using the `--global` configuration option, you are telling **git** to use these settings for all **git** repositories that you work with on your computer. Note that you only have to configure these settings one time on your computer.  
 
-Note that you only have to configure these settings once on your computer.  
+*****
 
-You can check your config settings for user.name and user.email using the following commands:
+You can check your config settings for `user.name` and `user.email` using the following commands:
 
 `git config user.name` which returns the username that you set previously
 
 `git config user.email` which returns the email that you set previously
 
-These configuration settings ensure that changes you make to repositories are attributed to your username and email, so that you can easily track changes over time. 
+These configuration settings ensure that changes you make to repositories are attributed to your username and email. 
 
 ## Check the Status of Changes Using Git Status
 
-Once you start making changes to files in the repository, you can use the `git status` command to check what changes are being identified by **git**. 
+Once you start making changes to files in the repository, you can use the `git status` command to check what changes are being identified by **git**. To practice working with this command, use the **terminal** to navigate to your git practice repository: 
 
-To practice working with this command, use the **terminal** to navigate to a repository that you have cloned to your computer (e.g. `cd ea-bootcamp-03-git-github-version-control`). 
+`$ cd practice-git-skillz` 
 
-Make some change to a file in this repository (e.g. open a **Jupyter Notebook** file and add a new Code cell).
+Make some change to a file in this repository. For example you may want to open a **Jupyter Notebook** file and add a new Code cell. Or you may chose to edit the `README.md` file in a text editor. 
 
 Then, run the command `git status` to check that changes have been made to your file(s). 
 
@@ -90,15 +88,14 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   ea-bootcamp-03-git-github-version-control.ipynb
+	modified:   README.md
     
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from the `git status` command indicates that you have modified a file (e.g. `ea-bootcamp-03-git-github-version-control.ipynb`) that can be added to version control if desired.
+The output from the `git status` command above indicates that you have modified a file (e.g. `README.md`) that can be added to version control if desired.
 
-
-### Overview of Adding and Committing Changes To Version Control
+### Adding and Committing File Changes To Version Control
 
 To keep track of changes to this file using **git**, you need to:
 
@@ -128,22 +125,20 @@ To add a single file, run the command:
 
 `git add file-name.extension`
 
-For example, to add the `ea-bootcamp-03-git-github-version-control.ipynb` file, you would use: 
+For example, to add the `README.md` file, you would use: 
 
-`git add ea-bootcamp-03-git-github-version-control.ipynb`
+`git add README.md`
 
 You can also add all of the files that you have edited at the same time using: 
 
 `git add .`
 
-However, **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files that you do not want to change in the **GitHub** repository. 
+IMPORTANT: **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files to version control that you do not want to change in your **GitHub** repository! 
 
 
 ## Commit Changed Files Using git commit
 
-Once you are ready to make a snapshot of the current state of your repository (i.e. move changes from staging area), you can run `git commit`. 
-
-The `git commit` command requires a commit message that describes the snapshot (i.e. changes) that you made in that commit. 
+Once you are ready to make a snapshot of the current state of your repository (i.e. move changes from staging area), you can run `git commit`. The `git commit` command requires a commit message that describes the snapshot (i.e. changes) that you made in that commit. 
 
 A commit message should outline what changed and why. These messages:
 
@@ -168,9 +163,7 @@ You can push your changes to **GitHub** using the command:
 
 `git push origin master`
 
-Depending on your settings, you may then be prompted for your **Github.com** username and password. 
-
-After you have pushed your commits to **GitHub.com**, visit your repository (e.g. `https://github.com/username/repository-name`) and notice that your changes are reflected there. 
+Depending on your settings, you may then be prompted for your **Github.com** username and password. After you have pushed your commits to **GitHub.com**, visit your repository (e.g. `https://github.com/username/repository-name`) and notice that your changes are reflected there. 
 
 Also notice that you have access to the full commit history for your repository!
 
@@ -210,13 +203,9 @@ Date:   Mon Aug 5 15:30:54 2019 -0600
 Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
 
 
-## Tell Git to Ignore Sensitive Files
+## Tell Git to Ignore Sensitive Files or Files You Do Not Need
 
-If you have sensitive files in a repository that you never want to track with **git**, you can add those file names to a file called `.gitignore`, and **git** will not track them. 
-
-For instance, if you have a text file called `social-security.txt` that contains sensitive information, you can add that file to a .gitignore file. 
-
-Once listed in .gitignore, **git** will never add that file to version control or send it to **GitHub.com**.
+If you have sensitive files in a repository that you never want to track with **git**, you can add those file names to a file called `.gitignore`, and **git** will not track them. For instance, if you have a text file called `social-security.txt` that contains sensitive information, you can add that file to a .gitignore file. Once listed in .gitignore, **git** will never add that file to version control or send it to **GitHub.com**.
 
 If the .gitignore file is not already present in the repository, you can create it manually using a text , or using the following `bash` command:
 
@@ -227,7 +216,7 @@ touch .gitignore
 
 ```
 
-Open this .gitignore file in a text editor and add the file names (with no other information needed) that you want **git** to ignore, for example:
+Open this `.gitignore` file in a text editor and add the file names (with no other information needed) that you want **git** to ignore, for example:
 
 ```
 social-security.txt
@@ -245,3 +234,25 @@ private-directory/
 " target="_blank">Software Carpentry Git Lessons</a>.
 {: .notice--success }
 
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1 - Create a New Text File In Your Repo
+
+It's time to practice your git skills! Do the following:
+
+1. If you haven't already, fork the `https://github.com/earthlab-education/practice-git-skillz` repo. 
+2. Next, clone your fork of that repo using `git clone`
+3. Open up the `README.md` file and make some changes to the text
+4. Use `git add` and `git commit` to add and commit those changes
+5. Finally push the changes up to github.com using `git push`
+
+Now, go to the url where the repo is on Github.com - the path to the repo likely looks something like the path below:
+
+(replace `your-github-username`  with your real github username!)
+
+https://github.com/your-github-username/practice-git-skillz
+
+Do you see your changes to the `README.md` file?
+
+</div>

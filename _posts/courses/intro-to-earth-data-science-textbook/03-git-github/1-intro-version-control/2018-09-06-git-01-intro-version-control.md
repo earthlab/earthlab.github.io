@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/
 nav-title: "What Is Version Control"
 dateCreated: 2019-09-06
-modified: 2020-06-16
+modified: 2020-09-03
 module-title: 'Git/GitHub For Version Control'
 module-nav-title: 'Git/GitHub For Version Control'
 module-description: 'A version control system allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
