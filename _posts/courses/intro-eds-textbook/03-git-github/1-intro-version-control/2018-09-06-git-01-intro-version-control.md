@@ -6,7 +6,7 @@ authors: ['Max Joseph', 'Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/
-nav-title: "What Is Version Control"
+nav-title: "About Version Control"
 dateCreated: 2019-09-06
 modified: 2020-09-08
 module-title: 'Git/GitHub For Version Control'

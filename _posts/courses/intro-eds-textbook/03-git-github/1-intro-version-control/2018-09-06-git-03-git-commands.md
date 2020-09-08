@@ -215,7 +215,7 @@ Also notice that you have access to the full commit history for your repository!
 </figure>
 
 
-## View All Commits to Repository Using git log
+## View All Commits to Repository Using `git log`
 
 You can also see a list of all commits to a repository (even those that have yet not been pushed to **GitHub.com**!) when working locally with the repository on your computer. 
 
