@@ -99,11 +99,23 @@ The ability to `fork` a repository is a benefit of using **GitHub** repositories
 
 You can `fork` an existing **GitHub** repository from the main **GitHub.com** page of the repository that you want to copy.
 
+To fork a repo:
+
+1. Navigate to the repo page that you wish to fork - example:
+
+`https://github.com/earthlab-education/practice-git-skillz`
+
+2. On that page, you will see a button in the UPPER RIGHT hand corner that says `Fork`. The number next to that button tells you how many times the repo has already been forked. 
+3. Click on the `Fork` button and select your user account when it asks you where you want to fork the repo. 
+4. Once you have forked the repo, you will have a copy of it in your account. Navigate to your repo page. The url should look something like this:
+
+`https://github.com/your-user-name/practice-git-skillz`
+
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
  <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
- <figcaption> To fork a repo, first navigate to the repo yo uwant to fork. Then click the **fork** button in the upper right hand corner of your screen. You can then create a copy of of this repo in your account.
+ <figcaption> To fork a repo, first navigate to the repo you want to fork. Then click the **fork** button in the upper right hand corner of your screen. You can then create a copy of of this repo in your account.
  </figcaption>
 </figure>
 
