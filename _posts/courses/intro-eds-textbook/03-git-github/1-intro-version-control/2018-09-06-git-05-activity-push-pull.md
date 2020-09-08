@@ -82,7 +82,7 @@ or it returns nothing, you will need <a href="{{ site.url }}/courses/intro-to-ea
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Make Changes to Files
 
-### Make Changes to a File
+### STEP 1: Make Changes to a File
 
 * Use **Shell** to navigate to your forked repository (the `practice-git-skillz` directory).
 
@@ -94,7 +94,7 @@ If you don't ave this repo locally - you can clone it using the following url: `
   * Add a markdown cell to the notebook
   * In the call add a **heading** and then some text below. 
 
-### Check the Status of Your Changed File
+### STEP 2: Check the Status of Your Changed File
 
 Return to your **shell** tool. Run the command:
 
@@ -122,7 +122,7 @@ To add these changes to your git history you need to:
 2. `commit` the changes using a useful message that describes what you changed.
 
 
-### Add and Commit Changed Files
+### STEP 3: Add and Commit Changed Files
 
 You will use the add and commit functions to `add` and `commit` your changed files.
 
@@ -132,7 +132,7 @@ You will use the add and commit functions to `add` and `commit` your changed fil
 
 These two commands make up the bulk of many workflows that use git for version control.
 
-## 5. Push Your Changes to GitHub.com
+### STEP 4: Push Your Changes to GitHub.com
 
 Once you have added and commited your changes, you are ready to push them to GitHub.com. Use:
 
