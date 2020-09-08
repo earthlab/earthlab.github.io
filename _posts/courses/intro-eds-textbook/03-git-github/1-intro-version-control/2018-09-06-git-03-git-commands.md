@@ -77,7 +77,7 @@ These configuration settings ensure that changes you make to repositories are at
 
 There are many text editors available for use with Git. Some such as Nano, Sublime and Vim are fully command line based. These are useful when you are working on remote servers and Linux and are often the default text editors for most computers. You may want to switch your git default text editor to a gui based editor to make things easier when you are getting started. 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip** <a href="https://docs.github.com/en/github/using-git/associating-text-editors-with-git" target="_blank">More on setting a default text editor from GitHub.</a>
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** <a href="https://docs.github.com/en/github/using-git/associating-text-editors-with-git" target="_blank">More on setting a default text editor from GitHub.</a>
 {: .notice--success }
 
 If you aren't sure what text editor you want to use, and you are on a MAC or PC <a href="https://atom.io/" target="_blank">we suggest Atom which is a powerful and free text editor that also has git and github support! </a>
@@ -175,7 +175,7 @@ You can also add all of the files that you have edited at the same time using:
 `git add .`
 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip** **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files to version control that you do not want to change in your **GitHub** repository! 
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files to version control that you do not want to change in your **GitHub** repository! 
 {: .notice--success }
 
 ## Commit Changed Files Using git commit
@@ -242,7 +242,7 @@ Date:   Mon Aug 5 15:30:54 2019 -0600
 
 Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip ** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip ** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
 retty=oneline | head -n 10` will show you the most recent 10 entries. Try it out! 
 {: .notice--success }
 
@@ -269,7 +269,7 @@ using the following `bash` command:
 touch .gitignore
 ```
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip** Above, the bash command `touch` is used to create a new .gitignore file (this is only useful if the file does not already exist.
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** Above, the bash command `touch` is used to create a new .gitignore file (this is only useful if the file does not already exist.
 {: .notice--success }
 
 Open this `.gitignore` file in a text editor and add the file names (with no other information needed) that you want **git** to ignore, for example:
