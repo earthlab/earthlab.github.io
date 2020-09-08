@@ -8,11 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/file-formats-exercise/
 nav-title: "File Formats Exercise"
 dateCreated: 2020-06-20
-<<<<<<< HEAD:_posts/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-04-exercise.md
 modified: 2020-09-04
-=======
-modified: 2020-09-03
->>>>>>> 206d35356f219e8451a42acdc07ba94b4932d6ee:_posts/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-04-exercise.md
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -57,8 +53,8 @@ os.chdir(os.path.join(et.io.HOME,
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Open a Text File
 
-Use the code below to download a `.csv` file containing data for the 
-climbing formations in the Boulder, Colorado: 
+Use the code below to download a `.csv` file containing data for the
+climbing formations in the Boulder, Colorado:
 
 `et.data.get_data(url="https://opendata.arcgis.com/datasets/175425c25d8849b58feb89483ef02961_1.csv")`
 
@@ -101,8 +97,8 @@ if not os.path.exists(new_name_climb):
     os.rename(old_name_climb, new_name_climb)
 ```
 
-IMPORTANT. When you download the data, you may notice that there are quotes 
-around the file name like this: `"OSMP_Climbing_Formations.csv"`. You 
+IMPORTANT. When you download the data, you may notice that there are quotes
+around the file name like this: `"OSMP_Climbing_Formations.csv"`. You
 will need to call
 
 
@@ -358,31 +354,31 @@ will need to call
 
 Often you will find that tabular data, stored in a text or
 spreadsheet format, contains spatial coordinate information
-that you wish to plot or convert to a shapefile for use 
-in a GIS application. In the challenge below, you will learn 
+that you wish to plot or convert to a shapefile for use
+in a GIS application. In the challenge below, you will learn
 how to convert tabular data containing coordinate information
 into a spatial file.
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Create a Spatial GeoDataframe From a DataFrame 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Create a Spatial GeoDataframe From a DataFrame
 
-You can create a Geopandas `GeoDataFrame` from a Pandas `DataFrame` if there is coordinate data in the DataFrame. 
-In the data that you opened above, there are columns for the `X` and `Y` coordinates of each rock formation - with headers named `X` and `Y`. 
+You can create a Geopandas `GeoDataFrame` from a Pandas `DataFrame` if there is coordinate data in the DataFrame.
+In the data that you opened above, there are columns for the `X` and `Y` coordinates of each rock formation - with headers named `X` and `Y`.
 
 You can convert columns containing **x,y** coordinate data using the **GeoPandas**  `points_from_xy()` function as follows:
 
 `coordinates = gpd.points_from_xy(column-with-x-data, column-with-y-data.Y)`
 
-You can then set the geometry column for the new GeoDataFrame 
-to the **x,y** data that you extracted from the data frame. 
+You can then set the geometry column for the new GeoDataFrame
+to the **x,y** data that you extracted from the data frame.
 
 ```python
-gpd.GeoDataFrame(data=boulder_climbing, 
+gpd.GeoDataFrame(data=boulder_climbing,
                  geometry=coordinates)
 ```
 
-`GeoDataFrame`. Copy the code below to create a new GeoDataFrame containing the boulder climbing area data in a spatial format that you can plot. 
+`GeoDataFrame`. Copy the code below to create a new GeoDataFrame containing the boulder climbing area data in a spatial format that you can plot.
 
 IMPORTANT: be sure to assign the output of the code below to a new variable
 name called `boulder_climbing_gdf`.
@@ -390,13 +386,13 @@ name called `boulder_climbing_gdf`.
 ```python
 
 coordinates = gpd.points_from_xy(boulder_climbing.X, boulder_climbing.Y)
-gpd.GeoDataFrame(data=boulder_climbing, 
+gpd.GeoDataFrame(data=boulder_climbing,
                  geometry=coordinates)
 ```
 
 In your code:
 
-1. Copy the code above to create a `GeoDataFrame` from the `DataFrame` that you created above. 
+1. Copy the code above to create a `GeoDataFrame` from the `DataFrame` that you created above.
 2. Next, plot your data using `.plot()`
 
 </div>
@@ -420,7 +416,7 @@ In your code:
 
 <i class="fa fa-star"></i> **Data Tip:** You can easily export data
 in a GeoPandas format to a shapefile using `object_name_here.to_file("file-name-here.shp")`. Following the example above, if you want to export a shapefile called boulder-climbing.shp, your code would look like
-this: `boulder_climbing_gdf.to_file("boulder-climbing.shp")`. 
+this: `boulder_climbing_gdf.to_file("boulder-climbing.shp")`.
 </div>
 
 
@@ -430,8 +426,8 @@ this: `boulder_climbing_gdf.to_file("boulder-climbing.shp")`.
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3: Create a Base Map
 
 Next, you will create a basemap. Run code below to download another file for boulder. Notice that the data this time are in `geojson` format
-rather than a shapefile. Even though the format is different, the data can be worked with using Geopandas in the same way that you would work with 
-a shapefile using `read_file()`. 
+rather than a shapefile. Even though the format is different, the data can be worked with using Geopandas in the same way that you would work with
+a shapefile using `read_file()`.
 
 The data file is:  
 
@@ -480,7 +476,7 @@ if not os.path.exists(new_name_city):
 Previously, you learned how to plot multiple shapefiles or spatial
 layers on the same map using **matplotlib**.
 
-1. Use what you learned in the spatial vector lesson in this chapter to plot the climbing formations points layer on top of the cities boundary that you opened above. 
+1. Use what you learned in the spatial vector lesson in this chapter to plot the climbing formations points layer on top of the cities boundary that you opened above.
 2. Use the `edgecolor=` and the `color=` parameters to change the colors of the city object. (example: color="white", edgecolor="grey")
 3. Use `legend=True` to add a legend to your map.
 4. Set `column='FormationType'` to plot your points according tot he type of climbing formation it is (Boulder vs Wall).
@@ -506,17 +502,17 @@ HINT: Refer back to the vector lesson if you forget how to create your plot!
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 5: Customize Your Map
 
-Next, you will customize the map that you created above. 
+Next, you will customize the map that you created above.
 Here's what you need to do to spruce up your map:
 
 
-1. Add a title to your map using `ax.set_title()`. 
-2. Set the `figsize` of the map to be larger so the data is more clearly shown. The `figsize` is one of the arguments in `plt.subplots` and needs to be set to a **tuple** of numbers. For example: `plt.subplots(figsize=(10, 10)`. 
+1. Add a title to your map using `ax.set_title()`.
+2. Set the `figsize` of the map to be larger so the data is more clearly shown. The `figsize` is one of the arguments in `plt.subplots` and needs to be set to a **tuple** of numbers. For example: `plt.subplots(figsize=(10, 10)`.
 3. Turn off the x and y axis data ticks to make the plot look more like a map using: `ax.set_axis_off()`.
-4. Customize the colors of the city boundary using the parameters: `color="color-name-here"` to change the color of the fill of the polygon. Use `edgecolor="color-name-here"` to change the outline color of the polygon. HINT: you may want to set `color="white"` for the polygon and make the edgecolor a darker color so you have a clean outline. 
-5. Play around with modifying the markers for the points. The marker is the symbol used to represent the x,y location. The default marker is a circle. Modify the `marker=` and `markersize=` parameters in the `plot()` function for the climbing formations in order to make it more legible. Here is a list of marker options in matplotlib: https://matplotlib.org/3.2.1/api/markers_api.html. 
+4. Customize the colors of the city boundary using the parameters: `color="color-name-here"` to change the color of the fill of the polygon. Use `edgecolor="color-name-here"` to change the outline color of the polygon. HINT: you may want to set `color="white"` for the polygon and make the edgecolor a darker color so you have a clean outline.
+5. Play around with modifying the markers for the points. The marker is the symbol used to represent the x,y location. The default marker is a circle. Modify the `marker=` and `markersize=` parameters in the `plot()` function for the climbing formations in order to make it more legible. Here is a list of marker options in matplotlib: https://matplotlib.org/3.2.1/api/markers_api.html.
 
-Examples of modifying the marker and marker size: 
+Examples of modifying the marker and marker size:
 
 `object.plot(marker="*", markersize=5)`
 
@@ -549,9 +545,9 @@ Have fun customizing your map!
 
 Above you created maps that were static that you could not interact with.
 You can make interactive maps with Python in Jupyter Notebooks too
-using the **Folium** package. 
+using the **Folium** package.
 
-Set your GeoDataFrame name for your climbing formations to the variable specified in the code below, `climbing_locations`. 
+Set your GeoDataFrame name for your climbing formations to the variable specified in the code below, `climbing_locations`.
 
 ```
 import folium
@@ -570,7 +566,7 @@ for lat,long in zip(climbing_locations.geometry.y, climbing_locations.geometry.x
 my_map
 
 ```
-and run it in your code to see what happens! 
+and run it in your code to see what happens!
 
 More reading on how to use **Folium** [here](https://www.earthdatascience.org/tutorials/introduction-to-leaflet-animated-maps/)
 
@@ -602,8 +598,8 @@ More reading on how to use **Folium** [here](https://www.earthdatascience.org/tu
 
 In the vector notebook, you learned how to clip spatial data. In your code, do the following:
 
-1. Clip the climbing formations to the boundary of the city of Boulder. 
-2. Plot the clipped points on top of the city boundary. 
+1. Clip the climbing formations to the boundary of the city of Boulder.
+2. Plot the clipped points on top of the city boundary.
 </div>
 
 If you want, you could create another folium map of the clipped data!
@@ -612,10 +608,10 @@ If you want, you could create another folium map of the clipped data!
 {:.output}
     <ipython-input-15-e65987880be3>:5: UserWarning: CRS mismatch between the CRS of left geometries and the CRS of right geometries.
     Use `to_crs()` to reproject one of the input geometries to match the CRS of the other.
-    
+
     Left CRS: None
     Right CRS: EPSG:4326
-    
+
       climbing_in_boulder = gpd.clip(boulder_climbing_gdf, city_limits)
 
 
@@ -629,6 +625,3 @@ If you want, you could create another folium map of the clipped data!
 <figcaption>Plot of climbing formations in the Boulder, Colorado clipped to the Boulder city boundary.</figcaption>
 
 </figure>
-
-
-
