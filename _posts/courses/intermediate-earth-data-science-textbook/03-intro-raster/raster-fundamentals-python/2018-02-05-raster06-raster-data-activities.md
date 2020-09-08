@@ -4,7 +4,7 @@ title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python 
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-23
-modified: 2020-06-25
+modified: 2020-08-26
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
@@ -51,6 +51,12 @@ import earthpy.plot as ep
 sns.set(font_scale=1.5, style="white")
 ```
 
+{:.output}
+    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+      if len(arr.shape) is 2:
+
+
+
 {:.input}
 ```python
 # Get data and set working directory
@@ -80,7 +86,8 @@ Give you plot a title.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_5_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_5_0.png" alt = "Plot of a Lidar Digital Terrain Model overlayed on top of a hillshade. Your challenge 1 plot should look something like this one.">
+<figcaption>Plot of a Lidar Digital Terrain Model overlayed on top of a hillshade. Your challenge 1 plot should look something like this one.</figcaption>
 
 </figure>
 
@@ -128,7 +135,8 @@ layers are on the same figure.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_7_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_7_0.png" alt = "Plot of a Lidar Digital Terrain Model colored using the viridis colormap in this example, overlayed on top of a hillshade. Your challenge 2 plot should look something like this one.">
+<figcaption>Plot of a Lidar Digital Terrain Model colored using the viridis colormap in this example, overlayed on top of a hillshade. Your challenge 2 plot should look something like this one.</figcaption>
 
 </figure>
 
@@ -166,9 +174,11 @@ create maps in Python in <a href="https://www.earthdatascience.org/courses/scien
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_9_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_9_0.png" alt = "Plot of a Lidar Digital Terrain Model overlayed on top of a hillshade. In this plot the site boundary is also overlayed. Your challenge 3 plot should look something like this one.">
+<figcaption>Plot of a Lidar Digital Terrain Model overlayed on top of a hillshade. In this plot the site boundary is also overlayed. Your challenge 3 plot should look something like this one.</figcaption>
 
 </figure>
+
 
 
 
@@ -186,7 +196,7 @@ data collected after the 2013 flood.
 
 Create a figure with two plots.
 
-IN the first subplot, plot the pre-flood data that you opened above.
+In the first subplot, plot the pre-flood data that you opened above.
 In the second subplot, open and plot the post-flood DTM data. You wil
 find the file `post_DTM.tif` in the post-flood directory of your 
 colorado-flood dataset downloaded using earthpy. 
@@ -204,7 +214,8 @@ colorado-flood dataset downloaded using earthpy.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_12_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster06-raster-data-activities/2018-02-05-raster06-raster-data-activities_13_0.png" alt = "Plots of Lidar Digital Terrain Models pre and post flood. Your challenge 5 plot should look something like this one.">
+<figcaption>Plots of Lidar Digital Terrain Models pre and post flood. Your challenge 5 plot should look something like this one.</figcaption>
 
 </figure>
 

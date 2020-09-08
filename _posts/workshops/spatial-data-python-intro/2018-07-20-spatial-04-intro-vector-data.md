@@ -4,7 +4,7 @@ category: [courses]
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-04
+modified: 2020-08-26
 permalink: /workshops/gis-open-source-python/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
 module-type: 'workshop'
@@ -116,6 +116,12 @@ et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 The shapefiles that you will import are:
 
 * A polygon shapefile representing our field site boundary,
@@ -204,7 +210,7 @@ sjer_plot_locations.head(6)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -213,7 +219,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -222,16 +228,16 @@ sjer_plot_locations.head(6)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
       <td>256838.760</td>
       <td>grass</td>
-      <td>POINT (256838.76 4110819.876)</td>
+      <td>POINT (256838.760 4110819.876)</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -240,7 +246,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -249,13 +255,13 @@ sjer_plot_locations.head(6)
       <td>POINT (255968.372 4110476.079)</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>SJER128</td>
       <td>center</td>
       <td>4111388.570</td>
       <td>257078.867</td>
       <td>trees</td>
-      <td>POINT (257078.867 4111388.57)</td>
+      <td>POINT (257078.867 4111388.570)</td>
     </tr>
   </tbody>
 </table>
@@ -346,7 +352,20 @@ sjer_plot_locations.crs
 
 
 
-    {'init': 'epsg:32611'}
+    <Projected CRS: EPSG:32611>
+    Name: WGS 84 / UTM zone 11N
+    Axis Info [cartesian]:
+    - E[east]: Easting (metre)
+    - N[north]: Northing (metre)
+    Area of Use:
+    - name: World - N hemisphere - 120°W to 114°W - by country
+    - bounds: (-120.0, 0.0, -114.0, 84.0)
+    Coordinate Operation:
+    - name: UTM zone 11N
+    - method: Transverse Mercator
+    Datum: World Geodetic System 1984
+    - Ellipsoid: WGS 84
+    - Prime Meridian: Greenwich
 
 
 
