@@ -6,9 +6,9 @@ authors: ['Leah Wasser', 'Max Joseph', 'Jenny Palomino']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
-nav-title: "Practice Using Git & GitHub"
+nav-title: "Practice Git Skills"
 dateCreated: 2018-07-25
-modified: 2020-09-03
+modified: 2020-09-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 order: 5
@@ -58,7 +58,9 @@ In this lesson, you expand on those skills to:
 
 In later lessons, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`master`) copy of a repository.  
 
-## 1. Check `Git` Configuration Settings On Your Computer
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Check `Git` Configuration Settings
 
 To begin, check your github configuration. Type the following in bash:  
 
@@ -69,27 +71,30 @@ To begin, check your github configuration. Type the following in bash:
 The output of the above commands should return your username and email for git. If it does not
 or it returns nothing, you will need <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/git-commands/">to review the instructions for configuring **git** locally on your computer</a>. 
 
-If your username and email are both setup correctly, you can proceed to the next step.
+</div>
+
+
 
 <i class="fa fa-star"></i> **Data tip:** You can also use `$ git config --list` to view all configuration settings for **git** on your machine.</a>
 {: .notice--success }
 
+<div class="notice--warning" markdown="1">
 
-## 2. Make Changes to Files and Directories
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2: Make Changes to Files
 
-Use **Shell** to navigate to your forked repository (the `practice-git-skillz` directory).
+### STEP 1: Make Changes to a File
+
+* Use **Shell** to navigate to your forked repository (the `practice-git-skillz` directory).
 
 If you don't ave this repo locally - you can clone it using the following url: `https://github.com/your-user-name-here/practice-git-skillz` 
 
-Launch Jupyter Notebook inside that directory. 
+* Launch Jupyter Notebook inside that directory. (If you are working on a JupyterHub you can skip this step!)
+* Open the `Jupyter Notebook` file in that directory(`homework-example.ipynb`) and make some changes to the file as follows:
 
-Open the `Jupyter Notebook` file in that directory(`homework-example.ipynb`) and make some changes.
+  * Add a markdown cell to the notebook
+  * In the call add a **heading** and then some text below. 
 
-* Add a markdown cell to the notebook
-* In the call add a **heading** and then some text below. 
-
-
-## 3. Check the Status of Your Changed File
+### STEP 2: Check the Status of Your Changed File
 
 Return to your **shell** tool. Run the command:
 
@@ -117,7 +122,7 @@ To add these changes to your git history you need to:
 2. `commit` the changes using a useful message that describes what you changed.
 
 
-## 4. Add and Commit Changed Files
+### STEP 3: Add and Commit Changed Files
 
 You will use the add and commit functions to `add` and `commit` your changed files.
 
@@ -127,7 +132,7 @@ You will use the add and commit functions to `add` and `commit` your changed fil
 
 These two commands make up the bulk of many workflows that use git for version control.
 
-## 5. Push Your Changes to GitHub.com
+### STEP 4: Push Your Changes to GitHub.com
 
 Once you have added and commited your changes, you are ready to push them to GitHub.com. Use:
 
@@ -135,7 +140,9 @@ Once you have added and commited your changes, you are ready to push them to Git
 
 to push the changes to your fork.
 
-Congratulations! You've now successfully modified files in a **GitHub** repo and pushed them back up to github.com.
+</div>
+
+Congratulations! You've now successfully modified files in a **GitHub** repo and pushed them back up to github.com. We suggest that you run through this process several times to get the hang of it. Working in a small group may be useful as you do this. 
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png">
@@ -148,7 +155,7 @@ Congratulations! You've now successfully modified files in a **GitHub** repo and
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 3
 
 * Rename the Jupyter Notebook in your repository. Then add and commit the file.
 Push the renamed file up to Github. Then check that it's there by going to github.com!

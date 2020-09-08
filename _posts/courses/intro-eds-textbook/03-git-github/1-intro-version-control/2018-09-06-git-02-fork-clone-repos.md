@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/
 nav-title: "Get Files From GitHub"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -70,11 +70,10 @@ project-name
     README.md
 ```
 
-In addition to the `.git` subdirectory, it is common to have subdirectories for specific files of a workflow (e.g. data, scripts).
+In addition to the `.git` subdirectory, it is common to have subdirectories for specific files of a workflow (e.g. data, scripts). A few common files in most if not all git repos are:
 
-The `README.md` is a Markdown file that is used to provide a description of the repository (i.e. its contents, purpose, etc), so that others can learn how to use the files in the repository. 
-
-The `.gitignore` file can be used to list the files that you do not want **git** to track (i.e. monitor via version control). You will learn more about both of these useful files later in this chapter. 
+1. **`README.md` file:** This is a Markdown file that is used to provide a description of the repository (i.e. its contents, purpose, etc), so that others can learn how to use the files in the repository. 
+2. **`.gitignore` file:** This file can be used to list the files that you do not want **git** to track (i.e. monitor via version control). You will learn more about both of these useful files later in this chapter. 
 
 
 ## URL of Repositories on GitHub.com
@@ -98,24 +97,28 @@ Using **GitHub.com**, you can make a copy of a **GitHub** repository (also known
 
 The ability to `fork` a repository is a benefit of using **GitHub** repositories because the forked repository is linked to the original. This means that you (or other users) can download new updates from the original to your (or their) forked repository as well as suggest changes to the original repository, which can be reviewed by the owner of that repository. Thus, forking allows you to collaborate with others while protecting the original versions of files. When collaborating, everyone will work with copies of the original files. And all changes are tracked in each file's history and can be undone at any time. 
 
-You can `fork` an existing **GitHub** repository from the main **GitHub.com** page of the repository that you want to copy, for example you can try to fork the repo below: 
+You can `fork` an existing **GitHub** repository from the main **GitHub.com** page of the repository that you want to copy.
+
+To fork a repo:
+
+1. Navigate to the repo page that you wish to fork - example:
 
 `https://github.com/earthlab-education/practice-git-skillz`
 
-On the main **GitHub.com** page of the repository, you will see a button on the top right that says `Fork`. The number next to `Fork` tells the number of times that the repository has been copied or forked.
+2. On that page, you will see a button in the UPPER RIGHT hand corner that says `Fork`. The number next to that button tells you how many times the repo has already been forked. 
+3. Click on the `Fork` button and select your user account when it asks you where you want to fork the repo. 
+4. Once you have forked the repo, you will have a copy of it in your account. Navigate to your repo page. The url should look something like this:
 
-Click on the `Fork` button and select your **GitHub.com** account as the home of the forked repository. 
+`https://github.com/your-user-name/practice-git-skillz`
 
-Once you have forked a repository, you will now have a copy of that repository in your **GitHub** account (i.e. a fork), and the URL to your fork will contain your username:
-
-`https://github.com/your-username/practice-git-skillz`
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
  <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
- <figcaption> You can create a copy of repositories created by other users on Github by forking their repository to your Github account. 
+ <figcaption> To fork a repo, first navigate to the repo you want to fork. Then click the **fork** button in the upper right hand corner of your screen. You can then create a copy of of this repo in your account.
  </figcaption>
 </figure>
+
 
 Later in this textbook, you will learn how to suggest changes to the original repository, receive updates from the original repository to your fork, and collaborate with others. 
 
@@ -178,6 +181,33 @@ $ ls
     practice-git-skillz
 ```
 
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge  - Fork and Clone a Repository
+
+Go to GitHub.com and login. Then use the link below to open the **practice-git-skillz** repo.
+
+`https://github.com/earthlab-education/practice-git-skillz`
+
+* On the main **GitHub.com** page of this repository, you will see a button on the top right that says `Fork`. The number next to `Fork` tells the number of times that the repository has been copied or forked.
+* Click on the `Fork` button and select your **GitHub.com** account as the home of the forked repository. 
+* Once you have forked a repository, you will have a copy (or a fork) of that repository in your **GitHub** account. The URL to your fork will contain your username:
+
+`https://github.com/your-username/practice-git-skillz`
+
+* Finally, clone the fork that you created above so you have a copy of all the files on github.com on your local computer. You may want to clone this repo into your **earth-anlaytics** directory if you are working through the complete Bootcamp course as a part of our Professional Certificate program. 
+
+To make sure you did things right, in bash, cd to the practice-git-skillz directory on your computer. 
+Type:
+
+`$ git remote -v` 
+
+The paths returned should look something like this:
+
+`https://github.com/your-username/practice-git-skillz`
+
+
+</div>
 
 
 

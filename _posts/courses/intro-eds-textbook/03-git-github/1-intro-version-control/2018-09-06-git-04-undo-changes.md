@@ -6,9 +6,9 @@ authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-undo-local-changes/
-nav-title: "Undo Local Changes with Git"
+nav-title: "Undo Local Changes"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -40,9 +40,8 @@ After completing this page, you will be able to:
 
 ## Undoing Changes (Before git add)
 
-If you have changed a file but have not yet run `git add`, you can undo changes very simply by running `git checkout`. 
-
-You can specify only one file to undo, for example: 
+If you have changed a file but have not yet run `git add`, you can undo changes by running `git checkout`. 
+You can specify a specific file using:
 
 `git checkout filename.ipynb`
 
@@ -52,7 +51,7 @@ Or you can undo all changes (including all changes that have not been committed!
 
 Follow the steps below to practice undoing changes that occur before `git add`. 
 
-First, modify the **README.md** file in a repository. You can do this by opening the file in a text editor (e.g. Atom) and making/saving changes there. Or, you can use `bash` to add some text to the file using the `echo` command, as shown below. Be sure that you have `cd` to the directory for the repository. 
+First, modify the **README.md** file in a repository. You can do this by opening the file in a text editor such as  Atom and making/saving changes there. Or, you can use `bash` to add some text to the file using the `echo` command, as shown below. Be sure that you have `cd` to the directory for the repository. 
 
 See the example below (you do not need to type the comment after #):
 
@@ -78,9 +77,9 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from `git status` also tells you that you can use `git checkout -- <file>` to discard changes to that file in your repo. 
-
-So, if you don't like the changes made to the README.md file, you can revert back to the last committed version using:
+The output from `git status` also tells you that you can use `git checkout -- <file>` 
+to discard changes to that file in your repo. So, if you don't like the changes made 
+to the **README.md** file, you can revert back to the last committed version using:
 
 
 ```bash
@@ -100,19 +99,21 @@ On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
-The contents of your **README.md** file has been reverted to the last saved or committed version. 
-
-Thus, you have discarded the most recent changes. You can open the file in a text editor to confirm!
+The contents of your **README.md** file has been reverted to the last saved or 
+committed version. Thus, you have discarded the most recent changes. You can open 
+the file in a text editor to confirm!
 
 ## Unstage Changes (After git add, Before git commit)
 
-Remember that once you add a set of changes to version control using `git add`, the changed file has been staged. 
+Remember that once you add a set of changes to version control using `git add`, 
+the changed file has been staged. If a changed file has been staged via `git add`, 
+then you need to use `git reset` to pull the most recently committed version of the 
+file and undo the changes that you've made.
 
-If a changed file has been staged via `git add`, then you need to use `git reset` to pull the most recently committed version of the file and undo the changes that you've made.
-
-Follow the steps below to practice undoing changes that occur after `git add` but before `git commit`.
-
-First, make a new change to README.md, and run `git add` to stage the changed file (i.e. add to version control). Check the `git status` to see the status of your changes. 
+Follow the steps below to practice undoing changes that occur after `git add` but 
+before `git commit`. First, make a new change to README.md, and run `git add` to 
+stage the changed file (i.e. add to version control). Check the `git status` to 
+see the status of your changes. 
 
 See the example below to make a change to file using `bash` (you do not need to type the comment after #):
 
@@ -138,9 +139,9 @@ Changes to be committed:
 	modified:   README.md
 
 ```
-Fortunately, the output of `git status` again gives us a hint for how to undo staged changes.
-
-You can use `git reset HEAD filename` to unstage your changes. `HEAD` refers to the most recently committed version of the file:
+Fortunately, the output of `git status` again gives us a hint for how to undo 
+staged changes. You can use `git reset HEAD filename` to unstage your changes. 
+`HEAD` refers to the most recently committed version of the file:
 
 
 ```bash
@@ -157,9 +158,7 @@ M	README.md
 <i class="fa fa-star"></i> **Data tip:** HEAD refers to the most recent version of your file. You can also revert to an older version using HEAD~1, HEAD~2 etc. Read more about this on the <a href="http://swcarpentry.github.io/git-novice/05-history/" target="_blank">Software Carpentry git lessons website</a>.
 {: .notice--success }
 
-When you use `git reset`, your changes still exist in the file, but the file has been unstaged (i.e. the changes no longer being tracked by version control). 
-
-So now, `git status` will display a message that there are changes that can be added or staged to version control. Thus, it is like you never ran `git add` at all.  
+When you use `git reset`, your changes still exist in the file, but the file has been unstaged (i.e. the changes no longer being tracked by version control). So now, `git status` will display a message that there are changes that can be added or staged to version control. Thus, it is like you never ran `git add` at all.  
 
 
 ```bash

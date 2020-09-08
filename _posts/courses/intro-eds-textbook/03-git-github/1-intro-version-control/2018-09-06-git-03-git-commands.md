@@ -1,14 +1,14 @@
 ---
 layout: single
-title: 'Git Commands for Version Control'
-excerpt: "A version control system allows you to track and manage changes to your files. Learn how to get started with version control using Git."
+title: 'Setup Git Locally and Get Started with Git Commands for Version Control'
+excerpt: "A version control system allows you to track and manage changes to your files. Learn how to setup git locally and use some basic Git commands."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
-nav-title: "Git Commands"
+nav-title: "Setup Git Locally"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -31,6 +31,7 @@ redirect_from:
 
 After completing this page, you will be able to:
 
+* **configure** git locally with your username and email
 * Use **git** to `add` and `commit` changed files to version control. 
 * Use **git** to `push` changed files from your local computer to the repository on **Github.com**.
 
@@ -44,6 +45,8 @@ Previously, you learned how to `fork` **GitHub** repositories to make copies of 
 * `git add` changed files to version control tracking.
 * `git commit` the changed files to create a unique snapshot of the local repository.
 * `git push` those changed files from the local copy of a repository to the cloud (**GitHub.com**).
+
+You will also setup your git credentials locally.
 
 
 ## Configure git Username and Email On Your Computer
@@ -70,15 +73,53 @@ You can check your config settings for `user.name` and `user.email` using the fo
 
 These configuration settings ensure that changes you make to repositories are attributed to your username and email. 
 
+## Setup Your Preferred Text Editor
+
+There are many text editors available for use with Git. Some such as Nano, Sublime and Vim are fully command line based. These are useful when you are working on remote servers and Linux and are often the default text editors for most computers. You may want to switch your git default text editor to a gui based editor to make things easier when you are getting started. 
+
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** <a href="https://docs.github.com/en/github/using-git/associating-text-editors-with-git" target="_blank">More on setting a default text editor from GitHub.</a>
+{: .notice--success }
+
+If you aren't sure what text editor you want to use, and you are on a MAC or PC <a href="https://atom.io/" target="_blank">we suggest Atom which is a powerful and free text editor that also has git and github support! </a>
+
+If you have Atom installed, you can run the command below in bash to set **Atom** to be the default text editor:
+
+```bash
+git config --global core.editor "atom --wait"
+```
+
+This command will set atom to be your default text editor for all operations. 
+If you are using a linux based JupyterHub (similar to what we use for our earth analytics course), we suggest setting the default text editor to **Nano**:
+
+```bash
+git config --global core.editor nano
+```
+
+This command will set nano to be your default text editor for all operations. 
+
+
 ## Check the Status of Changes Using Git Status
 
-Once you start making changes to files in the repository, you can use the `git status` command to check what changes are being identified by **git**. To practice working with this command, use the **terminal** to navigate to your git practice repository: 
+Once you start working, you can use the `git status` command to check what changes are being identified by **git**. To practice working with this command, use the **terminal** to navigate to your git practice repository: 
 
 `$ cd practice-git-skillz` 
 
-Make some change to a file in this repository. For example you may want to open a **Jupyter Notebook** file and add a new Code cell. Or you may chose to edit the `README.md` file in a text editor. 
+Next, run `git status`.
 
-Then, run the command `git status` to check that changes have been made to your file(s). 
+```bash
+$ git status 
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+```
+
+Notice that when you run `git status` it returns: **working tree clean**. This 
+means that there are no changes to any files in your repo - YET. 
+
+Next, open and make a small change to the `README.md` file in a text editor. Then, run 
+the command `git status` to check that changes have been made to your file(s). 
 
 ```bash
 git status
@@ -93,7 +134,8 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from the `git status` command above indicates that you have modified a file (e.g. `README.md`) that can be added to version control if desired.
+The output from the `git status` command above indicates that you have modified a file 
+(e.g. `README.md`) that can be added to version control.
 
 ### Adding and Committing File Changes To Version Control
 
@@ -119,9 +161,8 @@ These two commands make up the bulk of many workflows that use **git** for versi
 
 ## Add Changed Files Using git add
 
-After making changes, you can add either an individual file or groups of files to version control tracking. 
-
-To add a single file, run the command: 
+After making changes, you can add either an individual file or groups of files 
+to version control tracking. To add a single file, run the command: 
 
 `git add file-name.extension`
 
@@ -133,8 +174,9 @@ You can also add all of the files that you have edited at the same time using:
 
 `git add .`
 
-IMPORTANT: **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files to version control that you do not want to change in your **GitHub** repository! 
 
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files to version control that you do not want to change in your **GitHub** repository! 
+{: .notice--success }
 
 ## Commit Changed Files Using git commit
 
@@ -149,15 +191,13 @@ When you are not committing a lot of changes, you can create a short one line co
 
 `git commit -m "Update title and author name in homework for week 3"`
 
-You will learn about including longer commit messages later in this textbook.
-
 Each commit is provided a unique identifier (SHA-1 hash) and includes all changes to files in the staging area when the commit was created (i.e. all files that had been added to staging using `git add`). 
 
 ## Push Changed Files to GitHub.com
 
-So far you have only modified your local copy of the repository and completed a local commit to the repository. 
-
-To update the files on **GitHub.com**, you need to `push` the changed files to the repository on **GitHub.com**.
+So far you have only modified your local copy of the repository and completed 
+a local commit to the repository. To update the files on **GitHub.com**, you 
+need to `push` the changed files to the repository on **GitHub.com**.
 
 You can push your changes to **GitHub** using the command:
 
@@ -182,7 +222,7 @@ Also notice that you have access to the full commit history for your repository!
 </figure>
 
 
-## View All Commits to Repository Using git log
+## View All Commits to Repository Using `git log`
 
 You can also see a list of all commits to a repository (even those that have yet not been pushed to **GitHub.com**!) when working locally with the repository on your computer. 
 
@@ -202,19 +242,35 @@ Date:   Mon Aug 5 15:30:54 2019 -0600
 
 Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
 
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip ** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
+retty=oneline | head -n 10` will show you the most recent 10 entries. Try it out! 
+{: .notice--success }
 
-## Tell Git to Ignore Sensitive Files or Files You Do Not Need
 
-If you have sensitive files in a repository that you never want to track with **git**, you can add those file names to a file called `.gitignore`, and **git** will not track them. For instance, if you have a text file called `social-security.txt` that contains sensitive information, you can add that file to a .gitignore file. Once listed in .gitignore, **git** will never add that file to version control or send it to **GitHub.com**.
+## Tell Git to Ignore Files Using a .gitignore file
 
-If the .gitignore file is not already present in the repository, you can create it manually using a text , or using the following `bash` command:
+Sometimes there are files in your git repo that you do not want to be tracked. If you are on a MAC
+these may be hidden files such as 
+
+* **_DS_STORE** or
+* .ipynb checkpoint files.
+
+Other times you have sensitive files in a repository that you never want to track with **git** such as API credentials or other files containing personal information. 
+You can add any file types or names to a `.gitignore` file. **git** will then not track them. This means that when you run `git add` or `git status`, it will not track any files listed in the `.gitignore` file. These files will thus never be added to **GitHub.com**.
+
+Let's pretend that you have a file called `social-security.txt` that contains sensitive 
+information. You can add that file to a **.gitignore** file. If the **.gitignore** file 
+is not already present in the repository, you can create it manually using a text, or 
+using the following `bash` command:
 
 ```bash
 # Comment in bash
 # Create a .gitignore file if one doesn't already exist 
 touch .gitignore
-
 ```
+
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** Above, the bash command `touch` is used to create a new .gitignore file (this is only useful if the file does not already exist.
+{: .notice--success }
 
 Open this `.gitignore` file in a text editor and add the file names (with no other information needed) that you want **git** to ignore, for example:
 
@@ -222,9 +278,7 @@ Open this `.gitignore` file in a text editor and add the file names (with no oth
 social-security.txt
 ```
 
-Any files listed in the `.gitignore` file will be ignored by **git**. 
-
-You can also tell **git** to ignore directories by adding the directory name to the `gitignore` file (e.g. ignore a directory called `private-directory`):
+Any files listed in the `.gitignore` file will be ignored by **git**. You can also tell **git** to ignore directories by adding the directory name to the `gitignore` file (e.g. ignore a directory called `private-directory`):
 
 ```
 private-directory/
@@ -237,7 +291,7 @@ private-directory/
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1 - Create a New Text File In Your Repo
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Create a New Text File In Your Repo
 
 It's time to practice your git skills! Do the following:
 
