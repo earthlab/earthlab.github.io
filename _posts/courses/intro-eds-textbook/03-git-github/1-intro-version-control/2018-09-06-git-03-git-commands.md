@@ -235,7 +235,8 @@ Date:   Mon Aug 5 15:30:54 2019 -0600
 
 Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. Try it out! 
+<i class="fa fa-star" aria-hidden="true"></i>**Data Tip ** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
+retty=oneline | head -n 10` will show you the most recent 10 entries. Try it out! 
 {: .notice--success }
 
 
