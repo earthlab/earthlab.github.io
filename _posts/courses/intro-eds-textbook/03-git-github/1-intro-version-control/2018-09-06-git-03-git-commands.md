@@ -96,7 +96,7 @@ git config --global core.editor "atom --wait"
 
 This command will set atom to be your default text editor for all operations. 
 
-### Setting NANO as a Default Text Editor  For JupyterHub Environments 
+### Setting Nano as a Default Text Editor  For JupyterHub Environments 
 
 If you are using a linux based JupyterHub (similar to what we use for our earth analytics course), we suggest setting the default text editor to **Nano**:
 
