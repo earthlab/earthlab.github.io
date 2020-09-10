@@ -77,18 +77,27 @@ These configuration settings ensure that changes you make to repositories are at
 
 There are many text editors available for use with Git. Some such as Nano, Sublime and Vim are fully command line based. These are useful when you are working on remote servers and Linux and are often the default text editors for most computers. You may want to switch your git default text editor to a gui based editor to make things easier when you are getting started. 
 
-<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** <a href="https://docs.github.com/en/github/using-git/associating-text-editors-with-git" target="_blank">More on setting a default text editor from GitHub.</a>
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** <a href="https://docs.github.com/en/github/using-git/associating-text-editors-with-git" target="_blank">More on setting a default text editor from GitHub.</a> If the text editors below don't work for you, you can <a href="https://help.github.jp/enterprise/2.11/user/articles/associating-text-editors-with-git/" target="_blank">visit this page to learn more about other options such as Notepad++ for windows. </a>
 {: .notice--success }
 
-If you aren't sure what text editor you want to use, and you are on a MAC or PC <a href="https://atom.io/" target="_blank">we suggest Atom which is a powerful and free text editor that also has git and github support! </a>
+### Installing Atom as a Default Text Editor 
 
-If you have Atom installed, you can run the command below in bash to set **Atom** to be the default text editor:
+If you aren't sure what text editor you want to use, and you are on a MAC or PC <a href="https://atom.io/" target="_blank">we suggest Atom which is a powerful and free text editor that also has git and github support!</a> If you are on a MAC, before using Atom at the command line, you will need to install the shell command line tools. To get these tools installed
+
+1. open up Atom 
+2. Go to the Atom drop down at the very top of your screen. 
+3. Select "Install Shell Commands"
+
+The steps above will allow you to run `atom file-name-here` in bash to open the Atom text editor. Once you have Atom installed, you can run the command below in bash to set **Atom** to be the default text editor:
 
 ```bash
 git config --global core.editor "atom --wait"
 ```
 
 This command will set atom to be your default text editor for all operations. 
+
+### Setting NANO as a Default Text Editor  For JupyterHub Environments 
+
 If you are using a linux based JupyterHub (similar to what we use for our earth analytics course), we suggest setting the default text editor to **Nano**:
 
 ```bash
