@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Setup Git Locally"
 dateCreated: 2019-09-06
-modified: 2020-09-08
+modified: 2020-09-10
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -242,8 +242,8 @@ Date:   Mon Aug 5 15:30:54 2019 -0600
 
 Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
 
-<i class="fa fa-star" aria-hidden="true"></i> **Data Tip ** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
-retty=oneline | head -n 10` will show you the most recent 10 entries. Try it out! 
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** `git log` by default returns a lot of information. You can view the log as single line entries with just the commit message using `git log --pretty=oneline`. `git log --
+pretty=oneline | head -n 10` will show you the most recent 10 entries. IMPORTANT: when the log results appear in bash, you can use the space bar to scroll through the results. If you want to return to the command prompt, hit the `q` key (q for quit). Try it out! 
 {: .notice--success }
 
 
