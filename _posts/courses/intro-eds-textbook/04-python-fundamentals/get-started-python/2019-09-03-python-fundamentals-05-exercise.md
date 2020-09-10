@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-fundamentals-exercises/
 nav-title: "Python Fundamentals Exercises"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-10
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -165,7 +165,8 @@ For your titles and labels, be sure to think about the following pieces of infor
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_9_0.png">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/04-python-fundamentals/get-started-python/2019-09-03-python-fundamentals-05-exercise/2019-09-03-python-fundamentals-05-exercise_9_0.png" alt = "Bar graph showing the average precipitation per month in Boulder, CO in millimeters.">
+<figcaption>Bar graph showing the average precipitation per month in Boulder, CO in millimeters.</figcaption>
 
 </figure>
 
