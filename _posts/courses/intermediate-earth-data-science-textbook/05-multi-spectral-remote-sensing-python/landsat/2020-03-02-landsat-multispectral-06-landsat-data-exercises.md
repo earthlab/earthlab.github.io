@@ -4,7 +4,7 @@ title: "Practice Opening and Plotting Landsat Data in Python Using Rasterio"
 excerpt: "A set of activities for you to practice your skills using Landsat Data in Open Source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-24
-modified: 2020-06-25
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/landsat-exercises/
@@ -38,7 +38,8 @@ After completing this lesson, you will be able to:
 {:.input}
 ```python
 import os
-from glob import glob  # File manipulation
+# Glob for file manipulation
+from glob import glob
 import matplotlib.pyplot as plt
 import geopandas as gpd
 import rasterio as rio
@@ -72,7 +73,8 @@ Do the following:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_4_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_4_0.png" alt = "Plot of each individual Landsat 8 band collected by glob and cropped by crop all. This image is of the Cold Springs Fire shorly before the fire.">
+<figcaption>Plot of each individual Landsat 8 band collected by glob and cropped by crop all. This image is of the Cold Springs Fire shorly before the fire.</figcaption>
 
 </figure>
 
@@ -105,7 +107,8 @@ turn our properly.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_6_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-06-landsat-data-exercises/2020-03-02-landsat-multispectral-06-landsat-data-exercises_6_0.png" alt = "Plot of color RBG and CIR of the Cold Springs fire before the fire.">
+<figcaption>Plot of color RBG and CIR of the Cold Springs fire before the fire.</figcaption>
 
 </figure>
 

@@ -102,6 +102,8 @@ register_matplotlib_converters()
 
 # Dealing with error thrown by one of the plots
 matplotlib_axes_logger.setLevel('ERROR')
+import warnings
+warnings.filterwarnings('ignore')
 
 
 # Adjust font size and style of all plots in notebook with seaborn
@@ -151,7 +153,7 @@ file_path = os.path.join("colorado-flood",
                          "precipitation",
                          "805325-precip-daily-2003-2013.csv")
 
-# Import file as pandas dataframe
+# Import the file as a pandas dataframe
 boulder_precip_2003_2013 = pd.read_csv(file_path)
 boulder_precip_2003_2013.head()
 ```
@@ -271,17 +273,11 @@ plt.show()
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:1235: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(xticklabels)
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_8_1.png" alt = "Line graph of daily precipitation for Boulder Colorado from 2003 to 2013. The N/A value of 999.99 has not been removed yet so the graph looks like vertical lines where those values exist.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_8_0.png" alt = "Line graph of daily precipitation for Boulder Colorado from 2003 to 2013. The N/A value of 999.99 has not been removed yet so the graph looks like vertical lines where those values exist.">
 <figcaption>Line graph of daily precipitation for Boulder Colorado from 2003 to 2013. The N/A value of 999.99 has not been removed yet so the graph looks like vertical lines where those values exist.</figcaption>
 
 </figure>

@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-09-03
+modified: 2020-09-10
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -24,9 +24,9 @@ topics:
 
 <div class='notice--success alert alert-info' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Fundamentals of Raster Data in Python
+## <i class="fa fa-ship" aria-hidden="true"></i> Fundamentals of Raster Data in Python 
 
-In this lesson, you will learn fundamental concepts related to working with raster data in **Python**, including understanding the spatial attributes of raster data, how to open raster data, and how to visually plot the data.
+In this lesson, you will learn fundamental concepts related to working with raster data in **Python**, including understanding the spatial attributes of raster data, how to open raster data, and how to visually plot the data. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -36,10 +36,10 @@ After completing this lesson, you will be able to:
 * Open raster data using **Rasterio** in **Python**.
 * Be able to plot spatial raster data using **EarthPy** in **Python**.
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Suggested Readings
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Suggested Readings 
 
 
-Before starting this lesson, read the **What is a Raster** section of [this page](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) of the Earth Lab website to familiarize yourself with the concept of raster data.
+Before starting this lesson, read the **What is a Raster** section of [this page](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) of the Earth Lab website to familiarize yourself with the concept of raster data. 
 
 </div>
 
@@ -59,37 +59,39 @@ Raster or “gridded” data are stored as a grid of values which are rendered o
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.</div>
+<i class="fa fa-star"></i> **Data Tip:** For more information on rasters, how they work, and the types of data stored in rasters, see [this chapter](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/) on using raster data from the earth data science intermediate textbook.
 
-## Raster Data Can Have One or More Layers
+</div>
 
-Raster data can have one or more layers. An elevation model
-for example will often just have one layer representing the
-elevation of the earth's surface for a particular location. However,
-other data including images and time series data, may result in
-a raster file that is composed of multiple layers. Different
+## Raster Data Can Have One or More Layers 
+
+Raster data can have one or more layers. An elevation model 
+for example will often just have one layer representing the 
+elevation of the earth's surface for a particular location. However, 
+other data including images and time series data, may result in 
+a raster file that is composed of multiple layers. Different 
 file types can be used to accomodate different sizes and structures
-of raster data.
+of raster data. 
 
 
 ## There Are Many Different File Raster File Formats
-There are many different file types that are used to store
-raster data.
+There are many different file types that are used to store 
+raster data. 
 
-### Raster Data Stored As Single Files
+### Raster Data Stored As Single Files 
 
 Some datasets such as landsat and NAIP are stored in single files. For landsat, often you will find each band stored as a separate .tif file. NAIP stores all bands in on .tif file. Common file types for raster data stored as a single file include:
 
-- **.tif / .tiff**: Stands for Tagged Image File Format. One of the most common ways to store raster data. How some image satellites, such as Landsat, share their data.
-- **.asc**: Stands for ASCII Raster Files. This is a text based format that stores raster data. This format is used given it's simple to store and distribute.
+- **.tif / .tiff**: Stands for Tagged Image File Format. One of the most common ways to store raster data. How some image satellites, such as Landsat, share their data. 
+- **.asc**: Stands for ASCII Raster Files. This is a text based format that stores raster data. This format is used given it's simple to store and distribute. 
 
 #### Hierarchical Data Formats
 
 Hierarchical data formats can store many different types of data in one single file. These formats are optimal for larger data sets where you may want to subset or only work with parts of the data at one time. Hierarchical
-data can be a bit more involved to work with but they tend to make processing more efficient. Common file types for this data storage method include:
+data can be a bit more involved to work with but they tend to make processing more efficient. Common file types for this data storage method include: 
 
-- **.hdf / .hdf5**: Stands for Hierarchical Data Format. One of the most common hierarchical was to store raster data. How some image satellites, such as MODIS, share their data.
-- **.nc (NetCDF)**: Stands for Network Common Data Form. A common way to store climate data.
+- **.hdf / .hdf5**: Stands for Hierarchical Data Format. One of the most common hierarchical was to store raster data. How some image satellites, such as MODIS, share their data. 
+- **.nc (NetCDF)**: Stands for Network Common Data Form. A common way to store climate data. 
 
 <div class='notice--success alert alert-info' markdown="1">
 
@@ -127,15 +129,9 @@ et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
 ## Open Raster Data in Open Source Python Using Rasterio
 
-You can open raster data in **Python** using `rasterio`. The code below can
+You can open raster data in **Python** using `rasterio`. The code below can 
 be used to open up a raster file:  
 
 ```python
@@ -148,17 +144,17 @@ with rio.open(lidar_dem_path) as src:
 The code does the following:
 
 1. `rio.open()` - rio is the alias for rasterio. At the top of your code
-you include rasterio: `import rasterio as rio`.
+you include rasterio: `import rasterio as rio`. 
 2. `open()` creates a connection to the file on your computer
-3. on the second line, `src.read()` reads the data into python so that you can
-use the data in your code.
+3. on the second line, `src.read()` reads the data into python so that you can 
+use the data in your code. 
 4. `masked=True` in your `.read()` statement will mask all `nodata` values in your array. This means that they will not be plotted and also that they will not be included in math calculations in `Python`.  
 
 
-The data that you will work with below - filename: `pre_DTM.tif` is lidar
-(Light Detection and Ranging) derived elevation data. The file format is a
-**.tif** file. The data represent a Digital Terrain Model (DTM). You can
-<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/">learn more about DTMs in this earth data science lesson on lidar data.</a>
+The data that you will work with below - filename: `pre_DTM.tif` is lidar 
+(Light Detection and Ranging) derived elevation data. The file format is a 
+**.tif** file. The data represent a Digital Terrain Model (DTM). You can 
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/">learn more about DTMs in this earth data science lesson on lidar data.</a> 
 
 <div class='notice--success alert alert-info' markdown="1">
 
@@ -166,7 +162,7 @@ The data that you will work with below - filename: `pre_DTM.tif` is lidar
 it is common to use xarray which is incorporates some of rasterio's functionality but also supports big data processing.
 </div>
 
-Below, you create a path to the file you want to open.
+Below, you create a path to the file you want to open. 
 
 {:.input}
 ```python
@@ -200,7 +196,7 @@ Next, open up your data.
 with rio.open(lidar_dtm_path) as src:
     lidar_dtm = src.read(1, masked=True)
 
-# View the data - notice the structure is different from what geopandas data
+# View the data - notice the data structure is different from geopandas data
 # which you explored in the last lesson
 lidar_dtm
 ```
@@ -237,22 +233,22 @@ lidar_dtm
 
 
 
-You may notice that the code above used to
-open a raster file is a bit more complex than the code that you used to open
-vector files (shapefiles) with geopandas or tabular data with pandas. The
-`with rio.open()` statement creates what is called a context manager for opening
-files. This allows you to create a connection to the file without modifying
-the file itself. You can learn more about context managers in the
-<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/">raster data in
+You may notice that the code above used to 
+open a raster file is a bit more complex than the code that you used to open 
+vector files (shapefiles) with geopandas or tabular data with pandas. The 
+`with rio.open()` statement creates what is called a context manager for opening 
+files. This allows you to create a connection to the file without modifying 
+the file itself. You can learn more about context managers in the 
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/">raster data in 
 python chapter in the earth data science intermediate textbook</a>
 
-## Explore Raster Data Values & Structure
+## Explore Raster Data Values & Structure 
 
-Next, have a look at the data. Notice that the data structure of `type()` of
+Next, have a look at the data. Notice that the data structure of `type()` of 
 Python object returned by rasterio is a numpy array. Numpy arrays are an
-efficient way to store and work with raster data in python. You will learn
-more about working with numpy arrays
-<a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">in the numpy array chapter of the introduction to earth data
+efficient way to store and work with raster data in python. You will learn 
+more about working with numpy arrays 
+<a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">in the numpy array chapter of the introduction to earth data 
 science textbook</a>
 
 
@@ -316,7 +312,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png" alt = "Plot of Lidar digital terrain model.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_12_0.png" alt = "Plot of Lidar digital terrain model.">
 <figcaption>Plot of Lidar digital terrain model.</figcaption>
 
 </figure>
@@ -328,8 +324,8 @@ plt.show()
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1:  Explore Elevation Data Values
 
-Look closely at the plot above. What do you think the colors and numbers
-represent in the plot?
+Look closely at the plot above. What do you think the colors and numbers 
+represent in the plot? 
 
 What units do the numbers represents?
 </div>
@@ -338,13 +334,13 @@ What units do the numbers represents?
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 2:  Open & Plot a Raster Dataset
 
-The above lidar DTM that you opened represents a dataset produced before a flood occurred in 2013 in Colorado. A path to a second lidar dataset which is for the same area but from data collected after the flood is below.
+The above lidar DTM that you opened represents a dataset produced before a flood occurred in 2013 in Colorado. A path to a second lidar dataset which is for the same area but from data collected after the flood is below. 
 
-Use the code below to create a path to the post-flood data.
-Then do the following using the code above as a guide to open and plot
+Use the code below to create a path to the post-flood data. 
+Then do the following using the code above as a guide to open and plot 
 your data:
 
-1. Use `rasterio` to open the data as a numpy array following the code
+1. Use `rasterio` to open the data as a numpy array following the code 
 that you used above
 2. View the min and max data values for the output numpy array
 3. Create a plot of the data
@@ -359,7 +355,7 @@ lidar_dem_path_post_flood = os.path.join("data", "colorado-flood", "spatial",
 
 Hint: Don't forget to use `rio.open()` and assign the output to a variable!
 
-An example of what your plot should look like is below.
+An example of what your plot should look like is below. 
 </div>
 
 
@@ -369,7 +365,7 @@ An example of what your plot should look like is below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_15_0.png" alt = "Challenge 2 Plot: Lidar Digital Terrain Model">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_15_0.png" alt = "Challenge 2 Plot: Lidar Digital Terrain Model">
 <figcaption>Challenge 2 Plot: Lidar Digital Terrain Model</figcaption>
 
 </figure>
@@ -377,11 +373,11 @@ An example of what your plot should look like is below.
 
 
 
-## Imagery - Another Type of Raster Data
+## Imagery - Another Type of Raster Data 
 
-Another type of raster data that you may see is imagery.
+Another type of raster data that you may see is imagery. 
 If you have used Google Maps or another mapping tool that has an imagery layer,
-you are looking at raster data. You can open and plot imagery data using Python
+you are looking at raster data. You can open and plot imagery data using Python 
 as well.
 
 Below you download and open up some NAIP data that were collected before a fire that occured
@@ -389,10 +385,10 @@ close to Nederland, Colorado.
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class="fa fa-star"></i> **Data Tip:**  NAIP data is imagery collected by the United
-States Department of Agriculture every 2 years across the United
-States. Learn more about
-NAIP data in <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/">this chapter of the earth data science intermediate
+<i class="fa fa-star"></i> **Data Tip:**  NAIP data is imagery collected by the United 
+States Department of Agriculture every 2 years across the United 
+States. Learn more about 
+NAIP data in <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/">this chapter of the earth data science intermediate 
 textbook. </a>
 </div>
 
@@ -463,7 +459,7 @@ naip_pre_fire
             [191, 192, 193, ...,  58,  69,  76],
             [192, 192, 193, ...,  53,  62,  71],
             [193, 193, 193, ...,  51,  59,  66]],
-
+    
            [[114, 114, 126, ...,  58,  54,  72],
             [114, 112, 120, ...,  70,  60,  58],
             [111, 114, 115, ...,  85,  87,  58],
@@ -471,7 +467,7 @@ naip_pre_fire
             [183, 184, 185, ...,  61,  75,  84],
             [184, 185, 185, ...,  56,  66,  78],
             [186, 186, 186, ...,  52,  58,  65]],
-
+    
            [[ 80,  87,  95, ...,  55,  54,  63],
             [ 79,  83,  90, ...,  57,  55,  55],
             [ 81,  84,  87, ...,  62,  65,  55],
@@ -479,7 +475,7 @@ naip_pre_fire
             [161, 161, 163, ...,  54,  58,  64],
             [162, 164, 165, ...,  53,  58,  62],
             [165, 166, 166, ...,  51,  54,  57]],
-
+    
            [[145, 143, 139, ...,  74,  47,  65],
             [145, 146, 139, ...,  98,  59,  57],
             [142, 144, 144, ..., 119, 107,  54],
@@ -492,11 +488,11 @@ naip_pre_fire
 
 
 
-Plotting imagery is a bit different because imagery is composed of multiple
-bands. While we won't get into the specifics of bands and images in this lesson,
+Plotting imagery is a bit different because imagery is composed of multiple 
+bands. While we won't get into the specifics of bands and images in this lesson, 
 you can see below that an image is composed of multiple layers of information.
 
-You can plot each band individually as you see below using `plot_bands()`.
+You can plot each band individually as you see below using `plot_bands()`. 
 Or you can plot a color image,
 similar to the image that your camera stores when you take a picture.
 
@@ -512,7 +508,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png" alt = "Plot of all NAIP Data Bands using earthpy plot_bands()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_21_0.png" alt = "Plot of all NAIP Data Bands using earthpy plot_bands()">
 <figcaption>Plot of all NAIP Data Bands using earthpy plot_bands()</figcaption>
 
 </figure>
@@ -533,9 +529,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_22_0.png" alt = "RGB color image plot of NAIP data using earthpy plot_rgb()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_22_0.png" alt = "RGB color image plot of NAIP data using earthpy plot_rgb()">
 <figcaption>RGB color image plot of NAIP data using earthpy plot_rgb()</figcaption>
-
 
 </figure>
 
@@ -544,9 +539,9 @@ plt.show()
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  Plot NAIP Imagery Post Fire
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge:  Plot NAIP Imagery Post Fire 
 
-In the code below, you see a path to a NAIP dataset that was collected
+In the code below, you see a path to a NAIP dataset that was collected 
 after the fire in Colorado. Use that path to:
 
 1. Open the post fire data
@@ -585,7 +580,7 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_0.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_0.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
 <figcaption>Plot of NAIP bands on top and below a NAIP color RGB image.</figcaption>
 
 </figure>
@@ -598,7 +593,7 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_1.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_25_1.png" alt = "Plot of NAIP bands on top and below a NAIP color RGB image.">
 <figcaption>Plot of NAIP bands on top and below a NAIP color RGB image.</figcaption>
 
 </figure>
@@ -612,7 +607,7 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_0.png" alt = "Plot of RGB NAIP data before and after the fire.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_0.png" alt = "Plot of RGB NAIP data before and after the fire.">
 <figcaption>Plot of RGB NAIP data before and after the fire.</figcaption>
 
 </figure>
@@ -625,7 +620,10 @@ naip_post_fire_path
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-to-earth-data-science-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_1.png" alt = "Plot of RGB NAIP data before and after the fire.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/02-file-formats-eds/05-spatial-data-formats-eds/2020-06-19-spatial-data-formats-02-raster-data/2020-06-19-spatial-data-formats-02-raster-data_26_1.png" alt = "Plot of RGB NAIP data before and after the fire.">
 <figcaption>Plot of RGB NAIP data before and after the fire.</figcaption>
 
 </figure>
+
+
+
