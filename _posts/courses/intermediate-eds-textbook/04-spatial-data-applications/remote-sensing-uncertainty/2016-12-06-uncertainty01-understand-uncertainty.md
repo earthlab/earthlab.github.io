@@ -275,6 +275,19 @@ values *in situ* measurements.
 A map of our study plots is below overlaid on top of the canopy height model.
 
 
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty01-understand-uncertainty/2016-12-06-uncertainty01-understand-uncertainty_22_0.png" alt = "SJER field site locations overlayed on top of a lidar canopy height model.">
+<figcaption>SJER field site locations overlayed on top of a lidar canopy height model.</figcaption>
+
+</figure>
+
+
+
+
 ### Compare Lidar Derived Height to In Situ Measurements
 
 We can compare maximum tree height values at each plot to the maximum pixel value
@@ -300,15 +313,12 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 {:.output}
 {:.display_data}
 
-    <IPython.core.display.Javascript object>
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty01-understand-uncertainty/2016-12-06-uncertainty01-understand-uncertainty_24_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height.">
+<figcaption>Scatterplot showing the relationship between lidar and measured tree height.</figcaption>
 
-
-
-{:.output}
-{:.display_data}
-
-<div id='2e8fb072-fdde-4993-a4ff-453e85df23ee'></div>
+</figure>
 
 
 
@@ -324,15 +334,12 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 {:.output}
 {:.display_data}
 
-    <IPython.core.display.Javascript object>
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty01-understand-uncertainty/2016-12-06-uncertainty01-understand-uncertainty_26_0.png" alt = "Bar plot showing the difference between lidar and measured tree height by plot. ">
+<figcaption>Bar plot showing the difference between lidar and measured tree height by plot. </figcaption>
 
-
-
-{:.output}
-{:.display_data}
-
-<div id='5cbf54e0-ba8a-4084-9ec5-a8599c2fbbec'></div>
+</figure>
 
 
 
