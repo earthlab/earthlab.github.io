@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-11
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -38,24 +38,21 @@ After completing this page, you will be able to:
 
 ## Indexing and Selections From Pandas Dataframes
 
-There are two kinds of indexing in **pandas** dataframes: location-based and label-based. 
+There are two kinds of indexing in **pandas** dataframes: 
 
-In the lesson introducing **pandas** dataframes, you learned that these data structures have an inherent tabular structure (i.e. rows and columns with header names) that support selecting data with indexing, such as selecting individual cells identified by their location at the intersection of rows and columns. 
+* location-based and 
+* label-based. 
 
-You can also select data from **pandas** dataframes without knowing the location of that data within the **pandas** dataframe, using specific labels such as a column name.
+In the lesson introducing **pandas** dataframes, you learned that these data structures have an inherent tabular structure (i.e. rows and columns with header names) that support selecting data with indexing, such as selecting individual cells identified by their location at the intersection of rows and columns. You can also select data from **pandas** dataframes without knowing the location of that data within the **pandas** dataframe, using specific labels such as a column name.
 
 
 ### Location-based Indexing
 
 After working with indexing for **Python** lists and **numpy** arrays, you are familiar with location-based indexing. You already know that **Python** location-based indexing begins with `[0]`, and you have learned how to use location-based indexing to query data within **Python** lists or **numpy** arrays.
 
-You can use location-based indexing to query **pandas** dataframes using the attribute `.iloc` and providing the row and column selection as ranges (i.e. start and stop locations along the rows and columns). 
+You can use location-based indexing to query **pandas** dataframes using the attribute `.iloc` and providing the row and column selection as ranges (i.e. start and stop locations along the rows and columns). Just like with **numpy** arrays, the range provided is inclusive of the first value, but not the second value. 
 
-Just like with **numpy** arrays, the range provided is inclusive of the first value, but not the second value. 
-
-This means that you need to use the range `[0:1]` to select the first index, so your selection begins at `[0]` but does not include `[1]` (the second index). 
-
-For example, you can select the first row and the first column of a **pandas** dataframes providing the range `[0:1]` for the row selection and then providing the range `[0:1]` for the column selection.
+This means that you need to use the range `[0:1]` to select the first index, so your selection begins at `[0]` but does not include `[1]` (the second index). For example, you can select the first row and the first column of a **pandas** dataframes providing the range `[0:1]` for the row selection and then providing the range `[0:1]` for the column selection.
 
 ```python
 dataframe.iloc[0:1, 0:1]
@@ -98,8 +95,9 @@ You can use the **earthpy** package to download the data files, **os** to set th
 
 {:.input}
 ```python
-# Import necessary packages
+# Import packages
 import os
+
 import pandas as pd
 import earthpy as et
 ```

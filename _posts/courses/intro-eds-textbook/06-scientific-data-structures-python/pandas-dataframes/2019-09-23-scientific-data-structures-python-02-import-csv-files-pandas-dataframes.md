@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/import-csv-files-pandas-dataframes/
-nav-title: "Import Data Into Pandas Dataframes"
+nav-title: "Import Data Into Dataframes"
 dateCreated: 2019-09-06
 modified: 2020-09-11
 module-type: 'class'
