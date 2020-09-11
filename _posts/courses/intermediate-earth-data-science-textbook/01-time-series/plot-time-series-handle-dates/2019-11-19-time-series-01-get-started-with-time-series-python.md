@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-07-23
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -102,6 +102,8 @@ register_matplotlib_converters()
 
 # Dealing with error thrown by one of the plots
 matplotlib_axes_logger.setLevel('ERROR')
+import warnings
+warnings.filterwarnings('ignore')
 
 
 # Adjust font size and style of all plots in notebook with seaborn
@@ -151,7 +153,7 @@ file_path = os.path.join("colorado-flood",
                          "precipitation",
                          "805325-precip-daily-2003-2013.csv")
 
-# Import file as pandas dataframe
+# Import the file as a pandas dataframe
 boulder_precip_2003_2013 = pd.read_csv(file_path)
 boulder_precip_2003_2013.head()
 ```
@@ -275,7 +277,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_8_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_8_0.png" alt = "Line graph of daily precipitation for Boulder Colorado from 2003 to 2013. The N/A value of 999.99 has not been removed yet so the graph looks like vertical lines where those values exist.">
+<figcaption>Line graph of daily precipitation for Boulder Colorado from 2003 to 2013. The N/A value of 999.99 has not been removed yet so the graph looks like vertical lines where those values exist.</figcaption>
 
 </figure>
 
@@ -880,7 +883,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_26_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_26_0.png" alt = "Line graph of hourly precipitation for Boulder Colorado from 2003 to 2013">
+<figcaption>Line graph of hourly precipitation for Boulder Colorado from 2003 to 2013</figcaption>
 
 </figure>
 
@@ -1030,7 +1034,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_30_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_30_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado in 2005. Plotted with pandas.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado in 2005. Plotted with pandas.</figcaption>
 
 </figure>
 
@@ -1055,7 +1060,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_32_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_32_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado in 2005. Plotted with matplotlib.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado in 2005. Plotted with matplotlib.</figcaption>
 
 </figure>
 
@@ -1101,7 +1107,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_34_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_34_0.png" alt = "Scatter plot of daily precipitation for Boulder Colorado in 2005.">
+<figcaption>Scatter plot of daily precipitation for Boulder Colorado in 2005.</figcaption>
 
 </figure>
 
@@ -1139,7 +1146,8 @@ Customize your plots with x and y axis labels and titles.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_36_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_36_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado in 2012 and another plot with the data from 2013.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado in 2012 and another plot with the data from 2013.</figcaption>
 
 </figure>
 
@@ -1171,7 +1179,8 @@ Add your plot code to the cell below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_39_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_39_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado in 2012 and another plot with the data from 2013. The y axis limits have been modified so that both plots have the same height.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado in 2012 and another plot with the data from 2013. The y axis limits have been modified so that both plots have the same height.</figcaption>
 
 </figure>
 
@@ -1200,7 +1209,8 @@ November 1, 2013 (2013-11-01).
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_41_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_41_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado from January to July in 2005.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado from January to July in 2005.</figcaption>
 
 </figure>
 
@@ -1239,7 +1249,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_43_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-get-started-with-time-series-python/2019-11-19-time-series-01-get-started-with-time-series-python_43_0.png" alt = "Scatter plot of hourly precipitation for Boulder Colorado from September to November in 2013. The dates on the x axis are now properly formatted so they are legible.">
+<figcaption>Scatter plot of hourly precipitation for Boulder Colorado from September to November in 2013. The dates on the x axis are now properly formatted so they are legible.</figcaption>
 
 </figure>
 

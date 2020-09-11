@@ -4,7 +4,7 @@ title: "Activity: Plot Spatial Raster Data in Python"
 excerpt: "Practice your skills creating maps of raster and vector data using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-21
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/practice-making-maps-python/
@@ -64,6 +64,12 @@ warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
 # Add seaborn general plot specifications
 sns.set(font_scale=1.5, style="whitegrid")
 ```
+
+{:.output}
+    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+      if len(arr.shape) is 2:
+
+
 
 <div class="notice--warning" markdown="1">
 
@@ -135,7 +141,8 @@ trailheads = gpd.read_file(
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_8_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_8_0.png" alt = "A map showing the boundary of the South Zone of Rocky Mountain National Park, with all of the hiking trails and trailheads mapped inside the boundary.">
+<figcaption>A map showing the boundary of the South Zone of Rocky Mountain National Park, with all of the hiking trails and trailheads mapped inside the boundary.</figcaption>
 
 </figure>
 
@@ -194,7 +201,8 @@ ned_30m_path = os.path.join("earthpy-downloads", "USGS_1_n41w106.tif")
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_11_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_11_0.png" alt = "An elevation map of the the South Zone of Rocky Mountain National Park, overlaid on a hillshade map of the same area.">
+<figcaption>An elevation map of the the South Zone of Rocky Mountain National Park, overlaid on a hillshade map of the same area.</figcaption>
 
 </figure>
 
@@ -231,7 +239,8 @@ Your plot should look similar to the plot below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_13_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-spatial-plots/2020-06-24-activity-02-spatial-plots_13_0.png" alt = "A map of the boundary of the South Zone of Rocky Mountain National Park, with hiking trails, trail heads, elevation data, and hillshade data mapped with it.">
+<figcaption>A map of the boundary of the South Zone of Rocky Mountain National Park, with hiking trails, trail heads, elevation data, and hillshade data mapped with it.</figcaption>
 
 </figure>
 
