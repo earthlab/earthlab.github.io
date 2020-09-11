@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python: GIS in Python"
 excerpt: "In this lesson you will learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent.."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2020-07-21
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-change-spatial-extent-of-map-matplotlib-geopandas/
@@ -139,7 +139,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-spatial-plotting-matplotlib/2019-07-09-plot06-spatial-set-plot-x-y-limits-python/2019-07-09-plot06-spatial-set-plot-x-y-limits-python_8_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-spatial-plotting-matplotlib/2019-07-09-plot06-spatial-set-plot-x-y-limits-python/2019-07-09-plot06-spatial-set-plot-x-y-limits-python_8_0.png" alt = "Plot of major North American roads in Canada, the United States, and Mexico, plotted on top of the boundary of the United States.">
+<figcaption>Plot of major North American roads in Canada, the United States, and Mexico, plotted on top of the boundary of the United States.</figcaption>
 
 </figure>
 
@@ -190,7 +191,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-spatial-plotting-matplotlib/2019-07-09-plot06-spatial-set-plot-x-y-limits-python/2019-07-09-plot06-spatial-set-plot-x-y-limits-python_12_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-spatial-plotting-matplotlib/2019-07-09-plot06-spatial-set-plot-x-y-limits-python/2019-07-09-plot06-spatial-set-plot-x-y-limits-python_12_0.png" alt = "Plot of major North American roads in Canada, the United States, and Mexico, plotted on top of the boundary of the United States. The extent is set so you can only see the United States.">
+<figcaption>Plot of major North American roads in Canada, the United States, and Mexico, plotted on top of the boundary of the United States. The extent is set so you can only see the United States.</figcaption>
 
 </figure>
 

@@ -4,7 +4,7 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-21
+modified: 2020-09-11
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
@@ -63,6 +63,7 @@ The packages that you will need to complete this activity are listed below.
 # Import Packages
 import os
 from datetime import datetime
+
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import seaborn as sns
@@ -103,13 +104,15 @@ completing this challenge.
 ```python
 # Download the data & Set your working directory
 et.data.get_data(
-    url="https://datahub.io/core/glacier-mass-balance/r/glacier-mass-balance_zip.zip")
-os.chdir(os.path.join(et.io.HOME, "earth-analytics", "data"))
+    url="https://ndownloader.figshare.com/files/24649952")
+os.chdir(os.path.join(et.io.HOME, 
+                      "earth-analytics", 
+                      "data"))
 ```
 
 {:.output}
-    Downloading from https://datahub.io/core/glacier-mass-balance/r/glacier-mass-balance_zip.zip
-    Extracted output to /root/earth-analytics/data/earthpy-downloads/glacier-mass-balance_zip
+    Downloading from https://ndownloader.figshare.com/files/24649952
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/glacier-mass-balance
 
 
 
@@ -120,7 +123,8 @@ os.chdir(os.path.join(et.io.HOME, "earth-analytics", "data"))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-timeseries/2020-06-24-activity-01-timeseries_7_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-timeseries/2020-06-24-activity-01-timeseries_7_0.png" alt = "Line graph showing the global glacier mass balance since 1945.">
+<figcaption>Line graph showing the global glacier mass balance since 1945.</figcaption>
 
 </figure>
 

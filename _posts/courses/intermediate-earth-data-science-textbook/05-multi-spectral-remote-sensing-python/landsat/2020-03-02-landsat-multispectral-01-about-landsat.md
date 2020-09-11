@@ -4,7 +4,7 @@ title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat 8 data in Python. Also learn how to create RGB and color infrared Landsat image composites."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-06-25
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
@@ -161,7 +161,8 @@ As you work with these data, it is good to double check that you are working wit
 {:.input}
 ```python
 import os
-from glob import glob # File manipulation
+# Glob for file manipulation
+from glob import glob
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
@@ -186,13 +187,13 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 # Get list of all pre-cropped data and sort the data
 
 # Create the path to your data
-landsat_post_fire_path = os.path.join("cold-springs-fire", 
-                    "landsat_collect", 
-                    "LC080340322016072301T1-SC20180214145802", 
-                    "crop")
+landsat_post_fire_path = os.path.join("cold-springs-fire",
+                                      "landsat_collect",
+                                      "LC080340322016072301T1-SC20180214145802",
+                                      "crop")
 
 # Generate a list of just the tif files
-post_fire_tifs_list = glob(os.path.join(landsat_post_fire_path, 
+post_fire_tifs_list = glob(os.path.join(landsat_post_fire_path,
                                         "*band*.tif"))
 
 # Sort the data to ensure bands are in the correct order
@@ -221,12 +222,13 @@ post_fire_tifs_list
 ```python
 # Create an output array of all the landsat data stacked
 landsat_post_fire_path = os.path.join("cold-springs-fire",
-                                      "outputs", 
+                                      "outputs",
                                       "landsat_post_fire.tif")
 
 # This will create a new stacked raster with all bands
 landsat_post_fire_arr, land_meta = es.stack(post_fire_tifs_list,
-                                 landsat_post_fire_path)
+                                            landsat_post_fire_path)
+
 # View output numpy array
 landsat_post_fire_arr
 ```
@@ -302,7 +304,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_5_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-about-landsat/2020-03-02-landsat-multispectral-01-about-landsat_5_0.png" alt = "Plot of each individual Landsat 8 band collected by glob. This image is of the Cold Springs Fire shorly after the fire.">
+<figcaption>Plot of each individual Landsat 8 band collected by glob. This image is of the Cold Springs Fire shorly after the fire.</figcaption>
 
 </figure>
 
@@ -463,7 +466,7 @@ Next, create a color infrared image (CIR) using landsat bands: 4,3,2.
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_post_fire_arr, 
+ep.plot_rgb(landsat_post_fire_arr,
             rgb=[4, 3, 2],
             title="CIR Landsat Image Pre-Cold Springs Fire",
             figsize=(10, 10))

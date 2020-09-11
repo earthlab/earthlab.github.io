@@ -3,7 +3,7 @@ layout: single
 title: "Summary Activity for Time Series Data"
 excerpt: "An activity to practice all of the skills you just learned in ."
 authors: ['Leah Wasser', 'Nathan Korinek']
-modified: 2020-07-15
+modified: 2020-09-10
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -54,12 +54,6 @@ sns.set(font_scale=1.5, style="whitegrid")
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 {:.input}
 ```python
@@ -132,7 +126,8 @@ Your final plot should look like the plot below.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_9_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_9_0.png" alt = "Line graph of daily stream discharge measurements taken by U.S. Geological Survey from 1986 to 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Line graph of daily stream discharge measurements taken by U.S. Geological Survey from 1986 to 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
@@ -169,7 +164,8 @@ The lessons below should help you complete this challenge:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_13_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_13_0.png" alt = "Scatter plot of daily stream discharge measurements taken by U.S. Geological Survey from August to October of 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Scatter plot of daily stream discharge measurements taken by U.S. Geological Survey from August to October of 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
@@ -204,7 +200,8 @@ HINT: The lessons below might help you complete this challenge:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_16_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_16_0.png" alt = "Scatter plot of weekly stream discharge measurements taken by U.S. Geological Survey from August to October of 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Scatter plot of weekly stream discharge measurements taken by U.S. Geological Survey from August to October of 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
@@ -244,7 +241,8 @@ OPTIONAL: You may have noticed empty space on either side of the x-axis in your 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_19_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_19_0.png" alt = "Scatter plots of daily stream discharge measurements taken by U.S. Geological Survey from August to October in 2003 and 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Scatter plots of daily stream discharge measurements taken by U.S. Geological Survey from August to October in 2003 and 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
@@ -253,7 +251,7 @@ OPTIONAL: You may have noticed empty space on either side of the x-axis in your 
 
 <div class="notice--warning alert alert-info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge: Get Data from Hydrofunctions
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 1: Get Data from Hydrofunctions
 
 There are many ways to get data into **python**. So far you have used 
 `et.data.get_data()` to download your data. However you can also access 
@@ -307,7 +305,8 @@ using a Google search!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_22_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_22_0.png" alt = "Scatter plot of annual maximum stream discharge measurements taken by U.S. Geological Survey from 1970 to 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Scatter plot of annual maximum stream discharge measurements taken by U.S. Geological Survey from 1970 to 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
@@ -351,7 +350,8 @@ discharge to see how they interact. For this challenge, you need to:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_25_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-06-time-series-exercise/2019-11-19-time-series-06-time-series-exercise_25_0.png" alt = "Scatter plots of weekly stream discharge measurements alongside weekly precipitation measurements taken by U.S. Geological Survey during 2013 at Boulder Creek in Boulder Colorado">
+<figcaption>Scatter plots of weekly stream discharge measurements alongside weekly precipitation measurements taken by U.S. Geological Survey during 2013 at Boulder Creek in Boulder Colorado</figcaption>
 
 </figure>
 
