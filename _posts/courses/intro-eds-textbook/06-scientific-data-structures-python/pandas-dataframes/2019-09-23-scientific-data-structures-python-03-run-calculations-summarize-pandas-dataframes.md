@@ -6,9 +6,9 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
-nav-title: "Recalculate and Summarize Pandas Dataframes"
+nav-title: "Recalculate and Summarize"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-11
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -37,7 +37,7 @@ After completing this page, you will be able to:
 
 ## Review of Methods and Attributes in Python
 
-### Methods
+### Methods in Python
 
 Previous chapters in this textbook have introduced the concept of functions as commands that can take inputs that are used to produce output. For example, you have used many functions, including the `print()` function to display the results of your code and to write messages about the results. 
 
@@ -47,9 +47,7 @@ You have also used functions provided by **Python** packages such as **numpy** t
 np.mean(arrayname)
 ```
 
-In **Python**, data structures such as **pandas** dataframes can also provide built-in functions that are referred to as methods. Each data structure has its own set of methods, based on how the data is organized and the types of operations supported by the data structure. 
-
-A method can be called by adding the `.method_name()` after the name of the data structure (i.e. object):
+In **Python**, data structures such as **pandas** dataframes can also provide built-in functions that are referred to as methods. Each data structure has its own set of methods, based on how the data is organized and the types of operations supported by the data structure. A method can be called by adding the `.method_name()` after the name of the data structure (i.e. object):
 
 ```python
 object_name.method()
@@ -64,11 +62,9 @@ function(object_name)
 In this chapter, you will explore some methods (i.e. functions specific to certain objects) that are accessible for **pandas** dataframes.
 
 
-### Attributes
+### Object Attributes in Python
 
-In addition to functions and methods, you have also worked with attributes, which are automatically created characteristics (i.e. metadata) about the data structure or object that you are working with. 
-
-For example, you used `.shape` to get the structure (i.e. rows, columns) of a specific **numpy** array using `array.shape`. This attribute `.shape` is automatically generated for a **numpy** array when it is created.
+In addition to functions and methods, you have also worked with attributes, which are automatically created characteristics (i.e. metadata) about the data structure or object that you are working with. For example, you used `.shape` to get the structure (i.e. rows, columns) of a specific **numpy** array using `array.shape`. This attribute `.shape` is automatically generated for a **numpy** array when it is created.
 
 In this chapter, you will use attributes (i.e. metadata) to get more information about **pandas** dataframes that is automatically generated when it is created.
 
@@ -76,14 +72,14 @@ In this chapter, you will use attributes (i.e. metadata) to get more information
 
 ### Import Python Packages and Get Data
 
-Begin by importing the necessary **Python** packages and then downloading and importing data into **pandas** dataframes.
-
-As you learned previously in this textbook, you can use the **earthpy** package to download the data files, **os** to set the working directory, and **pandas** to import data files into **pandas** dataframes.
+Begin by importing the necessary **Python** packages and then downloading and importing data into **pandas** dataframes. As you learned previously in this textbook, you can use the **earthpy** package to download the data files, **os** to set the working directory, and **pandas** to import data files into **pandas** dataframes.
 
 {:.input}
 ```python
-# Import necessary packages
+# Import packages
 import os
+
+import matplotlib.pyplot as plt
 import pandas as pd
 import earthpy as et
 ```
@@ -96,6 +92,11 @@ avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 # Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12710618
+
+
 
 {:.output}
 {:.execute_result}
@@ -111,13 +112,15 @@ et.data.get_data(url=avg_monthly_precip_url)
 {:.input}
 ```python
 # Set working directory to earth-analytics
-os.chdir(os.path.join(et.io.HOME, "earth-analytics"))
+os.chdir(os.path.join(et.io.HOME,
+                      "earth-analytics",
+                      "data"))
 ```
 
 {:.input}
 ```python
 # Import data from .csv file
-fname = os.path.join("data", "earthpy-downloads", 
+fname = os.path.join("earthpy-downloads",
                      "avg-precip-months-seasons.csv")
 
 avg_monthly_precip = pd.read_csv(fname)
@@ -242,7 +245,7 @@ This capability can be very useful for large datasets which cannot easily be dis
 
 {:.input}
 ```python
-# See first few rows
+# See first 5 rows
 avg_monthly_precip.head()
 ```
 
@@ -315,7 +318,7 @@ avg_monthly_precip.head()
 
 {:.input}
 ```python
-# See last few rows
+# See last 5 rows
 avg_monthly_precip.tail()
 ```
 
@@ -388,13 +391,11 @@ avg_monthly_precip.tail()
 
 ## Describe Contents of Pandas Dataframes
 
-You can use the method `.info()` to get details about a **pandas** dataframe (e.g. `dataframe.info()`) such as the number of rows and columns and the column names. 
-
-The output of the `.info()` method shows you the number of rows (or entries) and the number of columns, as well as the columns names and the types of data they contain (e.g. float64 which is the default decimal type in **Python**).
+You can use the method `.info()` to get details about a **pandas** dataframe (e.g. `dataframe.info()`) such as the number of rows and columns and the column names. The output of the `.info()` method shows you the number of rows (or entries) and the number of columns, as well as the columns names and the types of data they contain (e.g. `float64` which is the default decimal type in **Python**).
 
 {:.input}
 ```python
-# Details of dataframe
+# Information about the dataframe
 avg_monthly_precip.info()
 ```
 
@@ -450,17 +451,13 @@ avg_monthly_precip.shape
 
 ## Run Summary Statistics on Numeric Values in Pandas Dataframes
 
-**Pandas** dataframes also provide methods to summarize numeric values contained within the dataframe.
-
-For example, you can use the method `.describe()` to run summary statistics on all of the numeric columns in a **pandas** dataframe:
+**Pandas** dataframes also provide methods to summarize numeric values contained within the dataframe. For example, you can use the method `.describe()` to run summary statistics on all of the numeric columns in a **pandas** dataframe:
 
 `dataframe.describe()`
 
 such as the count, mean, minimum and maximum values. 
 
-The output of `.describe()` is provided in a nicely formatted dataframe. 
-
-Note that in the example dataset, the column called `precip` is the only column with numeric values, so the output of `.describe()` only includes that column. 
+The output of `.describe()` is provided in a nicely formatted dataframe. Note that in the example dataset, the column called `precip` is the only column with numeric values, so the output of `.describe()` only includes that column. 
 
 {:.input}
 ```python
@@ -535,9 +532,7 @@ avg_monthly_precip.describe()
 
 
 
-Recall that in the lessons on **numpy** arrays, you ran multiple functions to get the mean, minimum and maximum values of **numpy** arrays. This fast calculation of summary statistics is one benefit of using **pandas** dataframes. 
-
-Note that the `.describe()` method also provides the standard deviation (i.e. a measure of the amount of variation, or spread, across the data) as well as the quantiles of the **pandas** dataframes, which tell us how the data are distributed between the minimum and maximum values (e.g. the 25% quantile indicates the cut-off for the lowest 25% values in the data).
+Recall that in the lessons on **numpy** arrays, you ran multiple functions to get the mean, minimum and maximum values of **numpy** arrays. This fast calculation of summary statistics is one benefit of using **pandas** dataframes. Note that the `.describe()` method also provides the standard deviation (i.e. a measure of the amount of variation, or spread, across the data) as well as the quantiles of the **pandas** dataframes, which tell us how the data are distributed between the minimum and maximum values (e.g. the 25% quantile indicates the cut-off for the lowest 25% values in the data).
 
 You can also run other summary statistics that are not included in `describe()` such as `.median()`, `.sum()`, etc, which provide the output in a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html" target="_blank">**pandas** series</a> (i.e. a one-dimensional array for **pandas**).  
 
@@ -682,7 +677,8 @@ Using this method, you can sort by the values in the `precip` column in descendi
 {:.input}
 ```python
 # Sort in descending order for precip
-avg_monthly_precip.sort_values(by="precip", ascending = False)
+avg_monthly_precip.sort_values(by="precip",
+                               ascending=False)
 ```
 
 {:.output}
@@ -925,9 +921,9 @@ You can also easily replace or create a new column within a **pandas** dataframe
 
 `dataframe["column_name_2"] = dataframe["column_name_1"] / 25.4` 
 
-If `column_name_2` already exists, then the values are replaced by the calculation (e.g. values in `column_name_2` are set to values of `column_name_1` divided by 25.4). 
+If `column_name_2` already exists, then the values are replaced by the calculation (e.g. values in `column_name_2` are set to values of `column_name_1` divided by 25.4). If `column_name_2` does not already exist, then the column is created as the new last column of the dataframe. 
 
-If `column_name_2` does not already exist, then the column is created as the new last column of the dataframe. 
+The approach below is preferred over directly modifying your existing data! 
 
 {:.input}
 ```python
@@ -1059,24 +1055,47 @@ avg_monthly_precip
 
 
 
+{:.input}
+```python
+# Plot the data
+f, ax = plt.subplots()
+
+ax.bar(x=avg_monthly_precip.months,
+       height=avg_monthly_precip.precip,
+       color="purple")
+
+ax.set(title="Plot of Average Monthly Precipitation in mm")
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes_28_0.png" alt = "Bar plot of monthly precipitation in mm.">
+<figcaption>Bar plot of monthly precipitation in mm.</figcaption>
+
+</figure>
+
+
+
+
 ## Group Values in Pandas Dataframes
 
-Another benefit of **pandas** dataframes is that you can group data using a shared common value and then summarize the values in another column using those groups. 
-
-To do this, you can use the following syntax: 
+Another benefit of **pandas** dataframes is that you can group data using a shared common value and then summarize the values in another column using those groups. To do this, you can use the following syntax: 
 
 `dataframe.groupby(['label_column'])[["value_column"]].method()`
 
 in which the `label_column` is the column is used to create the groups and the `value_column` is the column that will be summarized for each group. 
 
-For example, you could group the example dataframe by the `seasons` and then run the `describe()` method on `precip`. This would run `.describe()` on the precipitation values for each season as a grouped dataset.
-
-In this example, the `label_column` on which you want to group data is `seasons` and the `value_column` that you want to summarize is `precip`.  
+For example, you could group the example dataframe by the `seasons` and then run the `describe()` method on `precip`. This would run `.describe()` on the precipitation values for each season as a grouped dataset. In this example, the `label_column` on which you want to group data is `seasons` and the `value_column` that you want to summarize is `precip`.  
 
 {:.input}
 ```python
-# Group data by seasons and summarize precip 
-avg_monthly_precip.groupby(["seasons"])[["precip"]].describe()
+# Group data by seasons and summarize precip
+precip_by_season=avg_monthly_precip.groupby(["seasons"])[["precip"]].describe()
+precip_by_season
 ```
 
 {:.output}
@@ -1184,6 +1203,166 @@ avg_monthly_precip.groupby(["seasons"])[["precip"]].describe()
 
 
 
+To plot your grouped data, you will have to adjust the column headings. 
+Above you have what's called a multiindex dataframe. It has two sets of indexes:
+
+1. precip and 
+2. the summary statistics: **count, meant, std, etc**
+
+{:.input}
+```python
+precip_by_season.columns
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    MultiIndex([('precip', 'count'),
+                ('precip',  'mean'),
+                ('precip',   'std'),
+                ('precip',   'min'),
+                ('precip',   '25%'),
+                ('precip',   '50%'),
+                ('precip',   '75%'),
+                ('precip',   'max')],
+               )
+
+
+
+
+
+{:.input}
+```python
+# Drop a level so there is only one index
+precip_by_season.columns = precip_by_season.columns.droplevel(0)
+precip_by_season
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>seasons</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Fall</th>
+      <td>3.0</td>
+      <td>38.438667</td>
+      <td>7.257173</td>
+      <td>33.274</td>
+      <td>34.290</td>
+      <td>35.306</td>
+      <td>41.021</td>
+      <td>46.736</td>
+    </tr>
+    <tr>
+      <th>Spring</th>
+      <td>3.0</td>
+      <td>66.294000</td>
+      <td>16.787075</td>
+      <td>46.990</td>
+      <td>60.706</td>
+      <td>74.422</td>
+      <td>75.946</td>
+      <td>77.470</td>
+    </tr>
+    <tr>
+      <th>Summer</th>
+      <td>3.0</td>
+      <td>47.159333</td>
+      <td>5.329967</td>
+      <td>41.148</td>
+      <td>45.085</td>
+      <td>49.022</td>
+      <td>50.165</td>
+      <td>51.308</td>
+    </tr>
+    <tr>
+      <th>Winter</th>
+      <td>3.0</td>
+      <td>19.388667</td>
+      <td>1.802028</td>
+      <td>17.780</td>
+      <td>18.415</td>
+      <td>19.050</td>
+      <td>20.193</td>
+      <td>21.336</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+{:.input}
+```python
+# Plot the data
+f, ax = plt.subplots()
+
+ax.bar(precip_by_season.index,
+        precip_by_season["mean"],
+        color="purple")
+
+ax.set(title="Bar Plot of Seasonal Monthly Precipitation in mm")
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes_34_0.png" alt = "Bar plot showing mean precipitation values by season.">
+<figcaption>Bar plot showing mean precipitation values by season.</figcaption>
+
+</figure>
+
+
+
+
 In addition to running `.describe()` using a groupby, you can also run individual statistics such as:
 * `.count()` to get the number of rows belonging to a specific group (e.g. season)
 * other summary statistics such as `.median()`, `.sum()`, `.mean()`, etc, to calculate these summary statistics by a chosen group
@@ -1194,7 +1373,7 @@ In the example below, a new dataframe is created by running `.median()` on `prec
 ```python
 # Save median of precip for each season to dataframe
 avg_monthly_precip_median = avg_monthly_precip.groupby(
-                                ["seasons"])[["precip"]].median()
+    ["seasons"])[["precip"]].median()
 
 avg_monthly_precip_median
 ```
@@ -1281,7 +1460,7 @@ To avoid setting a new index when running summary statistics such as `median()`,
 ```python
 # Save to new dataframe with original index
 avg_monthly_precip_median = avg_monthly_precip.groupby(
-                                ["seasons"], as_index=False)[["precip"]].median()
+    ["seasons"], as_index=False)[["precip"]].median()
 
 avg_monthly_precip_median
 ```
@@ -1348,9 +1527,7 @@ You can also easily reset the index of any dataframe back to a range index (i.e.
 
 `dataframe.reset_index(inplace=True)`
 
-The `inplace=True` tells the method `reset_index` to replace the named dataframe with the reset. 
-
-Running this syntax on any dataframe will reset the index to a range index (i.e. starting at [0]). 
+The `inplace=True` tells the method `reset_index` to replace the named dataframe with the reset. Running this syntax on any dataframe will reset the index to a range index (i.e. starting at [0]). 
 
 In the example below, the index is reset back to a range index starting at [0], rather than using the season name.
 
@@ -1358,7 +1535,7 @@ In the example below, the index is reset back to a range index starting at [0], 
 ```python
 # Save summary stats of precip for each season to dataframe
 avg_monthly_precip_stats = avg_monthly_precip.groupby(
-                                ["seasons"])[["precip"]].describe()
+    ["seasons"])[["precip"]].describe()
 
 avg_monthly_precip_stats
 ```
@@ -1470,7 +1647,7 @@ avg_monthly_precip_stats
 
 {:.input}
 ```python
-# Reset index 
+# Reset index
 avg_monthly_precip_stats.reset_index(inplace=True)
 
 avg_monthly_precip_stats

@@ -6,9 +6,9 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/import-csv-files-pandas-dataframes/
-nav-title: "Import Data Into Pandas Dataframes"
+nav-title: "Import Data Into Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-11
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -49,17 +49,17 @@ To import data into **pandas** dataframes, you will need to import the **pandas*
 
 {:.input}
 ```python
-# Import necessary packages
+# Import packages
 import os
+
+import matplotlib.pyplot as plt
 import pandas as pd
 import earthpy as et
 ```
 
-Recall from the previous chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">**numpy** arrays</a> that you can use the function `data.get_data()` from the **earthpy** package (which you imported with the alias `et`) to download data from online sources such as the **Figshare.com** data repository. 
+Recall from the previous chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">**numpy** arrays</a> that you can use the function `data.get_data()` from the **earthpy** package (which you imported with the alias `et`) to download data from online sources such as the **Figshare.com** data repository. To use the function `et.data.get_data()`, you need to provide a parameter value for the `url`, which you define by providing a text string of the URL to the dataset.
 
-To use the function `et.data.get_data()`, you need to provide a parameter value for the `url`, which you define by providing a text string of the URL to the dataset.
-
-Begin by downloading a .csv file for average monthly precipitation for Boulder, CO from the following URL: 
+Begin by downloading a **.csv** file for average monthly precipitation for Boulder, CO from the following URL: 
 
 `https://ndownloader.figshare.com/files/12710618`
 
@@ -91,19 +91,19 @@ et.data.get_data(url=avg_monthly_precip_url)
 {:.input}
 ```python
 # Set working directory to earth-analytics
-os.chdir(os.path.join(et.io.HOME, "earth-analytics"))
+os.chdir(os.path.join(et.io.HOME, 
+                      "earth-analytics", 
+                      "data"))
 ```
 
 ## Import Tabular Data from CSV Files into Pandas Dataframes
 
-Using the `read_csv()` function from the `pandas` package, you can import tabular data from CSV files into `pandas dataframe` by specifying a parameter value for the file name (e.g. `pd.read_csv("filename.csv")`). 
-
-Remember that you gave `pandas` an alias (`pd`), so you will use `pd` to call `pandas` functions. 
+Using the `read_csv()` function from the `pandas` package, you can import tabular data from CSV files into `pandas dataframe` by specifying a parameter value for the file name (e.g. `pd.read_csv("filename.csv")`). Remember that you gave `pandas` an alias (`pd`), so you will use `pd` to call `pandas` functions. 
 
 {:.input}
 ```python
 # Import data from .csv file
-fname = os.path.join("data", "earthpy-downloads", 
+fname = os.path.join("earthpy-downloads",
                      "avg-precip-months-seasons.csv")
 
 avg_monthly_precip = pd.read_csv(fname)
@@ -224,6 +224,33 @@ As you can see, the `months` and `precip` data can exist together in the same **
 
 Once again, you can also see that the indexing still begins with `[0]`, as it does for **Python** lists and **numpy** arrays, and that you did not have to use the `print()` function to see a nicely formatted version of the **pandas** dataframe. 
 
-You now know how to import data from .csv files into **pandas** dataframes, which will come in very handy as you begin to work with scientific data. 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Plot a DataFrame
 
-On the next pages of this chapter, you will learn how to work with **pandas** dataframes to run calculations, summarize data, and more. 
+In the previous lesson you learned how to plot a pandas dataframe using matplotlib.
+Test your your skills by plotting the data frame that you opened above.
+Instead of using `ax.plot()`, use `ax.bar()` to create your plot. 
+
+HINT: to make this plot work, you will have to specify the x axis variable and then 
+height instead of y. Your code will look something like this:
+
+```python
+ax.bar(x=dataframe.column,
+       height=dataframe.column)
+```
+</div>
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
+<figcaption>Bar plot of average monthly precipitation using matplotlib.</figcaption>
+
+</figure>
+
+
+
+
+You now know how to import data from **.csv** files into **pandas** dataframes, which will come in very handy as you begin to work with scientific data. On the next pages of this chapter, you will learn how to work with **pandas** dataframes to run calculations, summarize data, and more. 
