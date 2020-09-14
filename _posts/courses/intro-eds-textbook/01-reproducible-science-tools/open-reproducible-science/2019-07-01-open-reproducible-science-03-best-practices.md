@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/
 nav-title: "Project Management Best Practices"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -124,7 +124,7 @@ in Python. This call will work on all operating systems. However, this call:
 
 `pandas.read.csv("My-file.txt")`
 
-may work on some machines  (possibly Windows) but it's likely to fail on Linux or MAC. To keep things simple and to avoid case sensitvity issues, usw lower case naming conventions for all file and directory names. 
+may work on some machines  (possibly Windows) but it's likely to fail on Linux or MAC. To keep things simple and to avoid case sensitvity issues, use lower case naming conventions for all file and directory names. 
 
 
 ### 3. Organize Your Project Directories to Make It Easy to Find Data, Code and Outputs
@@ -182,14 +182,14 @@ Expressive names also support machine readibility, as discernible patterns in ex
 
 ### 5. Document Your Project With a README File 
 
-There are many ways to document a project; however, a readme file at the top level of your project is a standard convention. When you begin to use GitHub, you will notice that almost all well designed github repositories contain readme files. The readme is a text file that describes data / software packages and tool used to process data in your project. The readme should also describe files and associated naming conventions. Finally, the readme can be used to document any abbreviations used, units, etc as needed.  
+There are many ways to document a project; however, a readme file at the top level of your project is a standard convention. When you begin to use GitHub, you will notice that almost all well designed github repositories contain readme files. The readme is a text file that describes data / software packages and tools used to process data in your project. The readme should also describe files and associated naming conventions. Finally, the readme can be used to document any abbreviations used, units, etc as needed.  
 
 There are other files that you may consider as well such as software installation instructions if those are required, citation information and if the project is one that you want others to contribute to, then a `CONTRIBUTING` file may be in order. 
 
 
 ### 6. Don't Use Proprietary File Formats  
 
-Proprietary formats are formats that require a specific tool (and a specific license often) to open. Examples include Excel (.xls) or Word (.doc). These formats may change over time as new versions come out (example: `.xls` upgraded to `.xlxs`. 
+Proprietary formats are formats that require a specific tool (and a specific license often) to open. Examples include Excel (.xls) or Word (.doc). These formats may change over time as new versions come out (example: `.xls` upgraded to `.xlsx`. 
 
 In some cases, certain formats are operating system specific (example: most Linux users do not run Microsoft tools). 
 

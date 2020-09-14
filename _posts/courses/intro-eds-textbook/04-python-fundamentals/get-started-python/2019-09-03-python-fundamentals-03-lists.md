@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -67,7 +67,7 @@ in a list has an index `[1]`, and so on. You can use the index of an item to
 access its value. For example, you can use the index `[1]` to get the value 
 for the 2nd item (`0.75`) in the following list of values [`0.70, 0.75, 1.85`]. 
 
-<i class="fa fa-star"></i> **Data Tip:** The **Python** programming language using zero-based indexing. This means that the first element in a list or other data structure will be identified by the value `[0]` rather than `[1]`.
+<i class="fa fa-star"></i> **Data Tip:** The **Python** programming language uses zero-based indexing. This means that the first element in a list or other data structure will be identified by the value `[0]` rather than `[1]`.
 {: .notice--success }
 
 

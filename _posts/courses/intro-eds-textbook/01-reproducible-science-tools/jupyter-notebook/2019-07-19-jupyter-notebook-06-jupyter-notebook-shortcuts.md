@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 nav-title: "Jupyter Notebook Shortcuts"
 dateCreated: 2019-07-15
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -28,7 +28,7 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * List useful keyboard shortcuts in `Jupyter Notebook`.
-* Be able to access the list list of keyborad shortcuts in `Jupyter Notebook`. 
+* Be able to access the list of keyborad shortcuts in `Jupyter Notebook`. 
 
 </div>
 
