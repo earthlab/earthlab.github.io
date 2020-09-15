@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Activity: Practise Plotting Tabular Data Using Matplotlib and Pandas in Open Source Python"
+title: "Activity: Practice Plotting Tabular Data Using Matplotlib and Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser']
 dateCreated: 2020-02-26
