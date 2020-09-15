@@ -403,7 +403,7 @@ for label, df in precip_data.groupby("seasons"):
             "o",
             # The label is the season or the group by object in this case
             label=label,
-            colors[label])
+            color=colors[label])
             
 ```
 
