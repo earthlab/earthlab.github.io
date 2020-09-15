@@ -350,7 +350,7 @@ plt.show()
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 3: Plott Grouped Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 4: Plot Grouped Data
 
 There are differents ways to go about plotting grouped data with a legend
 using pandas. Below you will walk through an approach to plot your precip
