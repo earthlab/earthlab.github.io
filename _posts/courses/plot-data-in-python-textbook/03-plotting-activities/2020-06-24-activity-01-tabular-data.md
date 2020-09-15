@@ -42,7 +42,7 @@ In this chapter, you will practice your skills creating different types of plots
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Apply your skills in plotting time series data using matplotlib and pandas in open source Python. 
+* Apply your skills in plotting tabular (shreadsheet format) data using matplotlib and pandas in open source Python. 
 
 </div>
 
@@ -275,7 +275,8 @@ completing this challenge.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-tabular-data/2020-06-24-activity-01-tabular-data_9_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-tabular-data/2020-06-24-activity-01-tabular-data_9_0.png" alt = "Challenge two plot. Bar plot of average monthly precipitation using matplotlib.">
+<figcaption>Challenge two plot. Bar plot of average monthly precipitation using matplotlib.</figcaption>
 
 </figure>
 
