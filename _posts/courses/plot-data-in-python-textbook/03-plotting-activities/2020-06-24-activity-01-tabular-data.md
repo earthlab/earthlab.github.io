@@ -407,30 +407,51 @@ for label, df in precip_data.groupby("seasons"):
             
 ```
 
+### Understanding For Loops
+
+To break down the for loop it can be helpful to print the two variables
+being created in each iteration. Below you create a label object which
+contains the label or word that is being used to group the data. 
+In this case the label is "season". 
+
 {:.input}
 ```python
+# Print each label object which is the group by category - season
 for label, df in precip_data.groupby("seasons"):
     print(label)
-    print(df)
 ```
 
 {:.output}
     Fall
+    Spring
+    Summer
+    Winter
+
+
+
+Next you can print each group by object - the `df` object. This 
+object represents the dataframe subsetted by the specific season.
+
+{:.input}
+```python
+# Print each grouped data
+for label, df in precip_data.groupby("seasons"):
+    print(df)
+```
+
+{:.output}
        months  precip seasons
     8    Sept    1.84    Fall
     9     Oct    1.31    Fall
     10    Nov    1.39    Fall
-    Spring
       months  precip seasons
     2    Mar    1.85  Spring
     3    Apr    2.93  Spring
     4    May    3.05  Spring
-    Summer
       months  precip seasons
     5   June    2.02  Summer
     6   July    1.93  Summer
     7    Aug    1.62  Summer
-    Winter
        months  precip seasons
     0     Jan    0.70  Winter
     1     Feb    0.75  Winter
@@ -448,7 +469,7 @@ completing this challenge.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-tabular-data/2020-06-24-activity-01-tabular-data_15_0.png" alt = "Plot of precipitation data grouped and colored by season with a legend.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-tabular-data/2020-06-24-activity-01-tabular-data_17_0.png" alt = "Plot of precipitation data grouped and colored by season with a legend.">
 <figcaption>Plot of precipitation data grouped and colored by season with a legend.</figcaption>
 
 </figure>
