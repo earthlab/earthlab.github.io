@@ -115,13 +115,128 @@ os.chdir(os.path.join(et.io.HOME,
                       "data"))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12710618
+
+
+
 {:.input}
 ```python
 precip_path = os.path.join("earthpy-downloads",
                            "avg-precip-months-seasons.csv")
 
 precip_data = pd.read_csv(precip_path)
+precip_data
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months</th>
+      <th>precip</th>
+      <th>seasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jan</td>
+      <td>0.70</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Feb</td>
+      <td>0.75</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mar</td>
+      <td>1.85</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Apr</td>
+      <td>2.93</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>May</td>
+      <td>3.05</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>June</td>
+      <td>2.02</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>July</td>
+      <td>1.93</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Aug</td>
+      <td>1.62</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sept</td>
+      <td>1.84</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Oct</td>
+      <td>1.31</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Nov</td>
+      <td>1.39</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Dec</td>
+      <td>0.84</td>
+      <td>Winter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 
 
 {:.output}
@@ -230,6 +345,112 @@ plt.show()
 </figure>
 
 
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Bonus Challenge 3: Plott Grouped Data
+
+There are differents ways to go about plotting grouped data with a legend
+using pandas. Below you will walk through an approach to plot your precip
+data by season using: 
+
+1. **matplotlib**
+2. and a grouped **pandas dataframe**
+
+To achieve this plot, you will do the following:
+
+1. Create a for loop which groups for your pandas dataframe
+2. Create a figure as you would normally do using `fig, ax = plt.subplots()`
+3. Add a legend to your plot using `plt.legend()`
+
+In each iteration of the for loop, you will specify the label (which is the group by object - 
+in this case the **seasons** column). Your code will look something likee the code below:
+
+```
+for label, df in precip_data.groupby("seasons"):
+    ax.plot(df.months,
+            df.precip,
+            "o",
+            # The label is the season or the group by object in this case
+            label=label)
+            
+```
+
+</div>
+
+HINT:
+
+You can create a dictionary that maps categories (seasons in this case) to 
+colors - like this:
+
+```python
+colors = {"Winter": "lightgrey",
+          "Spring": "green",
+          "Summer": "darkgreen",
+          "Fall": "brown"}
+```
+
+you can then call each color using `colors[label]` where the label is season
+in this example and the `colors` object is the dictionary that you created above:
+
+
+```
+for label, df in precip_data.groupby("seasons"):
+    ax.plot(df.months,
+            df.precip,
+            "o",
+            # The label is the season or the group by object in this case
+            label=label,
+            colors[label])
+            
+```
+
+{:.input}
+```python
+for label, df in precip_data.groupby("seasons"):
+    print(label)
+    print(df)
+```
+
+{:.output}
+    Fall
+       months  precip seasons
+    8    Sept    1.84    Fall
+    9     Oct    1.31    Fall
+    10    Nov    1.39    Fall
+    Spring
+      months  precip seasons
+    2    Mar    1.85  Spring
+    3    Apr    2.93  Spring
+    4    May    3.05  Spring
+    Summer
+      months  precip seasons
+    5   June    2.02  Summer
+    6   July    1.93  Summer
+    7    Aug    1.62  Summer
+    Winter
+       months  precip seasons
+    0     Jan    0.70  Winter
+    1     Feb    0.75  Winter
+    11    Dec    0.84  Winter
+
+
+
+Create your final challenge plot of the precipitation data colored by season.
+Modify the **colors** used to plot each season. The plot below is an example of what your final plot should look like after 
+completing this challenge. 
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-tabular-data/2020-06-24-activity-01-tabular-data_15_0.png" alt = "Plot of precipitation data grouped and colored by season with a legend.">
+<figcaption>Plot of precipitation data grouped and colored by season with a legend.</figcaption>
+
+</figure>
 
 
 
