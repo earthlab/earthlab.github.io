@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import Data Into Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-09-11
+modified: 2020-09-15
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -245,7 +245,7 @@ ax.bar(x=dataframe.column,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-data-structures-02-import-csv-pandas/2019-09-23-data-structures-02-import-csv-pandas_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
 <figcaption>Bar plot of average monthly precipitation using matplotlib.</figcaption>
 
 </figure>
