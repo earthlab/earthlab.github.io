@@ -247,7 +247,7 @@ ax.bar(x=dataframe.column,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-ds02-import-csv-pandas/2019-09-23-ds02-import-csv-pandas_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds02-import-csv-pandas/2019-09-23-ds02-import-csv-pandas_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
 <figcaption>Bar plot of average monthly precipitation using matplotlib.</figcaption>
 
 </figure>

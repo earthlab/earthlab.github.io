@@ -1068,7 +1068,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_28_0.png" alt = "Bar plot of monthly precipitation in mm.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_28_0.png" alt = "Bar plot of monthly precipitation in mm.">
 <figcaption>Bar plot of monthly precipitation in mm.</figcaption>
 
 </figure>
@@ -1350,7 +1350,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_34_0.png" alt = "Bar plot showing mean precipitation values by season.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_34_0.png" alt = "Bar plot showing mean precipitation values by season.">
 <figcaption>Bar plot showing mean precipitation values by season.</figcaption>
 
 </figure>

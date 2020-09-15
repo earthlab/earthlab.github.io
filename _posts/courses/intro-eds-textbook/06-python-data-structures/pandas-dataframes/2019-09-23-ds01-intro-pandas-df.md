@@ -276,7 +276,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_5_1.png" alt = "Plot of monthly precipitation using pandas .plot()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_5_1.png" alt = "Plot of monthly precipitation using pandas .plot()">
 <figcaption>Plot of monthly precipitation using pandas .plot()</figcaption>
 
 </figure>
@@ -304,7 +304,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_7_0.png" alt = "Plot of monthly precipitation using matplotlib ax.plot()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_7_0.png" alt = "Plot of monthly precipitation using matplotlib ax.plot()">
 <figcaption>Plot of monthly precipitation using matplotlib ax.plot()</figcaption>
 
 </figure>
