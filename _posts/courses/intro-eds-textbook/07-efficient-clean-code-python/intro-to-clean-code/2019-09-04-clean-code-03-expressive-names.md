@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/expressive-variable-names-make-code-easier-to-read/
 nav-title: "Expressive Code"
 dateCreated: 2019-09-03
-modified: 2020-09-03
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -115,7 +115,7 @@ For example, in some cases, it may be more important to distinguish the units of
 ### Best Practices for Naming Functions and Methods in Python
 
 Following PEP 8 guidelines, function names should be formatted using  
-`words_separated_by_underscores`. The words that you use to name your function should clearly describe the function's intent (what the function does). Ideally this name is a very that describes what the function does. For example, if you write a function that removes hyphens from some text a name like `remove_hyphens` might be appropriate.  
+`words_separated_by_underscores`. The words that you use to name your function should clearly describe the function's intent (what the function does). Ideally this name is a very specific name that describes what the function does. For example, if you write a function that removes hyphens from some text a name like `remove_hyphens` might be appropriate.  
 
 ```python
 ## This function name is less expressive 

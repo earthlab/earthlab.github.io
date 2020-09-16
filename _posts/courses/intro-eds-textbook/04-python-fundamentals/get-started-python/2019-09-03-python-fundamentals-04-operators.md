@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
 nav-title: "Python Operators"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -609,7 +609,8 @@ variable.
 
 <i class="fa fa-star"></i> **Data Tip:** You do not need to put the operation below 
 `(3 > 2)` in parenthesis, as is done below. However, doing so makes the code a 
-bit easier to read. {: .notice--success }
+bit easier to read. 
+{: .notice--success }
 
 {:.input}
 ```python

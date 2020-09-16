@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2020-09-14
+modified: 2020-09-16
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -79,7 +79,7 @@ and more! The list below contains the core packages that you will use in the upc
 * **glob**: create lists of files and directories for batch processing.
 * **matplotlib**: plot data.
 * **numpy**: work with data in array formats (often related to imagery and raster format data).
-* **pandas**: work with tabular data in a data.frame format.
+* **pandas**: work with tabular data in a DataFrame format.
 * **rasterio**: work with raster (image and arrays) data.
 * **geopandas**: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
 * **earthpy**: plot and manipulate spatial data (raster and vector).

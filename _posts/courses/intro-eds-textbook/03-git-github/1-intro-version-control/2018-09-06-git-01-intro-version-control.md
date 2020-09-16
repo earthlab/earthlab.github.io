@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/
 nav-title: "About Version Control"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-16
 module-title: 'Git/GitHub For Version Control'
 module-nav-title: 'Git/GitHub For Version Control'
 module-description: 'A version control system allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
@@ -87,7 +87,7 @@ Version control facilitates two important aspects of many scientific workflows:
 This means that you don’t have to worry about a collaborator (or your future self) overwriting something important. It also allows two people working on the same document to efficiently combine ideas and changes.
 
 
-<div class="notice" markdown="1">
+<div class="notice--success" markdown="1">
 
 <i class="fa fa-star"></i>**Thought Questions**: Think of a specific time when you weren’t using version control that it would have been useful.
 
@@ -101,11 +101,13 @@ This means that you don’t have to worry about a collaborator (or your future s
 
 ### Simple Version Control Model
 
-A version control system tracks what has changed in one or more files over time. 
+A version control system tracks what has changed in one or more files over 
+time. Version control systems begin with a base version of a document. Then, 
+they save the committed changes that you make. 
 
-Version control systems begin with a base version of a document. Then, they save the committed changes that you make. 
-
-You can think of version control as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
+You can think of version control as a tape: if you rewind the tape and 
+start at the base document, then you can play back each change and end 
+up with your latest version.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.png">
@@ -116,7 +118,7 @@ You can think of version control as a tape: if you rewind the tape and start at 
 
 Once you think of changes as separate from the document itself, you can then think about “playing back” different sets of changes onto the base document. You can then retrieve, or revert to, different versions of the document.
 
-Collaboration with version control allows to users to make independent changes to the same document.
+Collaboration with version control allows users to make independent changes to the same document.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.png">
@@ -125,7 +127,7 @@ Collaboration with version control allows to users to make independent changes t
    </figcaption>
 </figure>
 
-If there aren’t conflicts between the users’ changes (a conflict is an area where both users modified the same part of the same document in different ways), you can review two sets of changes on the same base document. If there are conflicts, they can resolved by choosing which change you want to keep.
+If there aren’t conflicts between the users’ changes (a conflict is an area where both users modified the same part of the same document in different ways), you can review two sets of changes on the same base document. If there are conflicts, they can be resolved by choosing which change you want to keep.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-merge.png">
@@ -134,20 +136,20 @@ If there aren’t conflicts between the users’ changes (a conflict is an area 
    </figcaption>
 </figure>
 
-A version control system is a tool that keeps track of all of these changes for us. Each version of a file can be viewed and reverted to at any time. 
-
-That way if you add something that you end up not liking or delete something that you need, you can simply go back to a previous version. 
+A version control system is a tool that keeps track of all of these changes for us. 
+Each version of a file can be viewed and reverted to at any time. That way if you 
+add something that you end up not liking or delete something that you need, you can 
+simply go back to a previous version. 
 
 
 ### Git and GitHub - A Distributed Version Control Model
 
-**Git** uses a distributed version control model. This means that there can be many copies (or forks/branches in **GitHub** world) of the repository. 
+**Git** uses a distributed version control model. This means that there can be 
+many copies (or forks/branches in **GitHub** world) of the repository. When 
+working locally, **git** is the program that you will use to keep track of 
+changes to your repository. 
 
-When working locally, **git** is the program that you will use to keep track of changes to your repository. 
-
-**GitHub.com** is a location on the internet (a cloud web server) that acts as a remote location for your repository. **GitHub** provides a backup of your work that can be retrieved if your local copy is lost (e.g. if your computer falls off a pier).
-
-**GitHub** also allows you to share your work and collaborate with others on projects.
+**GitHub.com** is a location on the internet (a cloud web server) that acts as a remote location for your repository. **GitHub** provides a backup of your work that can be retrieved if your local copy is lost (e.g. if your computer falls off a pier). **GitHub** also allows you to share your work and collaborate with others on projects.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-distributed-version-control-model.png">

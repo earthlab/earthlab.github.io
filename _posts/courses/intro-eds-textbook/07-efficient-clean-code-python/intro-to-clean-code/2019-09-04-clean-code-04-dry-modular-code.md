@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/dry-modular-code/
 nav-title: "DRY Modular Code"
 dateCreated: 2019-09-03
-modified: 2020-09-03
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -68,7 +68,7 @@ One main reason is that when you write code that performs the same tasks over an
 By implementing DRY code approaches, you can make your code: 
 
 1. easier to follow and read (for yourself as well as others), thereby supporting reproducibility
-2. easier to update because you only have to update your code once, rather than every that code block is used
+2. easier to update because you only have to update your code once, rather than everywhere that code block is used
 
 
 ## Strategies For Writing DRY Code
@@ -76,7 +76,7 @@ By implementing DRY code approaches, you can make your code:
 Below you will learn about three commonly used strategies associated with writing clean code:
 
 1. Write functions for a task that is performed over and over.
-2. Create loops that iterative over repetitive tasks.
+2. Create loops that iterate over repetitive tasks.
 3. Use conditional statements to control if and when code is executed.
 
 The above three approaches are often used together when writing 
@@ -162,7 +162,7 @@ This code could be replaced by a loop that iterates over a list of variable name
 ```python
 all_vars = [avg_monthly_precip, months, precip_2002_2013]
 for avar in vars:
-    print(avar)
+    print(all_vars)
 ```
 
 You can create lists of variables, filenames, or other objects like data structures upon which you want to execute the same code. These lists can then be used as variables in loops. 

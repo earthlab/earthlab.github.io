@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/introduction-to-python-conda-environments/
 nav-title: "Conda Environments"
 dateCreated: 2019-09-24
-modified: 2020-09-03
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -49,7 +49,7 @@ In **Python**, regardless of what project you are working on, your computer will
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/python/python-environment-dependency-issues.jpg">
    <img src="{{ site.url }}/images/earth-analytics/python/python-environment-dependency-issues.jpg" alt="Dependency conflicts can cause significant issues when working with Python. Conda allows you to install multiple environments on your computer and to address dependency issues."></a>
-   <figcaption>Dependency conflicts can cause significant issues when working with Python. Conda allows you to install multiple environments on your computer and to address dependency issues.
+   <figcaption>Dependency conflicts can cause significant issues when working with Python. Conda allows you to install multiple environments on your computer and to address dependency issues. Image from XKCD Webcomic. Licensed here: https://xkcd.com/license.html. 
    </figcaption>
 </figure>
 

@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/
 nav-title: "Get Files From GitHub"
 dateCreated: 2019-09-06
-modified: 2020-09-08
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -93,7 +93,7 @@ For example, the repositories that you will work with throughout this textbook w
 
 ## Create a Copy of Other Users' Files on GitHub.com (Fork a Repo)
 
-Using **GitHub.com**, you can make a copy of a **GitHub** repository (also known as a **repo**) owned by another user or organization (a task referred to as `forking` a repository). This means that **you do not have fork a repository that you already own**. Instead, other users can fork your repository if they would a copy to work with, and your original files will not be modified! 
+Using **GitHub.com**, you can make a copy of a **GitHub** repository (also known as a **repo**) owned by another user or organization (a task referred to as `forking` a repository). This means that **you do not have to fork a repository that you already own**. Instead, other users can fork your repository if they would like a copy to work with, and your original files will not be modified! 
 
 The ability to `fork` a repository is a benefit of using **GitHub** repositories because the forked repository is linked to the original. This means that you (or other users) can download new updates from the original to your (or their) forked repository as well as suggest changes to the original repository, which can be reviewed by the owner of that repository. Thus, forking allows you to collaborate with others while protecting the original versions of files. When collaborating, everyone will work with copies of the original files. And all changes are tracked in each file's history and can be undone at any time. 
 
@@ -135,7 +135,7 @@ In either case, cloning allows you to create a local copy of a **GitHub** reposi
 The first step to using any **git** command is to change the current working directory to your desired directory.
 In the case of `git clone`, the current working directory needs to be where you want to download a local copy of a **GitHub** repository. 
 
-For this textbook, you will clone a repo into a directory called `earth-analytics` on your computer (or whereever you are working. This `earth-analytics` directory should be located in the home directory of your computer.  
+For this textbook, you will clone a repo into a directory called `earth-analytics` on your computer (or wherever you are working. This `earth-analytics` directory should be located in the home directory of your computer.  
 
 ```bash
 # This command with change your directory to home (`~`) /earth-analytics
