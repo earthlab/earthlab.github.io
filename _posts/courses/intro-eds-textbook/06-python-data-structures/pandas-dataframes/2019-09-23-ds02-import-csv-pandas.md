@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import Data Into Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-09-11
+modified: 2020-09-15
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -224,6 +224,8 @@ As you can see, the `months` and `precip` data can exist together in the same **
 
 Once again, you can also see that the indexing still begins with `[0]`, as it does for **Python** lists and **numpy** arrays, and that you did not have to use the `print()` function to see a nicely formatted version of the **pandas** dataframe. 
 
+<div class="notice--warning" markdown="1">
+
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Plot a DataFrame
 
 In the previous lesson you learned how to plot a pandas dataframe using matplotlib.
@@ -245,7 +247,7 @@ ax.bar(x=dataframe.column,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes/2019-09-23-scientific-data-structures-python-02-import-csv-files-pandas-dataframes_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds02-import-csv-pandas/2019-09-23-ds02-import-csv-pandas_10_0.png" alt = "Bar plot of average monthly precipitation using matplotlib.">
 <figcaption>Bar plot of average monthly precipitation using matplotlib.</figcaption>
 
 </figure>

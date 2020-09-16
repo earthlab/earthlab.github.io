@@ -4,23 +4,18 @@ title: "Activity: Plot Time Series Data Using Pandas in Open Source Python"
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-09-11
+modified: 2020-09-15
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-time-series-data-python/
 nav-title: 'Plot Time Series Data'
-module-title: 'Practice Your Python Plotting Skills'
-module-description: 'This chapter provides a series of activities that allow you to practice your Python plotting skills using differen types of data.'
-module-nav-title: 'Practice Plotting'
-module-type: 'class'
 chapter: 5
 week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
-class-order: 1
+order: 2
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 topics:
   reproducible-science-and-programming:
@@ -123,7 +118,7 @@ os.chdir(os.path.join(et.io.HOME,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-01-timeseries/2020-06-24-activity-01-timeseries_7_0.png" alt = "Line graph showing the global glacier mass balance since 1945.">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/03-plotting-activities/2020-06-24-activity-02-timeseries/2020-06-24-activity-02-timeseries_7_0.png" alt = "Line graph showing the global glacier mass balance since 1945.">
 <figcaption>Line graph showing the global glacier mass balance since 1945.</figcaption>
 
 </figure>
