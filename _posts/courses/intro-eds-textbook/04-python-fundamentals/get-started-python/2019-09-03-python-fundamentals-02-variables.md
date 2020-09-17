@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -90,14 +90,14 @@ need to worry about this when using `Python`, however!
 {: .notice--success }
 
 
-### Expressive Programming: Easy to Understand Variable Names Makes Your Code Easier to Read
+### Expressive Programming: Easy to Understand Variable Names Make Your Code Easier to Read
 
 Just like you want to use 
 <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/"> 
 expressive naming conventions (names that represent what is stored within 
 the directory)</a> for directories on your computer, you also want to use 
-short, clear names for your variables to make your code easier to read. Best 
-practices for variable names include:
+short, clear names for your variables to make your code easier to read. To 
+follow best practices for variable names, avoid the following:
 
 * spaces in your variable names
 * complicated wording

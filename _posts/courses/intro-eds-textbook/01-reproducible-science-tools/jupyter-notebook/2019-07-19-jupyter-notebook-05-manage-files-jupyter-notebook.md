@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/manage-jupyter-notebook-files/
 nav-title: "Manage Jupyter Notebooks"
 dateCreated: 2019-07-15
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -103,7 +103,7 @@ After the notebook is shutdown, you can click in the checkbox to left of the fil
 
 Sometimes you may want to share your notebook with others in a format that does not require `Jupyter Notebook` such as an HTML (`.html`) version of your notebook. This format can be very useful as it displays your Markdown, code and rendered results, just like in your notebook file. However, this format can be opened by anyone that has an internet browser.   
 
-Note that the `.html` file does not actually require the internet to render. It require an internet browser such as Chrome or Firefox to render the file. 
+Note that the `.html` file does not actually require the internet to render. It requires an internet browser such as Chrome or Firefox to render the file. 
 
 To download your `Jupyter Notebook` file (.ipynb) to an `.html` file, you can use the Menu:
 

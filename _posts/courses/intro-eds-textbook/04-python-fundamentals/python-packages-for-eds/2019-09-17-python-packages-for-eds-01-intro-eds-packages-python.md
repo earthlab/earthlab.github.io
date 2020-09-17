@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2020-09-03
+modified: 2020-09-16
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -79,7 +79,7 @@ and more! The list below contains the core packages that you will use in the upc
 * **glob**: create lists of files and directories for batch processing.
 * **matplotlib**: plot data.
 * **numpy**: work with data in array formats (often related to imagery and raster format data).
-* **pandas**: work with tabular data in a data.frame format.
+* **pandas**: work with tabular data in a DataFrame format.
 * **rasterio**: work with raster (image and arrays) data.
 * **geopandas**: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
 * **earthpy**: plot and manipulate spatial data (raster and vector).
@@ -216,7 +216,7 @@ There are many packages and modules that have standard alias names. A few common
 
 ## Best Practices for Importing Python Packages In Scientific Code
 
-There are a set of best practices that you should follow when importing **Python** packages in your code. These best practices are outlines in the <a href="https://www.python.org/dev/peps/pep-0008/#imports" target="_blank">PEP 8 guidelines</a> and apply to both **Python** scripts and to working in **Jupyter Notebook** files.
+There are a set of best practices that you should follow when importing **Python** packages in your code. These best practices are outlined in the <a href="https://www.python.org/dev/peps/pep-0008/#imports" target="_blank">PEP 8 guidelines</a> and apply to both **Python** scripts and to working in **Jupyter Notebook** files.
 
 ### 1. Import Python Libraries at the Top of Your Script or Notebook
 

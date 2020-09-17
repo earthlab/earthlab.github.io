@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
 nav-title: "Open Science Tools"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -68,7 +68,7 @@ In this textbook, you will learn the `Python` programming language. `Python` is 
 Using a `Shell` helps you:
 * Navigate your computer to access and manage files and folders (i.e. directories). 
 * Efficiently work with many files and directories at once.
-* Run programs that provide more functionality at the command line such as `git` for version cotnrol.
+* Run programs that provide more functionality at the command line such as `git` for version control.
 * Launch programs from specific directories on your computer such as `Jupyter Notebook` for interactive programming.
 * Use repeatable commands for these tasks across many different operating systems (Windows, Mac, Linux).
 
