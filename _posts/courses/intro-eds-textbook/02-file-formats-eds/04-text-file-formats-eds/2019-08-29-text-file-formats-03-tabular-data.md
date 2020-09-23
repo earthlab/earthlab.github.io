@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/use-tabular-data/
 nav-title: "Use Tabular Data"
 dateCreated: 2020-06-20
-modified: 2020-09-14
+modified: 2020-09-23
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -148,6 +148,7 @@ the data.
 ```python
 # Import packages
 import os
+
 import matplotlib.pyplot as plt
 import pandas as pd
 ```
