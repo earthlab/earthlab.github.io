@@ -8,7 +8,7 @@ class-lesson: ['spatial-data-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-raster-data/
 nav-title: "Use Raster Data"
 dateCreated: 2020-06-20
-modified: 2020-09-10
+modified: 2020-09-23
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 2
@@ -115,12 +115,13 @@ setup your notebook with the required python packages.
 ```python
 # Import necessary packages
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
 import rasterio as rio
 
-# Package created for the earth analytics program
+# Earthpy is an earthlab package to work with spatial data
 import earthpy as et
 import earthpy.plot as ep
 
@@ -128,6 +129,12 @@ import earthpy.plot as ep
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 ## Open Raster Data in Open Source Python Using Rasterio
 
