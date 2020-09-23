@@ -4,7 +4,7 @@ title: "Activity: Practice Plotting Tabular Data Using Matplotlib and Pandas in 
 excerpt: "Practice your skills plotting time series data stored in Pandas Data Frames in Python."
 authors: ['Leah Wasser']
 dateCreated: 2020-09-15
-modified: 2020-09-15
+modified: 2020-09-23
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/plot-tabular-pandas-data-python/
@@ -13,7 +13,7 @@ module-title: 'Practice Your Python Plotting Skills'
 module-description: 'This chapter provides a series of activities that allow you to practice your Python plotting skills using differen types of data.'
 module-nav-title: 'Practice Plotting'
 module-type: 'class'
-chapter: 5
+chapter: 4
 week: 3
 sidebar:
   nav:

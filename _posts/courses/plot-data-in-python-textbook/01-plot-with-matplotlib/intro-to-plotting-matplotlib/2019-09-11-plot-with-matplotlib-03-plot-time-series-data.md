@@ -4,7 +4,7 @@ title: "Customize Matplotlibe Dates Ticks on the x-axis in Python"
 excerpt: 'When you plot time series data in matplotlib, you often want to customize the date format that is presented on the plot. Learn how to customize the date format in a Python matplotlib plot.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
 dateCreated: 2019-09-11
-modified: 2020-09-02
+modified: 2020-09-23
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
@@ -39,7 +39,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter
 import matplotlib.dates as mdates
-import seaborn as sns
+# Removing seaborn from this lesson to make ticks visible
+# import seaborn as sns
 import earthpy as et
 
 # Date time conversion registration
@@ -54,8 +55,8 @@ data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 # Prettier plotting with seaborn
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
+# sns.set(font_scale=1.5)
+# sns.set_style("whitegrid")
 ```
 
 {:.output}
@@ -283,7 +284,7 @@ ax.xaxis.set_major_formatter(date_form)
 
 
 
-### X-Lable Ticks and Dates
+### X-Label Ticks and Dates
 
 Time specific ticks can be added along the x-axis. For example, large ticks can indicate each new week day and small ticks can indicate each day. 
 

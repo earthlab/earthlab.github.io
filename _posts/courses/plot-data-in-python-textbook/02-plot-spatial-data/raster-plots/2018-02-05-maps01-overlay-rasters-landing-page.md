@@ -4,7 +4,7 @@ title: "Plot Spatial Raster Data in Python."
 excerpt: "When plotting rasters, you often want to overlay two rasters, add a legend, or make the raster interactive. Learn how to make a map of raster data that has these attributes using Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-07-21
+modified: 2020-09-23
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/
@@ -13,7 +13,7 @@ module-title: 'Customize Plots of Raster Data'
 module-description: 'When plotting rasters, you often want to overlay two rasters, add a legend, or make the raster interactive. Learn how overlay rasters to create visualizations and how to make interactive plots.'
 module-nav-title: 'Customize Raster Plots'
 module-type: 'class'
-chapter: 4
+chapter: 3
 week: 2
 sidebar:
   nav:

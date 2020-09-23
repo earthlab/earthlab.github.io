@@ -4,7 +4,7 @@ title: "Customize your Maps in Python using Matplotlib: GIS in Python"
 excerpt: "When making maps, you often want to create legends, customize colors, adjust zoom levels, or even make interactive maps. Learn how to customize maps created using vector data in Python with matplotlib, geopandas, and folium."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2019-01-29
-modified: 2020-07-21
+modified: 2020-09-23
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 module-title: 'Customize Plots of Spatial Vector Data in Python'
@@ -14,7 +14,7 @@ module-type: 'class'
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/
 nav-title: 'Customize Python Maps'
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
-chapter: 3
+chapter: 2
 class-order: 1
 week: 2
 sidebar:
