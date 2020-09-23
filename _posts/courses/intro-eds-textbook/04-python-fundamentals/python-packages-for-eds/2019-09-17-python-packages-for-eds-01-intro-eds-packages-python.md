@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2020-09-16
+modified: 2020-09-23
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -270,6 +270,7 @@ A PEP 8 order of imports for commonly used **Python** packages for science would
 ```
 import os
 import glob
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -277,3 +278,6 @@ import rasterio as rio
 import geopandas as gpd
 import earthpy as et 
 ``` 
+
+Note that there is a space between the standard imports (`glob` and `os`)
+and the rest of the third party imports.
