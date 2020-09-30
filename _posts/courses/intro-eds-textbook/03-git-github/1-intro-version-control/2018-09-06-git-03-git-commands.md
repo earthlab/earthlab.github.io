@@ -256,6 +256,37 @@ To update your repo with changes that are on GitHub.com you can do the following
 1. Open up bash and `cd` to the location of your git repo.
 2. Once you are in the repo, run `git pull`. 
 
+In the example below, there are no changes to any files. `git pull` returns `Already 
+up to date`. 
+
+```bash
+(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
+Already up to date.
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ 
+```
+
+Below is an example of using `git pull` when there are changes on github.com to pull
+down. Notice that it gives you a summary of what files where changed (in the example
+below this is the **README.md** file) and how many changes were made. 
+
+```
+(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:earthlab-education/bootcamp-2020-03-github-lwasser
+   7d45e2c..675d82e  master     -> origin/master
+Updating 7d45e2c..675d82e
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(earth-analytics-python) CIRES-EL-DM-041:bootcamp-2020-03-github-lwasser leahwasser$ 
+```
+
 All of the changes that were made to your repo, will be pulled down to your local repo.
 
 ## View All Commits to Repository Using `git log`
