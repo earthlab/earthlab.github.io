@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Setup & Commands"
 dateCreated: 2019-09-06
-modified: 2020-09-10
+modified: 2020-09-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -34,6 +34,7 @@ After completing this page, you will be able to:
 * **configure** git locally with your username and email
 * Use **git** to `add` and `commit` changed files to version control. 
 * Use **git** to `push` changed files from your local computer to the repository on **Github.com**.
+* Use **git** to `pull` changed file from your repo to your local computer.
 
 </div>
 
@@ -230,6 +231,63 @@ Also notice that you have access to the full commit history for your repository!
    </figcaption>
 </figure>
 
+## Pull Changed Files from GitHub.com to Your Cloned Repo
+
+Above, you learned how to use `git clone` to create a copy of a repo on github.com
+on your local computer. Running `git clone` will make a full copy of the git repo 
+from github.com to your 
+local computer. It includes all of the .git history information that you will need 
+to track changes in your repo. **You only need to run git clone once**. After you have 
+run git clone, you can us `git pull` to upate your repo.
+
+You also learned how to add and commit changes using `git add` and `git commit`.
+
+The workflow above assumed that you are always making changes locally and then pushing 
+those changes back up to GitHub.com. Sometimes, however, you will need to pull 
+down changes that were made to your repo, locally.
+
+Some examples of when you may need to use `git pull` include:
+
+1. When you may want to use git pull is to retrieve the feedback `.html` file added to your GitHub repo by your instructor
+2. When you are working collaboratively (covered in the next chapter) and someone else modifies some of the code in your repo using a `pull request`. 
+
+To update your repo with changes that are on GitHub.com you can do the following:
+
+1. Open up bash and `cd` to the location of your git repo.
+2. Once you are in the repo, run `git pull`. 
+
+In the example below, there are no changes to any files. `git pull` returns `Already 
+up to date`. 
+
+```bash
+(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
+Already up to date.
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ 
+```
+
+Below is an example of using `git pull` when there are changes on github.com to pull
+down. Notice that it gives you a summary of what files where changed (in the example
+below this is the **README.md** file) and how many changes were made. 
+
+```bash
+(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
+(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:earthlab-education/bootcamp-2020-03-github-lwasser
+   7d45e2c..675d82e  master     -> origin/master
+Updating 7d45e2c..675d82e
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(earth-analytics-python) CIRES-EL-DM-041:bootcamp-2020-03-github-lwasser leahwasser$ 
+```
+
+All of the changes that were made to your repo, will be pulled down to your local repo.
 
 ## View All Commits to Repository Using `git log`
 
