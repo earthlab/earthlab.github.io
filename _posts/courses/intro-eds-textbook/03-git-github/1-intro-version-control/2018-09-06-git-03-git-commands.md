@@ -270,7 +270,7 @@ Below is an example of using `git pull` when there are changes on github.com to 
 down. Notice that it gives you a summary of what files where changed (in the example
 below this is the **README.md** file) and how many changes were made. 
 
-```
+```bash
 (earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
 (earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
 remote: Enumerating objects: 5, done.
