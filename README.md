@@ -1,4 +1,4 @@
-#Earth Lab
+# Earth Lab
 ![Earthlab logo](https://github.com/pri-k/earthlab.github.io/blob/master/F5AE44ED-E1E4-4D93-BEDB-AD8FBB436D09.png)
 Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
 Please view our license for all courses and workshop material. Cite our materials following the license and us these DOI's as appropriate:
