@@ -54,11 +54,22 @@ After you have forked the repo, clone it so that you have a copy locally to work
 <i class="fa fa-star"></i> **Data Tip:** Remember that you can use `git remote -v` to view the url path of your clone. This will allow you to ensure that your cloned your FORK rather than the repo owned by **earthlab-education**. 
 {: .notice--success}
 
-## Step 2:  Make Changes to the Repo
 
 For this assignment, you will add a new **Jupyter Notebook file** that contains information about your hometown. 
 
-1. Create a fork of this repository and add to your fork a Jupyter Notebook called `city-state-or-country.ipynb` (e.g. houston-tx.ipynb). Add three interesting facts about the town that you live in using [Markdown](https://www.earthdatascience.org/courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/):
+## Step 2:  Fork and Clone the Repo
+
+Create a fork of this repository and clone it locally so you can work on your computer.
+
+## Step 3:  Create a Jupyter Notebook For The Town that You Live In
+
+In the local clone, add a Jupyter Notebook called `city-state-or-country.ipynb` (e.g. houston-tx.ipynb) to a directory as follows:
+
+`country/state/city`
+
+If `state` doesn't make sense for you - you can simply use the  `country/city` directory structure.
+
+In your jupyter notebook add the following three interesting facts about the town that you live in using [Markdown](https://www.earthdatascience.org/courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/):
 
 - add a Location subtitle (header) with the latitude and longitude of the town center below it
 - add a Population subtitle (header) and the information for the most recent population figure you can find, plus a hyperlink to the source for this information
@@ -67,17 +78,36 @@ For this assignment, you will add a new **Jupyter Notebook file** that contains 
 
 If a file for your town already exists in this repo as a markdown file, you can add any other facts about your town to that file that you wish following the structure listed above! 
 
-Finally add your town as a row in the hometowns.csv file specifying the town, the type (whether it's your hometown or somewhere you live or somewhere you love and country, city and state and the lat/long location.  
+## Step 4:  Create a CSV File For Your Town
+
+Create a new csv file in the `0-csv-files/` directory using the `csv-file-template.csv` template file. Name the new csv: `country-city.csv`.  Fill our the information for each row in the csv file using the example table below as a template. You will add the following information to the file:
+
+* Who - this represents who you are. the options include: 
+1. cu-student
+2. certificate-student and 
+3. earthdatascience.org student
+* type: the type of entry this is. the options include:
+1. place i've lived
+2. where i live now
+3. where i want to live
+
+* country: the country that you live in
+* State: the state that you live in
+* city: the name of the city that you live in
+* latitude: the latitude of the city center where you live
+* longitude: the longitude of the city center where you live
+
+Your file will look something like this:  
 
 | who (OPTIONS: cu-student; certificate-student; earthdatascience.org student, other) | type | country | state | city | latitude | longitude | 
 |:---|:---|:---|---|---|---|---|
-| other | hometown | United States | Colorado | Boulder | 40.0150 N | 105.2705 W| 
-| cu-student | where I live | United States | Colorado | Boulder | 40.0150 N | 105.2705 W| 
-| certificate-student | place i've lived | United States | State | City | latitude-here | longitude-here | 
 | earthdatascience.org student | place i've lived | Australia | State | City | latitude-here | longitude-here | 
 
 
-2. Submit a pull request from your fork to this repository, with the following included in the message of your pull request: 
+## Step 4:  Submit a Pull Request
+
+
+Once you have made the changes, add and commit those changes locally. Push those changes up to your fork. And finally, submit a pull request from your fork to this repository, with the following included in the message of your pull request: 
 
 - notify the owner of the repository (your instructor) that you have addressed the issue using `@github-username`
 - reference the issue number using `Fixes #issue-number` (e.g. the issue number is above in the title of this issue) - If you are working online, you may not have an issue with your name on it! just submit the PR without mentioning an issue or a github user. 
