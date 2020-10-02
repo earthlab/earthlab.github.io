@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Activity: Fork a Repo and Submit Pull Requests'
+title: 'Practice Forking a GitHub Repository and Submitting Pull Requests'
 excerpt: "A pull request allows anyone to suggest changes to a repository on GitHub that can be easily reviewed by others. Learn how to submit pull requests on GitHub.com to suggest changes to a GitHub repository."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph']
 category: [courses]
