@@ -39,7 +39,7 @@ After completing this lesson, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have also completed the <a href="{{ site.url }}/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a>.
+Be sure that you have also completed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/">Activity on Version Control with Git/GitHub</a>.
 
 You will also need a web browser and your `GitHub.com` login (username and password). 
 
