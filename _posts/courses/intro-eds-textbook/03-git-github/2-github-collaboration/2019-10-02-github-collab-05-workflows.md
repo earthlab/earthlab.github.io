@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Github Open Source Workflow....'
+title: 'An Example of a Github Collaborative Workflow for Team Science'
 excerpt: "GitHub.com can be used to store and access files in the cloud using GitHub repositories. Learn how to submit pull requests on GitHub.com to suggest changes to a GitHub repository."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph']
 category: [courses]
