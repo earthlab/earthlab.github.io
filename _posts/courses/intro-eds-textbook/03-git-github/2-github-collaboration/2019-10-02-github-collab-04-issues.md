@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/github-issues-to-document-and-manage-repo-changes/
 nav-title: "GitHub Issues"
 dateCreated: 2019-10-02
-modified: 2020-09-10
+modified: 2020-10-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -30,7 +30,8 @@ redirect_from:
 
 After completing this page, you will be able to:
 
-*  
+* Describe what an issue is as used on GitHub.com to collaborate
+* Open an issue in a repository on GitHub.com
 
 </div>
 
@@ -67,46 +68,60 @@ GitHub issues can be used to identify and track:
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-issues-earthpy.png">
    <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-issues-earthpy.png" alt=""></a>
-   <figcaption>
+   <figcaption>A list of closed issue on a working GitHub repository. Notice a few things about each issue. 1. Each issue has a clear description of what needs to be addressed. 2. Each issue also is assigned to someone to work on. Task assignment allows you to manage projects and tasks across teams using GitHub. 3. Also notice that each issue has comments associated with it. Comments allow a team to coordinate efforts and discuss tasks before implementing them.
    </figcaption>
 </figure>
 
-TODO: ADD GOOD CAPTION TO ABOVE. it could be nice to create a really precise list of issues as an example. could be used in the class. Talk with Jenny about this!
 
 ## GitHub Issues Can Be Used to Manage Collaborative Projects and To Allow Both Coders and Non Coders to Contribute to a Project
 
 GitHub issues are a way that anyone can identify problems with the code in your project. Not everyone is a programmer or a coder. But sometimes people are using your code and have questions, or find bugs. Issues are a way for others to contribute, regardless of their technical expertise.
 
-## Use GitHub Issues To Manage Working Being Done On Your Project Through Pull Requests
+## Use GitHub Issues To Manage Contributions to Your Project Submitted Using Pull Requests
 
-While you can submit a pull request (PR) at any time, it's best practice to consider starting a change to a repo using an issue. To begin, submit the issue.
+While you can submit a pull request (PR) at any time, it is best practice to first
+open an issue to discuss the change before submitted the PR. Opening an issue is ideal for project management as it allows you to keep track of:
 
-... more here ...
+1. what needs to be impelmented on the project - bugs, enhancements, fixes
+2. who is going to work on that task 
+3. how the task will be implemented
 
-Best practices:  
-
-* **Make The Issue Name Descriptive**: It's helpful to have descriptive issue titles that tell the code owners what the issue is about. Descriptive titles become particularly important if there are many issues in a repo.
-* **Create an Reproducible Code Example (If it's a code bug)**: If your issue is about a bug in the code, it's going to be easiest to understand if the code owners can reproduce the bug. Provide some code that someone can copy and run and see the exact bug that you are seeing.
-* ****:
-
-
-## Mention Specific People Using @github-username-here
-
-* Question: create new page for following or add to this page:
-    * Communicate with @mention
-    * Using Issues
-        * Create a new issue        
-        * Close an issue through a pull request
+Finally, when the person responsible for the task submits their PR, they will 
+refernece the issues and associated discussions that occured before and while the work
+was being done. This becomes a great record of effort on a group project.
 
 
-## About Pull Requests
+### Best Practices for GitHub Issues
+
+There are many best practices to consider when submitting issues to a repository. 
+A few include:
+
+* **Make The Issue Name Descriptive**: It is helpful to have descriptive issue titles that tell the code owners what the issue is about. Descriptive titles become particularly important if there are many issues in a repo.
+* **Create an Reproducible Code Example (If it iss a code bug)**: If your issue is about a bug in the code, it's going to be easiest to understand if the code owners can reproduce the bug. Provide some code that someone can copy and run and see the exact bug that you are seeing.
+* **Consider Your Tone as You Write**: Working with colleagues in a collaborative environment online can be tricky as you don't have the direct input of people's facial expressions and response to your comments that you may have in in-person or online meetings. As such, it's important to consider the tone of the issue as you write it. Rather than being critical and demanding fixes immediately, it is best to constructively point out what is not working and how it could be fixed or address challenges. If your input is well-received by the repo maintainers, it is more likely to be addressed more quickly.
+
+
+### Mention Specific People Using @github-username-here
+
+The last important note is that when possible, it is best to mention the collaborator
+that you wish to respond to your issue in the text. You can do that by using 
+`@github-username` in the text. This **mention** will draw more attention 
+to the issue that you submitted and is in turn more likely to be responded to.
+
+
+### Create a Pull Request to Address an Issue
+
+Once you have submitted you issue and the everyone who needs to approve
+the work has chimed in, you will likely be asked to submit a pull requestion.
+Remember that a pull request is the way for you to suggest changes to a 
+repository that can be reviewed carefully before being merged (combined into
+the main code base in the repo). When you submit that PR, you will want to 
+add some text to the PR that describes what the changes achieve. You will
+also want to link back to the original issue that was opened. An example
+of the beginning of an PR summary may look something like this:
+
+
+`@lwasser this pr addresses issue #125 ... more here about what the pr does`
 
 
 
-
-
-
-
-For Jenny:
-* Need to save copies of all external images using file-names-like-this.png to images/earth-analytics/git-version-control
-* Move all images that need it to images/earth-analytics/git-version-control
