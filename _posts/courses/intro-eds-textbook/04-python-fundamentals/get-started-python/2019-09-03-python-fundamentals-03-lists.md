@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2020-09-03
+modified: 2020-09-23
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -67,7 +67,7 @@ in a list has an index `[1]`, and so on. You can use the index of an item to
 access its value. For example, you can use the index `[1]` to get the value 
 for the 2nd item (`0.75`) in the following list of values [`0.70, 0.75, 1.85`]. 
 
-<i class="fa fa-star"></i> **Data Tip:** The **Python** programming language using zero-based indexing. This means that the first element in a list or other data structure will be identified by the value `[0]` rather than `[1]`.
+<i class="fa fa-star"></i> **Data Tip:** The **Python** programming language uses zero-based indexing. This means that the first element in a list or other data structure will be identified by the value `[0]` rather than `[1]`.
 {: .notice--success }
 
 
@@ -520,7 +520,7 @@ You can also add items to the end of a list by using the addition assignment ope
 which combines the steps to add and set the list equal to itself plus the new value. 
 
 However we suggest that you use `.append()` to append items to a list rather than 
-the addition operator as a **Python** best practices.
+the addition operator as a **Python** best practice.
 
 </div>
 
@@ -528,7 +528,7 @@ the addition operator as a **Python** best practices.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Modify Lists
 
-Use the skills you just learned to modify the list `precip_by_location` created above. It should to look like: 
+Use the skills you just learned to modify the list `precip_by_location` created above. It should look like: 
 
 `[1, 20.23, 'inches', 'Boulder', 'Colorado']`
 
@@ -582,7 +582,7 @@ The syntax for accessing the second item in the first sublist is as follows:
 
 `list_of_lists[0][1]`
  
-Access the second item in the second sublist. HINT: the value returned should be `9`.
+Access the second item in the second sublist. HINT: the value returned should be `2`.
 
 </div>
 
@@ -592,7 +592,7 @@ Access the second item in the second sublist. HINT: the value returned should be
 
 
 
-    9
+    2
 
 
 

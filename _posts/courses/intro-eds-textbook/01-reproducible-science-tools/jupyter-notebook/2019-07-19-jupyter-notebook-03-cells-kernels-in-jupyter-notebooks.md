@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/code-markdown-cells-in-jupyter-notebook/
 nav-title: "Code and Markdown Cells"
 dateCreated: 2019-07-15
-modified: 2020-09-03
+modified: 2020-09-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -40,7 +40,7 @@ After completing this page, you will be able to:
 Recall that a `Jupyter Notebook` file consists of a set of cells that can store text or code. 
 
 * **Text Cells:** Text cells allow you to write and render `Markdown` syntax. This is where you can describe and document your workflow. 
-* **Code Cells:** Code cells allow you to write run programming code (e.g. `Python`). 
+* **Code Cells:** Code cells allow you to write and run programming code (e.g. `Python`). 
 
 ### Create New Cells
 

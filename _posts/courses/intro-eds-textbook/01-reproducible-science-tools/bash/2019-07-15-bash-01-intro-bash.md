@@ -8,7 +8,7 @@ class-lesson: ['bash']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/
 nav-title: "Introduction to Bash"
 dateCreated: 2019-07-15
-modified: 2020-09-03
+modified: 2020-09-14
 module-title: 'Bash'
 module-nav-title: 'Use Bash to Manipulate Files'
 module-description: "Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how to use Bash to access and move files and directories."
@@ -80,12 +80,12 @@ In the chapter on Open Reproducible Science, you learned that `Shell` is the pri
 
 These commands can be entered and executed via the terminal. This allows you to control your computer by typing in commands with a keyboard, instead of using buttons or drop down menus in a GUI with a mouse/keyboard.
 
-`Bash` (also known as the "Bourne-Again Shell") is an implementation of `Shell` and allows you to efficiently perform many tasks. For example, you can use `Bash` to perform operations on multiple files quickly via the command line. 
+`Bash` (also known as the "Bourne Again SHell") is an implementation of `Shell` and allows you to efficiently perform many tasks. For example, you can use `Bash` to perform operations on multiple files quickly via the command line. 
 
 You can also write and execute scripts in `Bash`, just like you can in `R` or `Python`, that can be executed across different operating systems. 
 
 <i class="fa fa-star"></i> **Data Tip:**  
-`Bash` stands for “bourne again shell” and is an updated version of `Shell`. Sometimes you will hear `Bash` and `Shell` used interchangeably; this textbook uses the term `Bash`.
+`Bash` stands for “Bourne Again SHell” and is an updated version of `Shell`. Sometimes you will hear `Bash` and `Shell` used interchangeably; this textbook uses the term `Bash`.
 {: .notice--success}
 
 

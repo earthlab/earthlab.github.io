@@ -4,7 +4,7 @@ title: "Customize Your Plots Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to customize the colors, symbols, and labels on your plots using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2019-09-11
-modified: 2020-07-21
+modified: 2020-09-16
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
@@ -93,7 +93,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fb0bbacd5d0>]
+    [<matplotlib.lines.Line2D at 0x7fac9a202df0>]
 
 
 
@@ -230,8 +230,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-02-customize-plots-matplotlib/2019-09-11-plot-with-matplotlib-02-customize-plots-matplotlib_13_0.png" alt = "You can use ax.bar to create a scatter bar.">
-<figcaption>You can use ax.bar to create a scatter bar.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python-textbook/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-02-customize-plots-matplotlib/2019-09-11-plot-with-matplotlib-02-customize-plots-matplotlib_13_0.png" alt = "You can use ax.bar to create a bar plot.">
+<figcaption>You can use ax.bar to create a bar plot.</figcaption>
 
 </figure>
 

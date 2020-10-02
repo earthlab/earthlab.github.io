@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summary-statistics-numpy-arrays/
 nav-title: "Recalculate and Summarize Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2020-09-03
+modified: 2020-09-15
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6

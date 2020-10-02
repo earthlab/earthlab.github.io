@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-fundamentals-exercises/
 nav-title: "Python Fundamentals Exercises"
 dateCreated: 2019-07-01
-modified: 2020-09-10
+modified: 2020-09-23
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4

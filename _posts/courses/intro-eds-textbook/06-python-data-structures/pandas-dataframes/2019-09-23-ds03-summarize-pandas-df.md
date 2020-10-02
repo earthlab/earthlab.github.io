@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
 nav-title: "Recalculate and Summarize"
 dateCreated: 2019-09-06
-modified: 2020-09-11
+modified: 2020-09-15
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -92,11 +92,6 @@ avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 # Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12710618
-
-
 
 {:.output}
 {:.execute_result}
@@ -1073,7 +1068,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes_28_0.png" alt = "Bar plot of monthly precipitation in mm.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_28_0.png" alt = "Bar plot of monthly precipitation in mm.">
 <figcaption>Bar plot of monthly precipitation in mm.</figcaption>
 
 </figure>
@@ -1355,7 +1350,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes/2019-09-23-scientific-data-structures-python-03-run-calculations-summarize-pandas-dataframes_34_0.png" alt = "Bar plot showing mean precipitation values by season.">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds03-summarize-pandas-df/2019-09-23-ds03-summarize-pandas-df_34_0.png" alt = "Bar plot showing mean precipitation values by season.">
 <figcaption>Bar plot showing mean precipitation values by season.</figcaption>
 
 </figure>

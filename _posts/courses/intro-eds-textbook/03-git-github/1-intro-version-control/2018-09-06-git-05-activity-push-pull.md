@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
 nav-title: "Practice Git Skills"
 dateCreated: 2018-07-25
-modified: 2020-09-08
+modified: 2020-09-16
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 order: 5
@@ -86,13 +86,13 @@ or it returns nothing, you will need <a href="{{ site.url }}/courses/intro-to-ea
 
 * Use **Shell** to navigate to your forked repository (the `practice-git-skillz` directory).
 
-If you don't ave this repo locally - you can clone it using the following url: `https://github.com/your-user-name-here/practice-git-skillz` 
+If you don't have this repo locally - you can clone it using the following url: `https://github.com/your-user-name-here/practice-git-skillz` 
 
 * Launch Jupyter Notebook inside that directory. (If you are working on a JupyterHub you can skip this step!)
 * Open the `Jupyter Notebook` file in that directory(`homework-example.ipynb`) and make some changes to the file as follows:
 
   * Add a markdown cell to the notebook
-  * In the call add a **heading** and then some text below. 
+  * In the cell add a **heading** and then some text below. 
 
 ### STEP 2: Check the Status of Your Changed File
 
@@ -160,6 +160,6 @@ Congratulations! You've now successfully modified files in a **GitHub** repo and
 * Rename the Jupyter Notebook in your repository. Then add and commit the file.
 Push the renamed file up to Github. Then check that it's there by going to github.com!
 
-* Add a new file to the repo, commit the change and push it to github.com. Check. to see that it's there. 
+* Add a new file to the repo, commit the change and push it to github.com. Check to see that it's there. 
 * Use `git log` to view the history of changes that you've made.  
 </div>

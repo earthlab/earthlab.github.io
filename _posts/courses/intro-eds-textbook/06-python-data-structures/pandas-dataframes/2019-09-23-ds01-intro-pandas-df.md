@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/
 nav-title: "Pandas Dataframes Intro"
 dateCreated: 2019-09-06
-modified: 2020-09-11
+modified: 2020-09-15
 module-title: 'Work with Scientific Data Using Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'Pandas dataframes are a commonly used scientific data structure in Python that store tabular data using rows and columns with headers. Learn how to import data into pandas dataframes and how to run calculations, summarize, and select data from pandas dataframes.'
@@ -276,7 +276,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-01-intro-pandas-dataframes/2019-09-23-scientific-data-structures-python-01-intro-pandas-dataframes_5_1.png" alt = "Plot of monthly precipitation using pandas .plot()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_5_1.png" alt = "Plot of monthly precipitation using pandas .plot()">
 <figcaption>Plot of monthly precipitation using pandas .plot()</figcaption>
 
 </figure>
@@ -304,7 +304,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-scientific-data-structures-python/pandas-dataframes/2019-09-23-scientific-data-structures-python-01-intro-pandas-dataframes/2019-09-23-scientific-data-structures-python-01-intro-pandas-dataframes_7_0.png" alt = "Plot of monthly precipitation using matplotlib ax.plot()">
+<img src = "{{ site.url }}/images/courses/intro-eds-textbook/06-python-data-structures/pandas-dataframes/2019-09-23-ds01-intro-pandas-df/2019-09-23-ds01-intro-pandas-df_7_0.png" alt = "Plot of monthly precipitation using matplotlib ax.plot()">
 <figcaption>Plot of monthly precipitation using matplotlib ax.plot()</figcaption>
 
 </figure>
