@@ -46,7 +46,7 @@ You will also need a web browser and your `GitHub.com` login (username and passw
 </div>
 ## Step 1: Fork and Clone The GitHub Repo To Make a Copy That You Own
 
-To begin, fork the https://github.com/earthlab-education/ea-bootcamp-hometowns repository.
+To begin, fork the <a href="https://github.com/earthlab-education/ea-bootcamp-hometowns" target="_blank">Earth Lab Education Hometowns GitHub repository</a>.
 Remember that this step only needs to be done once. When you create this fork, you then have full ownership of the fork in your user account. Full ownership means that you can make direct changes to the fork without submitting a Pull Request.
 
 After you have forked the repo, clone it so that you have a copy locally to work with on your computer. 
