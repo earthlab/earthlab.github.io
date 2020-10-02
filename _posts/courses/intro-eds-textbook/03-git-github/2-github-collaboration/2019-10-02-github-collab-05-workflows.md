@@ -61,7 +61,7 @@ To begin, you look at the code and try it out for the project. You realize that
 there is a bug in the code where the output data that it processed isn't in the correct format. You know how to fix this issue but want the OK from your collaborators
 before you submit any change. 
 
-* Step 1. You submit and ISSUE to the repo that states the problem and how you proposed to fix it. You also MENTION two collaborators who will likely have feedback on your proposed change. 
+* Step 1. You <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/github-collaboration/github-issues-to-document-and-manage-repo-changes/">submit an ISSUE to the repo</a> that states the problem and how you proposed to fix it. You also MENTION two collaborators who will likely have feedback on your proposed change. 
 
 <i class="fa fa-star"></i> **Data Tip:** even if you didn't know how to fix the issue you could still submit and issue about the problem to simply notify your collaborators that this was a problem. 
 {: .notice--success}
@@ -69,16 +69,16 @@ before you submit any change.
 After you submit your issue, two of your collaborators respond. Both agree that this is a problem and one suggests a way that you could approach making the fix to the code base. 
 They suggest that you submit a PULL REQUEST to address the change to the code. 
 
-* **Step 2. Forka nd Clone:** Now that you have the OK from your collaborators to submit a change to the code, your work begins. You: FORK the repo into your account - making a copy of the repo that you own and can make changes to directly. You then CLONE the repo to your local computer so you can more easily work on the code. 
+* **Step 2. Fork and Clone:** Now that you have the OK from your collaborators to submit a change to the code, your work begins. <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/">You: FORK the repo into your account - making a copy of the repo that you own and can make changes to directly. You then CLONE the repo to your local computer so you can more easily work on the code.</a> 
 
 Your forked repo url is called:
 
 `https://github.com/your-user-name/spatial-data-project`
 
 
-* **Step 3: Modify the code locally on your computer**. As you are working locally, you add and commit changes to the code. Once you are happy with your changes. You use `git push` to push the changes back to your forked repo. 
+* **Step 3: Modify the code locally on your computer**. As you are working locally, you add and commit changes to the code. Once you are happy with your changes. You use <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/git-commands/">`git push` to push the changes back to your forked repo</a>. 
 
-* **Step 4: Submit a pull request:** When you are happy with the changes you've made, you can submit a Pull Request back to the main repo. IMPORTANT: in your pull request be sure to 1. mention the original issue where the changes were discussed and 2. to MENTION the collaborators who you want to review the PR. 
+* **Step 4: Submit a pull request:** When you are happy with the changes you've made, you can <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/github-collaboration/how-to-submit-pull-requests-on-github/">submit a Pull Request</a> back to the main repo. IMPORTANT: in your pull request be sure to 1. mention the original issue where the changes were discussed and 2. to MENTION the collaborators who you want to review the PR. 
 
 Remember that this pull request will be made to this main repo:
 
@@ -95,18 +95,15 @@ from your forked repo
 <i class="fa fa-star"></i> **Data Tip:** sometimes collaborators will make suggested changes to your code directly in the Pull Request. If that happens, you may need to accept those changes and then do a **Reverse Pull Request** to update your forked repo from the main repo. 
 {: .notice--success}
 
-* **Step 7: Submitting More Changes to your PR** After you have worked on the changes locally, you will follow the same git add, commit and push. steps that you followed to submit the original Pull Request. The big difference is that because you already have a PR open, any change that you make to your fork, will automatically be added to your open pull request! Thus, you do NOT need to submit a new pull request!
+* **Step 7: Add More Changes to your PR** After you have worked on the changes locally, you will follow the same git add, commit and push. steps that you followed to submit the original Pull Request. The big difference is that because you already have a PR open, any change that you make to your fork, will automatically be added to your open pull request! Thus, you do NOT need to submit a new pull request!
 
 Steps 6 and 7 may take a few rounds of iterations until everyone is happy with the changes. 
 
 * **Step 8: Your PR is Merged into the Main Repo:** After all of your hard work, your PR is accepted and approved! The owners of the **main-repo** will merge your Pull Request into the main code base!
 
-
 Once your code is merged, your work is done! 
 
 <i class="fa fa-star"></i> **Data Tip:** When you are working collaboratively on a repo using forks, it is important to always make sure that your fork is synced with the main repository. This means that you will want to submit a reverse Pull Request to update your fork, and then pull down those changes locally using `git pull`.
 {: .notice--success}
-
-
 
 
