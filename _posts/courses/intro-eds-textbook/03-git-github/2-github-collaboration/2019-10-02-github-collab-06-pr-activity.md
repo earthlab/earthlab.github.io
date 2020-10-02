@@ -25,7 +25,7 @@ redirect_from:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In this lesson, you will learn how to submit a pull request to suggest that your edits be included in another repository (e.g. the original repository from which you forked and cloned a repository). Specifcally, you will practice submitting a pull request for your updated `Jupyter Notebook` for Homework 1. 
+In this lesson, you will learn how to submit a pull request to suggest that your edits be included in another repository (e.g. the original repository from which you forked and cloned a repository).
 
 <div class='notice--success' markdown="1">
 
