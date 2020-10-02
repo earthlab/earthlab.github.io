@@ -101,7 +101,7 @@ A few include:
 * **Consider Your Tone as You Write**: Working with colleagues in a collaborative environment online can be tricky as you don't have the direct input of people's facial expressions and response to your comments that you may have in in-person or online meetings. As such, it's important to consider the tone of the issue as you write it. Rather than being critical and demanding fixes immediately, it is best to constructively point out what is not working and how it could be fixed or address challenges. If your input is well-received by the repo maintainers, it is more likely to be addressed more quickly.
 
 
-### Mention Specific People Using @github-username-here
+## Mention Specific People Using @github-username-here
 
 The last important note is that when possible, it is best to mention the collaborator
 that you wish to respond to your issue in the text. You can do that by using 
@@ -109,7 +109,7 @@ that you wish to respond to your issue in the text. You can do that by using
 to the issue that you submitted and is in turn more likely to be responded to.
 
 
-### Create a Pull Request to Address an Issue
+## Create a Pull Request to Address an Issue
 
 Once you have submitted you issue and the everyone who needs to approve
 the work has chimed in, you will likely be asked to submit a pull requestion.
@@ -124,4 +124,7 @@ of the beginning of an PR summary may look something like this:
 `@lwasser this pr addresses issue #125 ... more here about what the pr does`
 
 
+## Summary
 
+Now you know the fundamentals behind creating issues using GitHub. In the next 
+lesson you will see the larger picture of what a typical GitHub workflow looks like. 
