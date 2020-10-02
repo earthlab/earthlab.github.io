@@ -122,7 +122,7 @@ repo. Be sure to check that the changes you are submitted look correct in the Pu
 **Congratulations!** You know now know how to complete a workflow on GitHub.com that involves:
 
 1. forking a repo that you don't own,
-2. cloning. and making changes to the repo, 
+2. cloning and making changes to the repo, 
 3. pushing the changes back to your fork, and
 4. submitting a pull request
 

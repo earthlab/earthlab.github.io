@@ -8,10 +8,10 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
 nav-title: "Practice Git Skills"
 dateCreated: 2018-07-25
-modified: 2020-09-16
+modified: 2020-10-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
-order: 5
+order: 6
 week: 3
 sidebar:
   nav:
