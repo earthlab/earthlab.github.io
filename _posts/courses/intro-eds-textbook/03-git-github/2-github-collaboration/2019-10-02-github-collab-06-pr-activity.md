@@ -114,7 +114,7 @@ Your file will look something like this:
 
 ## Step 4:  Submit a Pull Request To the earthlab-education/ea-bootcamp-hometowns repo
 
-Once you have made the changes, add and commit those changes locally. Push those changes up to your fork. And finally, submit a pull request from your fork to this repository, with the following included in the message of your pull request: 
+Once you have made the changes, use `git add` and `git commit` to commit the changes locally. Use `git push` to push those changes up to your fork. And finally, submit a `pull request` from your fork to this repository, with the following included in the message of your pull request: 
 
 - notify the owner of the repository (your instructor) that you have addressed the issue using `@github-username`
 - reference the issue number using `Fixes #issue-number` (e.g. the issue number is above in the title of this issue) - If you are working online, you may not have an issue with your name on it! just submit the PR without mentioning an issue or a github user. 
@@ -128,6 +128,10 @@ determine the path to the repo that you are pushing to when you run `git push` l
 * Once you have made your changes, you can submit a Pull Request to the earthlab-education 
 repo. Be sure to check that the changes you are submitted look correct in the Pull Request before you consider your work, done!
 
+
+## CU Students Notes 
+If you are a student at CU, you will be adding files for two different cities! Be sure to follow
+the instructions carefully!
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pr.png">
