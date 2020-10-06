@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/practice-pull-requests/
 nav-title: "Activity: Fork & Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2020-10-02
+modified: 2020-10-06
 odule-type: 'class'
 class-order: 2
 course: "intro-to-earth-data-science-textbook"
@@ -44,6 +44,13 @@ Be sure that you have also completed the <a href="{{ site.url }}/courses/intro-t
 You will also need a web browser and your `GitHub.com` login (username and password). 
 
 </div>
+
+
+
+
+For this assignment, you will add a new **Jupyter Notebook file** that contains information about your hometown. 
+
+
 ## Step 1: Fork and Clone The GitHub Repo To Make a Copy That You Own
 
 To begin, fork the <a href="https://github.com/earthlab-education/ea-bootcamp-hometowns" target="_blank">Earth Lab Education Hometowns GitHub repository</a>.
@@ -55,13 +62,7 @@ After you have forked the repo, clone it so that you have a copy locally to work
 {: .notice--success}
 
 
-For this assignment, you will add a new **Jupyter Notebook file** that contains information about your hometown. 
-
-## Step 2:  Fork and Clone the Repo
-
-Create a fork of this repository and clone it locally so you can work on your computer.
-
-## Step 3:  Create a Jupyter Notebook For The Town that You Live In
+## Step 2:  Create a Jupyter Notebook For The Town that You Live In
 
 In the local clone, add a Jupyter Notebook called `city-state-or-country.ipynb` (e.g. houston-tx.ipynb) to a directory as follows:
 
@@ -78,7 +79,7 @@ In your jupyter notebook add the following three interesting facts about the tow
 
 If a file for your town already exists in this repo as a markdown file, you can add any other facts about your town to that file that you wish following the structure listed above! 
 
-## Step 4:  Create a CSV File For Your Town
+## Step 3:  Create a .csv File For Your Town
 
 Create a new csv file in the `0-csv-files/` directory using the `csv-file-template.csv` template file. Name the new csv: `country-city.csv`.  Fill our the information for each row in the csv file using the example table below as a template. You will add the following information to the file:
 
@@ -104,8 +105,7 @@ Your file will look something like this:
 | earthdatascience.org student | place i've lived | Australia | State | City | latitude-here | longitude-here | 
 
 
-## Step 4:  Submit a Pull Request
-
+## Step 4:  Submit a Pull Request To the earthlab-education/ea-bootcamp-hometowns repo
 
 Once you have made the changes, add and commit those changes locally. Push those changes up to your fork. And finally, submit a pull request from your fork to this repository, with the following included in the message of your pull request: 
 
