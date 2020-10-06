@@ -64,11 +64,17 @@ After you have forked the repo, clone it so that you have a copy locally to work
 
 ## Step 2:  Create a Jupyter Notebook For The Town that You Live In
 
-In the local clone, add a Jupyter Notebook called `city-state-or-country.ipynb` (e.g. houston-tx.ipynb) to a directory as follows:
+In the local clone, create and save a Jupyter Notebook called `city-state-or-country.ipynb`  (change the name to include the city, state and country - e.g. houston-tx.ipynb) to a directory with the path structure as follows:
 
-`country/state/city`
+```
+country/
+   state/
+      city/
+```
 
-If `state` doesn't make sense for you - you can simply use the  `country/city` directory structure.
+If `state` doesn't make sense for you - you can simply use the  `country/city` directory structure. 
+
+Your final file path will look like this: `ea-bootcamp-hometowns/country/state/city/houston-tx.ipynb`
 
 In your jupyter notebook add the following three interesting facts about the town that you live in using [Markdown](https://www.earthdatascience.org/courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/):
 
@@ -81,28 +87,29 @@ If a file for your town already exists in this repo as a markdown file, you can 
 
 ## Step 3:  Create a .csv File For Your Town
 
-Create a new csv file in the `0-csv-files/` directory using the `csv-file-template.csv` template file. Name the new csv: `country-city.csv`.  Fill our the information for each row in the csv file using the example table below as a template. You will add the following information to the file:
+Create a new csv file in the `0-csv-files/` directory using the `csv-file-template.csv` 
+template file. Name the new csv: `country-city.csv`. Fill out the information for each row in the **.csv** file using the example table below as a template. You will add the following information to the file:
 
 * Who - this represents who you are. the options include: 
 1. cu-student
 2. certificate-student and 
 3. earthdatascience.org student
-* type: the type of entry this is. the options include:
+* type: the type of entry this is. The options include:
 1. place i've lived
-2. where i live now
-3. where i want to live
+2. where I live now
+3. place I love
 
 * country: the country that you live in
-* State: the state that you live in
+* State: the state that you live in (or province, district, etc)
 * city: the name of the city that you live in
 * latitude: the latitude of the city center where you live
 * longitude: the longitude of the city center where you live
 
 Your file will look something like this:  
 
-| who (OPTIONS: cu-student; certificate-student; earthdatascience.org student, other) | type | country | state | city | latitude | longitude | 
+| who (OPTIONS: cu-student; certificate-student; earthdatascience.org student) | type | country | state | city | latitude | longitude | 
 |:---|:---|:---|---|---|---|---|
-| earthdatascience.org student | place i've lived | Australia | State | City | latitude-here | longitude-here | 
+| earthdatascience.org student | place i've lived | USA | State | City | latitude-here | longitude-here | 
 
 
 ## Step 4:  Submit a Pull Request To the earthlab-education/ea-bootcamp-hometowns repo
