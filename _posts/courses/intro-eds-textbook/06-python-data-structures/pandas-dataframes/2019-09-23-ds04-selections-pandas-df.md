@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-09-15
+modified: 2020-10-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -110,6 +110,11 @@ avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 # Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12710618
+
+
 
 {:.output}
 {:.execute_result}
@@ -990,7 +995,7 @@ In addition to location-based and label-based indexing, you can select or filter
 
 This will return all rows containing that value within the specified column. 
 
-If you are selecting data using a text string column, you need to provide the value within parentheses (e.g. `"text"`). 
+If you are selecting data using a text string column, you need to provide the value within quotations (e.g. `"text"`). 
 
 For example, you can select all rows that have a `seasons` value of `Summer`. 
 
