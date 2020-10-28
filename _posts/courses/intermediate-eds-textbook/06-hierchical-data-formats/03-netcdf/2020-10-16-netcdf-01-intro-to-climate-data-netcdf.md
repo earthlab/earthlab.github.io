@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate data and the NetCDF 4 Hiera
 excerpt: "In this lesson you will learn the basics of what CMIP and MACA v 2 data are. You will also learn about that netcdf 4 data format which is commonly used to store climate data."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-10-23
+modified: 2020-10-28
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-climate-data/
@@ -50,8 +50,18 @@ OPTIONAL: If you want to explore the netcdf 4 files in a graphics based tool, yo
 </div>
 
 ## What is netCDF data?
-NetCDF (network Common Data Form) is a hierarchical data format similar to hdf4 and hdf5. Given it’s hierarchical, it also is self-describing which means that metadata (descriptions of the data) are included in the file itself. The NetCDF format can store data with multiple dimensions and of different types and is thus highly flexible. NetCDF was developed and is supported by UCAR who maintains standards and software that support the use of this format. 
 
-## NetCDF 4 for Climate Data
-THe hierarchical and flexible nature of netcdf files allows a user to store data in whatever way they choose. This flexibility is nice, however it can be challenging when communities make different decisions about how and where they store data in a netcdf file. The netCDF 4 data model is a common standard used to store climate data. The netCDF 4 model assumes that the data are most often gridded (spatial and in raster format). Climate data further have an additional time dimension that needs to be stored in the data. So at a minimum you often have 3 dimensions in a climate data set: latitude and longitude (pixels) and then time (z). 
+NetCDF (network Common Data Form) is a hierarchical data format similar to hdf4 and hdf5. It is what’s known as a “self-describing” data structure which means that metadata (descriptions of the data) are included in the file itself and can be parsed programmatically (accessed using code) to build automated and reproducible workflows. The NetCDF format can store data with multiple dimensions. It can also store different types of data including arrays which can store geospatial imagery, rasters, terrain data, climate data, text which supports metadata and more making it highly flexible. NetCDF was developed and is supported by UCAR who maintains standards and software that support the use of this format. 
+
+### NetCDF 4 for Climate Data
+The hierarchical and flexible nature of netcdf files supports storing data in many different ways. This flexibility is nice, however, similar to challenges faced with hdf5 data formats, it can be challenging when communities make different decisions about how and where they store data in a netcdf file. The netCDF 4 data model is a common standard used broadly by the climate science community to store climate data. Climate data are:
+often delivered in a time series  format (months and years worth of historic or future projected data)
+spatial in nature covering regions such as the United States or even the world
+Driven by models which require documentation making the self describing aspect of netCDF files useful.
+
+The netCDF 4 model supports data stored in an array format. Arrays are used to store raster spatial data (terrain layers, gridded temperature data, etc) and also point based time series data (for example temperature for a single location over 10 years). Climate data typically have three dimensions:
+x and y representing latitude / longitude location for a  point or a grid cell location on the earth's surface
+Time
+
+The x/y locations often store a data value such as temperature, humidity, precipitation or wind direction. 
 
