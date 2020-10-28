@@ -4,7 +4,7 @@ title: "Introduction to the NetCDF 4 Data Format: Work With MACA v2 Climate Data
 excerpt: "Historic and projected climate data are most often stored in netcdf 4 format. Learn how to open and process MACA version 2 climate data for the Continental United States using the open source python package, xarray."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-10-23
+modified: 2020-10-28
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-netcdf4/
@@ -47,8 +47,6 @@ OPTIONAL: If you want to explore the netcdf 4 files in a graphics based tool, yo
 </div>
 
 
-
-
 {:.input}
 ```python
 import os
@@ -58,6 +56,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # netcdf4 needs to be installed in your environment for this to work
 import xarray as xr
+import rioxarray
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import seaborn as sns
@@ -70,7 +69,9 @@ sns.set_style("white")
 
 # Optional - set your working directory if you wish to use the data
 # accessed lower down in this notebook (the USA state boundary data)
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
 
 
@@ -521,13 +522,43 @@ Attributes:
     publisher_email:                 reacch@uidaho.edu
     publisher_url:                   http://www.reacchpna.org/
     license:                         Creative Commons CC0 1.0 Universal Dedic...
-    coordinate_system:               WGS84,EPSG:4326</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4e00c31c-6008-425f-a250-b01f086c8408' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4e00c31c-6008-425f-a250-b01f086c8408' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>crs</span>: 1</li><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>lon</span>: 1386</li><li><span class='xr-has-index'>time</span>: 672</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f5a67432-c132-49fe-9852-c5d8d16e6fda' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f5a67432-c132-49fe-9852-c5d8d16e6fda' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-691b4947-f33b-4139-8091-8aff24415baa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-691b4947-f33b-4139-8091-8aff24415baa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ffca3d89-efe1-4db6-9058-ddbd838a638d' class='xr-var-data-in' type='checkbox'><label for='data-ffca3d89-efe1-4db6-9058-ddbd838a638d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-ab4c0774-a8da-4e0f-b708-517e9058d297' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab4c0774-a8da-4e0f-b708-517e9058d297' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-734414d6-7db0-4318-b88f-5a1bdae43b13' class='xr-var-data-in' type='checkbox'><label for='data-734414d6-7db0-4318-b88f-5a1bdae43b13' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-61f4d74b-5613-41e2-8601-5e907688b699' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-61f4d74b-5613-41e2-8601-5e907688b699' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-acce6f5c-c5ee-490f-89ee-6cd5ddc8ebd2' class='xr-var-data-in' type='checkbox'><label for='data-acce6f5c-c5ee-490f-89ee-6cd5ddc8ebd2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
-       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 ... 2005-12-...</div><input id='attrs-545a10c4-1466-4012-9ffc-79b5d24f32fe' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-545a10c4-1466-4012-9ffc-79b5d24f32fe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a1a0fbdf-5094-4353-b6d8-16bebd5f1361' class='xr-var-data-in' type='checkbox'><label for='data-a1a0fbdf-5094-4353-b6d8-16bebd5f1361' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
+    coordinate_system:               WGS84,EPSG:4326</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-6ba5c707-40ba-4a20-a278-d5c23d90e91a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6ba5c707-40ba-4a20-a278-d5c23d90e91a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>crs</span>: 1</li><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>lon</span>: 1386</li><li><span class='xr-has-index'>time</span>: 672</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ffa17a2b-1b1c-4d30-b3d6-4d10c9e823e2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ffa17a2b-1b1c-4d30-b3d6-4d10c9e823e2' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-b930f24b-4822-45c0-b81c-7ff444e07382' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b930f24b-4822-45c0-b81c-7ff444e07382' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-081afb23-4d7e-418c-a402-f430a70b271d' class='xr-var-data-in' type='checkbox'><label for='data-081afb23-4d7e-418c-a402-f430a70b271d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-429714cb-3d7c-4041-950c-74de6b082497' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-429714cb-3d7c-4041-950c-74de6b082497' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e66dfd8-be4f-4827-9d2b-3579e5d4f518' class='xr-var-data-in' type='checkbox'><label for='data-3e66dfd8-be4f-4827-9d2b-3579e5d4f518' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-adb438d0-9d6d-4b13-b1e7-d8ed875820a1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-adb438d0-9d6d-4b13-b1e7-d8ed875820a1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a5c36501-65ac-4ada-b29e-17be005e84fb' class='xr-var-data-in' type='checkbox'><label for='data-a5c36501-65ac-4ada-b29e-17be005e84fb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
+       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 ... 2005-12-...</div><input id='attrs-5e00fc33-3b63-42bd-98c4-79d33a1251ea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5e00fc33-3b63-42bd-98c4-79d33a1251ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d103bc9f-b6d9-4842-a78f-a23008e6f5c1' class='xr-var-data-in' type='checkbox'><label for='data-d103bc9f-b6d9-4842-a78f-a23008e6f5c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(1950, 2, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(1950, 3, 15, 0, 0, 0, 0), ...,
        cftime.DatetimeNoLeap(2005, 10, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2005, 11, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(2005, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-85e74231-ae68-4948-94f8-321f6ee3e70e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-85e74231-ae68-4948-94f8-321f6ee3e70e' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_temperature</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e87b1ab2-f758-48e5-918f-ae883c62808e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e87b1ab2-f758-48e5-918f-ae883c62808e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ade99f91-9431-4e42-a08f-7d958ccdb2ff' class='xr-var-data-in' type='checkbox'><label for='data-ade99f91-9431-4e42-a08f-7d958ccdb2ff' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div><div class='xr-var-data'><pre>[544864320 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9c74397e-10f7-47aa-bfa9-9aa87093b0b6' class='xr-section-summary-in' type='checkbox'  ><label for='section-9c74397e-10f7-47aa-bfa9-9aa87093b0b6' class='xr-section-summary' >Attributes: <span>(46)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Multivariate Adaptive Constructed Analogs (MACA) method, version 2.3,Dec 2013.</dd><dt><span>id :</span></dt><dd>MACAv2-METDATA</dd><dt><span>naming_authority :</span></dt><dd>edu.uidaho.reacch</dd><dt><span>Metadata_Conventions :</span></dt><dd>Unidata Dataset Discovery v1.0</dd><dt><span>Metadata_Link :</span></dt><dd></dd><dt><span>cdm_data_type :</span></dt><dd>FLOAT</dd><dt><span>title :</span></dt><dd>Monthly aggregation of downscaled daily meteorological data of Monthly Average of Daily Maximum Near-Surface Air Temperature from College of Global Change and Earth System Science, Beijing Normal University (BNU-ESM) using the run r1i1p1 of the historical scenario.</dd><dt><span>summary :</span></dt><dd>This archive contains monthly downscaled meteorological and hydrological projections for the Conterminous United States at 1/24-deg resolution. These monthly values are obtained by aggregating the daily values obtained from the downscaling using the Multivariate Adaptive Constructed Analogs (MACA, Abatzoglou, 2012) statistical downscaling method with the METDATA (Abatzoglou,2013) training dataset. The downscaled meteorological variables are maximum/minimum temperature(tasmax/tasmin), maximum/minimum relative humidity (rhsmax/rhsmin),precipitation amount(pr), downward shortwave solar radiation(rsds), eastward wind(uas), northward wind(vas), and specific humidity(huss). The downscaling is based on the 365-day model outputs from different global climate models (GCMs) from Phase 5 of the Coupled Model Inter-comparison Project (CMIP3) utlizing the historical (1950-2005) and future RCP4.5/8.5(2006-2099) scenarios. </dd><dt><span>keywords :</span></dt><dd>monthly, precipitation, maximum temperature, minimum temperature, downward shortwave solar radiation, specific humidity, wind velocity, CMIP5, Gridded Meteorological Data</dd><dt><span>keywords_vocabulary :</span></dt><dd></dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF-1.0</dd><dt><span>history :</span></dt><dd>No revisions.</dd><dt><span>comment :</span></dt><dd></dd><dt><span>geospatial_bounds :</span></dt><dd>POLYGON((-124.7722 25.0631,-124.7722 49.3960, -67.0648 49.3960,-67.0648, 25.0631, -124.7722,25.0631))</dd><dt><span>geospatial_lat_min :</span></dt><dd>25.0631</dd><dt><span>geospatial_lat_max :</span></dt><dd>49.3960</dd><dt><span>geospatial_lon_min :</span></dt><dd>-124.7722</dd><dt><span>geospatial_lon_max :</span></dt><dd>-67.0648</dd><dt><span>geospatial_lat_units :</span></dt><dd>decimal degrees north</dd><dt><span>geospatial_lon_units :</span></dt><dd>decimal degrees east</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_resolution :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_positive :</span></dt><dd>up</dd><dt><span>time_coverage_start :</span></dt><dd>2000-01-01T00:0</dd><dt><span>time_coverage_end :</span></dt><dd>2004-12-31T00:00</dd><dt><span>time_coverage_duration :</span></dt><dd>P5Y</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1M</dd><dt><span>date_created :</span></dt><dd>2014-05-15</dd><dt><span>date_modified :</span></dt><dd>2014-05-15</dd><dt><span>date_issued :</span></dt><dd>2014-05-15</dd><dt><span>creator_name :</span></dt><dd>John Abatzoglou</dd><dt><span>creator_url :</span></dt><dd>http://maca.northwestknowledge.net</dd><dt><span>creator_email :</span></dt><dd>jabatzoglou@uidaho.edu</dd><dt><span>institution :</span></dt><dd>University of Idaho</dd><dt><span>processing_level :</span></dt><dd>GRID</dd><dt><span>project :</span></dt><dd></dd><dt><span>contributor_name :</span></dt><dd>Katherine C. Hegewisch</dd><dt><span>contributor_role :</span></dt><dd>Postdoctoral Fellow</dd><dt><span>publisher_name :</span></dt><dd>REACCH</dd><dt><span>publisher_email :</span></dt><dd>reacch@uidaho.edu</dd><dt><span>publisher_url :</span></dt><dd>http://www.reacchpna.org/</dd><dt><span>license :</span></dt><dd>Creative Commons CC0 1.0 Universal Dedication(http://creativecommons.org/publicdomain/zero/1.0/legalcode)</dd><dt><span>coordinate_system :</span></dt><dd>WGS84,EPSG:4326</dd></dl></div></li></ul></div></div>
+       cftime.DatetimeNoLeap(2005, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d7a73689-53b5-4f85-b369-871366f1bcd1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d7a73689-53b5-4f85-b369-871366f1bcd1' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_temperature</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-51d22a47-803b-4253-af29-4e24570acc53' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51d22a47-803b-4253-af29-4e24570acc53' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c46b5207-c2df-4203-abe0-d0aaa8749dfb' class='xr-var-data-in' type='checkbox'><label for='data-c46b5207-c2df-4203-abe0-d0aaa8749dfb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div><div class='xr-var-data'><pre>[544864320 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b00ce78a-9f57-475e-b398-44b9f6daef0f' class='xr-section-summary-in' type='checkbox'  ><label for='section-b00ce78a-9f57-475e-b398-44b9f6daef0f' class='xr-section-summary' >Attributes: <span>(46)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Multivariate Adaptive Constructed Analogs (MACA) method, version 2.3,Dec 2013.</dd><dt><span>id :</span></dt><dd>MACAv2-METDATA</dd><dt><span>naming_authority :</span></dt><dd>edu.uidaho.reacch</dd><dt><span>Metadata_Conventions :</span></dt><dd>Unidata Dataset Discovery v1.0</dd><dt><span>Metadata_Link :</span></dt><dd></dd><dt><span>cdm_data_type :</span></dt><dd>FLOAT</dd><dt><span>title :</span></dt><dd>Monthly aggregation of downscaled daily meteorological data of Monthly Average of Daily Maximum Near-Surface Air Temperature from College of Global Change and Earth System Science, Beijing Normal University (BNU-ESM) using the run r1i1p1 of the historical scenario.</dd><dt><span>summary :</span></dt><dd>This archive contains monthly downscaled meteorological and hydrological projections for the Conterminous United States at 1/24-deg resolution. These monthly values are obtained by aggregating the daily values obtained from the downscaling using the Multivariate Adaptive Constructed Analogs (MACA, Abatzoglou, 2012) statistical downscaling method with the METDATA (Abatzoglou,2013) training dataset. The downscaled meteorological variables are maximum/minimum temperature(tasmax/tasmin), maximum/minimum relative humidity (rhsmax/rhsmin),precipitation amount(pr), downward shortwave solar radiation(rsds), eastward wind(uas), northward wind(vas), and specific humidity(huss). The downscaling is based on the 365-day model outputs from different global climate models (GCMs) from Phase 5 of the Coupled Model Inter-comparison Project (CMIP3) utlizing the historical (1950-2005) and future RCP4.5/8.5(2006-2099) scenarios. </dd><dt><span>keywords :</span></dt><dd>monthly, precipitation, maximum temperature, minimum temperature, downward shortwave solar radiation, specific humidity, wind velocity, CMIP5, Gridded Meteorological Data</dd><dt><span>keywords_vocabulary :</span></dt><dd></dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF-1.0</dd><dt><span>history :</span></dt><dd>No revisions.</dd><dt><span>comment :</span></dt><dd></dd><dt><span>geospatial_bounds :</span></dt><dd>POLYGON((-124.7722 25.0631,-124.7722 49.3960, -67.0648 49.3960,-67.0648, 25.0631, -124.7722,25.0631))</dd><dt><span>geospatial_lat_min :</span></dt><dd>25.0631</dd><dt><span>geospatial_lat_max :</span></dt><dd>49.3960</dd><dt><span>geospatial_lon_min :</span></dt><dd>-124.7722</dd><dt><span>geospatial_lon_max :</span></dt><dd>-67.0648</dd><dt><span>geospatial_lat_units :</span></dt><dd>decimal degrees north</dd><dt><span>geospatial_lon_units :</span></dt><dd>decimal degrees east</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_resolution :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_positive :</span></dt><dd>up</dd><dt><span>time_coverage_start :</span></dt><dd>2000-01-01T00:0</dd><dt><span>time_coverage_end :</span></dt><dd>2004-12-31T00:00</dd><dt><span>time_coverage_duration :</span></dt><dd>P5Y</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1M</dd><dt><span>date_created :</span></dt><dd>2014-05-15</dd><dt><span>date_modified :</span></dt><dd>2014-05-15</dd><dt><span>date_issued :</span></dt><dd>2014-05-15</dd><dt><span>creator_name :</span></dt><dd>John Abatzoglou</dd><dt><span>creator_url :</span></dt><dd>http://maca.northwestknowledge.net</dd><dt><span>creator_email :</span></dt><dd>jabatzoglou@uidaho.edu</dd><dt><span>institution :</span></dt><dd>University of Idaho</dd><dt><span>processing_level :</span></dt><dd>GRID</dd><dt><span>project :</span></dt><dd></dd><dt><span>contributor_name :</span></dt><dd>Katherine C. Hegewisch</dd><dt><span>contributor_role :</span></dt><dd>Postdoctoral Fellow</dd><dt><span>publisher_name :</span></dt><dd>REACCH</dd><dt><span>publisher_email :</span></dt><dd>reacch@uidaho.edu</dd><dt><span>publisher_url :</span></dt><dd>http://www.reacchpna.org/</dd><dt><span>license :</span></dt><dd>Creative Commons CC0 1.0 Universal Dedication(http://creativecommons.org/publicdomain/zero/1.0/legalcode)</dd><dt><span>coordinate_system :</span></dt><dd>WGS84,EPSG:4326</dd></dl></div></li></ul></div></div>
+
+
+
+
+
+By default `xarray` does not handle spatial operations. However, if you 
+load `rioxarray` it adds additional spatial functionality (supported by 
+`rasterio` that supports handling:
+
+* coordinate reference systems
+* reprojection
+* clipping 
+
+and more. Below you grab the `coordinate reference system` of the 
+climate data using the `.rio.crs` method that is available
+because you have rioxarray loaded in this notebook.
+
+{:.input}
+```python
+# For later - grab the crs of the data using rioxarray
+climate_crs = max_temp_xr.rio.crs
+climate_crs
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    CRS.from_wkt('GEOGCS["undefined",DATUM["undefined",SPHEROID["undefined",6378137,298.257223563]],PRIMEM["undefined",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Longitude",EAST],AXIS["Latitude",NORTH]]')
 
 
 
@@ -1005,7 +1036,7 @@ Attributes:
     grid_mapping_name:            latitude_longitude
     longitude_of_prime_meridian:  0.0
     semi_major_axis:              6378137.0
-    inverse_flattening:           298.257223563</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'crs'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>crs</span>: 1</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e7394927-5a7b-493a-93b2-d4c8b1e18435' class='xr-array-in' type='checkbox' checked><label for='section-e7394927-5a7b-493a-93b2-d4c8b1e18435' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1</span></div><div class='xr-array-data'><pre>array([1], dtype=int32)</pre></div></div></li><li class='xr-section-item'><input id='section-b339083a-c473-4eea-95c2-ade06b861572' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b339083a-c473-4eea-95c2-ade06b861572' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-6bd63cb6-582e-497c-bcad-a6cee4347a04' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6bd63cb6-582e-497c-bcad-a6cee4347a04' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a5e368d2-6556-4174-9ffc-b870f4de8632' class='xr-var-data-in' type='checkbox'><label for='data-a5e368d2-6556-4174-9ffc-b870f4de8632' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6c20a53c-8b61-4b0d-8f41-f7272863e105' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6c20a53c-8b61-4b0d-8f41-f7272863e105' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div></li></ul></div></div>
+    inverse_flattening:           298.257223563</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'crs'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>crs</span>: 1</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e015fde8-5074-42d8-973d-00402ed5c53a' class='xr-array-in' type='checkbox' checked><label for='section-e015fde8-5074-42d8-973d-00402ed5c53a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1</span></div><div class='xr-array-data'><pre>array([1], dtype=int32)</pre></div></div></li><li class='xr-section-item'><input id='section-53c0ee6d-fed4-487f-ae27-2d64617778a5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-53c0ee6d-fed4-487f-ae27-2d64617778a5' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-928cc31b-5a96-4ec6-97e4-554dc1e6cf49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-928cc31b-5a96-4ec6-97e4-554dc1e6cf49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-98fb8083-38fe-441b-9614-eede4c183a87' class='xr-var-data-in' type='checkbox'><label for='data-98fb8083-38fe-441b-9614-eede4c183a87' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3220bce7-a4c9-4a1c-a928-797369b79955' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3220bce7-a4c9-4a1c-a928-797369b79955' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div></li></ul></div></div>
 
 
 
@@ -1014,7 +1045,7 @@ Attributes:
 ## Hierarchical Formats Are Self Describing
 
 Hierarchical data formats are self-describing. This means that the 
-metadata for the data are contained within the file itself. xarray 
+metadata for the data are contained within the file itself. `xarray` 
 stores metadata in the `.attrs` part of the file structure using a 
 Python dictionary structure. You can view the metadata using `.attrs`.
 
@@ -1101,11 +1132,11 @@ metadata["title"]
 
 ## Subsetting or "Slicing" Your Data
  
-You can quickly and effiiently slice and subset your data using 
+You can quickly and efficiently slice and subset your data using 
 `xarray`. Below, you will learn how to slice the data using the `.sel()` method.
 
 This will return exactly two data points at the location - the temperature 
-value for each day in your temporal slice
+value for each day in your temporal slice.
 
 {:.input}
 ```python
@@ -1117,7 +1148,7 @@ longitude = 243.01937866210938
 Below, you can see the x, y location that for the latitude/longitude
 location that you will use to slice the data above plotted on a map. 
 The code below is an example of creating a spatial plot using
-the `cartopy` package that shows the locatio nthat you selected. This step is optional!
+the `cartopy` package that shows the locatio nthat you selected. **This step is optional.**
 
 {:.input}
 ```python
@@ -1145,26 +1176,22 @@ plt.show()
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/cartopy/io/__init__.py:260: DownloadWarning: Downloading: https://naciscdn.org/naturalearth/50m/physical/ne_50m_land.zip
-      warnings.warn('Downloading: {}'.format(url), DownloadWarning)
-    /opt/conda/lib/python3.8/site-packages/cartopy/io/__init__.py:260: DownloadWarning: Downloading: https://naciscdn.org/naturalearth/50m/physical/ne_50m_coastline.zip
-      warnings.warn('Downloading: {}'.format(url), DownloadWarning)
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_21_1.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_22_0.png">
 
 </figure>
 
 
 
 
-Below you slice the data for one single latitude, longitude location.
+Now it is time to subset the data for the point location that 
+you are interested in (the lat / lon value that you plotted above). 
+You can slice the data for one single latitude, longitude location using
+the `.sel()` method.
+
 When you slice the data using one single point, your output for every 
 (monthly in this case) time step in the data will be a single pixel 
 value representing max temperature. 
@@ -1546,13 +1573,13 @@ Attributes:
     standard_name:  air_temperature
     height:         2 m
     cell_methods:   time: maximum(interval: 24 hours);mean over days
-    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 672</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-dbc0d1ce-fc80-4da3-b013-fa0e76bef9d6' class='xr-array-in' type='checkbox' checked><label for='section-dbc0d1ce-fc80-4da3-b013-fa0e76bef9d6' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>271.97137 275.29608 280.24808 ... 284.90097 278.2989 273.57516</span></div><div class='xr-array-data'><pre>array([271.97137, 275.29608, 280.24808, ..., 284.90097, 278.2989 , 273.57516],
-      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-2c3dba0a-604d-4837-b2f4-0c4804c0f824' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2c3dba0a-604d-4837-b2f4-0c4804c0f824' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>45.02</div><input id='attrs-30061b95-6ea1-4a5f-8643-ddb2452d63ab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30061b95-6ea1-4a5f-8643-ddb2452d63ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-41c0719d-0d32-4212-b57b-871bca00cbae' class='xr-var-data-in' type='checkbox'><label for='data-41c0719d-0d32-4212-b57b-871bca00cbae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(45.02109146)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>243.0</div><input id='attrs-de7cc610-39b5-4b65-8a76-5c0631ff3f97' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-de7cc610-39b5-4b65-8a76-5c0631ff3f97' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-522b8152-5b3b-4009-bca9-f942e4c6eeea' class='xr-var-data-in' type='checkbox'><label for='data-522b8152-5b3b-4009-bca9-f942e4c6eeea' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array(243.01937866)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 ... 2005-12-...</div><input id='attrs-54c5e072-2e6f-4f92-baae-ae3ba4b4e1af' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54c5e072-2e6f-4f92-baae-ae3ba4b4e1af' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-74ca1b93-c0b4-470b-abb3-7b7f70eeda5b' class='xr-var-data-in' type='checkbox'><label for='data-74ca1b93-c0b4-470b-abb3-7b7f70eeda5b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
+    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 672</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-6264bfe8-2368-4fb9-835c-ae8d9d2293ce' class='xr-array-in' type='checkbox' checked><label for='section-6264bfe8-2368-4fb9-835c-ae8d9d2293ce' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>271.97137 275.29608 280.24808 ... 284.90097 278.2989 273.57516</span></div><div class='xr-array-data'><pre>array([271.97137, 275.29608, 280.24808, ..., 284.90097, 278.2989 , 273.57516],
+      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-cc5250c8-5ba8-45ff-bd55-5c976103ad99' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cc5250c8-5ba8-45ff-bd55-5c976103ad99' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>45.02</div><input id='attrs-d9b134c2-6f27-4af5-bee2-ecb2c0c3fb1a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d9b134c2-6f27-4af5-bee2-ecb2c0c3fb1a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8467195e-7d2a-4022-9322-c6a56f504bf6' class='xr-var-data-in' type='checkbox'><label for='data-8467195e-7d2a-4022-9322-c6a56f504bf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(45.02109146)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>243.0</div><input id='attrs-175db33b-6be9-47ad-be3f-bed3d742546d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-175db33b-6be9-47ad-be3f-bed3d742546d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8e9b08e4-4f71-4128-a9c5-c2289e75baec' class='xr-var-data-in' type='checkbox'><label for='data-8e9b08e4-4f71-4128-a9c5-c2289e75baec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array(243.01937866)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 ... 2005-12-...</div><input id='attrs-b25e92ad-2ecf-410c-b900-507d13199839' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b25e92ad-2ecf-410c-b900-507d13199839' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-530f6b41-190d-4ecb-bde5-4f941e8fac54' class='xr-var-data-in' type='checkbox'><label for='data-530f6b41-190d-4ecb-bde5-4f941e8fac54' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(1950, 2, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(1950, 3, 15, 0, 0, 0, 0), ...,
        cftime.DatetimeNoLeap(2005, 10, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2005, 11, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(2005, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-51541cdb-9b3a-4e2a-8d08-e0ac01921bb0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-51541cdb-9b3a-4e2a-8d08-e0ac01921bb0' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
+       cftime.DatetimeNoLeap(2005, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cea56b25-8c3a-4010-af81-2180100a71ec' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cea56b25-8c3a-4010-af81-2180100a71ec' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
 
 
 
@@ -1619,7 +1646,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_29_0.png" alt = "Standard plot output from xarray .plot() with no plot elements customized. You can make this plot look much nicer by customizing the line and point markers and colors.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_30_0.png" alt = "Standard plot output from xarray .plot() with no plot elements customized. You can make this plot look much nicer by customizing the line and point markers and colors.">
 <figcaption>Standard plot output from xarray .plot() with no plot elements customized. You can make this plot look much nicer by customizing the line and point markers and colors.</figcaption>
 
 </figure>
@@ -1654,7 +1681,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_31_0.png" alt = "Plot showing historic max temperature climate data plotted using xarray .plot().">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_32_0.png" alt = "Plot showing historic max temperature climate data plotted using xarray .plot().">
 <figcaption>Plot showing historic max temperature climate data plotted using xarray .plot().</figcaption>
 
 </figure>
@@ -1663,7 +1690,7 @@ plt.show()
 
 
 ### Convert Climate Time Series Data to a Pandas DataFrame & Export to a .csv File
-You can quickly convert your data to a `DataFrame` and export to 
+You can convert your data to a `DataFrame` and export to 
 a `.csv` file using `to_dataframe()` and `to_csv()`. 
 
 {:.input}
@@ -1746,6 +1773,9 @@ one_point_df.head()
 
 
 
+
+Once you have a dataframe object, you can export it
+directly to a `.csv` file format.
 
 {:.input}
 ```python
@@ -2153,7 +2183,7 @@ Attributes:
     standard_name:  air_temperature
     height:         2 m
     cell_methods:   time: maximum(interval: 24 hours);mean over days
-    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 60</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-d3fa4456-2c5a-4817-a26b-e0fa0307264e' class='xr-array-in' type='checkbox' checked><label for='section-d3fa4456-2c5a-4817-a26b-e0fa0307264e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>273.74884 277.1434 280.0702 280.6042 ... 289.60886 277.12424 275.7836</span></div><div class='xr-array-data'><pre>array([273.74884, 277.1434 , 280.0702 , 280.6042 , 289.23993, 290.86853,
+    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 60</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-bf7b383b-8649-4f4e-b99f-d8bcaf47540b' class='xr-array-in' type='checkbox' checked><label for='section-bf7b383b-8649-4f4e-b99f-d8bcaf47540b' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>273.74884 277.1434 280.0702 280.6042 ... 289.60886 277.12424 275.7836</span></div><div class='xr-array-data'><pre>array([273.74884, 277.1434 , 280.0702 , 280.6042 , 289.23993, 290.86853,
        297.70242, 301.36722, 296.4382 , 291.29434, 275.8434 , 273.0037 ,
        275.154  , 278.77863, 282.29105, 283.87787, 290.53387, 296.701  ,
        297.4607 , 301.16116, 295.5421 , 287.3863 , 276.85397, 274.35953,
@@ -2163,7 +2193,7 @@ Attributes:
        301.09534, 302.7656 , 294.99573, 287.5425 , 277.80093, 273.25894,
        274.09232, 276.94736, 280.25446, 283.47614, 289.63776, 290.5187 ,
        301.8519 , 300.40402, 290.73633, 289.60886, 277.12424, 275.7836 ],
-      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-4140656b-d4e3-426e-b4f0-20e4c93a34f6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4140656b-d4e3-426e-b4f0-20e4c93a34f6' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>45.02</div><input id='attrs-b4eb00a0-df4b-4699-8b2e-e34902a4049e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b4eb00a0-df4b-4699-8b2e-e34902a4049e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8525e4b3-d21b-4852-985b-537d27b7b855' class='xr-var-data-in' type='checkbox'><label for='data-8525e4b3-d21b-4852-985b-537d27b7b855' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(45.02109146)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>243.0</div><input id='attrs-8e63fb01-9be8-4db5-a963-62e0c0ab3f9e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8e63fb01-9be8-4db5-a963-62e0c0ab3f9e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78e1ffbb-ea7d-48e0-8fb4-5406f717b09e' class='xr-var-data-in' type='checkbox'><label for='data-78e1ffbb-ea7d-48e0-8fb4-5406f717b09e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array(243.01937866)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2000-01-15 00:00:00 ... 2004-12-...</div><input id='attrs-00464326-ec14-4e91-b1da-a4b1ef305fc8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-00464326-ec14-4e91-b1da-a4b1ef305fc8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2cebd350-3fd6-4d36-b47d-4ec065b168c2' class='xr-var-data-in' type='checkbox'><label for='data-2cebd350-3fd6-4d36-b47d-4ec065b168c2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2000, 1, 15, 0, 0, 0, 0),
+      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-8a983f4c-40f3-4a95-b7f9-2998c8abdc7d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8a983f4c-40f3-4a95-b7f9-2998c8abdc7d' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>45.02</div><input id='attrs-d4efe2d9-baa0-403d-a72b-0d3c1682a79c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d4efe2d9-baa0-403d-a72b-0d3c1682a79c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca8cbafa-c0f2-401f-b26d-4ac80f6bc0dd' class='xr-var-data-in' type='checkbox'><label for='data-ca8cbafa-c0f2-401f-b26d-4ac80f6bc0dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(45.02109146)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>243.0</div><input id='attrs-590bf2ba-0bde-4152-93e2-a37b6ea6a45b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-590bf2ba-0bde-4152-93e2-a37b6ea6a45b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a58e2a83-e2a0-425a-b430-1f0e772415f2' class='xr-var-data-in' type='checkbox'><label for='data-a58e2a83-e2a0-425a-b430-1f0e772415f2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array(243.01937866)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2000-01-15 00:00:00 ... 2004-12-...</div><input id='attrs-ae26da02-b228-42c4-975e-ef07fa962c57' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae26da02-b228-42c4-975e-ef07fa962c57' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b9c3b0e7-9088-4d3a-8ff7-33e36534845c' class='xr-var-data-in' type='checkbox'><label for='data-b9c3b0e7-9088-4d3a-8ff7-33e36534845c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2000, 1, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2000, 2, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2000, 3, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2000, 4, 15, 0, 0, 0, 0),
@@ -2222,7 +2252,7 @@ Attributes:
        cftime.DatetimeNoLeap(2004, 9, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2004, 10, 15, 0, 0, 0, 0),
        cftime.DatetimeNoLeap(2004, 11, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(2004, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9438c093-9da0-4e64-a729-349831f517b2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9438c093-9da0-4e64-a729-349831f517b2' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
+       cftime.DatetimeNoLeap(2004, 12, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-287c4750-57a1-4014-87ca-386871dcac44' class='xr-section-summary-in' type='checkbox'  checked><label for='section-287c4750-57a1-4014-87ca-386871dcac44' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
 
 
 
@@ -2293,7 +2323,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_40_0.png" alt = "Plot showing 5 years of monthly max temperature data. Here the data are cleaned up a bit with marker colors and lines adjusted.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_42_0.png" alt = "Plot showing 5 years of monthly max temperature data. Here the data are cleaned up a bit with marker colors and lines adjusted.">
 <figcaption>Plot showing 5 years of monthly max temperature data. Here the data are cleaned up a bit with marker colors and lines adjusted.</figcaption>
 
 </figure>
@@ -2301,9 +2331,9 @@ plt.show()
 
 
 
-## Convert Subsetted MACA v2 Data to a DataFrame & Export to .Csv File
+## Convert Subsetted to a DataFrame & Export to a .csv File
 
-You can also convert your data to a DataFrame. Once your data are in a 
+Similar to what you did above, you can also convert your data to a DataFrame. Once your data are in a 
 DataFrame format, you can quickly export a `.csv` file.
 
 {:.input}
@@ -2806,9 +2836,9 @@ Attributes:
     standard_name:  air_temperature
     height:         2 m
     cell_methods:   time: maximum(interval: 24 hours);mean over days
-    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 2</li><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>lon</span>: 1386</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-0f479be4-88c4-45b5-92e9-0f43b5a4280d' class='xr-array-in' type='checkbox' checked><label for='section-0f479be4-88c4-45b5-92e9-0f43b5a4280d' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[1621620 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-5c9fd032-49e4-4739-863b-af1911998dec' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5c9fd032-49e4-4739-863b-af1911998dec' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-5a418d0f-3f33-4002-88d0-a35a929457e4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5a418d0f-3f33-4002-88d0-a35a929457e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d9957830-220a-499b-99f6-f41134d5d741' class='xr-var-data-in' type='checkbox'><label for='data-d9957830-220a-499b-99f6-f41134d5d741' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-33252008-1c82-4d90-b081-75b961230fe3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-33252008-1c82-4d90-b081-75b961230fe3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b2d1b404-81c9-4e0b-adc5-69a3962d9a4c' class='xr-var-data-in' type='checkbox'><label for='data-b2d1b404-81c9-4e0b-adc5-69a3962d9a4c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
-       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 1950-02-15 0...</div><input id='attrs-e9b27c58-b1a1-4613-b37c-87339ae9530d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e9b27c58-b1a1-4613-b37c-87339ae9530d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4947a7c4-c9b1-4439-b579-2492787267b0' class='xr-var-data-in' type='checkbox'><label for='data-4947a7c4-c9b1-4439-b579-2492787267b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(1950, 2, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-06b137e9-eb33-42af-9878-1629f01bce5d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-06b137e9-eb33-42af-9878-1629f01bce5d' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
+    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 2</li><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>lon</span>: 1386</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5a052f25-f181-4fd3-9d8c-b95cf869c5d3' class='xr-array-in' type='checkbox' checked><label for='section-5a052f25-f181-4fd3-9d8c-b95cf869c5d3' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[1621620 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-68de7df6-c77a-4519-b857-ef7ec3d8982b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-68de7df6-c77a-4519-b857-ef7ec3d8982b' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-6f57cc61-b7b3-499d-9481-9ecb221d16b0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6f57cc61-b7b3-499d-9481-9ecb221d16b0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7877a58e-99b2-42fe-b9cd-4f9e4e1b111a' class='xr-var-data-in' type='checkbox'><label for='data-7877a58e-99b2-42fe-b9cd-4f9e4e1b111a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-f55a7cea-ab54-4d01-be89-7cf5be59547e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f55a7cea-ab54-4d01-be89-7cf5be59547e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2c1b93eb-4569-4c19-bfae-783332a62d74' class='xr-var-data-in' type='checkbox'><label for='data-2c1b93eb-4569-4c19-bfae-783332a62d74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
+       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-01-15 00:00:00 1950-02-15 0...</div><input id='attrs-0251537c-2cdc-48f0-ac72-563e031e2498' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0251537c-2cdc-48f0-ac72-563e031e2498' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9931787a-83b5-47fb-b61e-3a4cc4ab2944' class='xr-var-data-in' type='checkbox'><label for='data-9931787a-83b5-47fb-b61e-3a4cc4ab2944' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 1, 15, 0, 0, 0, 0),
+       cftime.DatetimeNoLeap(1950, 2, 15, 0, 0, 0, 0)], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ca2eca4f-e71c-4d3e-b6ff-ed312af54f73' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ca2eca4f-e71c-4d3e-b6ff-ed312af54f73' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
 
 
 
@@ -2849,7 +2879,7 @@ two_months_conus.shape
 
 
 
-When you call `.plot()` on the data, the d efault plot is a 
+When you call `.plot()` on the data, the default plot is a 
 histogram representing the range of raster pixel values in your data 
 for all time periods (2 months in this case). 
 
@@ -2865,7 +2895,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_51_0.png" alt = "The default output of .plot() when you have more than a single point location selected will be a histogram. Here the histogram represents the spread of raster data values in the 2 months of modeled historical data.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_53_0.png" alt = "The default output of .plot() when you have more than a single point location selected will be a histogram. Here the histogram represents the spread of raster data values in the 2 months of modeled historical data.">
 <figcaption>The default output of .plot() when you have more than a single point location selected will be a histogram. Here the histogram represents the spread of raster data values in the 2 months of modeled historical data.</figcaption>
 
 </figure>
@@ -2902,7 +2932,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_53_0.png" alt = "Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 1, then you end up with one column and two rows of subplots.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_55_0.png" alt = "Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 1, then you end up with one column and two rows of subplots.">
 <figcaption>Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 1, then you end up with one column and two rows of subplots.</figcaption>
 
 </figure>
@@ -2928,7 +2958,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_55_0.png" alt = "Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 2, then you end up with two columns.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_57_0.png" alt = "Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 2, then you end up with two columns.">
 <figcaption>Plot showing two months of the historic max temperature climate data plotted using xarray .plot(). If you set col_wrap to 2, then you end up with two columns.</figcaption>
 
 </figure>
@@ -2966,7 +2996,7 @@ for ax in p.axes.flat:
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/xarray/plot/facetgrid.py:373: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /Users/leahwasser/opt/miniconda3/envs/earth-analytics-python/lib/python3.8/site-packages/xarray/plot/facetgrid.py:373: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
       self.fig.tight_layout()
 
 
@@ -2976,7 +3006,7 @@ for ax in p.axes.flat:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_58_1.png" alt = "Map showing air temperature data on a map using the PlateCarree CRS for two months.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_60_1.png" alt = "Map showing air temperature data on a map using the PlateCarree CRS for two months.">
 <figcaption>Map showing air temperature data on a map using the PlateCarree CRS for two months.</figcaption>
 
 </figure>
@@ -2985,10 +3015,542 @@ for ax in p.axes.flat:
 
 
 
+## Export Raster to Geotiff File 
+
+In the above workflows you converted your data into a DataFrame and exported
+it to a .csv file. This approach works well if you only need the summary values
+and don't need any spatial information. However sometimes you may need to 
+export spatial raster files.
+
+You can export your data to a geotiff file format using rioxarray. 
+To do this you will need to:
+
+1. ensure that your xarray object has a crs defined and define it if it's missing.
+2. call xarray to export your data
+
+Notice below that your two month subset no long contains CRS information.
+
+
+{:.input}
+```python
+# The data no longer have a crs -
+two_months_conus.rio.crs
+```
+
+At the very beginning of this lesson, you saved the crs information 
+from the original xarray object. You can use that to export your geotiff data
+below.
+
+{:.input}
+```python
+# Set the crs of your subsetted xarray object
+two_months_conus.rio.set_crs(climate_crs)
+two_months_conus.rio.crs
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    CRS.from_wkt('GEOGCS["undefined",DATUM["undefined",SPHEROID["undefined",6378137,298.257223563]],PRIMEM["undefined",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Longitude",EAST],AXIS["Latitude",NORTH]]')
+
+
+
+
+
+Once the crs is set, you can export to a geotiff file format.
+
+{:.input}
+```python
+# Export to geotiff
+two_months_conus.rio.to_raster('test.tif')
+```
+
+Now test our your data. Reimport it using `xarray.open_rasterio`.
+
+{:.input}
+```python
+# Open the data up as a geotiff
+two_months_tiff = xr.open_rasterio('test.tif')
+two_months_tiff
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (band: 2, y: 585, x: 1386)&gt;
+[1621620 values with dtype=float32]
+Coordinates:
+  * band     (band) int64 1 2
+  * y        (y) float64 25.06 25.1 25.15 25.19 25.23 ... 49.27 49.31 49.35 49.4
+  * x        (x) float64 235.2 235.3 235.3 235.4 ... 292.8 292.9 292.9 292.9
+Attributes:
+    transform:      (0.04166599094652527, 0.0, 235.207011242808, 0.0, 0.04166...
+    crs:            +proj=longlat +ellps=WGS84 +no_defs=True
+    res:            (0.04166599094652527, -0.04166600148971766)
+    is_tiled:       0
+    nodatavals:     (-9999.0, -9999.0)
+    scales:         (1.0, 1.0)
+    offsets:        (0.0, 0.0)
+    descriptions:   (&#x27;Monthly Average of Daily Maximum Near-Surface Air Tempe...
+    AREA_OR_POINT:  Area
+    cell_methods:   time: maximum(interval: 24 hours);mean over days
+    grid_mapping:   crs
+    height:         2 m
+    long_name:      Monthly Average of Daily Maximum Near-Surface Air Tempera...
+    standard_name:  air_temperature
+    units:          K
+    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 2</li><li><span class='xr-has-index'>y</span>: 585</li><li><span class='xr-has-index'>x</span>: 1386</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-0e04d025-67ae-4af2-968f-7df081762ebd' class='xr-array-in' type='checkbox' checked><label for='section-0e04d025-67ae-4af2-968f-7df081762ebd' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[1621620 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-c246b1f4-295e-415e-bf26-0dedc67d0a27' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c246b1f4-295e-415e-bf26-0dedc67d0a27' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2</div><input id='attrs-d9d8b0c4-0057-49b8-bb4c-e59c529c3271' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d9d8b0c4-0057-49b8-bb4c-e59c529c3271' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9a4f732a-7ad1-443a-980b-5140c7812075' class='xr-var-data-in' type='checkbox'><label for='data-9a4f732a-7ad1-443a-980b-5140c7812075' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-07ab7cd0-8c77-4616-8323-346d8ee0f2ab' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-07ab7cd0-8c77-4616-8323-346d8ee0f2ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ec5abe9-cdb2-408d-b1e8-5d5b0ff83833' class='xr-var-data-in' type='checkbox'><label for='data-7ec5abe9-cdb2-408d-b1e8-5d5b0ff83833' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354357, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-f5b2652d-aae6-4152-8db6-c694340e005e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f5b2652d-aae6-4152-8db6-c694340e005e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-edf88e91-b62b-4996-a29d-ad18ee9a9649' class='xr-var-data-in' type='checkbox'><label for='data-edf88e91-b62b-4996-a29d-ad18ee9a9649' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.26951 , 235.311176, ..., 292.85191 , 292.893576,
+       292.935242])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-34675f58-c6ec-4295-95b7-e65f44c47a6b' class='xr-section-summary-in' type='checkbox'  ><label for='section-34675f58-c6ec-4295-95b7-e65f44c47a6b' class='xr-section-summary' >Attributes: <span>(16)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>transform :</span></dt><dd>(0.04166599094652527, 0.0, 235.207011242808, 0.0, 0.04166600148971766, 25.042244925890884)</dd><dt><span>crs :</span></dt><dd>+proj=longlat +ellps=WGS84 +no_defs=True</dd><dt><span>res :</span></dt><dd>(0.04166599094652527, -0.04166600148971766)</dd><dt><span>is_tiled :</span></dt><dd>0</dd><dt><span>nodatavals :</span></dt><dd>(-9999.0, -9999.0)</dd><dt><span>scales :</span></dt><dd>(1.0, 1.0)</dd><dt><span>offsets :</span></dt><dd>(0.0, 0.0)</dd><dt><span>descriptions :</span></dt><dd>(&#x27;Monthly Average of Daily Maximum Near-Surface Air Temperature&#x27;, &#x27;Monthly Average of Daily Maximum Near-Surface Air Temperature&#x27;)</dd><dt><span>AREA_OR_POINT :</span></dt><dd>Area</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
+
+
+
+
+
+Plot the data. Do you notice anything about the values 
+in the histogram below?
+
+{:.input}
+```python
+two_months_tiff.plot()
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_71_0.png" alt = "Histogram showing temperature values for the Continental United States. What do you notice about the range of values?">
+<figcaption>Histogram showing temperature values for the Continental United States. What do you notice about the range of values?</figcaption>
+
+</figure>
+
+
+
+
+{:.input}
+```python
+# Plot the data - this doesn't look right!
+two_months_tiff.plot(col="band")
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_72_0.png" alt = "Plot showing unmasked temperature data (containing nodata values) for the Continental United States.">
+<figcaption>Plot showing unmasked temperature data (containing nodata values) for the Continental United States.</figcaption>
+
+</figure>
+
+
+
+
+The data above are plotting oddly because there are no data 
+values in your array. You can mask those values using `xarray.where()`.
+
+{:.input}
+```python
+two_months_tiff.rio.nodata
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    -9999.0
+
+
+
+
+
+Below you use `.where()` to mask all values in your data that are 
+equal to `-9999`, the nodata value for this data.
+
+{:.input}
+```python
+# Remove no data values and try to plot again
+two_months_tiff = xr.open_rasterio('test.tif')
+two_months_clean = two_months_tiff.where(
+    two_months_tiff != two_months_tiff.rio.nodata)
+
+two_months_clean.plot(col="band")
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-02-intro-to-netcdf-climate-data/2020-10-16-netcdf-02-intro-to-netcdf-climate-data_76_0.png" alt = "Plot showing masked temperature data for the Continental United States.">
+<figcaption>Plot showing masked temperature data for the Continental United States.</figcaption>
+
+</figure>
+
+
+
+
 Above you learned how to begin to work with NETCDF4 format files containing 
 climate focused data. You learned how to open and subset the data by time and location.
 In the next lesson you will learn how to implement more complex spatial subsets of your data.
-
 
 
 
