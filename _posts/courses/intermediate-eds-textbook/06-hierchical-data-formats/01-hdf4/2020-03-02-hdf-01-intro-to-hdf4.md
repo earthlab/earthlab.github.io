@@ -4,7 +4,7 @@ title: "Introduction to the HDF4 Data Format"
 excerpt: "MODIS is remote sensing data that is stored in the HDF4 file format. Learn how to view and explore HDF4 files (and their metadata) using the free HDF viewer provided by the HDF group."
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2020-03-01
-modified: 2020-09-11
+modified: 2020-10-16
 category: [courses]
 class-lesson: ['hdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/
