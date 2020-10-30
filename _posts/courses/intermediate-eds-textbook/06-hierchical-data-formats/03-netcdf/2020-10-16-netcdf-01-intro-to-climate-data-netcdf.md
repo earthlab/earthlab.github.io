@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate data and the NetCDF 4 Hiera
 excerpt: "In this lesson you will learn the basics of what CMIP and MACA v 2 data are. You will also learn about that netcdf 4 data format which is commonly used to store climate data."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-10-28
+modified: 2020-10-30
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-climate-data/
