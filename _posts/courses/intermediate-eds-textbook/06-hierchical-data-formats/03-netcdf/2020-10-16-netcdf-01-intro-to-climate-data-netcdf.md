@@ -8,7 +8,7 @@ modified: 2020-10-31
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-climate-data/
-nav-title: 'Intro to netcdf4"
+nav-title: 'Intro to netcdf4'
 module-title: 'Introduction to the netcdf 4 File Format in Python'
 module-description: 'Learn how to work with MACA v2 climate data stored in netcdf 4 format using open source Python and the xarray package.'
 module-nav-title: 'NETCDF'
