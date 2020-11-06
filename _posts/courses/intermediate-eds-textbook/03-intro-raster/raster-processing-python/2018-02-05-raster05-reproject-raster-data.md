@@ -4,7 +4,7 @@ title: "Reproject Raster Data Python"
 excerpt: "Sometimes you will work with multiple rasters that are not in the same projections, and thus, need to reproject the rasters, so they are in the same coordinate reference system. Learn how to reproject raster data in Python using Rasterio."
 authors: ['Leah Wasser', 'Nathan Korinek', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-09-11
+modified: 2020-11-06
 category: ['courses']
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/reproject-raster/
@@ -111,8 +111,8 @@ print(lidar_dem2.meta)
 ```
 
 {:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
-           0.0, -1.3063652820086313, 4876690.453258085)}
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820081675, 0.0, -11725101.307458913,
+           0.0, -1.3063652820081675, 4876690.453258085)}
 
 
 
@@ -174,7 +174,7 @@ lidar_dem3.close()
 ```
 
 {:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
-           0.0, -1.3063652820086313, 4876690.453258085)}
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820081675, 0.0, -11725101.307458913,
+           0.0, -1.3063652820081675, 4876690.453258085)}
 
 

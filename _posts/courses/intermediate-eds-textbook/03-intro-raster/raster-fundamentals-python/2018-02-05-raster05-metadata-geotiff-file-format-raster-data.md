@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-11-05
+modified: 2020-11-06
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -119,6 +119,9 @@ pre_lidar_dem.rio.bounds()
 
 
 
+<i class = "fa fa-star"></i> **Data Tip:** Rioxarray wraps around much of the rasterio functionality. Read more about attributes associated with rasterio objects and how they map to gdal objects.
+{: .notice--success }
+
 You can view spatial attibutes associated with the raster file too. Below you explore viewing a general list of attributes and then specific attributes including number of bands and horizontal (x, y) resolution.
 
 {:.input}
@@ -162,29 +165,24 @@ pre_lidar_dem.rio.resolution()
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class = "fa fa-star"></i> **Data Tip:** Rioxarray wraps around much of the rasterio functionality. Read more about attributes associated with rasterio objects and how they map to gdal objects.
-{: .notice--success }
-
 The information returned from the various attributes called above includes:
 
 * x and y resolution
 * projection
 * data format (in this case your data are stored in float format which means they contain decimals)
 
-and more.
-
-You can also extract or view individual metadata attributes.
+and more. You can also extract or view individual metadata attributes.
 </div>
 
 {:.input}
 ```python
-print(pre_lidar_dem.rio.crs)
-print(pre_lidar_dem.rio.bounds())
+print("The CRS of this data is: ", pre_lidar_dem.rio.crs)
+print("The spatial extent of this data is: ",pre_lidar_dem.rio.bounds())
 ```
 
 {:.output}
-    EPSG:32613
-    (472000.0, 4434000.0, 476000.0, 4436000.0)
+    The CRS of this data is:  EPSG:32613
+    The spatial extent of this data is:  (472000.0, 4434000.0, 476000.0, 4436000.0)
 
 
 

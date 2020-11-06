@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python and Xarray"
 excerpt: "Raster data are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser']
 dateCreated: 2020-11-05
-modified: 2020-11-05
+modified: 2020-11-06
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python-xarray/
@@ -109,8 +109,8 @@ sns.set(font_scale=1.5, style="white")
 ```python
 # Get data and set working directory
 et.data.get_data("colorado-flood")
-os.chdir(os.path.join(et.io.HOME, 
-                      'earth-analytics', 
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
                       'data'))
 ```
 
@@ -514,7 +514,7 @@ Attributes:
     _FillValue:    -3.4028234663852886e+38
     scale_factor:  1.0
     add_offset:    0.0
-    grid_mapping:  spatial_ref</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 1</li><li><span class='xr-has-index'>y</span>: 2000</li><li><span class='xr-has-index'>x</span>: 4000</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-28be9eaf-944b-4b40-8102-4eb10c0b22b7' class='xr-array-in' type='checkbox' checked><label for='section-28be9eaf-944b-4b40-8102-4eb10c0b22b7' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[8000000 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-2811b808-6ac5-4156-be1d-6c6971b7e578' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2811b808-6ac5-4156-be1d-6c6971b7e578' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-da2a6ca7-4643-4dc4-bd19-bedf51147771' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da2a6ca7-4643-4dc4-bd19-bedf51147771' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f2b67db-8af0-426b-9c59-2077891590f3' class='xr-var-data-in' type='checkbox'><label for='data-5f2b67db-8af0-426b-9c59-2077891590f3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.436e+06 4.436e+06 ... 4.434e+06</div><input id='attrs-ae15faa7-8a8e-406f-a63d-978f49d9138c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ae15faa7-8a8e-406f-a63d-978f49d9138c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0077ecd3-d171-49fe-9b51-ec244ccfd0aa' class='xr-var-data-in' type='checkbox'><label for='data-0077ecd3-d171-49fe-9b51-ec244ccfd0aa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4435999.5, 4435998.5, 4435997.5, ..., 4434002.5, 4434001.5, 4434000.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.72e+05 4.72e+05 ... 4.76e+05</div><input id='attrs-6477652d-0b42-49f9-959d-8c7fb8560558' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6477652d-0b42-49f9-959d-8c7fb8560558' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3ed8e8ca-0018-4c76-be39-2b1c07fdfc8f' class='xr-var-data-in' type='checkbox'><label for='data-3ed8e8ca-0018-4c76-be39-2b1c07fdfc8f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([472000.5, 472001.5, 472002.5, ..., 475997.5, 475998.5, 475999.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-16530ae9-44f5-4922-ba29-0afab7209785' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-16530ae9-44f5-4922-ba29-0afab7209785' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-64f32431-0c36-4345-8d09-a21a78462005' class='xr-var-data-in' type='checkbox'><label for='data-64f32431-0c36-4345-8d09-a21a78462005' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>GeoTransform :</span></dt><dd>472000.0 1.0 0.0 4436000.0 0.0 -1.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d6554403-1140-4d66-bb01-862fb881b6d8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d6554403-1140-4d66-bb01-862fb881b6d8' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>_FillValue :</span></dt><dd>-3.4028234663852886e+38</dd><dt><span>scale_factor :</span></dt><dd>1.0</dd><dt><span>add_offset :</span></dt><dd>0.0</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div>
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 1</li><li><span class='xr-has-index'>y</span>: 2000</li><li><span class='xr-has-index'>x</span>: 4000</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-8b68a155-a198-40d8-8452-9914f1bac0cb' class='xr-array-in' type='checkbox' checked><label for='section-8b68a155-a198-40d8-8452-9914f1bac0cb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[8000000 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-ea30db1a-17b1-471a-a3ab-3cfa5ece74c3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ea30db1a-17b1-471a-a3ab-3cfa5ece74c3' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-a0555040-65bd-46b4-9326-a72be15c80aa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a0555040-65bd-46b4-9326-a72be15c80aa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f82b502-b0f2-474b-9dea-4546eb866e79' class='xr-var-data-in' type='checkbox'><label for='data-5f82b502-b0f2-474b-9dea-4546eb866e79' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.436e+06 4.436e+06 ... 4.434e+06</div><input id='attrs-e1058cb0-12b8-410e-bb17-0049a6659aa6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e1058cb0-12b8-410e-bb17-0049a6659aa6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2793edba-6034-4acc-b5c6-170c650723c6' class='xr-var-data-in' type='checkbox'><label for='data-2793edba-6034-4acc-b5c6-170c650723c6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4435999.5, 4435998.5, 4435997.5, ..., 4434002.5, 4434001.5, 4434000.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.72e+05 4.72e+05 ... 4.76e+05</div><input id='attrs-bceb3e69-b84c-4930-80f4-ff82f8bbb2b0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bceb3e69-b84c-4930-80f4-ff82f8bbb2b0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4a784719-cd7e-43bc-a825-848131ec9ae4' class='xr-var-data-in' type='checkbox'><label for='data-4a784719-cd7e-43bc-a825-848131ec9ae4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([472000.5, 472001.5, 472002.5, ..., 475997.5, 475998.5, 475999.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-74420c8e-84d2-4cb0-8d4c-02c66ad1c259' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-74420c8e-84d2-4cb0-8d4c-02c66ad1c259' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-da98867a-1f4e-4241-a9fd-a6c2e3a002a9' class='xr-var-data-in' type='checkbox'><label for='data-da98867a-1f4e-4241-a9fd-a6c2e3a002a9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>GeoTransform :</span></dt><dd>472000.0 1.0 0.0 4436000.0 0.0 -1.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d971c085-27dc-44a2-a1c4-e482b3815604' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d971c085-27dc-44a2-a1c4-e482b3815604' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>_FillValue :</span></dt><dd>-3.4028234663852886e+38</dd><dt><span>scale_factor :</span></dt><dd>1.0</dd><dt><span>add_offset :</span></dt><dd>0.0</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div>
 
 
 
@@ -527,11 +527,15 @@ When you open raster data using **xarray** or **rioxarray** you are creating an
 * spatial metadata including the CRS, spatial extent of the object
 * and any metadata
 
-Xarray and numpy. are an efficient way to work with and process raster format data. 
+`Xarray` and `numpy` provide an efficient way to work with and process 
+raster  data. `xarray` also supports dask and parallel processing which 
+allows you to more efficiently process larger datasets using the processing power
+that you have on your computer
 
-You can 
-plot your data using earthpy `plot_bands()` which takes a 
-numpy array as an input and generates a plot. 
+When you add `rioxarray` to your package imports, you further get access 
+to spatial data processing using `xarray` objects. Below, you can view
+the spatial extent (`bounds()`) and `CRS` of the data that you just opened
+above.
 
 {:.input}
 ```python
@@ -546,11 +550,13 @@ print("The spatial extent is:", dtm_pre_arr.rio.bounds())
 
 
 
+The `nodata` value (or fill value) is also stored in the 
+`xarray` object.
+
 {:.input}
 ```python
-# View no data value 
+# View no data value
 print("The no data value is:", dtm_pre_arr.rio.nodata)
-
 ```
 
 {:.output}
@@ -558,8 +564,8 @@ print("The no data value is:", dtm_pre_arr.rio.nodata)
 
 
 
-Once you have imported your data,  it is simple to plot the data
-using `xarray`. 
+Once you have imported your data, you can plot is
+using `xarray.plot()`. 
 
 {:.input}
 ```python
@@ -572,7 +578,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_10_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_11_0.png">
 
 </figure>
 
@@ -581,11 +587,12 @@ plt.show()
 
 The data above should represent terrain model data. However, the range of 
 values is not what is expected. These data are for Boulder, Colorado where 
-the elevation may range from 1000-3000m. 
+the elevation may range from 1000-3000m. There may be some outlier values 
+in the data that may need to be addressed. Below you look at the distribution
+of pixel values in the data by plotting a histogram.
 
-There may be some outlier values in the data that may need to be addressed. 
-Below you check out the min and max values of the data. 
-
+Notice that there seem to be a lot of pixel values in the negative range
+in that plot.
 
 {:.input}
 ```python
@@ -600,13 +607,17 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_12_0.png" alt = "Histogram for your lidar DTM. Notice the number of values that are below 0. This suggests that there may be no data values in the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_13_0.png" alt = "Histogram for your lidar DTM. Notice the number of values that are below 0. This suggests that there may be no data values in the data.">
 <figcaption>Histogram for your lidar DTM. Notice the number of values that are below 0. This suggests that there may be no data values in the data.</figcaption>
 
 </figure>
 
 
 
+
+Looking at the min and max values of the data, you can see a 
+very small negative number for the minimum. This number matches 
+the nodata value that you looked at above. 
 
 {:.input}
 ```python
@@ -620,19 +631,8 @@ print("the maximum raster value is: ", np.nanmax(dtm_pre_arr.values))
 
 
 
-Clean up the plot a bit by adding a title and removing the 
-axis ticks!
 
-{:.input}
-```python
-# f, ax= plt.subplots(figsize=(10,5))
-# dtm_pre_arr.plot(cmap="Greys_r")
 
-# # Add a title and remove the ticks
-# ax.set(title="Digital Terrain Model for Lee Hill Road - Boulder, CO\n NEON AOP Data")
-# ax.set_axis_off()
-# plt.show()
-```
 
 ## Raster Data Exploration - Min and Max Values
 
@@ -691,12 +691,16 @@ dtm_pre_arr.shape
 
 
 
+Plot the data again to see what has changed. Now you have a 
+reasonable range of data values and the data plot as you 
+might expect it to.
+
 {:.input}
 ```python
 # Plot the data and notice that the scale bar looks better
 # No data values are now masked
 f, ax = plt.subplots(figsize=(10, 5))
-dtm_pre_arr.plot(cmap="Greys_r", 
+dtm_pre_arr.plot(cmap="Greys_r",
                  ax=ax)
 ax.set_title("Lidar Digital Elevation Model (DEM) \n Boulder Flood 2013")
 ax.set_axis_off()
@@ -708,19 +712,21 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_19_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_22_0.png">
 
 </figure>
 
 
 
 
-Look at a histogram.
+The histogram has also changed. Now, it shows a reasonable
+distribution of pixel values.
+
 
 {:.input}
 ```python
 f, ax = plt.subplots(figsize=(10, 6))
-dtm_pre_arr.plot.hist(color="purple", 
+dtm_pre_arr.plot.hist(color="purple",
                       bins=20)
 ax.set_title("Histogram of the Data with No Data Values Removed")
 plt.show()
@@ -731,7 +737,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_21_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_24_0.png">
 
 </figure>
 
@@ -743,21 +749,22 @@ an elevation value (which should most often not be negative).
 
 {:.input}
 ```python
-print("the minimum raster value is: ", np.nanmin(dtm_pre_arr.data))
-print("the maximum raster value is: ", np.nanmax(dtm_pre_arr.data))
+print("The minimum raster value is: ", np.nanmin(dtm_pre_arr.data))
+print("The maximum raster value is: ", np.nanmax(dtm_pre_arr.data))
 ```
 
 {:.output}
-    the minimum raster value is:  1676.2099609375
-    the maximum raster value is:  2087.429931640625
+    The minimum raster value is:  1676.2099609375
+    The maximum raster value is:  2087.429931640625
 
 
 
 ## Plot Raster and Vector Data Together
 
-If you want, you can also add shapefile overlays to your raster data plot.  
-Below you open a single shapefile that contains a boundary layer that you can 
-overlay on top of your raster dataset.
+If you want, you can also add shapefile overlays to your raster data plot. Below 
+you open a single shapefile using Geopandas that contains a boundary layer that you can 
+overlay on top of your raster dataset. You will learn more about 
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/">working with shapefiles in Geopandas in this chapter of the earthdatascience.org intermediate textbook.</a>
 
 
 {:.input}
@@ -770,10 +777,10 @@ site_bound_path = os.path.join("colorado-flood",
 site_bound_shp = gpd.read_file(site_bound_path)
 
 # Plot the vector data
-f, ax = plt.subplots()
+f, ax = plt.subplots(figsize=(8,4))
 site_bound_shp.plot(color='teal',
                     edgecolor='black',
-                   ax=ax)
+                    ax=ax)
 ax.set(title="Site Boundary Layer - Shapefile")
 plt.show()
 ```
@@ -783,7 +790,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_25_0.png" alt = "Plot of the site boundary using Geopandas.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_28_0.png" alt = "Plot of the site boundary using Geopandas.">
 <figcaption>Plot of the site boundary using Geopandas.</figcaption>
 
 </figure>
@@ -791,14 +798,15 @@ plt.show()
 
 
 
-You can then plot the two datasets together. 
+Once you have your shapefile open, can plot the two datasets together
+and begin to create a map. 
 
 {:.input}
 ```python
 f, ax = plt.subplots(figsize=(11, 4))
 
-dtm_pre_arr.plot.imshow(cmap="Greys", 
-                 ax=ax)
+dtm_pre_arr.plot.imshow(cmap="Greys",
+                        ax=ax)
 site_bound_shp.plot(color='None',
                     edgecolor='teal',
                     linewidth=2,
@@ -815,7 +823,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_27_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-fundamentals-python/2018-02-05-raster02-open-raster-data-xarray/2018-02-05-raster02-open-raster-data-xarray_30_0.png">
 
 </figure>
 
@@ -829,5 +837,6 @@ To change the color of a raster plot you set the colormap. Matplotlib has a list
 
 </div>
 
-You now have the basic skills needed to open and plot raster data. Complete
-the challenges below to test your skills. 
+You now have the basic skills needed to open and plot raster data using
+`rioxarray` and `xarray`. In the following lessons, you will learn more 
+about exploring and processing raster data. 
