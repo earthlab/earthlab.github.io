@@ -4,7 +4,7 @@ title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Sometimes a raster dataset covers a larger spatial extent than is needed for a particular purpose. In these cases, you can crop a raster file to a smaller extent. Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-11-05
+modified: 2020-11-07
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/crop-raster-data-with-shapefile-in-python/
@@ -98,6 +98,12 @@ In the previous lessons, you worked with a raster layer that looked like the one
 
 {:.input}
 ```python
+lidar_chm_path = os.path.join("colorado-flood", 
+                              "spatial"
+                              "boulder-leehill-rd",
+                              "outputs",
+                              "lidar_chm.tif")
+
 lidar_chm_im = rxr.open_rasterio("colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif",
                                  masked=True).squeeze()
 
