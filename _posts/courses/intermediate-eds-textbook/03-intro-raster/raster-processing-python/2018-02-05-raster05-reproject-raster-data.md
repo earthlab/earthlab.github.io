@@ -41,11 +41,11 @@ Sometimes you your raster data are not all in the same Coordinate Reference Syst
 When this happens, you may need to reproject your data from it's current CRS to match the
 CRS of other data that you are using.
 
-**Data Tip:** Proceed with caution when you are reprojecting raster data. Often it's best to
+<i class="fa fa-star"></i> **Data Tip:** Proceed with caution when you are reprojecting raster data. Often it's best to
 reproject your vector data as reprojecting a raster means that the entire dataset are
-interpolated and cast into a new grid system. This adds error and uncertainty to your analysis.
-There are times when you need to reproject your data. However, consider carefully whether
+interpolated and cast into a new grid system. This adds error and uncertainty to your analysis. There are times when you need to reproject your data. However, consider carefully whether
 you need to do this, before implementimg it in an analysis.
+{: .notice--success}
 
 Below you will learn how to reproject raster data to another crs using both a CRS string
 that you create using the **rasterio CRS** module and using the crs object from another
@@ -75,9 +75,21 @@ os.chdir(os.path.join(et.io.HOME,
 
 
 
-Open up the roads and building footprint data for Boulder, Colorado.
+In this lesson, you have a few different layers that are in different
+coordinate reference systems
 
-Take note of the CRS of the vector data.
+1. Boulder County Roads: You have a shapefile representing roads in Boulder County, Colorado
+2. You have a AOI extent that represents your study area in Boulder, Colorado
+3. You have a raster layer for that study area.
+
+Typically, when it is possible, you want to avoid reprojecting raster data.
+It's often easier and carries less error when you reproject the vector layers.
+However, in this lesson the goal is to learn how to reproject raster data.
+As such, for this lesson you will reproject a raster layer to align with
+the CRS of your vector data.
+
+To begin, open up the road centerline data for Boulder, Colorado.
+Take note of the CRS of the road centerlines vector data.
 
 
 {:.input}
@@ -110,6 +122,11 @@ boulder_roads.crs
 
 
 
+Next, open up a shapefile that you will use to clip the
+vector data opened above to the extent of your study area
+which is LeeHill Road in Boulder, Colorado.
+
+
 {:.input}
 ```python
 # Clip the boulder data to the extent of the study area aoo
@@ -120,16 +137,17 @@ aoi_path = os.path.join("colorado-flood",
 
 # Open crop extent (your study area extent boundary)
 crop_extent = gpd.read_file(aoi_path)
+# Reproject the crop extent data to match the roads layer.
 crop_extent_wgs84 = crop_extent.to_crs(boulder_roads.crs)
 
-# Clip the buildings and roads to the extent of the study area
+# Clip the buildings and roads to the extent of the study area using geopandas
 roads_clip = gpd.clip(boulder_roads, crop_extent_wgs84)
 ```
 
 {:.input}
 ```python
-# Plot the data
-f, ax = plt.subplots(figsize=(10, 6))
+# Plot the clipped data
+f, ax = plt.subplots(figsize=(10, 4))
 
 crop_extent_wgs84.plot(ax=ax,
                        edgecolor="blue",
@@ -146,12 +164,18 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_7_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_8_0.png" alt = "Plot showing the roads data for Boulder, County, Colorado clipped to your study area extent.">
+<figcaption>Plot showing the roads data for Boulder, County, Colorado clipped to your study area extent.</figcaption>
 
 </figure>
 
 
 
+
+### Open Up Your Raster Data
+
+Next, you will open up the digital terrain model for your study area.
+Note the CRS of your raster data which is UTM zone 13  epgs `32613`.
 
 {:.input}
 ```python
@@ -180,11 +204,13 @@ lidar_dem.rio.crs
 
 
 
+Below you plot your data. Notice that the data in the plot do not
+line up as you need it to for processing.
+
 {:.input}
 ```python
 # When you try to overlay the building footprints the data don't line up
 f, ax = plt.subplots()
-
 lidar_dem.plot.imshow(ax=ax,
                       cmap='Greys')
 roads_clip.plot(ax=ax)
@@ -197,14 +223,27 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_9_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_12_0.png" alt = "Plot showing what happens when the data are not in the same CRS. The data do not plot properly.">
+<figcaption>Plot showing what happens when the data are not in the same CRS. The data do not plot properly.</figcaption>
 
 </figure>
 
 
 
 
-You can reproject your data using the crs of the roads data if you wish.
+## Reproject Your Raster Data Using RioXarray
+
+You can reproject your data using the crs of the roads data using `rioxarray`.
+Below, you reproject your data using:
+
+`xarray-object-name.rio.reproject(crs-value-here)`
+
+You can provide the crs by
+
+1. grabbing the CRS of another spatial layer
+2. as an Proj4 string
+
+Below you use the crs value for the Geopandas layer that you opened above.
 
 {:.input}
 ```python
@@ -224,8 +263,9 @@ lidar_dem_wgs84.rio.crs
 
 
 
-Or you can reproject by providing an Proj 4 string representing the CRS that you wish
-to use to reproject your data
+Below you reproject the same data using a Proj4 string.
+Note that either approach will work well. This lesson simply
+shows you both options!
 
 {:.input}
 ```python
@@ -256,7 +296,7 @@ DEM with the roads layer and it will line up.
 {:.input}
 ```python
 # Plot your newly converted data
-f, ax = plt.subplots(figsize=(10, 6))
+f, ax = plt.subplots(figsize=(10, 4))
 
 lidar_dem_wgs84.plot.imshow(ax=ax,
                             cmap='Greys')
@@ -271,14 +311,17 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_15_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_18_0.png" alt = "Plot showing your final data - reprojected raster data with roads overlayed on top.">
+<figcaption>Plot showing your final data - reprojected raster data with roads overlayed on top.</figcaption>
 
 </figure>
 
 
 
 
-## Challenge
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge Your Skills
 
 Below there is code to open up a hillshade for this
 same study area. Reproject the hillshade object using rioxarray.
@@ -288,6 +331,8 @@ HINT: you can set the `alpha=` parameter to a value less than 1
 to add transparency to a layer in your plot.
 
 Your final plot should look like the one below:
+
+</div>
 
 {:.input}
 ```python
@@ -321,6 +366,20 @@ lidar_dem_hill.rio.crs
 {:.display_data}
 
 <figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_21_0.png" alt = "Final plot showing the reprojected data with a reprojected hillshade layer.">
+<figcaption>Final plot showing the reprojected data with a reprojected hillshade layer.</figcaption>
+
+</figure>
+
+
+
+
+
+
+
+
+
 
 <img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_18_0.png">
 
