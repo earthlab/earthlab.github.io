@@ -44,19 +44,19 @@ as a Desktop GIS tool like QGIS.
 
 ## About Spatial Crop
 
-Cropping (sometimes also referred to as clipping), is when you subset or make a dataset smaller, 
-by removing all data outside of the crop area or spatial extent. In this case you have a large 
-raster - but let's pretend that you only need to work with a smaller subset of the raster. 
+Cropping (sometimes also referred to as clipping), is when you subset or make a dataset smaller,
+by removing all data outside of the crop area or spatial extent. In this case you have a large
+raster - but let's pretend that you only need to work with a smaller subset of the raster.
 
 You can use the `crop_image` function to remove all of the data outside of your study area.
 This is useful as it:
 
-1. Makes the data smaller and 
+1. Makes the data smaller and
 2. Makes processing and plotting faster
 
 In general when you can, it's often a good idea to crop your raster data!
 
-To begin let's load the libraries that you will need in this lesson. 
+To begin let's load the libraries that you will need in this lesson.
 
 
 ## Load Libraries
@@ -94,11 +94,11 @@ os.chdir(os.path.join(et.io.HOME,
 
 ## Open Raster and Vector Layers
 
-In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `crop_image()` function in `earthpy.spatial`. 
+In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `crop_image()` function in `earthpy.spatial`.
 
 {:.input}
 ```python
-lidar_chm_path = os.path.join("colorado-flood", 
+lidar_chm_path = os.path.join("colorado-flood",
                               "spatial"
                               "boulder-leehill-rd",
                               "outputs",
@@ -146,9 +146,9 @@ aoi = os.path.join("colorado-flood",
 crop_extent = gpd.read_file(aoi)
 ```
 
-Next, view the coordinate reference system (CRS) of both of your datasets. 
+Next, view the coordinate reference system (CRS) of both of your datasets.
 Remember that in order to perform any analysis with these two datasets together,
-they will need to be in the same CRS. 
+they will need to be in the same CRS.
 
 {:.input}
 ```python
@@ -230,23 +230,23 @@ plt.show()
 ## Clip Raster Data Using RioXarray `.clip`
 
 If you want to crop the data you can use the `rio.clip` function. When you clip
-the data, you can then export it and share it with colleagues. Or use it in 
-another analysis. 
+the data, you can then export it and share it with colleagues. Or use it in
+another analysis.
 
 
 To perform the clip you:
 
 1. Open the raster dataset that you wish to crop using xarray or rioxarray.
 2. Open your shapefile as a geopandas object.
-3. Crop the data using the `.clip()` function. 
+3. Crop the data using the `.clip()` function.
 
 `.clip` has several parameters that you can consider including
 
 * `drop = True` : The default. setting it will drop all pixels outside of the clip extent
 * `invert = False` : The default. If set to true it will clip all data INSIDE of the clip extent
-* `crs` : if your shapefile is in a different CRS than the raster data, pass the CRS to ensure the data are clipped correctly. 
+* `crs` : if your shapefile is in a different CRS than the raster data, pass the CRS to ensure the data are clipped correctly.
 
-Below you clip the data to the extent of the AOI geodataframe imported above. 
+Below you clip the data to the extent of the AOI geodataframe imported above.
 The data are then plotted.
 
 {:.input}
@@ -287,7 +287,7 @@ plt.show()
 ## OPTIONAL -- Export Newly Cropped Raster
 
 Once you have cropped your data, you may want to export it to a new geotiff file,
-just like you did in previous lessons. 
+just like you did in previous lessons.
 
 You can so this using rioxarray too!
 
