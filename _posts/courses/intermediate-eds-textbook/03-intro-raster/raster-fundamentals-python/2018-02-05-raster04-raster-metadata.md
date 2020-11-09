@@ -4,7 +4,7 @@ title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "Raster metadata includes the coordinate reference system (CRS), resolution, and spatial extent. Learn about these metadata and how to access them in Python"
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-09-11
+modified: 2020-11-06
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-metadata-in-python/
@@ -36,7 +36,11 @@ redirect_from:
 
 </div>
 
-On this page, you will learn about three important spatial attributes associated with raster data that in this lesson: coordinate reference systems (CRS), resolution, and spatial extent. 
+On this page, you will learn about three important spatial attributes associated with raster data that in this lesson: 
+
+1. coordinate reference systems (CRS), 
+2. resolution, and 
+3. spatial extent. 
 
 ## 1. Coordinate Reference System
 
@@ -77,67 +81,52 @@ method.
 ```python
 # Import necessary packages
 import os
+
 import matplotlib.pyplot as plt
-import numpy as np
-from shapely.geometry import Polygon, mapping
-import rasterio as rio
-from rasterio.mask import mask
-from rasterio.plot import show
-
-# Package created for the earth analytics program
+import rioxarray as rxr
 import earthpy as et
-```
 
-{:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
-
-{:.input}
-```python
 # Get data and set working directory
 et.data.get_data("colorado-flood")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
+
+You can explore the metadata of a raster object using `rioxarray`.
+To begin, open up your data and view the CRS.
 
 {:.input}
 ```python
 # Define relative path to file
-lidar_dem_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", "lidar",
+lidar_dem_path = os.path.join("colorado-flood",
+                              "spatial",
+                              "boulder-leehill-rd",
+                              "pre-flood",
+                              "lidar",
                               "pre_DTM.tif")
 
 # View crs of raster imported with rasterio
-with rio.open(lidar_dem_path) as src:
-    print(src.crs)
+lidar_dem = rxr.open_rasterio(lidar_dem_path, masked=True)
+print("The CRS of this data is:", lidar_dem.rio.crs)
 ```
 
 {:.output}
-    EPSG:32613
+    The CRS of this data is: EPSG:32613
 
 
 
-You can assign this string to a **Python** object, too.
+You can assign this string to a **Python** object, too. The example below 
+only shows the code example to set a crs for an object where it is missing 
+and you know what the CRS should be. In this case your data
+already has a defined CRS so this step is not necessary.
 
 {:.input}
 ```python
-# Assign crs to myCRS object
-myCRS = src.crs
-
-myCRS
+a_crs = lidar_dem.rio.crs
+# Assign crs to myCRS object - this is just an example of how you would do that
+lidar_dem = lidar_dem.rio.set_crs(a_crs, inplace=True)
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    CRS.from_epsg(32613)
-
-
-
-
 
 The `CRS` EPSG code for your `lidar_dem` object  is 32613. 
 Next, you can look that EPSG code up on the <a href="http://www.spatialreference.org/ref/epsg/32613/" target="_blank">spatial reference.org website</a> to figure out what CRS it refers to and the associated units. In this case you are using UTM zone 13 North.
@@ -173,33 +162,17 @@ print(list(et.epsg.keys())[:10])
 
 
 
+You can convert to proj4 using `earthpy`:
+
 {:.input}
 ```python
-# You can convert to proj4 like so:
+# Convert to project string using earthpy
 proj4 = et.epsg['32613']
 print(proj4)
 ```
 
 {:.output}
     +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs
-
-
-
-{:.input}
-```python
-# Finally you can convert this into a rasterio CRS like so:
-crs_proj4 = rio.crs.CRS.from_string(proj4)
-crs_proj4
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    CRS.from_epsg(32613)
-
-
 
 
 
@@ -264,11 +237,11 @@ The spatial extent of an `Python` spatial object represents the geographic "edge
 location that is the furthest north, south, east and west. In other words, `extent`
 represents the overall geographic coverage of the spatial object.
 
-You can access the spatial extent using the `.bounds` attribute in `rasterio`.
+You can access the spatial extent using the `.bounds()` attribute in `rasterio`.
 
 {:.input}
 ```python
-src.bounds
+lidar_dem.rio.bounds()
 ```
 
 {:.output}
@@ -276,7 +249,7 @@ src.bounds
 
 
 
-    BoundingBox(left=472000.0, bottom=4434000.0, right=476000.0, top=4436000.0)
+    (472000.0, 4434000.0, 476000.0, 4436000.0)
 
 
 
@@ -292,7 +265,7 @@ a 1 x 1 meter area on the ground. You can view the resolution of your data using
 {:.input}
 ```python
 # What is the x and y resolution for your raster data?
-src.res
+lidar_dem.rio.resolution()
 ```
 
 {:.output}
@@ -300,8 +273,13 @@ src.res
 
 
 
-    (1.0, 1.0)
+    (1.0, -1.0)
 
 
 
 
+
+Above you have learned about the basic spatial metadata attributes of raster data.
+In the following lesson you will learn more about the geotiff file format (`.tif`)
+which is the file format used to store the lidar terrain models used throughout 
+this chapter. 

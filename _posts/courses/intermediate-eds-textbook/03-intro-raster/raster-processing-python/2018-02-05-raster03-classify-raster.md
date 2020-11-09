@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "Reclassifying raster data allows you to use a set of defined values to organize pixel values into new bins or categories. Learn how to classify a raster dataset and export it as a new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-09-11
+modified: 2020-11-06
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/classify-plot-raster-data-in-python/
@@ -68,11 +68,12 @@ To get started, first load the required libraries and then open up your raster. 
 {:.input}
 ```python
 import os
+
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 import numpy as np
-import rasterio as rio
-from rasterio.plot import plotting_extent
+import xarray as xr
+import rioxarray as rxr
 import earthpy as et
 import earthpy.plot as ep
 
@@ -82,35 +83,44 @@ sns.set(font_scale=1.5, style="whitegrid")
 
 # Get data and set working directory
 et.data.get_data("colorado-flood")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
 
 
 To begin, open the `lidar_chm.tif` file that you created in the previous lesson, or recreate it using the code below.
 
+
 {:.input}
 ```python
 # Define relative paths to DTM and DSM files
-dtm_path = os.path.join("data", "colorado-flood", "spatial",
-                        "boulder-leehill-rd", "pre-flood", "lidar",
+dtm_path = os.path.join("colorado-flood",
+                        "spatial",
+                        "boulder-leehill-rd",
+                        "pre-flood",
+                        "lidar",
                         "pre_DTM.tif")
 
-dsm_path = os.path.join("data", "colorado-flood", "spatial",
-                        "boulder-leehill-rd", "pre-flood", "lidar",
+dsm_path = os.path.join("colorado-flood",
+                        "spatial",
+                        "boulder-leehill-rd",
+                        "pre-flood",
+                        "lidar",
                         "pre_DSM.tif")
 
 # Open DTM and DSM files
-with rio.open(dtm_path) as src:
-    lidar_dtm_im = src.read(1, masked=True)
-    spatial_extent = plotting_extent(src)
+pre_lidar_dtm = rxr.open_rasterio(dtm_path, masked=True).squeeze()
+pre_lidar_dsm = rxr.open_rasterio(dsm_path, masked=True).squeeze()
 
-with rio.open(dsm_path) as src:
-    lidar_dsm_im = src.read(1, masked=True)
-    spatial_extent = plotting_extent(src)
-
-# Create canopy height model (CHM)    
-lidar_chm_im = lidar_dsm_im - lidar_dtm_im
-lidar_chm_im
+# Create canopy height model (CHM)
+pre_lidar_chm = pre_lidar_dsm - pre_lidar_dtm
+pre_lidar_chm
 ```
 
 {:.output}
@@ -118,23 +128,387 @@ lidar_chm_im
 
 
 
-    masked_array(
-      data=[[--, --, --, ..., 0.0, 0.1700439453125, 0.9600830078125],
-            [--, --, --, ..., 0.0, 0.090087890625, 1.6400146484375],
-            [--, --, --, ..., 0.0, 0.0, 0.0799560546875],
-            ...,
-            [--, --, --, ..., 0.0, 0.0, 0.0],
-            [--, --, --, ..., 0.0, 0.0, 0.0],
-            [--, --, --, ..., 0.0, 0.0, 0.0]],
-      mask=[[ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            ...,
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False]],
-      fill_value=-3.402823e+38,
-      dtype=float32)
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (y: 2000, x: 4000)&gt;
+array([[       nan,        nan,        nan, ..., 0.        , 0.17004395,
+        0.96008301],
+       [       nan,        nan,        nan, ..., 0.        , 0.09008789,
+        1.64001465],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.07995605],
+       ...,
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ]])
+Coordinates:
+    band         int64 1
+  * y            (y) float64 4.436e+06 4.436e+06 ... 4.434e+06 4.434e+06
+  * x            (x) float64 4.72e+05 4.72e+05 4.72e+05 ... 4.76e+05 4.76e+05
+    spatial_ref  int64 0</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>y</span>: 2000</li><li><span class='xr-has-index'>x</span>: 4000</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3bba6afe-2207-4957-a42e-56c37b029c6d' class='xr-array-in' type='checkbox' checked><label for='section-3bba6afe-2207-4957-a42e-56c37b029c6d' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>nan nan nan nan nan nan nan nan ... 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0</span></div><div class='xr-array-data'><pre>array([[       nan,        nan,        nan, ..., 0.        , 0.17004395,
+        0.96008301],
+       [       nan,        nan,        nan, ..., 0.        , 0.09008789,
+        1.64001465],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.07995605],
+       ...,
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ],
+       [       nan,        nan,        nan, ..., 0.        , 0.        ,
+        0.        ]])</pre></div></div></li><li class='xr-section-item'><input id='section-8aa5f8ec-629e-4415-8f8d-83efe6e03112' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8aa5f8ec-629e-4415-8f8d-83efe6e03112' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>band</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-fb3c4462-4b20-4cba-b064-2b75e6b260aa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fb3c4462-4b20-4cba-b064-2b75e6b260aa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38f1fee7-ddb8-4075-8173-fefb2c237b15' class='xr-var-data-in' type='checkbox'><label for='data-38f1fee7-ddb8-4075-8173-fefb2c237b15' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(1)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.436e+06 4.436e+06 ... 4.434e+06</div><input id='attrs-3bd1d63d-c29a-4e4b-8034-22612c769d61' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3bd1d63d-c29a-4e4b-8034-22612c769d61' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f5f9f086-0385-434e-b620-57f47f1e82e3' class='xr-var-data-in' type='checkbox'><label for='data-f5f9f086-0385-434e-b620-57f47f1e82e3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4435999.5, 4435998.5, 4435997.5, ..., 4434002.5, 4434001.5, 4434000.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.72e+05 4.72e+05 ... 4.76e+05</div><input id='attrs-2dfd5b56-a60f-454f-9f85-7ae0aa0fd457' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2dfd5b56-a60f-454f-9f85-7ae0aa0fd457' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-045be972-927b-4723-87be-b205787bc151' class='xr-var-data-in' type='checkbox'><label for='data-045be972-927b-4723-87be-b205787bc151' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([472000.5, 472001.5, 472002.5, ..., 475997.5, 475998.5, 475999.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-498af239-a5b6-4e4b-ae20-c2956bd374da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-498af239-a5b6-4e4b-ae20-c2956bd374da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-124d8114-7b28-4a96-9aa2-d90205da4705' class='xr-var-data-in' type='checkbox'><label for='data-124d8114-7b28-4a96-9aa2-d90205da4705' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>GeoTransform :</span></dt><dd>472000.0 1.0 0.0 4436000.0 0.0 -1.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5190b689-2cbd-4dc0-834f-9299b0655a76' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5190b689-2cbd-4dc0-834f-9299b0655a76' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
 
 
 
@@ -160,13 +534,13 @@ Start by looking at the min and max values in your CHM.
 {:.input}
 ```python
 # View min and max values in the data
-print('CHM min value:', lidar_chm_im.min())
-print('CHM max value:', lidar_chm_im.max())
+print('CHM min value:', np.nanmin(pre_lidar_chm))
+print('CHM max value:', np.nanmax(pre_lidar_chm))
 ```
 
 {:.output}
     CHM min value: 0.0
-    CHM max value: 26.930054
+    CHM max value: 26.9300537109375
 
 
 
@@ -177,11 +551,11 @@ the distribution of values found in your data.
 
 {:.input}
 ```python
-ep.hist(lidar_chm_im.ravel(),
-        title="Distribution of Raster Cell Values in the CHM Data",
-        xlabel="Height (m)",
-        ylabel="Number of Pixels")
-
+f, ax = plt.subplots()
+pre_lidar_chm.plot.hist(color="purple")
+ax.set(title="Distribution of Raster Cell Values in the CHM Data",
+       xlabel="Height (m)",
+       ylabel="Number of Pixels")
 plt.show()
 ```
 
@@ -210,36 +584,7 @@ You might also chose to adjust the number of bins in your plot. Below you plot a
 
 `hist_range(*xlim)`
 
-You could also set `bins = 100` or some other arbitrary number if you wish.
-
-{:.input}
-```python
-# Create histogram with xlim and ylim
-xlim = [0, 25]
-
-f, ax = ep.hist(lidar_chm_im.ravel(),
-                hist_range=xlim,
-                bins=range(*xlim),
-                ylabel="Number of Pixels", xlabel="Height (m)",
-                title="Distribution of raster cell values in the DTM difference data \n" +
-                      "Zoomed in to {} on the x axis".format(xlim))
-
-ax.set(xlim=xlim, ylim=[0, 250000])
-
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_16_0.png" alt = "Histogram of CHM data zoomed in to 0-25 on the x axis.">
-<figcaption>Histogram of CHM data zoomed in to 0-25 on the x axis.</figcaption>
-
-</figure>
-
-
+You could also set `bins = 100` or some other value if you wish.
 
 
 You can look at the values that **Python** used to draw your histogram, too. 
@@ -249,40 +594,16 @@ To do this, you can collect the outputs that are returned when you call `np.hist
 * `counts`, which represents the number of items in each bin
 * `bins`, which represents the edges of the bins (there will be one extra item in bins compared to counts)
 
-
-{:.input}
-```python
-# Get counts and bins
-counts, bins = np.histogram(lidar_chm_im,
-                            bins=50, 
-                            range=xlim)
-
-print("counts:", counts)
-print("bins:", bins)
-```
-
-{:.output}
-    counts: [5292785  155317  128037  116551  109743  110395  107528   98579   89234
-       83947   79123   73934   71669   70521   67043   61639   56389   51932
-       46193   40674   36442   31877   28428   24553   21620   18613   16095
-       13776   11424    9402    7504    6195    4883    3901    2954    2306
-        1776    1342    1027     706     525     358     271     160     113
-          99      47      44      21      16]
-    bins: [ 0.   0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5
-      7.   7.5  8.   8.5  9.   9.5 10.  10.5 11.  11.5 12.  12.5 13.  13.5
-     14.  14.5 15.  15.5 16.  16.5 17.  17.5 18.  18.5 19.  19.5 20.  20.5
-     21.  21.5 22.  22.5 23.  23.5 24.  24.5 25. ]
-
-
-
 Each bin represents a bar on your histogram plot. Each bar represents the frequency or number of pixels that have a value within that bin. 
 
 Notice that you have adjusted the `xlim` and `ylim` to zoom into the region of the histogram that you are interested in exploring; however, the values did not actually change.
 
 
+
 ### Histogram with Custom Breaks
 
-Next, customize your histogram with breaks that you think might make sense as breaks to use for your raster map. 
+Customize your histogram with breaks that you think might make sense 
+as breaks to use for your raster map. 
 
 In the example below, breaks are added in 5 meter increments using the `bins =` argument. 
 
@@ -291,11 +612,12 @@ In the example below, breaks are added in 5 meter increments using the `bins =` 
 {:.input}
 ```python
 # Histogram with custom breaks
-ep.hist(lidar_chm_im.ravel(),
-        bins=[0, 5, 10, 15, 20, 30],
-        title="Histogram with Custom Breaks",
-        xlabel="Height (m)", 
-        ylabel="Number of Pixels")
+f, ax = plt.subplots()
+pre_lidar_chm.plot.hist(color="purple",
+                        bins=[0, 5, 10, 15, 20, 30])
+ax.set(title="Histogram with Custom Breaks",
+       xlabel="Height (m)",
+       ylabel="Number of Pixels")
 
 plt.show()
 ```
@@ -305,7 +627,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_21_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_20_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -329,12 +651,15 @@ Below following breaks are used:
 
 {:.input}
 ```python
-ep.hist(lidar_chm_im.ravel(),
-        colors='purple',
-        bins=[0, 2, 7, 12, 30],
-        title="Histogram with Custom Breaks",
-        xlabel="Height (m)",
-        ylabel="Number of Pixels")
+# Histogram with custom breaks
+f, ax = plt.subplots()
+
+pre_lidar_chm.plot.hist(
+    color='purple',
+    bins=[0, 2, 7, 12, 30])
+ax.set(title="Histogram with Custom Breaks",
+       xlabel="Height (m)",
+       ylabel="Number of Pixels")
 
 plt.show()
 ```
@@ -344,7 +669,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_23_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_22_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -410,20 +735,9 @@ Likewise, you can use the minimum value of the array (`arr.min()`) instead of `-
 
 {:.input}
 ```python
-# Check fill value for your array
-lidar_chm_im.fill_value
+# Check nodata value for your array
+pre_lidar_chm.rio.nodata
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    -3.402823e+38
-
-
-
-
 
 Below you define 4 bins. However, you end up with a `fifth class == 0` which represents values smaller than `0` which is the minimum value in your chm. 
 
@@ -431,24 +745,20 @@ These values < 0 come from the **numpy** mask fill value which you can see ident
 
 {:.input}
 ```python
-# Define bins that you want, and then classify the data
-class_bins = [lidar_chm_im.min(), 2, 7, 12, np.iinfo(np.int32).max]
-
-# Classify the original image array, then unravel it again for plotting
-lidar_chm_im_class = np.digitize(lidar_chm_im, class_bins)
-
-# Note that you have an extra class in the data (0)
-print(np.unique(lidar_chm_im_class))
+data_min_value = np.nanmin(pre_lidar_chm)
+data_max_value = np.nanmax(pre_lidar_chm)
+print(data_min_value, data_max_value)
 ```
 
 {:.output}
-    [0 1 2 3 4]
+    0.0 26.9300537109375
 
 
 
 {:.input}
 ```python
-type(lidar_chm_im_class)
+class_bins = [-np.inf, 2, 7, 12, np.inf]
+class_bins
 ```
 
 {:.output}
@@ -456,24 +766,49 @@ type(lidar_chm_im_class)
 
 
 
-    numpy.ndarray
+    [-inf, 2, 7, 12, inf]
 
+
+
+
+
+
+{:.input}
+```python
+pre_lidar_chm_class = xr.apply_ufunc(np.digitize,
+                                     pre_lidar_chm,
+                                     class_bins)
+```
+
+
+{:.input}
+```python
+# Values of 5 represent missing data
+im = pre_lidar_chm_class.plot.imshow()
+ax.set_axis_off()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_32_0.png">
+
+</figure>
 
 
 
 
 After running the classification, you have one extra class. This class - the first class - is your missing data value. Your classified array output is also a regular (not a masked) array. 
 
-You can reassign the first class in your data to a mask using `np.ma.masked_where()`.
+You can reassign the first class in your data to a mask using `xarray .where()`.
 
 {:.input}
 ```python
-# Reassign all values that are classified as 0 to masked (no data value)
-# This will prevent pixels that == 0 from being rendered on a map in matplotlib
-lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0,
-                                        lidar_chm_im_class,
-                                        copy=True)
-lidar_chm_class_ma
+# Mask out values not equalt to 5
+pre_lidar_chm_class_ma = pre_lidar_chm_class.where(pre_lidar_chm_class != 5)
+pre_lidar_chm_class_ma
 ```
 
 {:.output}
@@ -481,34 +816,389 @@ lidar_chm_class_ma
 
 
 
-    masked_array(
-      data=[[--, --, --, ..., 1, 1, 1],
-            [--, --, --, ..., 1, 1, 1],
-            [--, --, --, ..., 1, 1, 1],
-            ...,
-            [--, --, --, ..., 1, 1, 1],
-            [--, --, --, ..., 1, 1, 1],
-            [--, --, --, ..., 1, 1, 1]],
-      mask=[[ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            ...,
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False],
-            [ True,  True,  True, ..., False, False, False]],
-      fill_value=999999)
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (y: 2000, x: 4000)&gt;
+array([[nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       ...,
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.]])
+Coordinates:
+    band         int64 1
+  * y            (y) float64 4.436e+06 4.436e+06 ... 4.434e+06 4.434e+06
+  * x            (x) float64 4.72e+05 4.72e+05 4.72e+05 ... 4.76e+05 4.76e+05
+    spatial_ref  int64 0</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>y</span>: 2000</li><li><span class='xr-has-index'>x</span>: 4000</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e42bdf03-e795-4b5a-9b11-f557cc13f743' class='xr-array-in' type='checkbox' checked><label for='section-e42bdf03-e795-4b5a-9b11-f557cc13f743' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>nan nan nan nan nan nan nan nan ... 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0</span></div><div class='xr-array-data'><pre>array([[nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       ...,
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.],
+       [nan, nan, nan, ...,  1.,  1.,  1.]])</pre></div></div></li><li class='xr-section-item'><input id='section-9b6b7934-7c05-4bb0-8307-538f46266afd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9b6b7934-7c05-4bb0-8307-538f46266afd' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>band</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-cb939b66-56d3-4a1b-8419-2dc39e974016' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-cb939b66-56d3-4a1b-8419-2dc39e974016' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c449cdf-0197-4552-bd7c-5feffc82a648' class='xr-var-data-in' type='checkbox'><label for='data-4c449cdf-0197-4552-bd7c-5feffc82a648' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(1)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.436e+06 4.436e+06 ... 4.434e+06</div><input id='attrs-f7ac8b65-d647-4d0f-ad56-e58bd0e0757d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f7ac8b65-d647-4d0f-ad56-e58bd0e0757d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d2ab5c3d-ce8a-4678-a0c7-a1a7f1a45a51' class='xr-var-data-in' type='checkbox'><label for='data-d2ab5c3d-ce8a-4678-a0c7-a1a7f1a45a51' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4435999.5, 4435998.5, 4435997.5, ..., 4434002.5, 4434001.5, 4434000.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.72e+05 4.72e+05 ... 4.76e+05</div><input id='attrs-586c63ac-cfb1-464b-9ad9-93c7a71a0b1f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-586c63ac-cfb1-464b-9ad9-93c7a71a0b1f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-58039b29-41e3-400b-b422-1187ec77d6a7' class='xr-var-data-in' type='checkbox'><label for='data-58039b29-41e3-400b-b422-1187ec77d6a7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([472000.5, 472001.5, 472002.5, ..., 475997.5, 475998.5, 475999.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-5ee1f97c-bb3a-48ba-82af-e39780b2c703' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5ee1f97c-bb3a-48ba-82af-e39780b2c703' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-462fb237-6902-4c8e-b30f-99d6d13d7249' class='xr-var-data-in' type='checkbox'><label for='data-462fb237-6902-4c8e-b30f-99d6d13d7249' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCRS[&quot;WGS 84 / UTM zone 13N&quot;,BASEGEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]],CONVERSION[&quot;UTM zone 13N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-105,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;easting&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1]],AXIS[&quot;northing&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,32613]]</dd><dt><span>GeoTransform :</span></dt><dd>472000.0 1.0 0.0 4436000.0 0.0 -1.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-219d63c3-cd00-477f-9603-ff633ceedeb8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-219d63c3-cd00-477f-9603-ff633ceedeb8' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
 
 
 
 
 
-Below you plot the data. 
 
 {:.input}
 ```python
 # Plot newly classified and masked raster
-ep.plot_bands(lidar_chm_class_ma,
-              scale=False)
+f, ax = plt.subplots(figsize=(10,5))
+pre_lidar_chm_class_ma.plot.imshow()
+ax.set(title="Classified Plot With a Colorbar")
+
+ax.set_axis_off()
 plt.show()
 ```
 
@@ -517,14 +1207,10 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_33_0.png" alt = "CHM plot with NA values applied to the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_36_0.png" alt = "CHM plot with NA values applied to the data.">
 <figcaption>CHM plot with NA values applied to the data.</figcaption>
 
 </figure>
-
-
-
-
 
 
 
@@ -533,37 +1219,21 @@ Below the raster is plotted with slightly improved colors
 
 {:.input}
 ```python
-# Check classes
-np.unique(lidar_chm_class_ma)
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    masked_array(data=[1, 2, 3, 4, --],
-                 mask=[False, False, False, False,  True],
-           fill_value=999999)
-
-
-
-
-
-{:.input}
-```python
 # Plot data using nicer colors
 colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
-
+class_bins = [.5, 1.5, 2.5, 3.5, 4.5]
 cmap = ListedColormap(colors)
-norm = BoundaryNorm(class_bins, len(colors))
+norm = BoundaryNorm(class_bins, 
+                    len(colors))
 
-ep.plot_bands(lidar_chm_class_ma,
-              cmap=cmap,
-              title="Classified Canopy Height Model",
-              scale=False,
-              norm=norm)
+# Plot newly classified and masked raster
+f, ax = plt.subplots(figsize=(10, 5))
+pre_lidar_chm_class_ma.plot.imshow(cmap=cmap,
+                                   norm=norm)
+ax.set(title="Classified Plot With a Colorbar and Custom Colormap (cmap)")
+ax.set_axis_off()
 plt.show()
+
 ```
 
 {:.output}
@@ -571,7 +1241,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_39_0.png" alt = "Canopy height model plot with a better colormap applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_38_0.png" alt = "Canopy height model plot with a better colormap applied.">
 <figcaption>Canopy height model plot with a better colormap applied.</figcaption>
 
 </figure>
@@ -601,41 +1271,35 @@ And this code: `cmap = ListedColormap(colors)` creates the colormap to be used i
 
 {:.input}
 ```python
-# Check classes
-np.unique(lidar_chm_class_ma)
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    masked_array(data=[1, 2, 3, 4, --],
-                 mask=[False, False, False, False,  True],
-           fill_value=999999)
-
-
-
-
-
-{:.input}
-```python
 # Create a list of labels to use for your legend
-height_class_labels = ["Short trees", "Medium trees",
-                       "Tall trees", "Really tall trees"]
+height_class_labels = ["Short trees",
+                       "Medium trees",
+                       "Tall trees",
+                       "Really tall trees"]
 
 # Create a colormap from a list of colors
-colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
+colors = ['linen',
+          'lightgreen',
+          'darkgreen',
+          'maroon']
+
 cmap = ListedColormap(colors)
 
-f, ax = plt.subplots(figsize=(12, 12))
+class_bins = [.5, 1.5, 2.5, 3.5, 4.5]
+norm = BoundaryNorm(class_bins,
+                    len(colors))
 
-im = ax.imshow(lidar_chm_class_ma,
-               cmap=cmap)
-
-ep.draw_legend(im, titles=height_class_labels)
+# Plot newly classified and masked raster
+f, ax = plt.subplots(figsize=(10, 5))
+im = pre_lidar_chm_class_ma.plot.imshow(cmap=cmap,
+                                        norm=norm,
+                                        # Turn off colorbar
+                                        add_colorbar=False)
+# Add legend using earthpy
+ep.draw_legend(im,
+               titles=height_class_labels)
+ax.set(title="Classified Lidar Canopy Height Model \n Derived from NEON AOP Data")
 ax.set_axis_off()
-
 plt.show()
 ```
 
@@ -644,7 +1308,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_42_0.png" alt = "Canopy height model with a better colormap and a legend.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-classify-raster/2018-02-05-raster03-classify-raster_40_0.png" alt = "Canopy height model with a better colormap and a legend.">
 <figcaption>Canopy height model with a better colormap and a legend.</figcaption>
 
 </figure>

@@ -4,7 +4,7 @@ title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python 
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-23
-modified: 2020-09-11
+modified: 2020-11-05
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
@@ -52,7 +52,7 @@ sns.set(font_scale=1.5, style="white")
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
       if len(arr.shape) is 2:
 
 

@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-09-11
+modified: 2020-11-06
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -81,12 +81,14 @@ NOTE: not all GeoTIFFs contain tif tags!
 ```python
 # Import necessary packages
 import os
-import rasterio as rio
+import rioxarray as rxr
 import earthpy as et
 
 # Get data and set working directory
 et.data.get_data("colorado-flood")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
 
 Next let's open up a raster file in geotiff format (.tif). 
@@ -94,45 +96,57 @@ Next let's open up a raster file in geotiff format (.tif).
 {:.input}
 ```python
 # Define relative path to file
-lidar_dem_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", "lidar",
+lidar_dem_path = os.path.join("colorado-flood",
+                              "spatial",
+                              "boulder-leehill-rd",
+                              "pre-flood",
+                              "lidar",
                               "pre_DTM.tif")
 
-with rio.open(lidar_dem_path) as lidar_dem:
-    lidar_dem.bounds
+pre_lidar_dem = rxr.open_rasterio(lidar_dem_path,
+                                 masked=True)
+pre_lidar_dem.rio.bounds()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (472000.0, 4434000.0, 476000.0, 4436000.0)
+
+
+
+
+
+<i class = "fa fa-star"></i> **Data Tip:** Rioxarray wraps around much of the rasterio functionality. Read more about attributes associated with rasterio objects and how they map to gdal objects.
+{: .notice--success }
 
 You can view spatial attibutes associated with the raster file too. Below you explore viewing a general list of attributes and then specific attributes including number of bands and horizontal (x, y) resolution.
 
 {:.input}
 ```python
 # View generate metadata associated with the raster file
-lidar_dem.meta
+print("The crs of your data is:", pre_lidar_dem.rio.crs)
+print("The nodatavalue of your data is:", pre_lidar_dem.rio.nodata)
+print("The shape of your data is:", pre_lidar_dem.shape)
+print("The spatial resolution for your data is:", pre_lidar_dem.rio.resolution())
+print("The metadata for your data is:", pre_lidar_dem.attrs)
 ```
 
 {:.output}
-{:.execute_result}
-
-
-
-    {'driver': 'GTiff',
-     'dtype': 'float32',
-     'nodata': -3.4028234663852886e+38,
-     'width': 4000,
-     'height': 2000,
-     'count': 1,
-     'crs': CRS.from_epsg(32613),
-     'transform': Affine(1.0, 0.0, 472000.0,
-            0.0, -1.0, 4436000.0)}
-
-
+    The crs of your data is: EPSG:32613
+    The nodatavalue of your data is: nan
+    The shape of your data is: (1, 2000, 4000)
+    The spatial resolution for your data is: (1.0, -1.0)
+    The metadata for your data is: {'scale_factor': 1.0, 'add_offset': 0.0, 'grid_mapping': 'spatial_ref'}
 
 
 
 {:.input}
 ```python
 # What is the spatial resolution?
-lidar_dem.res
+pre_lidar_dem.rio.resolution()
 ```
 
 {:.output}
@@ -140,49 +154,10 @@ lidar_dem.res
 
 
 
-    (1.0, 1.0)
+    (1.0, -1.0)
 
 
 
-
-
-You can access the tif tags as well. 
-
-{:.input}
-```python
-# View image structure
-with rio.open(lidar_dem_path) as lidar_dem:
-    print(lidar_dem.tags(ns='IMAGE_STRUCTURE'))
-    lidar_dem_mask = lidar_dem.dataset_mask()
-```
-
-{:.output}
-    {'COMPRESSION': 'LZW', 'INTERLEAVE': 'BAND'}
-
-
-
-### Raster Masks
-
-You can view the mask associated with the data too. Here values that `=0` are `nodata` values whereas `= 255` are usable data values. 
-
-{:.input}
-```python
-# View data mask
-lidar_dem_mask
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    array([[  0,   0,   0, ..., 255, 255, 255],
-           [  0,   0,   0, ..., 255, 255, 255],
-           [  0,   0,   0, ..., 255, 255, 255],
-           ...,
-           [  0,   0,   0, ..., 255, 255, 255],
-           [  0,   0,   0, ..., 255, 255, 255],
-           [  0,   0,   0, ..., 255, 255, 255]], dtype=uint8)
 
 
 
@@ -190,29 +165,24 @@ lidar_dem_mask
 
 <div class='notice--success alert alert-info' markdown="1">
 
-<i class = "fa fa-star"></i> **Data Tip:** Read more about attributes associated with rasterio objects and how they map to gdal objects.
-{: .notice--success }
-
 The information returned from the various attributes called above includes:
 
 * x and y resolution
 * projection
 * data format (in this case your data are stored in float format which means they contain decimals)
 
-and more.
-
-You can also extract or view individual metadata attributes.
+and more. You can also extract or view individual metadata attributes.
 </div>
 
 {:.input}
 ```python
-print(lidar_dem.crs)
-print(lidar_dem.bounds)
+print("The CRS of this data is: ", pre_lidar_dem.rio.crs)
+print("The spatial extent of this data is: ",pre_lidar_dem.rio.bounds())
 ```
 
 {:.output}
-    EPSG:32613
-    BoundingBox(left=472000.0, bottom=4434000.0, right=476000.0, top=4436000.0)
+    The CRS of this data is:  EPSG:32613
+    The spatial extent of this data is:  (472000.0, 4434000.0, 476000.0, 4436000.0)
 
 
 
@@ -225,23 +195,25 @@ Find out the answer to this question this using `Python`.
 {:.input}
 ```python
 # Define relative path to file
-lidar_dsm_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", "lidar",
+lidar_dsm_path = os.path.join("colorado-flood", 
+                              "spatial",
+                              "boulder-leehill-rd", 
+                              "pre-flood", 
+                              "lidar",
                               "pre_DSM.tif")
 
 # Open lidar dsm
-with rio.open(lidar_dsm_path) as lidar_dsm:
-    extent_lidar_dsm = lidar_dsm.bounds 
+pre_lidar_dsm = rxr.open_rasterio(lidar_dsm_path)
 ```
 
 {:.input}
 ```python
-if lidar_dem.bounds == lidar_dsm.bounds:
-    print("Both datasets cover the same spatial extent")
+if pre_lidar_dem.rio.bounds() == pre_lidar_dsm.rio.bounds():
+    print("Both datasets cover the same spatial extent.")
 ```
 
 {:.output}
-    Both datasets cover the same spatial extent
+    Both datasets cover the same spatial extent.
 
 
 
@@ -250,7 +222,7 @@ How about resolution? Do both datasets have the same horizontal (x and y) resolu
 {:.input}
 ```python
 # Do both layers have the same spatial resolution?
-lidar_dsm.res == lidar_dem.res
+pre_lidar_dem.rio.resolution() == pre_lidar_dsm.rio.resolution()
 ```
 
 {:.output}
@@ -271,8 +243,8 @@ To see the Proj4 parameters for a given EPSG code, you can either <a href="http:
 
 {:.input}
 ```python
-# Get crs of a rasterio object
-lidar_dem.crs.data
+# Get crs of a crs object
+pre_lidar_dem.rio.crs
 ```
 
 {:.output}
@@ -280,7 +252,7 @@ lidar_dem.crs.data
 
 
 
-    {'init': 'epsg:32613'}
+    CRS.from_epsg(32613)
 
 
 
@@ -315,11 +287,11 @@ in **Python**.
 
 {:.input}
 ```python
-print(lidar_dem.count)
+print(pre_lidar_dem.shape)
 ```
 
 {:.output}
-    1
+    (1, 2000, 4000)
 
 
 
@@ -328,11 +300,10 @@ Another way to see the number of bands is to use the .indexes attribute.
 {:.input}
 ```python
 # How many bands / layers does the object have?
-print("number of bands", lidar_dem.indexes)
+print("number of bands", pre_lidar_dem.rio.count)
 ```
 
 {:.output}
-    number of bands (1,)
-
+    number of bands 1
 
 

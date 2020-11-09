@@ -4,7 +4,7 @@ title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Sometimes a raster dataset covers a larger spatial extent than is needed for a particular purpose. In these cases, you can crop a raster file to a smaller extent. Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-09-11
+modified: 2020-11-07
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/crop-raster-data-with-shapefile-in-python/
@@ -68,12 +68,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from shapely.geometry import mapping
+import rioxarray as rxr
+import xarray as xr
 import geopandas as gpd
-import rasterio as rio
-from rasterio.plot import plotting_extent
-from rasterio.mask import mask
+
 import earthpy as et
-import earthpy.spatial as es
 import earthpy.plot as ep
 
 # Prettier plotting with seaborn
@@ -81,12 +80,14 @@ sns.set(font_scale=1.5)
 
 # Get data and set working directory
 et.data.get_data("colorado-flood")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
 
 
 
@@ -95,6 +96,24 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `crop_image()` function in `earthpy.spatial`. 
 
+{:.input}
+```python
+lidar_chm_path = os.path.join("colorado-flood", 
+                              "spatial"
+                              "boulder-leehill-rd",
+                              "outputs",
+                              "lidar_chm.tif")
+
+lidar_chm_im = rxr.open_rasterio("colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif",
+                                 masked=True).squeeze()
+
+f, ax = plt.subplots(figsize=(10, 5))
+lidar_chm_im.plot.imshow()
+ax.set(title="Lidar Canopy Height Model (CHM)")
+
+ax.set_axis_off()
+plt.show()
+```
 
 {:.output}
 {:.display_data}
@@ -118,8 +137,10 @@ from geopandas. You will learn more about vector data in Python in a few weeks.
 
 {:.input}
 ```python
-aoi = os.path.join("data", "colorado-flood", "spatial",
-                   "boulder-leehill-rd", "clip-extent.shp")
+aoi = os.path.join("colorado-flood",
+                   "spatial",
+                   "boulder-leehill-rd",
+                   "clip-extent.shp")
 
 # Open crop extent (your study area extent boundary)
 crop_extent = gpd.read_file(aoi)
@@ -132,7 +153,7 @@ they will need to be in the same CRS.
 {:.input}
 ```python
 print('crop extent crs: ', crop_extent.crs)
-print('lidar crs: ', lidar_chm.crs)
+print('lidar crs: ', lidar_chm_im.rio.crs)
 ```
 
 {:.output}
@@ -153,25 +174,15 @@ crop_extent.plot(ax=ax)
 
 ax.set_title("Shapefile Crop Extent",
              fontsize=16)
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    Text(0.5, 1.0, 'Shapefile Crop Extent')
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster04-crop-raster/2018-02-05-raster04-crop-raster_12_1.png" alt = "Plot of the shapefile that you will use to crop the CHM data.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster04-crop-raster/2018-02-05-raster04-crop-raster_12_0.png" alt = "Plot of the shapefile that you will use to crop the CHM data.">
 <figcaption>Plot of the shapefile that you will use to crop the CHM data.</figcaption>
 
 </figure>
@@ -192,17 +203,15 @@ Now that you have imported the shapefile. You can use the `crop_image` function 
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10, 8))
+f, ax = plt.subplots(figsize=(10, 5))
+lidar_chm_im.plot.imshow(ax=ax)
 
-ep.plot_bands(lidar_chm_im, cmap='terrain',
-              extent=plotting_extent(lidar_chm),
-              ax=ax,
-              title="Raster Layer with Shapefile Overlayed",
-              cbar=False)
-
-crop_extent.plot(ax=ax, alpha=.8)
+crop_extent.plot(ax=ax,
+                 alpha=.8)
+ax.set(title="Raster Layer with Shapefile Overlayed")
 
 ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -218,44 +227,38 @@ ax.set_axis_off()
 
 
 
+## Clip Raster Data Using RioXarray `.clip`
+
+If you want to crop the data you can use the `rio.clip` function. When you clip
+the data, you can then export it and share it with colleagues. Or use it in 
+another analysis. 
 
 
-## Crop Data Using the `crop_image` Function
+To perform the clip you:
 
-If you want to crop the data you can use the `crop_image` function in `earthpy.spatial`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis. IMPORTANT: You do not need to read the data in before cropping! Cropping the data can be your first step.
+1. Open the raster dataset that you wish to crop using xarray or rioxarray.
+2. Open your shapefile as a geopandas object.
+3. Crop the data using the `.clip()` function. 
 
-To perform the crop you:
+`.clip` has several parameters that you can consider including
 
-1. Create a connection to the raster dataset that you wish to crop
-2. Open your shapefile as a geopandas object. This is what EarthPy needs to crop the data to the extent of your vector shapefile.
-3. Crop the data using the `crop_image()` function. 
+* `drop = True` : The default. setting it will drop all pixels outside of the clip extent
+* `invert = False` : The default. If set to true it will clip all data INSIDE of the clip extent
+* `crs` : if your shapefile is in a different CRS than the raster data, pass the CRS to ensure the data are clipped correctly. 
 
-Without EarthPy, you would have to perform this with a Geojson object. Geojson is a format that is worth becoming familiar with. It's a text, structured format that is used in many online applications. We will discuss it in  more detail later in the class. For now, have a look at the output below. 
-
-{:.input}
-```python
-lidar_chm_path = os.path.join("data", "colorado-flood", "spatial",
-                              "boulder-leehill-rd", "outputs", "lidar_chm.tif")
-
-with rio.open(lidar_chm_path) as lidar_chm:
-    lidar_chm_crop, lidar_chm_crop_meta = es.crop_image(lidar_chm,crop_extent)
-
-lidar_chm_crop_affine = lidar_chm_crop_meta["transform"]
-
-# Create spatial plotting extent for the cropped layer
-lidar_chm_extent = plotting_extent(lidar_chm_crop[0], lidar_chm_crop_affine)
-```
-
-Finally, plot the cropped data. Does it look correct?
+Below you clip the data to the extent of the AOI geodataframe imported above. 
+The data are then plotted.
 
 {:.input}
 ```python
-# Plot your data
-ep.plot_bands(lidar_chm_crop[0],
-              extent=lidar_chm_extent,
-              cmap='Greys',
-              title="Cropped Raster Dataset",
-              scale=False)
+lidar_clipped = lidar_chm_im.rio.clip(crop_extent.geometry.apply(mapping),
+                                      # This is needed if your GDF is in a diff CRS than the raster data
+                                      crop_extent.crs)
+
+f, ax = plt.subplots(figsize=(10, 4))
+lidar_clipped.plot(ax=ax)
+ax.set(title="Raster Layer Cropped to Geodataframe Extent")
+ax.set_axis_off()
 plt.show()
 ```
 
@@ -264,7 +267,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster04-crop-raster/2018-02-05-raster04-crop-raster_20_0.png" alt = "Final cropped canopy height model plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster04-crop-raster/2018-02-05-raster04-crop-raster_16_0.png" alt = "Final cropped canopy height model plot.">
 <figcaption>Final cropped canopy height model plot.</figcaption>
 
 </figure>
@@ -272,52 +275,64 @@ plt.show()
 
 
 
+
+
+
+
+
+
+
+
 <div class="notice--info" markdown="1">
 ## OPTIONAL -- Export Newly Cropped Raster
 
-Once you have cropped your data, you may want to export it. 
-In the subtract rasters lesson you exported a raster that had the same shape and transformation information as the parent rasters. However in this case, you have cropped your data. You will have to update several things to ensure your data export properly:
+Once you have cropped your data, you may want to export it to a new geotiff file,
+just like you did in previous lessons. 
 
-1. The width and height of the raster: You can get this information from the **shape** of the cropped numpy array and
-2. The transformation information of the affine object. The `crop_image()` function provides this inside the metadata object it returns!
-3. Finally you may want to update the `nodata` value.
+You can so this using rioxarray too!
 
-In this case you don't have any `nodata` values in your raster. However you may have them in a future raster!
 </div>
 
 {:.input}
 ```python
-# Update with the new cropped affine info and the new width and height
-lidar_chm_meta.update({'transform': lidar_chm_crop_affine,
-                       'height': lidar_chm_crop.shape[1],
-                       'width': lidar_chm_crop.shape[2],
-                       'nodata': -999.99})
-lidar_chm_meta
+path_to_tif_file = os.path.join("colorado-flood",
+                                "spatial",
+                                "outputs",
+                                "lidar_chm_cropped.tif")
+
+# Write the data to a new geotiff file
+lidar_clipped.rio.to_raster(path_to_tif_file)
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    {'driver': 'GTiff', 'dtype': 'float64', 'nodata': -999.99, 'width': 3490, 'height': 2000, 'count': 1, 'crs': CRS.from_epsg(32613), 'transform': Affine(1.0, 0.0, 472510.0,
-           0.0, -1.0, 4436000.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
-
-
-
-
-
-Once you have updated the metadata you can write our your new raster. 
 
 {:.input}
 ```python
-# Write data
-path_out = os.path.join("data", "colorado-flood", "spatial", 
-                        "outputs", "lidar_chm_cropped.tif")
+# Open the data you wrote out above
+clipped_chm = rxr.open_rasterio(path_to_tif_file)
 
-with rio.open(path_out, 'w', **lidar_chm_meta) as ff:
-    ff.write(lidar_chm_crop[0], 1)
+# Customize your plot as you wish!
+f, ax = plt.subplots(figsize=(10, 4))
+clipped_chm.plot(ax=ax,
+                 cmap='Greys')
+ax.set(title="Final Clipped CHM")
+ax.set_axis_off()
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster04-crop-raster/2018-02-05-raster04-crop-raster_25_0.png">
+
+</figure>
+
+
+
+
+
+
+
 
 <div class="notice--warning" markdown="1">
 
