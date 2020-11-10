@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-11-06
+modified: 2020-11-10
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -90,6 +90,12 @@ os.chdir(os.path.join(et.io.HOME,
                       'earth-analytics',
                       'data'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Next let's open up a raster file in geotiff format (.tif). 
 
@@ -282,8 +288,8 @@ et.epsg['32613']
 
 You will learn more about multi vs single band imagery when you work with RGB (color) imagery in later weeks
 of this course. However geotiffs can also store more than one band or layer. You
-can see if a raster object has more than one layer using the `.count()` function
-in **Python**.
+can see if a raster object has more than one layer using the `.shape` attribute. The first
+dimension of the `.shape` output represents the number of bands.
 
 {:.input}
 ```python
@@ -295,15 +301,31 @@ print(pre_lidar_dem.shape)
 
 
 
-Another way to see the number of bands is to use the .indexes attribute.
+Another way to see the number of bands is to use the `.rio.count` attribute.
 
 {:.input}
 ```python
 # How many bands / layers does the object have?
-print("number of bands", pre_lidar_dem.rio.count)
+print("Number of bands", pre_lidar_dem.rio.count)
 ```
 
 {:.output}
-    number of bands 1
+    Number of bands 1
 
 
+
+## Wrap Up
+
+You've now learned how to open and explore raster format spatial data using xarray and rioxarray
+in open source Python. The next lesson will allow you to practice what you've learned through
+challenge activities. 
+
+You may also choose to move on to the next chapter of this textbook which will introduce you to 
+processing approaches for raster data including how to
+
+* perform raster math (subtract one raster from another)
+* clip raster data, 
+* reproject raster data, and 
+* classify raster data 
+
+Using open source in **python**.
