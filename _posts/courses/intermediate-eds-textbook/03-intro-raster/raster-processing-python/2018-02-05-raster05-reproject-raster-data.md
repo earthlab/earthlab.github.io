@@ -35,21 +35,21 @@ redirect_from:
 </div>
 
 
-## Reprojecting
+## Reprojecting 
 
 Sometimes you your raster data are not all in the same Coordinate Reference Systems (CRS).
-When this happens, you may need to reproject your data from it's current CRS to match the
-CRS of other data that you are using.
+When this happens, you may need to reproject your data from it's current CRS to match the 
+CRS of other data that you are using. 
 
-<i class="fa fa-star"></i> **Data Tip:** Proceed with caution when you are reprojecting raster data. Often it's best to
-reproject your vector data as reprojecting a raster means that the entire dataset are
+<i class="fa fa-star"></i> **Data Tip:** Proceed with caution when you are reprojecting raster data. Often it's best to 
+reproject your vector data as reprojecting a raster means that the entire dataset are 
 interpolated and cast into a new grid system. This adds error and uncertainty to your analysis. There are times when you need to reproject your data. However, consider carefully whether
 you need to do this, before implementimg it in an analysis.
 {: .notice--success}
 
-Below you will learn how to reproject raster data to another crs using both a CRS string
-that you create using the **rasterio CRS** module and using the crs object from another
-spatial layer.
+Below you will learn how to reproject raster data to another crs using both a CRS string 
+that you create using the **rasterio CRS** module and using the crs object from another 
+spatial layer. 
 
 {:.input}
 ```python
@@ -75,7 +75,7 @@ os.chdir(os.path.join(et.io.HOME,
 
 
 
-In this lesson, you have a few different layers that are in different
+In this lesson, you have a few different layers that are in different 
 coordinate reference systems
 
 1. Boulder County Roads: You have a shapefile representing roads in Boulder County, Colorado
@@ -85,11 +85,11 @@ coordinate reference systems
 Typically, when it is possible, you want to avoid reprojecting raster data.
 It's often easier and carries less error when you reproject the vector layers.
 However, in this lesson the goal is to learn how to reproject raster data.
-As such, for this lesson you will reproject a raster layer to align with
+As such, for this lesson you will reproject a raster layer to align with 
 the CRS of your vector data.
 
 To begin, open up the road centerline data for Boulder, Colorado.
-Take note of the CRS of the road centerlines vector data.
+Take note of the CRS of the road centerlines vector data. 
 
 
 {:.input}
@@ -122,7 +122,7 @@ boulder_roads.crs
 
 
 
-Next, open up a shapefile that you will use to clip the
+Next, open up a shapefile that you will use to clip the 
 vector data opened above to the extent of your study area
 which is LeeHill Road in Boulder, Colorado.
 
@@ -204,7 +204,7 @@ lidar_dem.rio.crs
 
 
 
-Below you plot your data. Notice that the data in the plot do not
+Below you plot your data. Notice that the data in the plot do not 
 line up as you need it to for processing.
 
 {:.input}
@@ -240,10 +240,10 @@ Below, you reproject your data using:
 
 You can provide the crs by
 
-1. grabbing the CRS of another spatial layer
-2. as an Proj4 string
+1. grabbing the CRS of another spatial layer 
+2. as an Proj4 string 
 
-Below you use the crs value for the Geopandas layer that you opened above.
+Below you use the crs value for the Geopandas layer that you opened above. 
 
 {:.input}
 ```python
@@ -290,7 +290,7 @@ lidar_dem_wgs84_2.rio.crs
 
 
 
-Once the data have been reprojected, you can plot the
+Once the data have been reprojected, you can plot the 
 DEM with the roads layer and it will line up.
 
 {:.input}
@@ -321,16 +321,16 @@ plt.show()
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge Your Skills
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Reproject a Hillshade Layer
 
-Below there is code to open up a hillshade for this
-same study area. Reproject the hillshade object using rioxarray.
-Then add it to the map that you created above as an underlay.
+Below there is code to open up a hillshade for this 
+same study area. Reproject the hillshade object using rioxarray. 
+Then add it to the map that you created above as an underlay. 
 
-HINT: you can set the `alpha=` parameter to a value less than 1
-to add transparency to a layer in your plot.
+HINT: you can set the `alpha=` parameter to a value less than 1 
+to add transparency to a layer in your plot. 
 
-Your final plot should look like the one below:
+Your final plot should look like the one below: 
 
 </div>
 
@@ -381,6 +381,4 @@ lidar_dem_hill.rio.crs
 
 
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-reproject-raster-data/2018-02-05-raster05-reproject-raster-data_18_0.png">
 
-</figure>
