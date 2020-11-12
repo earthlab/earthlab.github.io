@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate Data"
 excerpt: "In this lesson you will learn the basics of what CMIP5 and MACA v 2 data are and how global climate data are downscaled to higher resolutions to support regional analysis."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-10-31
+modified: 2020-11-12
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-MACAv2-cmip5-data/

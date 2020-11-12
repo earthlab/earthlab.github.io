@@ -4,7 +4,7 @@ title: "Introduction to the NetCDF4 Hierarchical Data Format"
 excerpt: "In this lesson you will learn about that netcdf 4 data format which is a format, commonly used to store climate data. In later lessons you will learn how to open climate data using open source Python tools."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-10-31
+modified: 2020-11-12
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-climate-data/
