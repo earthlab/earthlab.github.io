@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2020-10-14
+modified: 2020-11-12
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
