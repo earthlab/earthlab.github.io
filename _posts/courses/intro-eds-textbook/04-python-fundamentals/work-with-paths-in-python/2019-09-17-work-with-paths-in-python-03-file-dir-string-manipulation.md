@@ -4,7 +4,7 @@ title: 'Use the OS and Glob Python Packages to Manipulate File Paths'
 excerpt: "The os and glob packages are very useful tools in Python for accessing files and directories and for creating lists of paths to files and directories, respectively. Learn how to manipulate and parse file and directory paths using os and glob."
 authors: ['Nathan Korinek', 'Jenny Palomino', 'Leah Wasser']
 dateCreated: 2020-02-24
-modified: 2020-09-23
+modified: 2020-10-14
 category: [courses]
 class-lesson: ['work-with-files-directories-in-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/os-glob-manipulate-file-paths/
@@ -185,8 +185,8 @@ glob(os.path.join(data_folder, '*'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma']
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego']
 
 
 
@@ -203,11 +203,11 @@ glob(os.path.join(data_folder, 'San-Diego', '*'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -226,11 +226,11 @@ glob(os.path.join(data_folder, 'San-Diego', '*.csv'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -249,10 +249,10 @@ glob(os.path.join(data_folder, 'San-Diego', '*2*.csv'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -300,16 +300,16 @@ glob(os.path.join(data_folder, '*', '*'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -332,10 +332,10 @@ sonoma_files
 
 
     ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv']
 
 
 
@@ -390,7 +390,7 @@ print(unsorted_sonoma[4])
 ```
 
 {:.output}
-    data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv
+    data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv
 
 
 
@@ -425,12 +425,12 @@ glob(os.path.join(data_folder, '*', '*200[1-3]*'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv']
 
 
 
@@ -442,7 +442,7 @@ Note, however, that this search range is for characters only, not strings.
 
 For example, you can search for numbers 2-7 with `[2-7]` but you would not be able to search for numbers `[2-14]` because `14` is more than one character.  
 
-Notice below that the search does work correctly because `[2001-2003]` are more than one character.
+Notice below that the search does not work correctly because `[2001-2003]` are more than one character.
 
 {:.input}
 ```python
@@ -455,16 +455,16 @@ glob(os.path.join(data_folder, '*', '*[2001-2003]*'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-1999-temp.csv',
      'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv']
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2003-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-1999-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/San-Diego/San-Diego-2000-temp.csv']
 
 
 
@@ -487,10 +487,10 @@ glob(os.path.join(data_folder, 'Sonoma', '*200?-temp.csv'))
 
 
 
-    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv',
-     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv']
+    ['data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2000-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2002-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2001-temp.csv',
+     'data/earthpy-downloads/avg-monthly-temp-fahr/Sonoma/Sonoma-2003-temp.csv']
 
 
 
@@ -570,7 +570,7 @@ os.path.normpath(example_path)
 
 `os.path.commonpath()` is a very useful when combined with `glob`. This function will take a list of file paths and find the lowest directory that all the files have in common. 
 
-So if there were two files, one stored in `home/user/dir/dir2/example.txt` and one stored in `home/user/dir/example.txt`, then `os.path.commonpath()` would return `home/user/dir` as it's the highest common directory the two folders share. 
+So if there were two files, one stored in `home/user/dir/dir2/example.txt` and one stored in `home/user/dir/example.txt`, then `os.path.commonpath()` would return `home/user/dir` as it's the lowest common directory the two folders share. 
 
 {:.input}
 ```python
@@ -710,8 +710,8 @@ Recall that when you create a file path using `os.path.join()`, it will properly
 
 Note, however, that the file path is still just a string. Thus, you can parse file paths, just like you would strings, and extract information from them that you may need for a project. 
 
-`.split()` is a built-in **Python** function that splits a string into a list of strings based on a seperator 
-character, and can be used in combination with `os.sep()` to seperate file paths into their base parts. 
+`.split()` is a built-in **Python** function that splits a string into a list of strings based on a separator 
+character, and can be used in combination with `os.sep` to separate directories in file paths into their base parts. `os.sep`is a data value stored in `os` that will return the character used to separate pathname components, such as directory or file names. This is `\\` for Windows and `/` for POSIX systems, such as Mac or Linux.
 
 {:.input}
 ```python
