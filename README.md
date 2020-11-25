@@ -1,7 +1,7 @@
 
 
-Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
-Please view our license for all courses and workshop material. Cite our materials following the license and us these DOI's as appropriate:
+Please view our license for all courses and workshop material. Cite our materials following the license and use these DOI's as appropriate:
+* Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
 * Earth Analytics R Course: [![Earth Analytics R Course DOI](https://zenodo.org/badge/143348761.svg)](https://zenodo.org/badge/latestdoi/143348761)
 
 ## Contributors
@@ -9,7 +9,7 @@ Leah Wasser, Maxwell Joseph, Nathan Korinek, Lauren Herwehe
 
 ## Development -- EarthDataScience.org Website
 
-[![Build Status](https://travis-ci.org/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.org/earthlab/earthlab.github.io)
+[![Build Status](https://travis-ci.com/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.com/earthlab/earthlab.github.io)
 
 This site is made with Jekyll, the Minimal Mistakes theme, and hosted using
 GitHub pages. To work locally on the site:
