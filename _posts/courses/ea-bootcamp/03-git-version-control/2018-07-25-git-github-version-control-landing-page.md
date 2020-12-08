@@ -30,7 +30,7 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 * Implement version control for your `Jupyter Notebook` files using `Git` and `Github.com`
 
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Reading
 
 ### Earth Analytics Textbook Chapters
 
@@ -42,9 +42,10 @@ Please read the following chapter to support completing this week's assignment:
 
 ### Example Homework Plots
 
-Examples of what your  homework plots should look like are below.
+Examples of what your homework plots should look like are below.
 
-# TODO -- add the homework assignment link  with the github repo
+# TODO -- add the homework assignment link  with the github repo similar  to my ea  python  course
+# TODO add figure captions to each  plot -  i added them for the second  week
 
 
 

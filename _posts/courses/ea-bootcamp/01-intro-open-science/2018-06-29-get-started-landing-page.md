@@ -35,7 +35,7 @@ After completing the lessons for this week, you will be able to:
 
 *******
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Reading
 
 ### Earth Analytics Textbook Chapters
 
