@@ -35,10 +35,16 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 ### Earth Analytics Textbook Chapters
 
 Please read the following chapter to support completing this week's assignment:
+
 * <a href="https://www.earthdatascience.org/courses/intro-to-earh-data-science/python-code-fundamentals/use-python-packages/">Chapter 11 in Section 4 </a> of the Introduction to Python for Earth Data Science online textbook
 
+</div>
 
 ### Example Homework Plots
+
+Examples of what your  homework plots should look like are below.
+
+# TODO -- add the homework assignment link  with the github repo
 
 
 
@@ -174,7 +180,6 @@ Please read the following chapter to support completing this week's assignment:
 <img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_16_0.png">
 
 </figure>
-
 
 
 
