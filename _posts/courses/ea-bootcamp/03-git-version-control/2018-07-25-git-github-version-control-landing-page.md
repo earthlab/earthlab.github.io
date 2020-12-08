@@ -44,7 +44,7 @@ Please read the following chapter to support completing this week's assignment:
 
 Examples of what your homework plots should look like are below.
 
-# TODO -- add the homework assignment link  with the github repo similar  to my ea  python  course
+# TODO -- add the homework assignment link  with the github repo similar  to my ea  python  course. look closely at th at page  structure and try to follow a similar structure unless you find a cleaner way to presen t he info then lets talk!
 # TODO add figure captions to each  plot -  i added them for the second  week
 
 
