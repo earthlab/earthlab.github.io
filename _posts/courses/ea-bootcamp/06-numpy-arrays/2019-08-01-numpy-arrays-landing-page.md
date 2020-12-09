@@ -34,19 +34,24 @@ After completing the lessons for {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
+<a href="https://github.com/earthlab-education/bootcamp-2020-06-numpy-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
+{: .btn .btn--info}
+
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
 Please read the following chapters to support completing this week's assignment:
 
-* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">Numpy arrays in Python</a>.
+* <a href="https://github.com/earthlab-education/bootcamp-2020-06-numpy-template">Numpy arrays in Python</a>.
+
+</div>
 
 
 ## Example Homework Plots
 
 The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit! 
 
-</div>
+
 
 
 
