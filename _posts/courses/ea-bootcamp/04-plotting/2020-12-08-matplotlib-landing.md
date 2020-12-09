@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Python Variables and Lists"
+title: "Plot Data With Matplotlib"
 permalink: /courses/earth-analytics-bootcamp/plot-data-python
 modified: 2020-12-09
 week-landing: 1

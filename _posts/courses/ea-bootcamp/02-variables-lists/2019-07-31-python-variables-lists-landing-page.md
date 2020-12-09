@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Python Variables and Lists"
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/
-modified: 2020-12-08
+modified: 2020-12-09
 week-landing: 1
 week: 2
 sidebar:
@@ -29,14 +29,13 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 * Define a variable and explain how variables are used in `Python`
 * Write `Python` code to create variables and run arithmetic calculations on them
 * Write `Python` code to create and edit lists
-* Write `Python` code to plot data using the `matplotlib` package
 
 </div>
 
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings 
 
-### Earth Analytics Textbook Chapters
+### <i class="fa fa-book-reader" aria-hidden="true"></i> Earth Analytics Textbook Chapters
 
 Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/">Chapter 10 from Section 4 - Introduction to Python for Earth Data Science</a>
