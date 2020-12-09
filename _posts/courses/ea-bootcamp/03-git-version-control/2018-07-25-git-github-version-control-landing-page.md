@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Introduction to Using Git & Github.com For Version Control of Scientific Projects: Earth Datat Science Bootcamp Course Week 3"
+title: "Use Git & GitHub For Version Control of Scientific Projects"
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/
 modified: 2020-12-09
 week-landing: 1
@@ -47,7 +47,6 @@ Please read the following chapters to support completing this week's assignment:
 
 The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit! 
 
-# TODO add figure captions to each  plot -  i added them for the second  week
 
 
 

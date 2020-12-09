@@ -4,7 +4,7 @@ category: courses
 title: "Loops in Python"
 permalink: /courses/earth-analytics-bootcamp/loops/
 week-landing: 1
-week: 7
+week: 13
 sidebar:
   nav:
 comments: false
