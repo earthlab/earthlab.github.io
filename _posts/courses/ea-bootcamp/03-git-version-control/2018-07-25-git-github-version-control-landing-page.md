@@ -3,6 +3,7 @@ layout: single
 category: courses
 title: "Git/Github.com Workflow For Version Control"
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/
+modified: 2020-12-09
 week-landing: 1
 week: 3
 sidebar:

@@ -1,4 +1,18 @@
-# TODO -- Add YAML 
+---
+layout: single
+category: courses
+title: "Python Variables and Lists"
+permalink: /courses/earth-analytics-bootcamp/plot-data-python
+modified: 2020-12-09
+week-landing: 1
+week: 4
+sidebar:
+  nav:
+comments: false
+author_profile: false
+course: "earth-analytics-bootcamp"
+module-type: 'session'
+---
 {% include toc title="This Week" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
@@ -8,6 +22,11 @@
 Welcome to week {{ page.week }} of Earth Analytics Bootcamp! This week, you will explore 
 plotting data using `matplotlib` in `Python`. 
 
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing the lessons for Week {{ page.week }}, you will be able to:
+
+* TODO -- ADD LO here
 
 *******
 
