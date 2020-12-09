@@ -2,15 +2,18 @@
 layout: single
 category: courses
 title: "Functions"
-permalink: /courses/earth-analytics-bootcamp/functions/
+permalink: /courses/earth-analytics-bootcamp/functions-modular-code-python/
+modified: 2020-12-09
 week-landing: 1
-week: 10
+week: 9
 sidebar:
   nav:
 comments: false
 author_profile: false
 course: "earth-analytics-bootcamp"
 module-type: 'session'
+redirect_from:
+  - "/courses/earth-analytics-bootcamp/functions/"
 ---
 {% include toc title="Today" icon="file-text" %}
 

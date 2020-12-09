@@ -3,6 +3,7 @@ layout: single
 category: courses
 title: "Pandas Dataframes"
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/
+modified: 2020-12-09
 week-landing: 1
 week: 5
 sidebar:

@@ -3,8 +3,9 @@ layout: single
 category: courses
 title: "Git/Github.com For Collaboration"
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/
+modified: 2020-12-09
 week-landing: 1
-week: 9
+week: 7
 sidebar:
   nav:
 comments: false

@@ -3,8 +3,9 @@ layout: single
 category: courses
 title: "Practice Writing DRY Code"
 permalink: /courses/earth-analytics-bootcamp/practice-dry-code/
+modified: 2020-12-09
 week-landing: 1
-week: 11
+week: 10
 sidebar:
   nav:
 comments: false

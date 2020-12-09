@@ -2,7 +2,8 @@
 layout: single
 category: courses
 title: "Conditional Statements"
-permalink: /courses/earth-analytics-bootcamp/conditional-statements/
+permalink: /courses/earth-analytics-bootcamp/conditionals-loops-in-python/
+modified: 2020-12-09
 week-landing: 1
 week: 8
 sidebar:
@@ -11,6 +12,8 @@ comments: false
 author_profile: false
 course: "earth-analytics-bootcamp"
 module-type: 'session'
+redirect_from:
+  - "/courses/earth-analytics-bootcamp/conditional-statements/"
 ---
 {% include toc title="Today" icon="file-text" %}
 
