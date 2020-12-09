@@ -29,13 +29,13 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 * Define a variable and explain how variables are used in `Python`
 * Write `Python` code to create variables and run arithmetic calculations on them
 * Write `Python` code to create and edit lists
-
 </div>
 
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
-### <i class="fa fa-book-reader" aria-hidden="true"></i> Earth Analytics Textbook Chapters
+
+### <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
 Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/">Chapter 10 from Section 4 - Introduction to Python for Earth Data Science</a>
@@ -43,6 +43,9 @@ Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/">Chapter 16 from Section 7 - Introduction to Clean Code</a>
 
 ### Example Homework Plots
+
+The plots below are examples of what your plot could look like. Feel free to
+customize or modify plot settings as you see fit! 
 
 
 

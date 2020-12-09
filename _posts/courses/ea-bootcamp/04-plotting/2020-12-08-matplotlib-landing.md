@@ -38,7 +38,7 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 <a href="https://github.com/earthlab-education/bootcamp-2020-04-plots-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
 
-## <i class="fa fa-book-reader" aria-hidden="true"></i>Earth Analytics Textbooks Readings
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
 Please read the following chapters to support completing this week's assignment:
 

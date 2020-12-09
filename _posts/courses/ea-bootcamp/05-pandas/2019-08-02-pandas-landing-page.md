@@ -37,7 +37,8 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
 
-### Earth Analytics Textbook Chapters
+
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
 Please read the following chapters of the Intro to Earth Data Science online textbook to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Chapter 11 in Section 4 - Introduction to Python Packages</a>.
