@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Python Variables and Lists"
+title: "Introduction to Python Variables and Lists: Earth Data Science Bootcamp Course Week 2"
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/
 modified: 2020-12-09
 week-landing: 1
@@ -34,8 +34,11 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
+The assignment for this week can be downloaded on Canvas. We will be adding it to a 
+public repository in the near future for all to use!
 
-### <i class="fa fa-book"></i> Earth Data Science Textbook Readings
+
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
 Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/">Chapter 10 from Section 4 - Introduction to Python for Earth Data Science</a>

@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Git/Github.com Workflow For Version Control"
+title: "Introduction to Using Git & Github.com For Version Control of Scientific Projects: Earth Datat Science Bootcamp Course Week 3"
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/
 modified: 2020-12-09
 week-landing: 1
@@ -37,18 +37,16 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
 
-Please read the following chapter to support completing this week's assignment:
+Please read the following chapters to support completing this week's assignment:
 
-* <a href="https://www.earthdatascience.org/courses/intro-to-earh-data-science/python-code-fundamentals/use-python-packages/">Using Python packages</a>
-
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/version-control/">Chapter 7 in Section 3 GitHub for Version Control</a>.
 
 </div>
 
 ### Example Homework Plots
 
-Examples of what your homework plots should look like are below.
+The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit! 
 
-# TODO -- add the homework assignment link  with the github repo similar  to my ea  python  course. look closely at th at page  structure and try to follow a similar structure unless you find a cleaner way to presen t he info then lets talk!
 # TODO add figure captions to each  plot -  i added them for the second  week
 
 

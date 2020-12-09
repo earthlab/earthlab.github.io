@@ -26,7 +26,9 @@ plotting data using `matplotlib` in `Python`.
 
 After completing the lessons for Week {{ page.week }}, you will be able to:
 
-* TODO -- ADD LO here
+* Describe the basic structure of a matplotlib figure in Python
+* Create a figure with 1 or more subplots
+* Customize matplotlib figures and subplots.
 
 *******
 
