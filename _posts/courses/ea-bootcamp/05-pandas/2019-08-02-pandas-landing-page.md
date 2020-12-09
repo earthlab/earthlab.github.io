@@ -32,8 +32,6 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 * Write `Python` code to describe, manipulate, and plot `pandas dataframes`
 * Write `Python` code to select data from `pandas dataframe` using indexing based on locations and values
 
-</div>
-
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
 
 <a href="https://github.com/earthlab-education/bootcamp-2020-05-pandas-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
@@ -50,6 +48,7 @@ Please read the following chapters of the Intro to Earth Data Science online tex
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Chapter 11 in Section 4 - Introduction to Python Packages</a>.
 * <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">Chapter 12 in Section 4 - files and directories in Python</a>.
 
+</div>
 
 ## Example Homework Plots
 
