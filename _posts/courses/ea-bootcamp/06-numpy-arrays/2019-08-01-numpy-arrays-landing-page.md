@@ -34,8 +34,7 @@ After completing the lessons for {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
-<a href="https://github.com/earthlab-education/bootcamp-2020-06-numpy-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
-{: .btn .btn--info}
+<a href="https://github.com/earthlab-education/bootcamp-2020-06-numpy-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings

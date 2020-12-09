@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Git/Github.com For Collaboration"
+title: "Git/Github.com For Scientific Collaboration"
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/
 modified: 2020-12-09
 week-landing: 1
@@ -32,7 +32,11 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
-<a href="https://github.com/earthlab-education/bootcamp-2020-05-pandas-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
+# THIS WILL BE UPDATED SOON!
+Ths assignment for this week can be found in the GitHub repository below. We will 
+add more text about the specifics of this assignment in the near future!
+
+<a href="https://github.com/earthlab-education/ea-bootcamp-hometowns" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings

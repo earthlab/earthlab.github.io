@@ -36,8 +36,7 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ### The Homework Assignment for This Week Can Be Found on Github 
 
-
-<a href="https://github.com/earthlab-education/bootcamp-2020-04-plots-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
+<a href="https://github.com/earthlab-education/bootcamp-2020-04-plots-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
