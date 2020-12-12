@@ -1,9 +1,9 @@
 ---
 layout: single
 category: courses
-title: "Conditional Statements"
+title: "Intro to Conditional Statements in Python"
 permalink: /courses/earth-analytics-bootcamp/conditionals-loops-in-python/
-modified: 2020-12-09
+modified: 2020-12-12
 week-landing: 1
 week: 8
 sidebar:
@@ -15,56 +15,90 @@ module-type: 'session'
 redirect_from:
   - "/courses/earth-analytics-bootcamp/conditional-statements/"
 ---
-{% include toc title="Today" icon="file-text" %}
+{% include toc title="This Week" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Eight!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Day Eight of the Earth Analytics Bootcamp! Today, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: conditional statements. 
+Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you 
+will write efficient `Python` code using `Jupyter Notebooks`. You will will implement 
+another strategy for DRY (i.e. Do Not Repeat Yourself) code: conditional statements 
+combined with for loops. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing the lessons for Day 8, you will be able to:
+After completing the lessons for Week {{ page.week }}, you will be able to:
 
 * Explain how conditional statements help you to write DRY code
 * Write `Python` code for conditional statements to run tasks only when certain conditions are met
+* Create for loops to automate tasks
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
+
+<a href="https://github.com/earthlab-education/bootcamp-2020-08-loops-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+
+
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
+
+Please read the following chapters of the Intro to Earth Data Science online textbook to support completing this week's assignment:
+
+Please read the following chapters to support completing this week's assignment:
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/">Chapter 17 - intro to conditional statements in Python</a>.
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/loops/">Chapter 18 in Section 7 Introduction to for loops in Python</a>.
+
+OPTIONAL: you may also want to read the chapter below on manipulating file paths and directories:
+
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/os-glob-manipulate-file-paths/">Lesson on manipulating file paths</a>.
 
 </div>
 
+## Example Homework Plots
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule
-
-| Topic                                                     | 
-|:---------------|:-----------------------------------------|
-| Review Day 7 / Questions                                  | 
-| Lesson 1: Intro to Conditional Statements | 
-| Lesson 2: Control Flow Using Conditional Statements      |   
+The plots below are examples of what your plot could look like. Feel free to
+customize or modify plot settings as you see fit! 
 
 
-## <i class="fa fa-pencil"></i> Lessons Day 8
-
-Today's lessons provide the information and files that you need to continue homework 3. In the lessons, you will write `Python` in `Jupyter Notebook` to control the flow of your code using conditional statements.  
 
 
-### Get Day 8 Files From Github.com
 
-Fork and `git clone` today's files from https://github.com/earthlab-education/ea-bootcamp-day-8 to the `earth-analytics-bootcamp` directory under your home directory.
+{:.output}
+    ❌ This path  /root/earth-analytics/data does not exist, creating it
+    Downloading from https://ndownloader.figshare.com/files/25033508
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/ca-fires-yearly
 
-If needed, refer to the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" >Get Files from Github.com.</a>
-   
 
-## <i class="fa fa-pencil"></i>  Continue Homework 3
 
-<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/"> <i class="fa fa-info-circle"></i>
-View Homework 3</a>
 
-<div class="notice--success" markdown="1">
-<i class="fa fa-star"></i> **Important:** Complete today's lessons and hands-on activities (listed above) BEFORE continuing Homework 3.
-</div>
 
-The third homework (Homework 3) is due **Friday, August 17th at 8:00 AM (U.S. Mountain Daylight Time)**. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180817T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_9_0.png">
+
+</figure>
+
+
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_12_0.png">
+
+</figure>
+
 
 
 
