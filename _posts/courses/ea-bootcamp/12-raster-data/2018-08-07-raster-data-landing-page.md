@@ -36,7 +36,7 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
 
-<a href="https://github.com/earthlab-education/bootcamp-2020-10-time-series-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+<a href="https://github.com/earthlab-education/bootcamp-2020-11-raster-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings

@@ -31,7 +31,7 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
 
-<a href="https://github.com/earthlab-education/bootcamp-2020-10-time-series-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+<a href="https://github.com/earthlab-education/bootcamp-2020-13-final-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
@@ -71,22 +71,11 @@ Below are example versions of the plots you will create for your homework.
 
 
 {:.output}
-{:.execute_result}
-
-
-
-    <function matplotlib.pyplot.show(close=None, block=None)>
-
-
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_7_1.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_7_0.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
 <figcaption>Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.</figcaption>
 
 </figure>

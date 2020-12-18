@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions"
 permalink: /courses/earth-analytics-bootcamp/functions-modular-code-python/
-modified: 2020-12-12
+modified: 2020-12-18
 week-landing: 1
 week: 9
 sidebar:
