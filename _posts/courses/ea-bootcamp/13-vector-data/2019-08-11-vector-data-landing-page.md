@@ -12,58 +12,115 @@ author_profile: false
 course: "earth-analytics-bootcamp"
 module-type: 'session'
 ---
-{% include toc title="Today" icon="file-text" %}
+
+
+{% include toc title="This Week" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Seven!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Day Seven of the Earth Analytics Bootcamp! Today, you will learn about the DRY (i.e. Do Not Repeat Yourself) principle and write `Python` code in `Jupyter Notebook` to implement one strategy for writing DRY code in `Python`: loops.   
-
+Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing the lessons for Day 7, you will be able to:
+After completing the lessons for Week {{ page.week }}, you will be able to:
 
-* Define the DRY principle and list strategies for writing DRY code
-* Explain how loops help you to write DRY code
-* Write `Python` code for looping structures to run tasks multiple times without repeating the code
+* Open and plot vector data using geopandas in Python 
+* Crop and manipulate vector data using geopandas
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
+
+<a href="https://github.com/earthlab-education/bootcamp-2020-10-time-series-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+
+
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
+
+Please read the following chapters of the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python"> Intermediate to Earth Data Science online textbook</a> to support completing this week's assignment:
+
+
+* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 2 and 3 on using vector data in open source python</a>.
 
 </div>
 
+## Example Homework Plots
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule
-
-| Topic                                                     | 
-|:---------------|:-----------------------------------------|
-| Review Day 6 / Questions                                  | 
-| Lesson 1: Intro to DRY code | 
-| Lesson 2: Intro to Loops     |   
-| Lesson 3: Automate Tasks Using Loops     |  
+Below are example versions of the plots you will create for your homework.
 
 
-## <i class="fa fa-pencil"></i> Lessons Day 7
-
-Today's lessons provide the information and files that you need to begin homework 3. In the lessons, you will write `Python` in `Jupyter Notebook` to control the flow of your code using loops.  
 
 
-### Get Day 7 Files From Github.com
 
-Fork and `git clone` today's files from https://github.com/earthlab-education/ea-bootcamp-day-7 to the `earth-analytics-bootcamp` directory under your home directory.
 
-If needed, refer to the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" >Get Files from Github.com.</a>
-   
+{:.output}
+{:.display_data}
 
-## <i class="fa fa-pencil"></i>  Begin Homework 3
+<figure>
 
-<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/"> <i class="fa fa-info-circle"></i>
-View Homework 3</a>
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_7_0.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
+<figcaption>Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.</figcaption>
 
-<div class="notice--success" markdown="1">
-<i class="fa fa-star"></i> **Important:** Complete today's lessons and hands-on activities (listed above) BEFORE beginning Homework 3.
-</div>
+</figure>
 
-The third homework (Homework 3) is due **Friday, August 17th at 8:00 AM (U.S. Mountain Daylight Time)**. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180817T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_8_0.png">
+
+</figure>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_9_0.png">
+
+</figure>
+
+
+
+
+{:.input}
+```python
+# HW plot 6
+# PLOT 3: pre/post DTM difference raster histogram
+
+bins = [-15, -5, -2, 0, 2, 5, 15]
+
+diff_dtm = post_dtm_xr_cl - pre_dtm_xr_cl
+diff_dsm = post_dsm_xr_cl - pre_dsm_xr_cl
+
+f, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10), sharey=True)
+diff_dtm.plot.hist(bins=bins,
+                   ax=ax1)
+ax1.set(title="DTM Difference Histogram")
+
+diff_dsm.plot.hist(bins=bins,
+                   ax=ax2)
+ax2.set(title="DSM Difference Histogram")
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_10_0.png">
+
+</figure>
+
 
 
 
