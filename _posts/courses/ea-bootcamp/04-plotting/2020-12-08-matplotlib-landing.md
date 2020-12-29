@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Plot Data With Matplotlib"
 permalink: /courses/earth-analytics-bootcamp/plot-data-python
-modified: 2020-12-09
+modified: 2020-12-29
 week-landing: 1
 week: 4
 sidebar:
@@ -64,7 +64,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_2_1.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_2_1.png" alt = "Bar plot of total fires in the USA by year from 2000-2015.">
+<figcaption>Bar plot of total fires in the USA by year from 2000-2015.</figcaption>
 
 </figure>
 
@@ -77,7 +78,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_3_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_3_0.png" alt = "Bar plot of total fires in the USA by year from 2000-2015. The bars have a custom edgecolor.">
+<figcaption>Bar plot of total fires in the USA by year from 2000-2015. The bars have a custom edgecolor.</figcaption>
 
 </figure>
 
@@ -90,7 +92,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_4_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/04-plotting/2020-12-08-matplotlib-landing/2020-12-08-matplotlib-landing_4_0.png" alt = "Two plots. The top plot is a bar plot of total fires in the USA by year from 2000-2015. The bottom plot is a scatter plot of mean fire size in hectacres in the USA from 2000-2015.">
+<figcaption>Two plots. The top plot is a bar plot of total fires in the USA by year from 2000-2015. The bottom plot is a scatter plot of mean fire size in hectacres in the USA from 2000-2015.</figcaption>
 
 </figure>
 

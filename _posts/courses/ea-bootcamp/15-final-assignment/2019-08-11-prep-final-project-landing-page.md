@@ -62,7 +62,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_6_1.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_6_1.png" alt = "Two line plots. Top plot shows the monthly maximum of total precipitation for 1989-2018 in Boulder and San Francisco. The bottom plot shows the annual maximum of monthly total precipitation for 1989-2018 in Boulder and San Francisco.">
+<figcaption>Two line plots. Top plot shows the monthly maximum of total precipitation for 1989-2018 in Boulder and San Francisco. The bottom plot shows the annual maximum of monthly total precipitation for 1989-2018 in Boulder and San Francisco.</figcaption>
 
 </figure>
 

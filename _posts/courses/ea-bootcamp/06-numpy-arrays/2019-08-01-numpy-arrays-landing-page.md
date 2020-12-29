@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Numpy Arrays"
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/
-modified: 2020-12-09
+modified: 2020-12-29
 week-landing: 1
 week: 6
 sidebar:
@@ -83,7 +83,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_5_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_5_0.png" alt = "Bar plot of average monthly temperature in 2017 for Boulder, CO.">
+<figcaption>Bar plot of average monthly temperature in 2017 for Boulder, CO.</figcaption>
 
 </figure>
 
@@ -97,7 +98,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_7_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_7_0.png" alt = "A line plot with a line representing the precipitation by month in Boulder, CO for each year from 1998 to 2017.">
+<figcaption>A line plot with a line representing the precipitation by month in Boulder, CO for each year from 1998 to 2017.</figcaption>
 
 </figure>
 
@@ -110,7 +112,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_8_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/06-numpy-arrays/2019-08-01-numpy-arrays-landing-page/2019-08-01-numpy-arrays-landing-page_8_0.png" alt = "Two scatter plots. Top plot shows the median of the average monthly precipitation in Boulder CO from 1998 to 2017. The bottom plot shows the mean of the average monthly precipitation in Boulder CO from 1998 to 2017. ">
+<figcaption>Two scatter plots. Top plot shows the median of the average monthly precipitation in Boulder CO from 1998 to 2017. The bottom plot shows the mean of the average monthly precipitation in Boulder CO from 1998 to 2017. </figcaption>
 
 </figure>
 

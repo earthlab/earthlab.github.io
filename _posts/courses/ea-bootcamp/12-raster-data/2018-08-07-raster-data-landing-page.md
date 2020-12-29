@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Introduction to Spatial Raster Data in Python"
 permalink: /courses/earth-analytics-bootcamp/spatial-raster-data-python/
-modified: 2020-12-18
+modified: 2020-12-29
 week-landing: 1
 week: 12
 sidebar:
@@ -79,7 +79,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_8_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_8_0.png" alt = "Histogram of values from the raster plot of the difference in the canopy height model.">
+<figcaption>Histogram of values from the raster plot of the difference in the canopy height model.</figcaption>
 
 </figure>
 
@@ -92,7 +93,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_9_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_9_0.png" alt = "Categorized raster of areas that gained or lost elevation after the flood.">
+<figcaption>Categorized raster of areas that gained or lost elevation after the flood.</figcaption>
 
 </figure>
 
@@ -125,7 +127,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_10_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/12-raster-data/2018-08-07-raster-data-landing-page/2018-08-07-raster-data-landing-page_10_0.png" alt = "Two histogram plots. The top plot shows the values found in the difference raster of the digital terrain model. The bottom plot shows the values found in the difference raster of the digital surface model.">
+<figcaption>Two histogram plots. The top plot shows the values found in the difference raster of the digital terrain model. The bottom plot shows the values found in the difference raster of the digital surface model.</figcaption>
 
 </figure>
 

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Use Git & GitHub For Version Control of Scientific Projects"
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/
-modified: 2020-12-09
+modified: 2020-12-29
 week-landing: 1
 week: 3
 sidebar:
@@ -56,7 +56,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_4_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_4_0.png" alt = "Scatter plot of Average Monthly Precipitation in Boulder, CO.">
+<figcaption>Scatter plot of Average Monthly Precipitation in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -69,7 +70,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_5_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_5_0.png" alt = "Bar plot of Average Monthly Precipitation in Boulder, CO.">
+<figcaption>Bar plot of Average Monthly Precipitation in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -82,7 +84,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_6_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_6_0.png" alt = "Bar plot of Average Monthly Precipitation in Boulder, CO. The bar colors and the edge colors have been customized.">
+<figcaption>Bar plot of Average Monthly Precipitation in Boulder, CO. The bar colors and the edge colors have been customized.</figcaption>
 
 </figure>
 
@@ -96,7 +99,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_8_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_8_0.png" alt = "Map of Rocky Mountain National Park trails and trailheads, with an outline of the park.">
+<figcaption>Map of Rocky Mountain National Park trails and trailheads, with an outline of the park.</figcaption>
 
 </figure>
 

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to Conditional Statements in Python"
 permalink: /courses/earth-analytics-bootcamp/conditionals-loops-in-python/
-modified: 2020-12-12
+modified: 2020-12-29
 week-landing: 1
 week: 8
 sidebar:
@@ -64,7 +64,7 @@ customize or modify plot settings as you see fit!
 
 
 {:.output}
-    ❌ This path  /root/earth-analytics/data does not exist, creating it
+    ✅ The path /root/earth-analytics/data exists. Nothing to do here
     Downloading from https://ndownloader.figshare.com/files/25033508
     Extracted output to /root/earth-analytics/data/earthpy-downloads/ca-fires-yearly
 
@@ -80,7 +80,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_9_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_9_0.png" alt = "Two bar plots. The top plot shows the monthly mean number of fires in California between 1992 and 2015. The bottom plot shows the monthly mean size of fires in California between 1992 and 2015.">
+<figcaption>Two bar plots. The top plot shows the monthly mean number of fires in California between 1992 and 2015. The bottom plot shows the monthly mean size of fires in California between 1992 and 2015.</figcaption>
 
 </figure>
 
@@ -95,7 +96,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_12_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/08-conditionals-loops/2019-08-11-conditional-loops-landing-page/2019-08-11-conditional-loops-landing-page_12_0.png" alt = "Two scatter plots. The top plot shows fires in California from 2010-2015 by size and cause. The bottom plot shows fires in California from 1995-2000 by size and cause. ">
+<figcaption>Two scatter plots. The top plot shows fires in California from 2010-2015 by size and cause. The bottom plot shows fires in California from 1995-2000 by size and cause. </figcaption>
 
 </figure>
 

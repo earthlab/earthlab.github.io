@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Data Wrangling"
 permalink: /courses/earth-analytics-bootcamp/time-series-data-python/
-modified: 2020-12-18
+modified: 2020-12-29
 week-landing: 1
 week: 11
 sidebar:
@@ -60,7 +60,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_6_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_6_0.png" alt = "Three line plots. The top line plot is of daily precipitation from August to October 2013 in Boulder, CO. The middle line plot is of the monthly maximums of hourly precipitation for 2013 near Boulder Creek. The bottom plot is of the monthly total precipitation from 1948-2013 near Boulder Creek.">
+<figcaption>Three line plots. The top line plot is of daily precipitation from August to October 2013 in Boulder, CO. The middle line plot is of the monthly maximums of hourly precipitation for 2013 near Boulder Creek. The bottom plot is of the monthly total precipitation from 1948-2013 near Boulder Creek.</figcaption>
 
 </figure>
 
@@ -74,7 +75,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_8_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_8_0.png" alt = "Three line plots. The top line plot is of daily mean stream discharge from August to October 2013 for Boulder Creek. The middle line plot is of the monthly maximums of daily mean stream discharge for 2013 for Boulder Creek. The bottom plot is of the monthly total of mean stream discharge from 1986-2013 for Boulder Creek.">
+<figcaption>Three line plots. The top line plot is of daily mean stream discharge from August to October 2013 for Boulder Creek. The middle line plot is of the monthly maximums of daily mean stream discharge for 2013 for Boulder Creek. The bottom plot is of the monthly total of mean stream discharge from 1986-2013 for Boulder Creek.</figcaption>
 
 </figure>
 
@@ -87,7 +89,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_9_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/11-time-series/2019-08-11-time-series-landing-page/2019-08-11-time-series-landing-page_9_0.png" alt = "Two line plots. Top plot is daily total precipitation for August through October of 2013 near Boulder Creek. The bottom plot is the daily mean stream discharge for August through October for Boulder Creek.">
+<figcaption>Two line plots. Top plot is daily total precipitation for August through October of 2013 near Boulder Creek. The bottom plot is the daily mean stream discharge for August through October for Boulder Creek.</figcaption>
 
 </figure>
 

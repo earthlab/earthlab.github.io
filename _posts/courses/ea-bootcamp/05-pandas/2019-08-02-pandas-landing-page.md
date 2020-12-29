@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Introduction to Pandas Dataframes in Python"
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/
-modified: 2020-12-09
+modified: 2020-12-29
 week-landing: 1
 week: 5
 sidebar:
@@ -65,7 +65,8 @@ customize or modify plot settings as you see fit!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/05-pandas/2019-08-02-pandas-landing-page/2019-08-02-pandas-landing-page_6_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/05-pandas/2019-08-02-pandas-landing-page/2019-08-02-pandas-landing-page_6_0.png" alt = "Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year.">
+<figcaption>Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year.</figcaption>
 
 </figure>
 
