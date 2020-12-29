@@ -45,7 +45,7 @@ Please read the following chapters to support completing this week's assignment:
 
 ### Example Homework Plots
 
-The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit! 
+The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit!
 
 
 
@@ -99,8 +99,3 @@ The plots below are examples of what your plot could look like. Feel free to cus
 <img src = "{{ site.url }}/images/courses/ea-bootcamp/03-git-version-control/2018-07-25-git-github-version-control-landing-page/2018-07-25-git-github-version-control-landing-page_8_0.png">
 
 </figure>
-
-
-
-
-

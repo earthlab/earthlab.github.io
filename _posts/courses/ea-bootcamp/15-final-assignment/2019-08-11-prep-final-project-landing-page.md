@@ -12,74 +12,25 @@ author_profile: false
 course: "earth-analytics-bootcamp"
 module-type: 'session'
 ---
-
-
-{% include toc title="This Week" icon="file-text" %}
+{% include toc title="Today" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Days Thirteen and Fourteen!
 
-Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
-
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-
-After completing the lessons for Week {{ page.week }}, you will be able to:
-
-* Open and plot vector data using geopandas in Python 
-* Crop and manipulate vector data using geopandas
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
-
-<a href="https://github.com/earthlab-education/bootcamp-2020-13-final-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
-
-
-## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
-
-Please read the following chapters of the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python"> Intermediate to Earth Data Science online textbook</a> to support completing this week's assignment:
-
-
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 2 and 3 on using vector data in open source python</a>.
+Welcome to Days Thirteen and Fourteen of the Earth Analytics Bootcamp! There are no lessons to complete. On both days, you will write `Python` code in `Jupyter Notebook` to complete your final project of this course. 
 
 </div>
 
-## Example Homework Plots
+## <i class="fa fa-pencil"></i>  Complete Final Project
 
-Below are example versions of the plots you will create for your homework.
+<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/"> <i class="fa fa-info-circle"></i>
+View Final Project</a>
 
+<div class="notice--success" markdown="1">
+<i class="fa fa-star"></i> **Important:** Complete all course lessons and hands-on activities BEFORE beginning the final project.
+</div>
 
-
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/25564340
-    Extracted output to /root/earth-analytics/data/earthpy-downloads/boulder-san-fran-precip
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_6_1.png">
-
-</figure>
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/15-final-assignment/2019-08-11-prep-final-project-landing-page/2019-08-11-prep-final-project-landing-page_7_0.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
-<figcaption>Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.</figcaption>
-
-</figure>
-
-
+The final project is due **Sunday, August 26th at 8:00 AM (U.S. Mountain Daylight Time)**. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180826T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
 
 
