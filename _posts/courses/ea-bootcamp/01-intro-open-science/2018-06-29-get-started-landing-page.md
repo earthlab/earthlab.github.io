@@ -5,7 +5,11 @@ title: "Get Started with Open Reproducible Science"
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/
 week-landing: 1
 week: 1
+<<<<<<< HEAD
 modified: 2020-12-09
+=======
+modified: 2020-12-08
+>>>>>>> main
 sidebar:
   nav:
 comments: false
@@ -26,10 +30,11 @@ Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This wee
 
 After completing the lessons for this week, you will be able to:
 
+# TODO: Update learning objectives
 * Define open reproducible science and explain how the tools used in this course support and promote it
 * Navigate, create, and delete directories in `Shell`
-* Create a copy of (i.e. `fork`) other users' files on `Github.com` 
-* Use the `Git clone` command to download the copy of files to your computer 
+* Create a copy of (i.e. `fork`) other users' files on `Github.com`
+* Use the `Git clone` command to download the copy of files to your computer
 * Run `Python` code and render `Markdown` text in `Jupyter Notebook`
 
 
@@ -38,7 +43,7 @@ After completing the lessons for this week, you will be able to:
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
 
-The assignment for this week can be downloaded on Canvas. We will be adding it to a 
+The assignment for this week can be downloaded on Canvas. We will be adding it to a
 public repository in the near future for all to use!
 
 
@@ -53,7 +58,3 @@ Please read the following chapters in the Earth Data Science online textbook:
 ### Homework
 
 Your homework this week can be found on Canvas as a zipfile.
-
-
-
-
