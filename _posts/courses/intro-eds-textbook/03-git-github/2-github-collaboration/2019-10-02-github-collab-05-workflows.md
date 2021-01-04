@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/github-for-collaboration-open-science-workflow/
 nav-title: "GitHub Collaborative Workflow"
 dateCreated: 2019-10-02
-modified: 2020-10-02
+modified: 2021-01-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -88,9 +88,9 @@ from your forked repo
 
 `https://github.com/your-user-name/spatial-data-project`
 
-* **Step 5: Review your own pull request:** Once you have opened up your pull request, you want to closely review your own work. Make sure that the changes that you can see on Github for each file are exactly what you wish to submit to the main repo. This step is important yet often overlooked. If you see any extra files or changes thaht you did not intend to submit, CLEAN THOSE UP before **MENTION**ing your collaborators for a review! You don't want to waist anyones time reviewing files that are incorrect!  
+* **Step 5: Review your own pull request:** Once you have opened up your pull request, you want to closely review your own work. Make sure that the changes that you can see on Github for each file are exactly what you wish to submit to the main repo. This step is important yet often overlooked. If you see any extra files or changes that you did not intend to submit, CLEAN THOSE UP before **MENTION**ing your collaborators for a review! You don't want to waste anyones time reviewing files that are incorrect!  
 
-* **Step 6: Feedback on your PR** Your collaborators will likely have some feedback and changes that they want on your PR. They will likely leave you some line by line feedback with specific things that should be changed. At that point you will need to go back to your local clone, and make changes as they suggestion
+* **Step 6: Feedback on your PR** Your collaborators will likely have some feedback and changes that they want on your PR. They will likely leave you some line by line feedback with specific things that should be changed. At that point you will need to go back to your local clone, and make changes as they suggest.
 
 <i class="fa fa-star"></i> **Data Tip:** sometimes collaborators will make suggested changes to your code directly in the Pull Request. If that happens, you may need to accept those changes and then do a **Reverse Pull Request** to update your forked repo from the main repo. 
 {: .notice--success}

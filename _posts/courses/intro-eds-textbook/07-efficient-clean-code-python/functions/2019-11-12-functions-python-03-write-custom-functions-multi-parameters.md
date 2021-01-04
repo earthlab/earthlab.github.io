@@ -8,7 +8,7 @@ class-lesson: ['intro-functions-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/write-functions-with-multiple-and-optional-parameters-in-python/
 nav-title: "Write Multi-Parameter Functions in Python"
 dateCreated: 2019-11-12
-modified: 2020-09-03
+modified: 2021-01-04
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
@@ -487,7 +487,7 @@ def download_import_df(file_url, path):
 
 However, what if the working directory has not been set before this function is called, and you do not want to use absolute paths? 
 
-Since you know that the `get_data()` function creates the `earth-analytics` directoy under the home directory if it does not already exist, you can safely assume that this combined function will also create that directory.
+Since you know that the `get_data()` function creates the `earth-analytics` directory under the home directory if it does not already exist, you can safely assume that this combined function will also create that directory.
 
 As such, you can include setting the working directory in the function, so that you do not have to worry about providing absolute paths to the function:
 

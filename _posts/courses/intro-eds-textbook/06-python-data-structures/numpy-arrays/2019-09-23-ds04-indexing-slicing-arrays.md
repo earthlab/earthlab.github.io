@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/indexing-slicing-numpy-arrays/
 nav-title: "Slice Data From Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2020-09-15
+modified: 2021-01-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -42,7 +42,7 @@ You can also access elements (i.e. values) in **numpy** arrays using indexing.
 
 ### Indexing on One-dimensional Numpy Arrays
 
-For one-dimensional **numpy** arrays, you only need to specific one index value, which is the position of the element in the **numpy** array (e.g.  `arrayname[index]`). 
+For one-dimensional **numpy** arrays, you only need to specify one index value, which is the position of the element in the **numpy** array (e.g.  `arrayname[index]`). 
 
 As an example, take a look at the one-dimensional array below which has 3 elements. 
 
@@ -87,6 +87,7 @@ As you learned previously in this chapter, you will use the **earthpy** package 
 ```python
 # Import necessary packages
 import os
+
 import numpy as np
 import earthpy as et
 ```
