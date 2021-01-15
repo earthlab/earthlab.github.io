@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-09-11
+modified: 2021-01-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -85,6 +85,8 @@ import numpy as np
 import numpy.ma as ma
 import pandas as pd
 import rasterio as rio
+import xarray as xr
+import rioxarray as rxr
 from rasterio.plot import plotting_extent
 from rasterio.mask import mask
 import geopandas as gpd
@@ -104,7 +106,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
       if len(arr.shape) is 2:
 
 

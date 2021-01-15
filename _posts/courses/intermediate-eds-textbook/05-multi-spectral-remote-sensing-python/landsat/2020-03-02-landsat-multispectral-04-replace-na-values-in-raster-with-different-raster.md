@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-09-11
+modified: 2021-01-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -52,6 +52,8 @@ import numpy.ma as ma
 import pandas as pd
 from shapely.geometry import mapping, box
 import geopandas as gpd
+import xarray as xr
+import rioxarray as rxr
 import rasterio as rio
 from rasterio.plot import plotting_extent
 import earthpy as et
@@ -70,7 +72,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
       if len(arr.shape) is 2:
 
 
