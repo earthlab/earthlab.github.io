@@ -4,7 +4,7 @@ title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming 
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-09-11
+modified: 2021-01-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-NDVI-python/
@@ -68,6 +68,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import rasterio as rio
+import rioxarray as rxr
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
@@ -88,8 +89,7 @@ naip_data_path = os.path.join("data", "cold-springs-fire",
                               "naip", "m_3910505_nw_13_1_20150919", 
                               "crop", "m_3910505_nw_13_1_20150919_crop.tif")
 
-with rio.open(naip_data_path) as src:
-    naip_data = src.read()
+naip_data = rxr.open_rasterio(naip_data_path)
 
 # View shape of the data
 naip_data.shape
@@ -145,7 +145,7 @@ Using a histogram, you can view the distribution of pixel values in your NDVI ou
 
 {:.input}
 ```python
-ep.hist(naip_ndvi,
+ep.hist(naip_ndvi.values,
         figsize=(12, 6),
         title=["NDVI: Distribution of pixels\n NAIP 2015 Cold Springs fire site"])
 
@@ -247,7 +247,7 @@ type(naip_ndvi), naip_ndvi.dtype
 
 
 
-    (numpy.ndarray, dtype('float64'))
+    (xarray.core.dataarray.DataArray, dtype('float64'))
 
 
 
