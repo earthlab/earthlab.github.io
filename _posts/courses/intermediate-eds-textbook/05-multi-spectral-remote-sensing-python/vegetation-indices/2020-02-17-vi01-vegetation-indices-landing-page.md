@@ -4,7 +4,7 @@ title: "Calculate Vegetation Indices in Python"
 excerpt: "A vegetation index is a value that quantifies vegetation health or structure. Learn how to calculate the NDVI and NBR vegetation indices to study vegetation health and wildfire impacts in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-09-11
+modified: 2021-01-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/
@@ -106,7 +106,7 @@ in the red and near infrared bands to calculate the index.
 
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
       if len(arr.shape) is 2:
 
 
