@@ -4,7 +4,7 @@ title: "Open and Crop Landsat Remote Sensing Data in Open Source Python"
 excerpt: "Learn how to open up and create a stack of Landsat images and crop them to a certain extent using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-03-25
-modified: 2021-01-15
+modified: 2021-01-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/open-and-crop-data/
@@ -83,6 +83,8 @@ import matplotlib.pyplot as plt
 import geopandas as gpd
 import xarray as xr
 import rioxarray as rxr
+import numpy as np
+import numpy.ma as ma
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
@@ -93,12 +95,6 @@ from shapely.geometry import mapping
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
 
 You will be working in the `landsat-collect` directory. Notice that the data in that directory are stored by individual band. Each file is a single geotiff (.tif) rather than one tif with all the bands which is what you worked with in the previous lesson with NAIP data.  
 
@@ -167,16 +163,16 @@ glob(os.path.join(landsat_post_fire_path, "*"))
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -203,16 +199,16 @@ glob(os.path.join(landsat_post_fire_path, "*.tif"))
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -234,13 +230,13 @@ all_landsat_post_bands
 
 
 
-    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
+    ['cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
      'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif']
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif']
 
 
 
@@ -276,7 +272,8 @@ In the previous lesson, you learned how to stack and plot landsat bands. Like th
 
 {:.input}
 ```python
-landsat_post_arr_list = [rxr.open_rasterio(image_path, masked=True).squeeze() for image_path in all_landsat_post_bands]
+landsat_post_arr_list = [rxr.open_rasterio(
+    image_path, masked=True).squeeze() for image_path in all_landsat_post_bands]
 landsat_post_arr = xr.concat(landsat_post_arr_list, dim="band")
 
 ep.plot_bands(landsat_post_arr)
@@ -331,9 +328,11 @@ fire_boundary_path = os.path.join("cold-springs-fire",
 
 fire_boundary = gpd.read_file(fire_boundary_path)
 
-band_4_array = rxr.open_rasterio(all_landsat_post_bands[3], masked=True).squeeze()
+band_4_array = rxr.open_rasterio(
+    all_landsat_post_bands[3], masked=True).squeeze()
 fire_boundary_utmz13 = fire_boundary.to_crs(band_4_array.rio.crs)
-band_4_array_clip = band_4_array.rio.clip(fire_boundary_utmz13.geometry.apply(mapping))
+band_4_array_clip = band_4_array.rio.clip(
+    fire_boundary_utmz13.geometry.apply(mapping))
 
 ep.plot_bands(band_4_array_clip,
               title="Landsat Cropped Band 4\nColdsprings Fire Scar",
@@ -365,7 +364,8 @@ imagery.
 {:.input}
 ```python
 # This will create a new stacked raster with all bands
-all_cropped = landsat_post_arr.rio.clip(fire_boundary_utmz13.geometry.apply(mapping))
+all_cropped = landsat_post_arr.rio.clip(
+    fire_boundary_utmz13.geometry.apply(mapping))
 ```
 
 ### Plot Your Raster Stack
@@ -393,6 +393,38 @@ plt.show()
 
 <img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-open-and-crop-all/2020-03-02-landsat-multispectral-02-open-and-crop-all_19_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
 <figcaption>Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.</figcaption>
+
+</figure>
+
+
+
+
+### Plot Your Raster Stack in Color
+
+Sometimes, you want to plot your raster stack using multiple bands to display the color of an area. This can be difficult, as plotting stacked bands with `nan` values in it, like the cropped images above, can cause issues. To get around this, you can mask the `nan` values out of your raster and plot the output masked array using Earthpy's `plot_rbg` function. You can create a mask of where `nan` values are with `np.isnan(array_name)`, and apply it with `ma.masked_array(original_array, numpy_mask)`.
+
+{:.input}
+```python
+# Create nan mask
+mask_nan = np.isnan(all_cropped)
+
+# Apply nan mask to cropped data
+landsat_post_arr_masked = ma.masked_array(all_cropped, mask=mask_nan)
+
+# Plot masked array
+ep.plot_rgb(landsat_post_arr_masked,
+            rgb=[3, 2, 1],
+            title="RGB Image Landsat Post Fire")
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-open-and-crop-all/2020-03-02-landsat-multispectral-02-open-and-crop-all_21_0.png">
 
 </figure>
 
