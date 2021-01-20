@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-16
+modified: 2021-01-20
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -96,14 +96,16 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework.
+Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
+
+HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
 
 
 {:.input}
 ```python
 landsat_paths_pre_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
                                       "LC080340322016070701T1-SC20180214145604", "crop",
-                                      "*band*.tif")
+                                      "*band[2-5]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
@@ -113,7 +115,7 @@ landsat_pre_list = [rxr.open_rasterio(
 landsat_pre = xr.concat(landsat_pre_list, dim="band")
 
 ep.plot_rgb(landsat_pre.values,
-            rgb=[3, 2, 1],
+            rgb=[2, 1, 0],
             title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 
 plt.show()
@@ -432,9 +434,9 @@ landsat_pre_cl_free = em.mask_pixels(
 {:.input}
 ```python
 # Plot the data
-ep.plot_bands(landsat_pre_cl_free[6],
+ep.plot_bands(landsat_pre_cl_free[3],
               cmap="Greys",
-              title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016",
+              title="Landsat Infrared Band | 30 meters \n Post Cold Springs Fire \n July 8, 2016",
               cbar=False)
 plt.show()
 ```
@@ -456,7 +458,7 @@ plt.show()
 ```python
 # Plot data
 ep.plot_rgb(landsat_pre_cl_free,
-            rgb=[4, 3, 2],
+            rgb=[3, 2, 1],
             title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
 ```
