@@ -75,7 +75,7 @@ import earthpy.plot as ep
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 Next, open up the NAIP data that you wish to calculate NDVI with. You will use the data from 2015 for this example that you downloaded for week 7 of this course:
@@ -84,8 +84,8 @@ Next, open up the NAIP data that you wish to calculate NDVI with. You will use t
 
 {:.input}
 ```python
-naip_data_path = os.path.join("data", "cold-springs-fire", 
-                              "naip", "m_3910505_nw_13_1_20150919", 
+naip_data_path = os.path.join("cold-springs-fire",
+                              "naip", "m_3910505_nw_13_1_20150919",
                               "crop", "m_3910505_nw_13_1_20150919_crop.tif")
 
 naip_data = rxr.open_rasterio(naip_data_path)
@@ -117,7 +117,7 @@ Finally plot the data. Note below that the `vmin=` and `vmax=` arguments are use
 
 {:.input}
 ```python
-ep.plot_bands(naip_ndvi, 
+ep.plot_bands(naip_ndvi,
               cmap='PiYG',
               scale=False,
               vmin=-1, vmax=1,
@@ -174,8 +174,8 @@ function.
 
 {:.input}
 ```python
-# naip_data_path = os.path.join("data", "cold-springs-fire", 
-#                               "naip", "m_3910505_nw_13_1_20150919", 
+# naip_data_path = os.path.join("data", "cold-springs-fire",
+#                               "naip", "m_3910505_nw_13_1_20150919",
 #                               "crop", "m_3910505_nw_13_1_20150919_crop.tif")
 
 # with rio.open(naip_data_path) as src:
@@ -232,7 +232,7 @@ Note below that when we write the raster, we use the custom outpath that we make
 
 {:.input}
 ```python
-naip_ndvi_outpath = os.path.join("data", "cold-springs-fire", 
+naip_ndvi_outpath = os.path.join("cold-springs-fire",
                                  "outputs", "naip_ndvi.tif")
 
 # Write your the ndvi raster object

@@ -4,7 +4,7 @@ title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) using Landsat
 excerpt: "The Normalized Burn Index is used to quantify the amount of area that was impacted by a fire. Learn how to calculate the normalized burn index and classify your data using Landsat 8 data in Python."
 authors: ['Leah Wasser','Megan Cattau']
 dateCreated: 2017-03-01
-modified: 2021-01-16
+modified: 2021-01-20
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-dNBR-Landsat-8/
@@ -64,8 +64,8 @@ from matplotlib import colors
 import seaborn as sns
 import numpy as np
 from shapely.geometry import mapping, box
-import rasterio as rio
-from rasterio.plot import plotting_extent
+import xarray as xr
+import rioxarray as rxr
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
@@ -78,14 +78,8 @@ sns.set(font_scale=1.5)
 # Download data and set working directory
 data1 = et.data.get_data('cold-springs-fire')
 data2 = et.data.get_data('cs-test-landsat')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
-
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
 
 To calculate difference Normalized Burn Ratio (dNBR), you first need to calculate NBR for the pre and post fire data. This, of course, presumes that you have data before and after the area was burned from the same remote sensing sensor. Ideally, this data also does not have clouds covering the fire area.
 
@@ -94,55 +88,47 @@ Open up and stack the Landsat post-fire data.
 {:.input}
 ```python
 # Import and stack post fire Landsat data
-all_landsat_bands_path = os.path.join("data", 
-                                      "cold-springs-fire", 
-                                      "landsat_collect",
-                                      "LC080340322016072301T1-SC20180214145802",
-                                      "crop", 
-                                      "*band*.tif")
+all_landsat_bands_path = glob(os.path.join("cold-springs-fire",
+                                           "landsat_collect",
+                                           "LC080340322016072301T1-SC20180214145802",
+                                           "crop",
+                                           "*band[5-7]*.tif"))
 
-all_landsat_bands = glob(all_landsat_bands_path)
-all_landsat_bands.sort()
+all_landsat_bands_path.sort()
 
-landsat_post_fire_path = os.path.join("data", 
-                                      "cold-springs-fire",
-                                      "outputs", 
-                                      "landsat_post_fire.tif")
+landsat_post_list = [rxr.open_rasterio(
+    image_path, masked=True).squeeze() for image_path in all_landsat_bands_path]
+landsat_post_fire = xr.concat(landsat_post_list, dim="band")
 
-landsat_post_fire, landsat_post_fire_meta = es.stack(all_landsat_bands,
-                                                     landsat_post_fire_path)
-
-# Get the plot extent
-landsat_extent = plotting_extent(landsat_post_fire[0],
-                                 landsat_post_fire_meta["transform"])
+landsat_extent = list(landsat_post_fire.rio.bounds())
+landsat_extent[1], landsat_extent[2] = landsat_extent[2], landsat_extent[1]
 
 # Open fire boundary layer and reproject it to match the Landsat data
-fire_boundary_path = os.path.join("data", 
-                                  "cold-springs-fire",
-                                  "vector_layers", 
+fire_boundary_path = os.path.join("cold-springs-fire",
+                                  "vector_layers",
                                   "fire-boundary-geomac",
                                   "co_cold_springs_20160711_2200_dd83.shp")
 
 fire_boundary = gpd.read_file(fire_boundary_path)
 
 # If the CRS are not the same, be sure to reproject
-fire_bound_utmz13 = fire_boundary.to_crs(landsat_post_fire_meta['crs'])
+fire_bound_utmz13 = fire_boundary.to_crs(landsat_post_fire.rio.crs)
 ```
 
-Next, you can calculate NBR on the post fire data. Remember that NBR uses different bands than NDVI but the calculation formula is the same. For landsat 8 data you will be using bands 7 and 5. And remember because python starts counting at 0 (0-based indexing), that will be bands 6 and 4 when you access them in your numpy array. 
+Next, you can calculate NBR on the post fire data. Remember that NBR uses different bands than NDVI but the calculation formula is the same. For landsat 8 data you will be using bands 7 and 5. And remember because python starts counting at 0 (0-based indexing), and we got just bands `5, 6, 7` in our xarray, that will be indices 2 and 0 when you access them in your numpy array. 
 
 Below the `es.normalized_diff()` function is used to calculate NBR. You can also calculate NBR like you did NDVI with raster math :
 
 ```
 landsat_postfire_nbr = (
-    landsat_post_fire[4]-landsat_post_fire[6]) / (landsat_post_fire[4]+landsat_post_fire[6])
+    landsat_post_fire[0]-landsat_post_fire[2]) / (landsat_post_fire[0]+landsat_post_fire[2])
 ```
 
 {:.input}
 ```python
 # Calculate NBR & plot
 landsat_postfire_nbr = es.normalized_diff(
-    landsat_post_fire[4], landsat_post_fire[6])
+    landsat_post_fire[0], landsat_post_fire[2])
 
 fig, ax = plt.subplots(figsize=(12, 6))
 
@@ -424,7 +410,8 @@ You can calculate this using a loop, a function or manually - like so:
 # To calculate area, multiply:
 # number of pixels in each bin by image resolution
 # Result will be in total square meters
-landsat_pixel = landsat_pre.res[0] * landsat_pre.res[0]
+landsat_pixel = landsat_pre_crop.rio.resolution(
+)[0] * landsat_pre_crop.rio.resolution()[0]
 burned_landsat = (dnbr_landsat_class[dnbr_landsat_class == 5]).size
 burned_landsat = np.multiply(burned_landsat, landsat_pixel)
 

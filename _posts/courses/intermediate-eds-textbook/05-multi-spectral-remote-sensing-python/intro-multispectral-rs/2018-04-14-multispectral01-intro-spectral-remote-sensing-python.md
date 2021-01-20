@@ -4,7 +4,7 @@ title: "Introduction to Multispectral Remote Sensing Data in Python"
 excerpt: "Multispectral remote sensing data can be in different resolutions and formats and often has different bands. Learn about the differences between NAIP, Landsat and MODIS remote sensing data as it is used in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2021-01-16
+modified: 2021-01-20
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-tb']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/

@@ -93,7 +93,7 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
@@ -103,7 +103,7 @@ HINT: Since we are only using the RGB and the NIR bands for this exercise, you c
 
 {:.input}
 ```python
-landsat_paths_pre_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
+landsat_paths_pre_path = os.path.join("cold-springs-fire", "landsat_collect",
                                       "LC080340322016070701T1-SC20180214145604", "crop",
                                       "*band[2-5]*.tif")
 

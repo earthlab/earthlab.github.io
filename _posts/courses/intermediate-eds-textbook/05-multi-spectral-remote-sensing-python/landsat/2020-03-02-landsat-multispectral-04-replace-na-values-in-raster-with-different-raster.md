@@ -63,7 +63,7 @@ sns.set(font_scale=1.5)
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
 data_2 = et.data.get_data('cs-test-landsat')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
@@ -77,7 +77,7 @@ First, import the landsat rasters and mask out the clouds like you did in the pr
 {:.input}
 ```python
 # Stack the Landsat pre fire data
-landsat_paths_pre_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
+landsat_paths_pre_path = os.path.join("cold-springs-fire", "landsat_collect",
                                       "LC080340322016070701T1-SC20180214145604", "crop",
                                       "*band[2-4]*.tif")
 
@@ -93,7 +93,7 @@ landsat_pre_cloud = xr.concat(landsat_pre_list, dim="band")
 landsat_pre_cloud_ext_bds = landsat_pre_cloud.rio.bounds()
 
 # Open the pixel_qa layer for your landsat scene
-landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
+landsat_pre_cl_path = os.path.join("cold-springs-fire", "landsat_collect",
                                    "LC080340322016070701T1-SC20180214145604", "crop",
                                    "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
 
@@ -143,7 +143,7 @@ Below you access the `bounds` object of a rioxarray object with `xarray_name.rio
 ```python
 # Read in the "cloud free" landsat data that you downloaded as a part of your homework
 landsat_paths_pre_cloud_free = glob(
-    os.path.join("data", "cs-test-landsat", "*band[2-4]*.tif"))
+    os.path.join("cs-test-landsat", "*band[2-4]*.tif"))
 
 landsat_paths_pre_cloud_free.sort()
 
