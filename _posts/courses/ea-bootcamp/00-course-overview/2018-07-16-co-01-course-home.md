@@ -51,39 +51,4 @@ This course is highly technical, and you will code every day. We will use the `P
 <i fa fa-star></i>**Important:** We have a cloud environment (`Jupyter Hub`) available for you to use for your assignments. However, we encourage you to get `Python` set up on your own computer as well, as it's a good skill to have! You will also need to have `Bash` and `Git` installed on your computer for several activities in this course. Please follow the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> to install the necessary tools for your operating system (Windows, Mac, Linux).
 
 
-### Course Outline
-
-#### Week 1 
-
-| Day  | | Topic                                       | Assignment           |
-|:---------|:------------|:----------------------------------------------------------|:-----------------|
-| 1    | Mon, Aug 6th | Get Started With Open Reproducible Science            | - |
-| 2    | Tues, Aug 7th | Python Variables and Lists           | - |
-| 3    | Wed, Aug 8th | Git/Github.com Workflow For Version Control             | - |
-| 4    | Thurs, Aug 9th |      Numpy Arrays      | - |
-| 5    | Fri, Aug 10th | Pandas Dataframes            | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">Homework 1 Due</a>** |
-
-
-
-#### Week 2 
-
-| Day  | | Topic                                       | Assignment           |
-|:---------|:------------|:----------------------------------------------------------|:-----------------|
-| 6    | Mon, Aug 13th | Practice Working With Data Structures            | - |
-| 7   | Tues, Aug 14th | Loops           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">Homework 2 Due</a>** |
-| 8    | Wed, Aug 15th | Conditional Statements             | - |
-| 9    | Thurs, Aug 16th | Git/Github.com Workflow For Collaboration      | - |
-| 10    | Fri, Aug 17th | Functions           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">Homework 3 Due</a>** |
-
-
-#### Week 3 
-
-| Day  | | Topic                                       | Assignment           |
-|:---------|:------------|:----------------------------------------------------------|:-----------------|
-| 11    | Mon, Aug 20th | Practice Writing DRY Code            | - |
-| 12   | Tues, Aug 21st | Data Wrangling           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">Homework 4 Due</a>** |
-| 13    | Wed, Aug 22nd | Prepare for Final Project             | - |
-| 14    | Thurs, Aug 23rd | Final Project      | - |
-
-
 
