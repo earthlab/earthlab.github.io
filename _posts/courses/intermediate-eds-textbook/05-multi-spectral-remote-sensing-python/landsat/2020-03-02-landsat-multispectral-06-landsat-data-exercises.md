@@ -4,7 +4,7 @@ title: "Practice Opening and Plotting Landsat Data in Python Using Rasterio"
 excerpt: "A set of activities for you to practice your skills using Landsat Data in Open Source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-24
-modified: 2021-01-16
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/landsat-exercises/
@@ -38,8 +38,8 @@ After completing this lesson, you will be able to:
 {:.input}
 ```python
 import os
-# Glob for file manipulation
 from glob import glob
+
 import matplotlib.pyplot as plt
 import geopandas as gpd
 import rioxarray as rxr
