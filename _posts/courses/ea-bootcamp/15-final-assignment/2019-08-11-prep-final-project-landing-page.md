@@ -1,10 +1,10 @@
 ---
 layout: single
 category: courses
-title: "Prepare For Final Project"
+title: "Final Assignment"
 permalink: /courses/earth-analytics-bootcamp/prep-final-project/
 week-landing: 1
-week: 13
+week: 14
 sidebar:
   nav:
 comments: false
