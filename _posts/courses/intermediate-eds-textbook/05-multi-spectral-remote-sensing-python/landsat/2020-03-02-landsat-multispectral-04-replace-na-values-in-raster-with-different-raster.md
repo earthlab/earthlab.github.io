@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-20
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -43,6 +43,7 @@ To begin, open both of the pre-fire raster stacks. You got the cloud free data a
 ```python
 import os
 from glob import glob
+
 import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches
 from matplotlib.colors import ListedColormap
@@ -77,8 +78,10 @@ First, import the landsat rasters and mask out the clouds like you did in the pr
 {:.input}
 ```python
 # Stack the Landsat pre fire data
-landsat_paths_pre_path = os.path.join("cold-springs-fire", "landsat_collect",
-                                      "LC080340322016070701T1-SC20180214145604", "crop",
+landsat_paths_pre_path = os.path.join("cold-springs-fire", 
+                                      "landsat_collect",
+                                      "LC080340322016070701T1-SC20180214145604", 
+                                      "crop",
                                       "*band[2-4]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
@@ -93,8 +96,10 @@ landsat_pre_cloud = xr.concat(landsat_pre_list, dim="band")
 landsat_pre_cloud_ext_bds = landsat_pre_cloud.rio.bounds()
 
 # Open the pixel_qa layer for your landsat scene
-landsat_pre_cl_path = os.path.join("cold-springs-fire", "landsat_collect",
-                                   "LC080340322016070701T1-SC20180214145604", "crop",
+landsat_pre_cl_path = os.path.join("cold-springs-fire", 
+                                   "landsat_collect",
+                                   "LC080340322016070701T1-SC20180214145604", 
+                                   "crop",
                                    "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
 
 landsat_qa = rxr.open_rasterio(landsat_pre_cl_path).squeeze()

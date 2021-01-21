@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-20
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -77,6 +77,7 @@ There is no perfect solution of course. You will just learn one approach.
 ```python
 import os
 from glob import glob
+
 import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches, colors
 import seaborn as sns
@@ -93,7 +94,9 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
+os.chdir(os.path.join(et.io.HOME, 
+                      'earth-analytics', 
+                      'data'))
 ```
 
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
@@ -103,8 +106,10 @@ HINT: Since we are only using the RGB and the NIR bands for this exercise, you c
 
 {:.input}
 ```python
-landsat_paths_pre_path = os.path.join("cold-springs-fire", "landsat_collect",
-                                      "LC080340322016070701T1-SC20180214145604", "crop",
+landsat_paths_pre_path = os.path.join("cold-springs-fire", 
+                                      "landsat_collect",
+                                      "LC080340322016070701T1-SC20180214145604", 
+                                      "crop",
                                       "*band[2-5]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
@@ -112,6 +117,7 @@ landsat_paths_pre.sort()
 
 landsat_pre_list = [rxr.open_rasterio(
     image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
+
 landsat_pre = xr.concat(landsat_pre_list, dim="band")
 
 ep.plot_rgb(landsat_pre.values,
