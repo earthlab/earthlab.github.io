@@ -4,7 +4,7 @@ title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming 
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2021-01-21
+modified: 2021-01-22
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-NDVI-python/
@@ -79,6 +79,12 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 Next, open up the NAIP data that you wish to calculate NDVI with. You will use the data from 2015 for this example that you downloaded for week 7 of this course:
 
 `data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
@@ -86,9 +92,9 @@ Next, open up the NAIP data that you wish to calculate NDVI with. You will use t
 {:.input}
 ```python
 naip_data_path = os.path.join("cold-springs-fire",
-                              "naip", 
+                              "naip",
                               "m_3910505_nw_13_1_20150919",
-                              "crop", 
+                              "crop",
                               "m_3910505_nw_13_1_20150919_crop.tif")
 
 naip_data = rxr.open_rasterio(naip_data_path)
@@ -173,29 +179,7 @@ When you are done, you can export your NDVI raster data so you could use them in
 QGIS or ArcGIS or share them with your colleagues. To do this, you use the `xarray_name.rio.to_raster()`
 function.
 
-**rioxarray** makes exporting rasters simple!
 
-{:.input}
-```python
-# naip_data_path = os.path.join("data", "cold-springs-fire",
-#                               "naip", "m_3910505_nw_13_1_20150919",
-#                               "crop", "m_3910505_nw_13_1_20150919_crop.tif")
-
-# with rio.open(naip_data_path) as src:
-#     naip_data = src.read()
-#     naip_meta = src.profile
-
-# naip_meta
-```
-
-{:.input}
-```python
-# naip_transform = naip_meta["transform"]
-# naip_crs = naip_meta["crs"]
-
-# # View spatial attributes
-# naip_transform, naip_crs
-```
 
 You can view the type of data stored within the ndvi array using `.dtype`.
 Remember that the naip_ndvi object is a xarray DataArray.
@@ -216,27 +200,13 @@ type(naip_ndvi), naip_ndvi.dtype
 
 
 
-{:.input}
-```python
-# naip_meta
-```
-
-{:.input}
-```python
-# # Change the count or number of bands from 4 to 1
-# naip_meta['count'] = 1
-
-# # Change the data type to float rather than integer
-# naip_meta['dtype'] = "float64"
-# naip_meta
-```
-
 Note below that when we write the raster, we use the custom outpath that we make to write it out to a filename and location of our choice.
 
 {:.input}
 ```python
 naip_ndvi_outpath = os.path.join("cold-springs-fire",
-                                 "outputs", "naip_ndvi.tif")
+                                 "outputs",
+                                 "naip_ndvi.tif")
 
 # Write your the ndvi raster object
 naip_ndvi.rio.to_raster(naip_ndvi_outpath)
