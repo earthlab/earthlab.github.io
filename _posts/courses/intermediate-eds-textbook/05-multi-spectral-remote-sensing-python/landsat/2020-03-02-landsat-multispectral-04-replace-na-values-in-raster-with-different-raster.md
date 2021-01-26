@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-09-11
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -43,17 +43,15 @@ To begin, open both of the pre-fire raster stacks. You got the cloud free data a
 ```python
 import os
 from glob import glob
+
 import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches
 from matplotlib.colors import ListedColormap
 import seaborn as sns
 import numpy as np
-import numpy.ma as ma
-import pandas as pd
-from shapely.geometry import mapping, box
-import geopandas as gpd
-import rasterio as rio
-from rasterio.plot import plotting_extent
+from shapely.geometry import box
+import xarray as xr
+import rioxarray as rxr
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
@@ -66,14 +64,8 @@ sns.set(font_scale=1.5)
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
 data_2 = et.data.get_data('cs-test-landsat')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
-
-{:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
 
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
@@ -81,36 +73,37 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 
 
-First, open the masked raster stack that you exported in the previous lesson. If you did not complete the previous lesson, you will need to make a masked raster stack of the cold springs cloud data to continue on with this lesson. (If you exported your masked raster stack from the last lesson, you can read that file in and skip the following code.)
+First, import the landsat rasters and mask out the clouds like you did in the previous lesson. 
 
 {:.input}
 ```python
 # Stack the Landsat pre fire data
-landsat_paths_pre_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                                      "LC080340322016070701T1-SC20180214145604", "crop", 
-                                      "*band*.tif")
+landsat_paths_pre_path = os.path.join("cold-springs-fire", 
+                                      "landsat_collect",
+                                      "LC080340322016070701T1-SC20180214145604", 
+                                      "crop",
+                                      "*band[2-4]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
 
-landsat_pre_cloud, landsat_pre_meta = es.stack(
-    landsat_paths_pre, nodata=-9999)
+landsat_pre_list = [rxr.open_rasterio(
+    image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
+landsat_pre_cloud = xr.concat(landsat_pre_list, dim="band")
+
 
 # Calculate bounds object
-landsat_pre_cloud_ext_bds = rio.transform.array_bounds(
-    landsat_pre_cloud.shape[1],
-    landsat_pre_cloud.shape[2],
-    landsat_pre_meta["transform"])
+landsat_pre_cloud_ext_bds = landsat_pre_cloud.rio.bounds()
 
 # Open the pixel_qa layer for your landsat scene
-landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                                   "LC080340322016070701T1-SC20180214145604", "crop", 
+landsat_pre_cl_path = os.path.join("cold-springs-fire", 
+                                   "landsat_collect",
+                                   "LC080340322016070701T1-SC20180214145604", 
+                                   "crop",
                                    "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
 
-with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
-    landsat_qa = landsat_pre_cl.read(1)
-    #landsat_pre_cloud_ext_bds  = landsat_pre_cl.bounds
-    
+landsat_qa = rxr.open_rasterio(landsat_pre_cl_path).squeeze()
+
 # Generate array of all possible cloud / shadow values
 cloud_shadow = [328, 392, 840, 904, 1350]
 cloud = [352, 368, 416, 432, 480, 864, 880, 928, 944, 992]
@@ -119,7 +112,7 @@ high_confidence_cloud = [480, 992]
 vals_to_mask = cloud_shadow + cloud + high_confidence_cloud
 
 # Call the earthpy mask function using pixel QA layer
-landsat_pre_cloud_masked = em.mask_pixels(landsat_pre_cloud, landsat_qa,
+landsat_pre_cloud_masked = em.mask_pixels(landsat_pre_cloud.values, landsat_qa.values,
                                           vals=vals_to_mask)
 ```
 
@@ -128,7 +121,7 @@ Plot the data to ensure that the cloud covered pixels are masked.
 {:.input}
 ```python
 ep.plot_rgb(landsat_pre_cloud_masked,
-            rgb=[3, 2, 1],
+            rgb=[2, 1, 0],
             title="Masked Landsat Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
 ```
@@ -148,27 +141,24 @@ plt.show()
 
 ### Read and Stack Cloud Free Data
 Next, read in and stack the cloud free landsat data. 
-Below you create a `bounds` object that contains the spatial extent of the cloud free raster. You will use this to ensure that the bounds of both datasets are the same before replacing pixel values. 
+Below you access the `bounds` object of a rioxarray object with `xarray_name.rio.bounds()`. This contains the spatial extent of the cloud free raster. You will use this to ensure that the bounds of both datasets are the same before replacing pixel values. 
 
 
 {:.input}
 ```python
 # Read in the "cloud free" landsat data that you downloaded as a part of your homework
 landsat_paths_pre_cloud_free = glob(
-    os.path.join("data", "cs-test-landsat", "*band*.tif"))
+    os.path.join("cs-test-landsat", "*band[2-4]*.tif"))
 
 landsat_paths_pre_cloud_free.sort()
 
-# Stack the data
-landsat_pre_cloud_free, landsat_pre_cloud_free_meta = es.stack(
-    landsat_paths_pre_cloud_free,
-    nodata=-9999)
+landsat_pre_cloud_free_list = [rxr.open_rasterio(
+    image_path, masked=True).squeeze() for image_path in landsat_paths_pre_cloud_free]
+landsat_pre_cloud_free = xr.concat(landsat_pre_cloud_free_list, dim="band")
 
-# Calculate bounds - this is just for comparison later, not required
-landsat_no_clouds_bds = rio.transform.array_bounds(
-    landsat_pre_cloud_free.shape[1],
-    landsat_pre_cloud_free.shape[2],
-    landsat_pre_cloud_free_meta["transform"])
+
+# Calculate bounds object
+landsat_no_clouds_bds = landsat_pre_cloud_free.rio.bounds()
 ```
 
 
@@ -191,7 +181,7 @@ landsat_no_clouds_bds == landsat_pre_cloud_ext_bds
 
 {:.input}
 ```python
-# Reorder the min and max values
+# Make polygons from the bounds
 cloud_free_scene_bds = box(*landsat_no_clouds_bds)
 cloudy_scene_bds = box(*landsat_pre_cloud_ext_bds)
 
@@ -245,7 +235,7 @@ plt.show()
 {:.input}
 ```python
 # Is the CRS the same in each raster?
-landsat_pre_meta["crs"] == landsat_pre_cloud_free_meta["crs"]
+landsat_pre_cloud.rio.crs == landsat_pre_cloud_free.rio.crs
 ```
 
 {:.output}
@@ -293,17 +283,19 @@ landsat_clouds_clip = es.extent_to_json(list(landsat_pre_cloud_ext_bds))
 {:.input}
 ```python
 # Export the cloud free data as a tiff and reimport / crop the data
-landsat_cloud_free_out_path = os.path.join("data", "outputs", "cloud_mask")
+# landsat_cloud_free_out_path = os.path.join("data", "outputs", "cloud_mask")
 
-if not os.path.exists(landsat_cloud_free_out_path):
-    os.makedirs(landsat_cloud_free_out_path)
+# if not os.path.exists(landsat_cloud_free_out_path):
+#     os.makedirs(landsat_cloud_free_out_path)
 
-cropped_cloud_list = es.crop_all(landsat_paths_pre_cloud_free, 
-                                 landsat_cloud_free_out_path, 
-                                 [landsat_clouds_clip], overwrite=True)
+# cropped_cloud_list = es.crop_all(landsat_paths_pre_cloud_free,
+#                                  landsat_cloud_free_out_path,
+#                                  [landsat_clouds_clip], overwrite=True)
 
-landsat_pre_cloud_free, landsat_pre_clod_free_meta = es.stack(
-    cropped_cloud_list)
+# landsat_pre_cloud_free, landsat_pre_clod_free_meta = es.stack(
+#     cropped_cloud_list)
+
+landsat_pre_cloud_free = landsat_pre_cloud_free.rio.clip([landsat_clouds_clip])
 ```
 
 {:.input}
@@ -317,7 +309,7 @@ landsat_pre_cloud_free.shape, landsat_pre_cloud_masked.shape
 
 
 
-    ((7, 177, 246), (7, 177, 246))
+    ((3, 177, 246), (3, 177, 246))
 
 
 
@@ -331,14 +323,14 @@ Once the data are cropped to the same extent, you can replace values using numpy
 # Get the mask layer from the pre_cloud data
 mask = landsat_pre_cloud_masked.mask
 
-# Copy the pre_cloud_data to a new array 
+# Copy the pre_cloud_data to a new array
 # so you don't impact the original array (optional but suggested!)
 landsat_pre_cloud_masked_copy = np.copy(landsat_pre_cloud_masked)
 
-# Assign every cell in the new array that is masked 
+# Assign every cell in the new array that is masked
 # to the value in the same cell location as the cloud free data
 #landsat_pre_cloud_c[mask] = landsat_pre_noclouds_crop[mask]
-landsat_pre_cloud_masked_copy[mask] = landsat_pre_cloud_free[mask]
+landsat_pre_cloud_masked_copy[mask] = landsat_pre_cloud_free.values[mask]
 ```
 
 Finally, plot the data. Does it look like it reassigned values correctly?
@@ -346,7 +338,7 @@ Finally, plot the data. Does it look like it reassigned values correctly?
 {:.input}
 ```python
 ep.plot_rgb(landsat_pre_cloud_masked_copy,
-            rgb=[3, 2, 1],
+            rgb=[2, 1, 0],
             title="Masked Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
 ```

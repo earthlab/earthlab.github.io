@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-09-11
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -77,20 +77,14 @@ There is no perfect solution of course. You will just learn one approach.
 ```python
 import os
 from glob import glob
+
 import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches, colors
-from matplotlib.colors import ListedColormap
 import seaborn as sns
 import numpy as np
-import numpy.ma as ma
-import pandas as pd
-import rasterio as rio
-from rasterio.plot import plotting_extent
-from rasterio.mask import mask
-import geopandas as gpd
-from shapely.geometry import mapping
+import xarray as xr
+import rioxarray as rxr
 import earthpy as et
-import earthpy.spatial as es
 import earthpy.plot as ep
 import earthpy.mask as em
 
@@ -100,41 +94,34 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 
+                      'earth-analytics', 
+                      'data'))
 ```
 
-{:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
+Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
 
-
-
-Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework.
+HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
 
 
 {:.input}
 ```python
-landsat_paths_pre_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                                      "LC080340322016070701T1-SC20180214145604", "crop", 
-                                      "*band*.tif")
+landsat_paths_pre_path = os.path.join("cold-springs-fire", 
+                                      "landsat_collect",
+                                      "LC080340322016070701T1-SC20180214145604", 
+                                      "crop",
+                                      "*band[2-5]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
 
-# Stack the Landsat pre fire data
-landsat_pre_st_path = os.path.join("data", "cold-springs-fire", 
-                                   "outputs", "landsat_pre_st.tif")
+landsat_pre_list = [rxr.open_rasterio(
+    image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
 
-es.stack(landsat_paths_pre, landsat_pre_st_path)
+landsat_pre = xr.concat(landsat_pre_list, dim="band")
 
-# Read landsat pre fire data
-with rio.open(landsat_pre_st_path) as landsat_pre_src:
-    landsat_pre = landsat_pre_src.read(masked=True)
-    landsat_extent = plotting_extent(landsat_pre_src)
-    
-ep.plot_rgb(landsat_pre,
-            rgb=[3, 2, 1],
-            extent=landsat_extent,
+ep.plot_rgb(landsat_pre.values,
+            rgb=[2, 1, 0],
             title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 
 plt.show()
@@ -183,7 +170,6 @@ data set. You are just doing it with spatial raster data instead.
 
 The code below demonstrated how to mask a landsat scene using the pixel_qa layer. 
 
-
 ## Raster Masks for Remote Sensing Data
 
 Many remote sensing data sets come with quality layers that you can use as a mask 
@@ -197,20 +183,21 @@ For this class the layer is:
 `LC80340322016189-SC20170128091153/crop/LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif`
 
 You will explore using this pixel quality assurance (QA) layer, next. To begin, open
-the `pixel_qa` layer using rasterio and plot it with matplotlib.
+the `pixel_qa` layer using rioxarray and plot it with matplotlib.
+
 
 
 
 {:.input}
 ```python
-landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                                   "LC080340322016070701T1-SC20180214145604", "crop", 
-                                   "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
+# landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
+#                                    "LC080340322016070701T1-SC20180214145604", "crop",
+#                                    "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
 
-# Open the pixel_qa layer for your landsat scene
-with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
-    landsat_qa = landsat_pre_cl.read(1)
-    landsat_ext = plotting_extent(landsat_pre_cl)
+# # Open the pixel_qa layer for your landsat scene
+# with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
+#     landsat_qa = landsat_pre_cl.read(1)
+#     landsat_ext = plotting_extent(landsat_pre_cl)
 ```
 
 First, plot the pixel_qa layer in matplotlib.
@@ -224,7 +211,7 @@ cmap = plt.cm.get_cmap('tab20b', 11)
 # Get a list of unique values in the qa layer
 vals = np.unique(landsat_qa).tolist()
 bins = [0] + vals
-# Normalize the colormap 
+# Normalize the colormap
 bounds = [((a + b) / 2) for a, b in zip(bins[:-1], bins[1::1])] + \
     [(bins[-1] - bins[-2]) + bins[-1]]
 norm = colors.BoundaryNorm(bounds, cmap.N)
@@ -313,6 +300,8 @@ This next section shows you how to create a mask using the earthpy mask helper f
 ### NOTE:
 This step can be done by changing the inputs into the main `mask_pixels` function. We include it here so you can see what is going on in the function. See lower down in the lesson for this call. 
 
+Additionally, `_create_mask` only takes numpy arrays, not xarray DataArrays. To get the numpy array from the DataArray, make sure to add `.values` after you DataArray variable name. 
+
 {:.input}
 ```python
 vals
@@ -373,7 +362,7 @@ all_masked_values
 # This is using a helper function from earthpy to create the mask so we can plot it
 # You don't need to do this in your workflow as you can perform the mask in one step
 # But we have it here for demonstration purposes
-cl_mask = em._create_mask(landsat_qa, all_masked_values)
+cl_mask = em._create_mask(landsat_qa.values, all_masked_values)
 np.unique(cl_mask)
 ```
 
@@ -437,13 +426,13 @@ Below you mask your data in one single step. This function `em.mask_pixels()` cr
 landsat_pre_cl_free = em.mask_pixels(landsat_pre, cl_mask)
 ```
 
-Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function. This is the easiest way to mask your data!
+Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function. This is the easiest way to mask your data! Again, this function only takes numpy arrays, so make sure to call `.values` on all of your xarray DataArrays that you are using as inputs into that function.
 
 {:.input}
 ```python
 # Call the earthpy mask function using pixel QA layer
 landsat_pre_cl_free = em.mask_pixels(
-    landsat_pre, landsat_qa, vals=all_masked_values)
+    landsat_pre.values, landsat_qa.values, vals=all_masked_values)
 ```
 
 
@@ -451,10 +440,9 @@ landsat_pre_cl_free = em.mask_pixels(
 {:.input}
 ```python
 # Plot the data
-ep.plot_bands(landsat_pre_cl_free[6],
-              extent=landsat_extent,
+ep.plot_bands(landsat_pre_cl_free[3],
               cmap="Greys",
-              title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016",
+              title="Landsat Infrared Band | 30 meters \n Post Cold Springs Fire \n July 8, 2016",
               cbar=False)
 plt.show()
 ```
@@ -476,8 +464,7 @@ plt.show()
 ```python
 # Plot data
 ep.plot_rgb(landsat_pre_cl_free,
-            rgb=[4, 3, 2],
-            extent=landsat_ext,
+            rgb=[3, 2, 1],
             title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
 ```

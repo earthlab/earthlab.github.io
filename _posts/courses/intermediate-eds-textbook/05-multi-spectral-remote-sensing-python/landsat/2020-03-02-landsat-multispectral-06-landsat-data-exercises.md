@@ -4,7 +4,7 @@ title: "Practice Opening and Plotting Landsat Data in Python Using Rasterio"
 excerpt: "A set of activities for you to practice your skills using Landsat Data in Open Source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-24
-modified: 2020-09-11
+modified: 2021-01-21
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/landsat-exercises/
@@ -38,14 +38,19 @@ After completing this lesson, you will be able to:
 {:.input}
 ```python
 import os
-# Glob for file manipulation
 from glob import glob
+
 import matplotlib.pyplot as plt
 import geopandas as gpd
-import rasterio as rio
+import rioxarray as rxr
+import xarray as xr
+from shapely.geometry import mapping
+import numpy as np
+import numpy.ma as ma
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
+
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
@@ -61,9 +66,9 @@ an area which a file occured near Nederland, Colorado. For this challenge, you w
 work with data that was collected before the fire for the same area. 
 Do the following:
 
-1. Crop all of the bands (tif files with the word "band" in them,  in the `LC080340322016070701T1-SC20180214145604` directory using earthpy `crop_all()`.
-2. Next stack the cropped tif files using `es.stack()`.
-3. Finally plot the data using `ep.plot_bands()`
+1. Crop all of the bands (tif files with the word "band" in them,  in the `LC080340322016070701T1-SC20180214145604` directory using **xarray** `concat()` and **rioxarray** `rio.clip()`.
+2. Make sure your fire boundary data is in the correct crs before clipping the array!
+3. Plot the data using `ep.plot_bands()`
 
 </div>
 
@@ -93,7 +98,7 @@ In <a href="https://www.earthdatascience.org/courses/use-data-open-source-python
 2. A CIR image of the landsat data collected post fire. 
  
 HINT: You will need to set the correct band combinations for your plots to 
-turn our properly. 
+turn our properly. You will also have to mask out the nan values for your plot to work.
 
 * For Regular color images use: `rgb=[3, 2, 1]`
 * For color infrared use: `rgb=[4, 3, 2]`
