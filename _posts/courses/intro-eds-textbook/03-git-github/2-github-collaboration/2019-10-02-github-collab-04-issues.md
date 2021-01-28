@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/github-issues-to-document-and-manage-repo-changes/
 nav-title: "GitHub Issues"
 dateCreated: 2019-10-02
-modified: 2020-10-02
+modified: 2021-01-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -82,12 +82,12 @@ GitHub issues are a way that anyone can identify problems with the code in your 
 While you can submit a pull request (PR) at any time, it is best practice to first
 open an issue to discuss the change before submitted the PR. Opening an issue is ideal for project management as it allows you to keep track of:
 
-1. what needs to be impelmented on the project - bugs, enhancements, fixes
+1. what needs to be implemented on the project - bugs, enhancements, fixes
 2. who is going to work on that task 
 3. how the task will be implemented
 
 Finally, when the person responsible for the task submits their PR, they will 
-refernece the issues and associated discussions that occured before and while the work
+reference the issues and associated discussions that occurred before and while the work
 was being done. This becomes a great record of effort on a group project.
 
 
@@ -97,7 +97,7 @@ There are many best practices to consider when submitting issues to a repository
 A few include:
 
 * **Make The Issue Name Descriptive**: It is helpful to have descriptive issue titles that tell the code owners what the issue is about. Descriptive titles become particularly important if there are many issues in a repo.
-* **Create an Reproducible Code Example (If it iss a code bug)**: If your issue is about a bug in the code, it's going to be easiest to understand if the code owners can reproduce the bug. Provide some code that someone can copy and run and see the exact bug that you are seeing.
+* **Create an Reproducible Code Example (If it is a code bug)**: If your issue is about a bug in the code, it's going to be easiest to understand if the code owners can reproduce the bug. Provide some code that someone can copy and run and see the exact bug that you are seeing.
 * **Consider Your Tone as You Write**: Working with colleagues in a collaborative environment online can be tricky as you don't have the direct input of people's facial expressions and response to your comments that you may have in in-person or online meetings. As such, it's important to consider the tone of the issue as you write it. Rather than being critical and demanding fixes immediately, it is best to constructively point out what is not working and how it could be fixed or address challenges. If your input is well-received by the repo maintainers, it is more likely to be addressed more quickly.
 
 
@@ -111,8 +111,8 @@ to the issue that you submitted and is in turn more likely to be responded to.
 
 ## Create a Pull Request to Address an Issue
 
-Once you have submitted you issue and the everyone who needs to approve
-the work has chimed in, you will likely be asked to submit a pull requestion.
+Once you have submitted your issue, and everyone who needs to approve
+the work has chimed in, you will likely be asked to submit a pull request.
 Remember that a pull request is the way for you to suggest changes to a 
 repository that can be reviewed carefully before being merged (combined into
 the main code base in the repo). When you submit that PR, you will want to 

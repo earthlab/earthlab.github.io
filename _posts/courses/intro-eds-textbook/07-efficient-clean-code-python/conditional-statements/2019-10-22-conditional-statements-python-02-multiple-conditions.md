@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
-modified: 2020-09-03
+modified: 2021-01-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -291,7 +291,7 @@ You can also check whether two objects are of the same type and length, such as 
 
 {:.input}
 ```python
-# Create list of abbreviated month names without Nov
+# Create list of abbreviated month names without Dec
 months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
           "July", "Aug", "Sept", "Oct", "Nov"]
 

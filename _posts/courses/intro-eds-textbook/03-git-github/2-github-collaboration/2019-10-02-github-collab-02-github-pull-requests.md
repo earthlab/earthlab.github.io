@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/how-to-submit-pull-requests-on-github/
 nav-title: "GitHub Pull Requests"
 dateCreated: 2019-10-02
-modified: 2020-10-02
+modified: 2021-01-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -126,7 +126,7 @@ The word great has 5 characters, so the number of characters is not changing in 
 However, you are deleting: `ae` and replacing those two characters with `ea`.
 
 As you edit files in a version control system like **git**, it is tracking each character
-addition and deletion. These tracked changes is what you see in a diff when you submit a pull
+addition and deletion. These tracked changes are what you see in a diff when you submit a pull
 request.
 
 ## GitHub Pull Requests Support Open Science and Open Collaboration

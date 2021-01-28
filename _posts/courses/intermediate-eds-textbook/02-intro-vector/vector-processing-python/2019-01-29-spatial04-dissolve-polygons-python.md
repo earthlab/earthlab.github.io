@@ -4,7 +4,7 @@ title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "When you dissolve polygons, you remove the interior boundaries of a set of polygons with the same attribute value and create one new merged or combined polygon for each attribute value. Learn how to dissolve polygons in Python using GeoPandas."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-09-11
+modified: 2021-01-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/dissolve-polygons-in-python-geopandas-shapely/
@@ -380,7 +380,7 @@ plt.show()
 
 ## Dissolve and Aggregate Data
 
-In the example above, you dissolved the state level polygons to a region level. However you did not aggregate or summarize the attributes associated with each polygon. Next, you will learn how to aggregate quantitative values in your attribute table when you perform a dissolve. To do this, you will add 
+In the example above, you dissolved the state level polygons to a region level. However, you did not aggregate or summarize the attributes associated with each polygon. Next, you will learn how to aggregate quantitative values in your attribute table when you perform a dissolve. To do this, you will add 
 
 `aggfunc = 'fun-here'`
 
@@ -393,7 +393,7 @@ to your dissolve call. You can choice a suite of different summary functions inc
 
 And more. <a href = "http://geopandas.org/aggregation_with_dissolve.html" target = "_blank">Read more about the dissolve function here.</a> 
 
-Below the data are aggregated by the 'sum' method. this means that the values for ALAND are added up for all of the states in a region. That summary sum value will be returned in the new dataframe. 
+Below the data are aggregated by the 'sum' method. This means that the values for ALAND are added up for all of the states in a region. That summary sum value will be returned in the new dataframe. 
 
 {:.input}
 ```python

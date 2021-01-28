@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2020-09-23
+modified: 2021-01-04
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -124,7 +124,7 @@ import matplotlib
 
 Packages often have modules. A module is a set of related functionality that lives within the package. 
 
-For example, **pyplot** is a module within the matplotlib package that makes it easier to quickly setup plots. 
+For example, **pyplot** is a module within the matplotlib package that makes it easier to quickly set up plots. 
 
 You can import a specific module like **pyplot** by first calling the package name and then the module name - using `.` to separate the names like this:
 
@@ -148,7 +148,7 @@ import earthpy.plot as ep
 
 ## What is a Python Package Alias?
 
-An alias, as it refers to a **Python** package, is a short version of the package name. The syntax to assign an alias to an imported packages is as follows:
+An alias, as it refers to a **Python** package, is a short version of the package name. The syntax to assign an alias to an imported package is as follows:
 
 ```
 import package_name_here as alias_here
@@ -181,7 +181,7 @@ Now, every time you want to call a function from **pyplot**, you can simply use 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/import-package.png">
  <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/import-package.png" alt= "Jupyter Notebook with code cell to import the Python packages called numpy and pandas using the alias np and pd."></a>
- <figcaption> Jupyter Notebook with code cell to import the Python packages called numpy and pandas using the alias np and pd.
+ <figcaption> Jupyter Notebook with code cell to import the Python package called numpy and pandas using the alias np and pd.
  </figcaption>
 </figure>
 

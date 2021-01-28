@@ -4,7 +4,7 @@ title: "Clip a spatial vector layer in Python using Shapely & GeoPandas: GIS in 
 excerpt: "Sometimes you may want to spatially clip a vector data layer to a specified boundary for easier plotting and analysis of smaller spatial areas. Learn how to clip a vector data layer in Python using GeoPandas and Shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-09-11
+modified: 2021-01-04
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/clip-vector-data-in-python-geopandas-shapely/
@@ -91,6 +91,12 @@ sns.set_style("white")
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 ## How to Clip Shapefiles in Python
 
@@ -322,7 +328,7 @@ The process for clipping a line or polygon layer is slightly different than clip
 2. Identify what features in the lines layer fall WITHIN the boundary of the polygon layer
 3. Subset the features within the geometry and reset the geometry of the newly clipped layer to be equal to the clipped data. 
 
-This last step may seem unusual. When you clip data using shapely and geopandas the default behaviour is for it to only return the clipped geometry. However you may with to also retain the attributes associated with the geometry. This is where the `set_geometry()` methods comes into play.
+This last step may seem unusual. When you clip data using shapely and geopandas the default behaviour is for it to only return the clipped geometry. However you may wish to also retain the attributes associated with the geometry. This is where the `set_geometry()` method comes into play.
 
 For this example you will use the `country_boundary` layer and a clipped version of the natural earth 10m roads layer. * Import `ne_10m_n_america_roads.shp` into python. 
 * Next, check to ensure that the roads and country boundary are in the same CRS. You may need to reproject the data.
