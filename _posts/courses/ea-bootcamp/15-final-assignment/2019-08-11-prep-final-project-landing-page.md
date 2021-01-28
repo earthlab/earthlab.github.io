@@ -20,18 +20,17 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
+Welcome to the Final Week of the Earth Analytics Bootcamp course! This week, you will practise some of the 
+skills that you learned all semester. You will use API's to access data and will write functions to 
+process your `Python` code in `Jupyter Notebook`. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing the lessons for Week {{ page.week }}, you will be able to:
-
-* Open and plot vector data using geopandas in Python 
-* Crop and manipulate vector data using geopandas
+This week you will apply the skills that you've learned to a final assignment. 
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
 
-<a href="https://github.com/earthlab-education/bootcamp-2020-13-final-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></a> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+<a href="https://github.com/earthlab-education/bootcamp-2020-13-final-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
 
 
 ## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
