@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Introduction to Spatial Raster Data in Open Source Python"
 permalink: /courses/earth-analytics-bootcamp/spatial-raster-data-python/
-modified: 2021-01-21
+modified: 2021-01-28
 week-landing: 1
 week: 12
 sidebar:
@@ -23,7 +23,7 @@ redirect_from:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
+Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to work with spatial raster data. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
