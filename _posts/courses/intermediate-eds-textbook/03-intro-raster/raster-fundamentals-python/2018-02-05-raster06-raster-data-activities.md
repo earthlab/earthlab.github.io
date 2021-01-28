@@ -28,7 +28,7 @@ topics:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Practice your skills manipulating raster data using **rasterio**. 
+* Practice your skills manipulating raster data using **rioxarray**. 
 </div>
 
 
