@@ -37,7 +37,7 @@ layout: default
           <!-- END: insert welcome block -->
 
           {% if page.title %}
-
+              {% comment %}
               {% if page.course == "earth-analytics-python" or page.course == "earth-analytics-bootcamp" %}
                   <div class="notice--warning header" markdown="1">
                   <h1 class="page__title" itemprop="headline"> <i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> Check Out Our NEW Earth and Environmental Data Science Textbooks </h1>
@@ -50,6 +50,8 @@ layout: default
                   </ul>
                   </div>
               {% endif %}
+              {% endcomment %}
+
             {% if page.deprecated %}
                 <h1 class="page__title" itemprop="headline">{% if page.order %}<i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> DEPRECATED / MOVED Lesson  {% endif %}</h1>
             {% else %}
