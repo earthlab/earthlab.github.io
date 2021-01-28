@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Homework 2
-modified: 2020-08-25
+modified: 2021-01-28
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/
 author_profile: no
@@ -916,7 +916,7 @@ Create a plot of your choosing for the monthly snowfall in 2017. Be sure to add 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/2018-07-16-co-06-homework-2/2018-07-16-co-06-homework-2_25_0.png" alt = "This plot displays an example plot of monthly snowfall in 2017 for Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/06-homework-2/06-homework-2_25_0.png" alt = "This plot displays an example plot of monthly snowfall in 2017 for Boulder, CO.">
 <figcaption>This plot displays an example plot of monthly snowfall in 2017 for Boulder, CO.</figcaption>
 
 </figure>

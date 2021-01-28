@@ -22,7 +22,7 @@ redirect_from:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
+Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code in `Jupyter Notebook` to work with vector data in using open source **Python** software. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
@@ -50,6 +50,30 @@ Please read the following chapters of the <a href="https://www.earthdatascience.
 Below are example versions of the plots you will create for your homework.
 
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
+
+## Challenge 1a: Open And Clip Your Vector Data
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_6_0.png">
+
+</figure>
+
+
+
+
+## Challenge 2: Figure 2 - Roads in Del Norte, Modoc & Siskiyou Counties
 
 
 
@@ -59,7 +83,7 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_7_0.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_9_0.png" alt = "Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.">
 <figcaption>Plots of lidar min and max vs insitu min and max with a 1:1 line a regression fit for the NEON SJER field site.</figcaption>
 
 </figure>
@@ -69,14 +93,14 @@ Below are example versions of the plots you will create for your homework.
 
 
 {:.output}
-{:.display_data}
+    Downloading from https://ndownloader.figshare.com/files/25515986
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_10m_admin_0_countries
 
-<figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_8_0.png">
 
-</figure>
-
+{:.output}
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/pandas/core/reshape/merge.py:643: UserWarning: merging between different levels can give an unintended result (1 levels on the left,2 on the right)
+      warnings.warn(msg, UserWarning)
 
 
 
@@ -86,40 +110,7 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_9_0.png">
-
-</figure>
-
-
-
-
-{:.input}
-```python
-# HW plot 6
-# PLOT 3: pre/post DTM difference raster histogram
-
-bins = [-15, -5, -2, 0, 2, 5, 15]
-
-diff_dtm = post_dtm_xr_cl - pre_dtm_xr_cl
-diff_dsm = post_dsm_xr_cl - pre_dsm_xr_cl
-
-f, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10), sharey=True)
-diff_dtm.plot.hist(bins=bins,
-                   ax=ax1)
-ax1.set(title="DTM Difference Histogram")
-
-diff_dsm.plot.hist(bins=bins,
-                   ax=ax2)
-ax2.set(title="DSM Difference Histogram")
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_10_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_11_0.png">
 
 </figure>
 

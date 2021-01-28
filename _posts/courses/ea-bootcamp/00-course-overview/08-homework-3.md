@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Homework 3
-modified: 2020-08-25
+modified: 2021-01-28
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/
 author_profile: no
@@ -1094,7 +1094,7 @@ for year in yearlist:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/2018-07-16-co-08-homework-3/2018-07-16-co-08-homework-3_24_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/08-homework-3/08-homework-3_24_0.png">
 
 </figure>
 
@@ -1106,7 +1106,7 @@ for year in yearlist:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/2018-07-16-co-08-homework-3/2018-07-16-co-08-homework-3_24_1.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/08-homework-3/08-homework-3_24_1.png">
 
 </figure>
 

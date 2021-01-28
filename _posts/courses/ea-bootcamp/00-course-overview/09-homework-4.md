@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Homework 4
-modified: 2020-08-25
+modified: 2021-01-28
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/
 author_profile: no
@@ -449,7 +449,7 @@ For the title, think carefully about what this data is actually showing. Review 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/2018-07-16-co-09-homework-4/2018-07-16-co-09-homework-4_30_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/09-homework-4/09-homework-4_30_0.png">
 
 </figure>
 

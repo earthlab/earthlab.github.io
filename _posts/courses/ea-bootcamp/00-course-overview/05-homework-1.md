@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Homework 1
-modified: 2020-08-25
+modified: 2021-01-28
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/
 author_profile: no
@@ -183,7 +183,7 @@ Add a new code cell below, and add `Python` code to:
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/2018-07-16-co-05-homework-1/2018-07-16-co-05-homework-1_8_0.png" alt = "This plot displays the correct response to question 9 on plotting average monthly temperature for Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/00-course-overview/05-homework-1/05-homework-1_8_0.png" alt = "This plot displays the correct response to question 9 on plotting average monthly temperature for Boulder, CO.">
 <figcaption>This plot displays the correct response to question 9 on plotting average monthly temperature for Boulder, CO.</figcaption>
 
 </figure>
