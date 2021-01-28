@@ -38,9 +38,8 @@ topics:
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-# Use geopandas for vector data and rasterio for raster data
 import geopandas as gpd
-import rasterio as rio
+import rioxarray as rxr 
 # Plotting extent is used to plot raster & vector data together
 from rasterio.plot import plotting_extent
 
