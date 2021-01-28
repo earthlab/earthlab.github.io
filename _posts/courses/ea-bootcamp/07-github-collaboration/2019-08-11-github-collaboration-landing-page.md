@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Git/Github.com For Scientific Collaboration"
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/
-modified: 2021-01-21
+modified: 2021-01-28
 week-landing: 1
 week: 7
 sidebar:
@@ -32,7 +32,6 @@ After completing the lessons for Week {{ page.week }}, you will be able to:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Assignment
 
-# THIS WILL BE UPDATED SOON!
 Ths assignment for this week can be found in the GitHub repository below. We will 
 add more text about the specifics of this assignment in the near future!
 
