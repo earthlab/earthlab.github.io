@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Numpy Arrays"
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/
-modified: 2021-01-21
+modified: 2021-01-28
 week-landing: 1
 week: 6
 sidebar:
@@ -57,23 +57,6 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/12799931
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    [array([1.325, 1.21 , 1.39 , 1.365, 1.125, 1.18 , 2.03 , 1.31 , 1.24 ,
-            1.685, 1.255, 1.405, 1.22 , 1.5  , 0.91 , 1.265, 1.61 , 1.795,
-            0.985, 1.43 ]),
-     array([1.8575    , 2.15666667, 1.33      , 1.52333333, 1.15666667,
-            1.835     , 2.26416667, 1.46      , 1.60916667, 1.4275    ,
-            1.41833333, 1.84916667, 1.69333333, 1.8575    , 1.30416667,
-            2.84583333, 1.96416667, 2.24333333, 1.4375    , 1.8325    ])]
-
-
 
 
 
