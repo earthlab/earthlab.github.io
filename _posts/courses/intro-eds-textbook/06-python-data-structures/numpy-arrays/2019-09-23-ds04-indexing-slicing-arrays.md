@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/indexing-slicing-numpy-arrays/
 nav-title: "Slice Data From Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2021-01-04
+modified: 2021-01-28
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6

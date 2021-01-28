@@ -8,7 +8,7 @@ class-lesson: ['intro-functions-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/write-functions-with-multiple-and-optional-parameters-in-python/
 nav-title: "Write Multi-Parameter Functions in Python"
 dateCreated: 2019-11-12
-modified: 2021-01-04
+modified: 2021-01-28
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"

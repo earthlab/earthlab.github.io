@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/how-to-submit-pull-requests-on-github/
 nav-title: "GitHub Pull Requests"
 dateCreated: 2019-10-02
-modified: 2021-01-04
+modified: 2021-01-28
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
