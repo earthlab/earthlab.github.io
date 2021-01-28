@@ -4,7 +4,7 @@ title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python 
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-23
-modified: 2020-11-05
+modified: 2021-01-28
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
@@ -52,7 +52,7 @@ sns.set(font_scale=1.5, style="white")
 ```
 
 {:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
       if len(arr.shape) is 2:
 
 
@@ -64,6 +64,12 @@ et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
 <div class="notice--warning alert alert-info" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge 1: Open And Plot Hillshade
@@ -74,7 +80,7 @@ Use the `pre_DTM_hill.tif` layer in the `colorado-flood/spatial/boulder-leehill-
 
 1. Open the `pre_DTM_hill.tif` layer using rasterio.
 2. Plot the data using `ep.plot_bands()`. 
-3. Set the colormap (`cmap=`) parameter value to Greys: `cmap="Greys"`
+3. Set the colormap (`cmap=`) parameter value to Greys: `cmap="gray"`
 
 Give you plot a title.
 
