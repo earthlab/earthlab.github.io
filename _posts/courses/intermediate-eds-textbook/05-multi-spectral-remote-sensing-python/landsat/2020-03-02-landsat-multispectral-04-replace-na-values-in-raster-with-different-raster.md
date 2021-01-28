@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-21
+modified: 2021-01-28
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
