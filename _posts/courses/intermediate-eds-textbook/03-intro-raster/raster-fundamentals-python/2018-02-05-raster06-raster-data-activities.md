@@ -51,24 +51,12 @@ import earthpy.plot as ep
 sns.set(font_scale=1.5, style="white")
 ```
 
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
-
 {:.input}
 ```python
 # Get data and set working directory
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 <div class="notice--warning alert alert-info" markdown="1">
 
