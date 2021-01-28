@@ -1,8 +1,9 @@
 ---
 layout: single
 category: courses
-title: "Pandas Dataframes"
+title: "Introduction to Pandas Dataframes in Python"
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/
+modified: 2021-01-28
 week-landing: 1
 week: 5
 sidebar:
@@ -12,18 +13,18 @@ author_profile: false
 course: "earth-analytics-bootcamp"
 module-type: 'session'
 ---
-{% include toc title="Today" icon="file-text" %}
+{% include toc title="This Week" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Five!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to Day Five of the Earth Analytics Bootcamp! Today, you will write `Python` code to import tabular data (.csv) as `pandas dataframes` and to summarize and manipulate `pandas dataframes`.
+Welcome to Week {{ page.week }} of the Earth Analytics Bootcamp course! This week, you will write `Python` code and use the `pandas` package to import tabular data (.csv) as a `pandas dataframe`. You will then learn to summarize and manipulate `pandas dataframes`.
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing the lessons for Day 5, you will be able to:
+After completing the lessons for Week {{ page.week }}, you will be able to:
 
 * Describe the `pandas dataframe` data structure 
 * List key differences between `numpy arrays` and `pandas dataframes` 
@@ -31,41 +32,47 @@ After completing the lessons for Day 5, you will be able to:
 * Write `Python` code to describe, manipulate, and plot `pandas dataframes`
 * Write `Python` code to select data from `pandas dataframe` using indexing based on locations and values
 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework & Readings
+
+<a href="https://github.com/earthlab-education/bootcamp-2020-05-pandas-template" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Click here to view the GitHub Repo with the assignment template. </a>{: .btn .btn--info .btn--x-large}
+
+
+## <i class="fa fa-book"></i> Earth Data Science Textbook Readings
+
+Please read the following chapters of the Intro to Earth Data Science online textbook to support completing this week's assignment:
+
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/">Pandas Data Frames Python</a>.
+
+**Optional:** You may also want to review the following chapters if you are new to using `Python`:
+
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Chapter 11 in Section 4 - Introduction to Python Packages</a>.
+* <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">Chapter 12 in Section 4 - files and directories in Python</a>.
+
 </div>
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule
+## Example Homework Plots
 
-| Topic                                                     | 
-|:---------------|:-----------------------------------------|
-| Review Day 4 / Questions                                  | 
-| Lesson 1: Intro to `Pandas Dataframes` | 
-| Lesson 2: Import CSV Files into `Pandas Dataframes`     |   
-| Lesson 3: Manipulate and Plot `Pandas Dataframes`    |
-| Lesson 4: Selections From `Pandas Dataframes`    |
+The plots below are examples of what your plot could look like. Feel free to
+customize or modify plot settings as you see fit! 
 
 
-## <i class="fa fa-pencil"></i> Lessons Day 5
-
-Today's lessons provide the information and files that you need to continue homework 2. In the lessons, you will use `Python` in `Jupyter Notebook` to work with a new `Python` data structure: `pandas dataframes`. 
 
 
-### Get Day 5 Files From Github.com
 
-Fork and `git clone` today's files from https://github.com/earthlab-education/ea-bootcamp-day-5 to the `earth-analytics-bootcamp` directory under your home directory.
 
-If needed, refer to the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" >Get Files from Github.com.</a>
-   
+{:.output}
+{:.display_data}
 
-## <i class="fa fa-pencil"></i>  Continue Homework 2
+<figure>
 
-<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/"> <i class="fa fa-info-circle"></i>
-View Homework 2</a>
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/05-pandas/2019-08-02-pandas-landing-page/2019-08-02-pandas-landing-page_6_0.png" alt = "Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year.">
+<figcaption>Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year.</figcaption>
 
-<div class="notice--success" markdown="1">
-<i class="fa fa-star"></i> **Important:** Complete today's lessons and hands-on activities (listed above) BEFORE continuing Homework 2.
-</div>
+</figure>
 
-The second homework (Homework 2) is due **Tuesday, August 14th at 8:00 AM (U.S. Mountain Daylight Time)**. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180814T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
+
+
+
 
 
 
