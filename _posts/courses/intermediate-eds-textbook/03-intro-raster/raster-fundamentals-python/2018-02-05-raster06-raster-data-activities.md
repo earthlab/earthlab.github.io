@@ -112,7 +112,7 @@ DTM data on top of the hillshade.
 
 To do this, you will need to plot each layer using `ep.plot_bands()`
 
-1. Plot the hillshade layer `pre_DTM_hill.tif` that you opened in Challenge 1. Similar to Challenge one set `cmap="Greys"`
+1. Plot the hillshade layer `pre_DTM_hill.tif` that you opened in Challenge 1. Similar to Challenge one set `cmap="gray"`
 2. Plot the DTM that you opened above `dtm_pre_arr`
   * When you plot the DTM, use the `alpha=` parameter to adjust the opacity of the DTM so that you can see the shading on the hillshade underneath the DTM. 
   * Set the colormap to viridis (or any colormap that you prefer) `cmap='viridis'` for the DTM layer. 
