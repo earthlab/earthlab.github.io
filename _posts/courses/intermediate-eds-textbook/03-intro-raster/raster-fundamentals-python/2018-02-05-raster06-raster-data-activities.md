@@ -4,7 +4,7 @@ title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python 
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-23
-modified: 2020-11-05
+modified: 2021-01-28
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
@@ -28,7 +28,7 @@ topics:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Practice your skills manipulating raster data using **rasterio**. 
+* Practice your skills manipulating raster data using **rioxarray**. 
 </div>
 
 
@@ -51,12 +51,6 @@ import earthpy.plot as ep
 sns.set(font_scale=1.5, style="white")
 ```
 
-{:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
-
 {:.input}
 ```python
 # Get data and set working directory
@@ -74,7 +68,7 @@ Use the `pre_DTM_hill.tif` layer in the `colorado-flood/spatial/boulder-leehill-
 
 1. Open the `pre_DTM_hill.tif` layer using rasterio.
 2. Plot the data using `ep.plot_bands()`. 
-3. Set the colormap (`cmap=`) parameter value to Greys: `cmap="Greys"`
+3. Set the colormap (`cmap=`) parameter value to Greys: `cmap="gray"`
 
 Give you plot a title.
 
@@ -106,7 +100,7 @@ DTM data on top of the hillshade.
 
 To do this, you will need to plot each layer using `ep.plot_bands()`
 
-1. Plot the hillshade layer `pre_DTM_hill.tif` that you opened in Challenge 1. Similar to Challenge one set `cmap="Greys"`
+1. Plot the hillshade layer `pre_DTM_hill.tif` that you opened in Challenge 1. Similar to Challenge one set `cmap="gray"`
 2. Plot the DTM that you opened above `dtm_pre_arr`
   * When you plot the DTM, use the `alpha=` parameter to adjust the opacity of the DTM so that you can see the shading on the hillshade underneath the DTM. 
   * Set the colormap to viridis (or any colormap that you prefer) `cmap='viridis'` for the DTM layer. 
