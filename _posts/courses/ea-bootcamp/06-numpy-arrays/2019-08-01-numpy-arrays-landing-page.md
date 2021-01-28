@@ -55,11 +55,6 @@ The plots below are examples of what your plot could look like. Feel free to cus
 
 
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12799931
-
-
-
 
 {:.output}
 {:.display_data}

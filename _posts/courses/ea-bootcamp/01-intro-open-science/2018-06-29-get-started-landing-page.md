@@ -5,7 +5,7 @@ title: "Get Started with Open Reproducible Science"
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/
 week-landing: 1
 week: 1
-modified: 2021-01-21
+modified: 2021-01-28
 sidebar:
   nav:
 comments: false

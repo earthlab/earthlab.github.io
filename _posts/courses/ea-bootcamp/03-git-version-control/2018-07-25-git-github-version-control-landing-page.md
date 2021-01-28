@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Use Git & GitHub For Version Control of Scientific Projects"
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/
-modified: 2020-12-29
+modified: 2021-01-28
 week-landing: 1
 week: 3
 sidebar:
@@ -45,7 +45,7 @@ Please read the following chapters to support completing this week's assignment:
 
 ### Example Homework Plots
 
-The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit!
+The plots below are examples of what your plot could look like. Feel free to customize or modify plot settings as you see fit! 
 
 
 
@@ -103,3 +103,8 @@ The plots below are examples of what your plot could look like. Feel free to cus
 <figcaption>Map of Rocky Mountain National Park trails and trailheads, with an outline of the park.</figcaption>
 
 </figure>
+
+
+
+
+

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Plot Data With Matplotlib"
 permalink: /courses/earth-analytics-bootcamp/plot-data-python
-modified: 2020-12-29
+modified: 2021-01-28
 week-landing: 1
 week: 4
 sidebar:

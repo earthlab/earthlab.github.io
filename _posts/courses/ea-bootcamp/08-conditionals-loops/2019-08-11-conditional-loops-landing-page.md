@@ -64,7 +64,7 @@ customize or modify plot settings as you see fit!
 
 
 {:.output}
-    ❌ This path  /root/earth-analytics/data does not exist, creating it
+    ✅ The path /root/earth-analytics/data exists. Nothing to do here
     Downloading from https://ndownloader.figshare.com/files/25033508
     Extracted output to /root/earth-analytics/data/earthpy-downloads/ca-fires-yearly
 

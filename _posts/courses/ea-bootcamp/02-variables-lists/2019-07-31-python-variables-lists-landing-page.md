@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Introduction to Python Variables and Lists: Earth Data Science Bootcamp Course Week 2"
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/
-modified: 2021-01-21
+modified: 2021-01-28
 week-landing: 1
 week: 2
 sidebar:
