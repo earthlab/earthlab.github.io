@@ -4,7 +4,7 @@ title: "Compare Lidar to Measured Tree Height"
 excerpt: "To explore uncertainty in remote sensing data, it is helpful to compare ground-based measurements and data that are collected via airborne instruments or satellites. Learn how to create scatter plots that compare values across two datasets."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-09-11
+modified: 2021-02-01
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -53,7 +53,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import pandas as pd
-import rasterio as rio
+import rioxarray as rxr
+# import rasterio as rio
 from rasterio.plot import plotting_extent
 import geopandas as gpd
 import rasterstats as rs
@@ -68,39 +69,43 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data("spatial-vector-lidar")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
 
 
 
 For this lesson you will work with the Lidar Canopy Height Model created by NEON located here:
 
-`data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJER_lidarCHM.tif`
+`spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJER_lidarCHM.tif`
 
 {:.input}
 ```python
-sjer_lidar_chm_path = os.path.join("data", "spatial-vector-lidar", 
-                                   "california", "neon-sjer-site", 
-                                   "2013", "lidar", "SJER_lidarCHM.tif")
+sjer_lidar_chm_path = os.path.join("spatial-vector-lidar",
+                                   "california",
+                                   "neon-sjer-site",
+                                   "2013",
+                                   "lidar",
+                                   "SJER_lidarCHM.tif")
 
 # Load data
-with rio.open(sjer_lidar_chm_path) as sjer_lidar_chm_src:
-    SJER_chm_data = sjer_lidar_chm_src.read(1, masked=True)
-    sjer_chm_meta = sjer_lidar_chm_src.profile
-    sjer_chm_plt = plotting_extent(sjer_lidar_chm_src)
+sjer_chm_data = rxr.open_rasterio(sjer_lidar_chm_path, masked=True).squeeze()
 
-plot_buffer_path = 'data/spatial-vector-lidar/outputs/plot_buffer.shp'
+plot_buffer_path = os.path.join('spatial-vector-lidar',
+                                'outputs',
+                                'plot_buffer.shp')
 
 # Extract zonal stats & create geodataframe
 sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
-                                   SJER_chm_data,
-                                   affine=sjer_chm_meta['transform'],
+                                   sjer_chm_data.values,
+                                   affine=sjer_chm_data.rio.transform(),
                                    geojson_out=True,
                                    copy_properties=True,
                                    nodata=0,
                                    stats="count mean max")
 
-SJER_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
+sjer_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
 ```
 
 ## Is Lidar Derived Tree Height the Same As Human Measured Tree Height?
@@ -124,15 +129,18 @@ height data is stored in `.csv` format.
 {:.input}
 ```python
 # Import & view insitu (field measured) data
-path_insitu = os.path.join("data", "spatial-vector-lidar", 
-                           "california", "neon-sjer-site", 
-                           "2013", "insitu", "veg_structure", 
+path_insitu = os.path.join("spatial-vector-lidar",
+                           "california",
+                           "neon-sjer-site",
+                           "2013",
+                           "insitu",
+                           "veg_structure",
                            "D17_2013_SJER_vegStr.csv")
 
-SJER_insitu_all = pd.read_csv(path_insitu)
+sjer_insitu_all = pd.read_csv(path_insitu)
 
 # View columns in data
-SJER_insitu_all.columns
+sjer_insitu_all.columns
 ```
 
 {:.output}
@@ -157,10 +165,10 @@ Before you go any further, you may want to select just the columns that you will
 
 {:.input}
 ```python
-SJER_insitu = SJER_insitu_all[[
+sjer_insitu = sjer_insitu_all[[
     "siteid", "sitename", "plotid", "stemheight", "scientificname"]]
 
-SJER_insitu.head()
+sjer_insitu.head()
 ```
 
 {:.output}
@@ -260,7 +268,7 @@ The steps are
 
 {:.input}
 ```python
-insitu_stem_ht = SJER_insitu.groupby('plotid').agg(
+insitu_stem_ht = sjer_insitu.groupby('plotid').agg(
     ['mean', 'max'])['stemheight']
 
 insitu_stem_ht.head()
@@ -444,14 +452,14 @@ Note that if you want to merge two GeoDataFrames together, you **cannot** use th
 {:.input}
 ```python
 # Rename columns so that we know which columns represent lidar values
-SJER_lidar_height_df = SJER_lidar_height_df.rename(
+sjer_lidar_height_df = sjer_lidar_height_df.rename(
     columns={'max': 'lidar_max', 'mean': 'lidar_mean', 'min': 'lidar_min'})
 
 # Join lidar and human measured tree height data
-SJER_final_height = SJER_lidar_height_df.merge(insitu_stem_ht,
+sjer_final_height = sjer_lidar_height_df.merge(insitu_stem_ht,
                                                left_on='Plot_ID',
                                                right_on='plotid')
-SJER_final_height.head()
+sjer_final_height.head()
 ```
 
 {:.output}
@@ -592,11 +600,11 @@ You can use the pandas `.plot()` to create a scatterplot (or you can use matplot
 {:.input}
 ```python
 # Convert to a dataframe so you can use standard pandas plotting
-SJER_final_height_df = pd.DataFrame(SJER_final_height)
+sjer_final_height_df = pd.DataFrame(sjer_final_height)
 
 fig, ax = plt.subplots(figsize=(10, 10))
 
-SJER_final_height_df.plot('lidar_max',
+sjer_final_height_df.plot('lidar_max',
                           'insitu_max',
                           kind='scatter',
                           fontsize=14, s=60,
@@ -634,7 +642,7 @@ Next, let's fix the plot adding a 1:1 line and making the x and y axis the same 
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
 
-SJER_final_height_df.plot('lidar_max',
+sjer_final_height_df.plot('lidar_max',
                           'insitu_max',
                           kind='scatter',
                           fontsize=14,
@@ -683,10 +691,11 @@ You may want to export your final analysis file as a `.csv` file. You can use th
 {:.input}
 ```python
 # Export the final data frame as a csv file
-outpath = os.path.join("data", "spatial-vector-lidar", 
-                       "outputs", "sjer-lidar-insitu-merge.csv")
+outpath = os.path.join("spatial-vector-lidar",
+                       "outputs",
+                       "sjer-lidar-insitu-merge.csv")
 
-SJER_final_height_df.to_csv(outpath)
+sjer_final_height_df.to_csv(outpath)
 ```
 
 
@@ -703,10 +712,10 @@ Finally, you may want to create a map where points are sized according to tree h
 {:.input}
 ```python
 # Convert the geometry column to contain points
-SJER_final_height['geometry'] = SJER_final_height.centroid
-SJER_final_height.head()
+sjer_final_height['geometry'] = sjer_final_height.centroid
+sjer_final_height.head()
 
-SJER_final_height['insitu_max']
+sjer_final_height['insitu_max']
 ```
 
 {:.output}
@@ -743,16 +752,17 @@ Plot the points by tree height.
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
-ep.plot_bands(SJER_chm_data,
-          cmap='Greys',
-          extent=sjer_chm_plt,
-          ax=ax,
-          scale=False)
+ep.plot_bands(sjer_chm_data,
+              cmap='Greys',
+              extent=plotting_extent(sjer_chm_data,
+                                     sjer_chm_data.rio.transform()),
+              ax=ax,
+              scale=False)
 
 # Plot centroids of each geometry as points so that you can control their size
-SJER_final_height.centroid.plot(ax=ax,
+sjer_final_height.centroid.plot(ax=ax,
                                 marker='o',
-                                markersize=SJER_final_height['insitu_max'] * 80,
+                                markersize=sjer_final_height['insitu_max'] * 80,
                                 c='purple')
 ax.set_axis_off()
 plt.show()
@@ -791,13 +801,13 @@ Below you do the following
 {:.input}
 ```python
 # Calculate difference
-SJER_final_height["lidar_measured"] = SJER_final_height["lidar_max"] - \
-    SJER_final_height["insitu_max"]
+sjer_final_height["lidar_measured"] = sjer_final_height["lidar_max"] - \
+    sjer_final_height["insitu_max"]
 
 # Create a bar plot
 fig, ax = plt.subplots(figsize=(12, 7))
-ax.bar(SJER_final_height['plotid'],
-       SJER_final_height['lidar_measured'],
+ax.bar(sjer_final_height['plotid'],
+       sjer_final_height['lidar_measured'],
        color="purple")
 
 ax.set(xlabel='Plot ID', ylabel='(Lidar - Measured) Height Difference (m)',

@@ -2,9 +2,9 @@
 layout: single
 title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
-authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
+authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer', 'Nathan Korinek']
 dateCreated: 2016-12-06
-modified: 2020-09-11
+modified: 2021-02-01
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -55,11 +55,11 @@ import seaborn as sns
 import numpy as np
 import numpy.ma as ma
 import pandas as pd
-import rasterio as rio
+import rioxarray as rxr
 from rasterio.plot import plotting_extent
 import geopandas as gpd
 
-# Rasterstats contains the zonalstatistics function 
+# Rasterstats contains the zonalstatistics function
 # that you will use to extract raster values
 import rasterstats as rs
 import earthpy as et
@@ -69,9 +69,11 @@ import earthpy.plot as ep
 sns.set_style("white")
 sns.set(font_scale=1.5)
 
-# Download data and set working directory 
+# Download data and set working directory
 data = et.data.get_data("spatial-vector-lidar")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 
+                      'earth-analytics', 
+                      'data'))
 ```
 
 ## Import Canopy Height Model
@@ -80,38 +82,32 @@ First, you will import a canopy height model created by the National Ecological 
 previous lessons / weeks you learned how to make a canopy height model by
 subtracting the Digital elevation model (DEM) from the Digital surface model (DSM).
 
-## Context Managers and Rasterio
-
-As you learned in the previous raster lessons, you will use a context manager `with` to create 
-a connection to your raster dataset. This connection will be automatically closed at the end of the `with` statement.
-
 {:.input}
 ```python
 # Load & plot the data
-sjer_lidar_chm_path = os.path.join("data", "spatial-vector-lidar", 
-                                   "california", "neon-sjer-site", 
-                                   "2013", "lidar", "SJER_lidarCHM.tif")
+sjer_lidar_chm_path = os.path.join("spatial-vector-lidar",
+                                   "california", 
+                                   "neon-sjer-site",
+                                   "2013", 
+                                   "lidar", 
+                                   "SJER_lidarCHM.tif")
 
-with rio.open(sjer_lidar_chm_path) as sjer_lidar_chm_src:
-    # Masked = True sets no data values to np.nan if they are in the metadata
-    SJER_chm_data = sjer_lidar_chm_src.read(1, masked=True)
-    sjer_chm_meta = sjer_lidar_chm_src.profile
-
+sjer_chm_data = rxr.open_rasterio(sjer_lidar_chm_path, masked=True).squeeze()
 ```
 
 {:.input}
 ```python
 # Explore the data by plotting a histogram with earthpy
-ax=ep.hist(SJER_chm_data,
-        figsize=(8,8),
-        colors="purple",
-        xlabel="Lidar Estimated Tree Height (m)",
-        ylabel="Total Pixels",
-        title="Distribution of Pixel Values \n Lidar Canopy Height Model")
+ax = ep.hist(sjer_chm_data.values,
+             figsize=(8, 8),
+             colors="purple",
+             xlabel="Lidar Estimated Tree Height (m)",
+             ylabel="Total Pixels",
+             title="Distribution of Pixel Values \n Lidar Canopy Height Model")
 
 # Turn off scientific notation
 ax[1].ticklabel_format(useOffset=False,
-                     style='plain')
+                       style='plain')
 ```
 
 {:.output}
@@ -131,14 +127,14 @@ ax[1].ticklabel_format(useOffset=False,
 ```python
 # EXPLORE: View summary statistics of canopy height model
 # Notice the mean value with 0's included in the data
-print('Mean:', np.nanmean(SJER_chm_data))
-print('Max:', np.nanmax(SJER_chm_data))
-print('Min:', np.nanmin(SJER_chm_data))
+print('Mean:', sjer_chm_data.mean().values)
+print('Max:', sjer_chm_data.max().values)
+print('Min:', sjer_chm_data.min().values)
 ```
 
 {:.output}
-    Mean: 1.9355862
-    Max: 45.879997
+    Mean: 1.935588211544547
+    Max: 45.87999725341797
     Min: 0.0
 
 
@@ -146,23 +142,22 @@ print('Min:', np.nanmin(SJER_chm_data))
 ## Clean Up Data - Remove 0's
 Looking at the distribution of data, you can see there are many pixels that have a value of 0 - where there are no trees. Also, using the NEON data, values below 2m are normally set to 0 given the accuracy of the lidar instrument used to collect these data. 
 
-Set all pixel values `==0` to `nan` as they will impact calculation of plot mean height. A mean calculated with values of 0 will be significantly lower than a mean calculated with just tree height values.  
+Set all pixel values `==0` to `nan` as they will impact calculation of plot mean height. You can do this with the `.where` argument that is available on all `xarray` objects. Set a condition, and the `.where` function will replace all values that **DON'T** meet that condition with the value provided. For example, `xarray_object = xarray_object.where(xarray_object == 1, 2)` will replace all values that **ARE NOT** equal to one with a two. A mean calculated with values of 0 will be significantly lower than a mean calculated with just tree height values.  
 
 
 {:.input}
 ```python
 # CLEANUP: Set CHM values of 0 to NAN (no data or not a number)
-SJER_chm_data[SJER_chm_data == 0] = np.nan
-
+sjer_chm_data_no_zeros = sjer_chm_data.where(sjer_chm_data != 0, np.nan)
 # View summary statistics of canopy height model after cleaning up the data
-print('Mean:', np.nanmean(SJER_chm_data))
-print('Max:', np.nanmax(SJER_chm_data))
-print('Min:', np.nanmin(SJER_chm_data))
+print('Mean:', sjer_chm_data_no_zeros.mean().values)
+print('Max:', sjer_chm_data_no_zeros.max().values)
+print('Min:', sjer_chm_data_no_zeros.min().values)
 ```
 
 {:.output}
-    Mean: 8.213505
-    Max: 45.879997
+    Mean: 8.213513046063266
+    Max: 45.87999725341797
     Min: 2.0
 
 
@@ -172,16 +167,16 @@ Look at the histogram of the data with the 0's removed. Now you can see the true
 {:.input}
 ```python
 # Explore the data by plotting a histogram with earthpy
-ax=ep.hist(SJER_chm_data,
-        figsize=(8,8),
-        colors="purple",
-        xlabel="Lidar Estimated Tree Height (m)",
-        ylabel="Total Pixels",
-        title="Distribution of Pixel Values \n Lidar Canopy Height Model")
+ax = ep.hist(sjer_chm_data_no_zeros.values,
+             figsize=(8, 8),
+             colors="purple",
+             xlabel="Lidar Estimated Tree Height (m)",
+             ylabel="Total Pixels",
+             title="Distribution of Pixel Values \n Lidar Canopy Height Model")
 
 # Turn off scientific notation
 ax[1].ticklabel_format(useOffset=False,
-                     style='plain')
+                       style='plain')
 ```
 
 {:.output}
@@ -208,17 +203,19 @@ for each circular plot using regression.
 
 First, import the shapefile that contains the plot centroid (the center point of each plot) locations using geopandas.
 
-`data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_plot_centroids.shp`
+`spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_plot_centroids.shp`
 
 {:.input}
 ```python
-sjer_centroids_path = os.path.join("data", "spatial-vector-lidar", 
-                                   "california", "neon-sjer-site", 
-                                   "vector_data", "SJER_plot_centroids.shp")
+sjer_centroids_path = os.path.join("spatial-vector-lidar",
+                                   "california", 
+                                   "neon-sjer-site",
+                                   "vector_data", 
+                                   "SJER_plot_centroids.shp")
 
-SJER_plots_points = gpd.read_file(sjer_centroids_path)
+sjer_plots_points = gpd.read_file(sjer_centroids_path)
 
-type(SJER_plots_points)
+type(sjer_plots_points)
 ```
 
 {:.output}
@@ -235,7 +232,7 @@ type(SJER_plots_points)
 {:.input}
 ```python
 # Ensure this is a points layer as you think it is
-SJER_plots_points.geom_type.head()
+sjer_plots_points.geom_type.head()
 ```
 
 {:.output}
@@ -260,22 +257,23 @@ Finally, a quick plot allows you to check that your points actually overlay on t
 height model. This is a good sanity check just to ensure your data actually line up and are for the 
 same location.
 
-If you recall in week 2, we discussed the spatial extent of a raster. Here is where you will need to set the spatial 
-extent when plotting raster using `imshow()`. If you do not specify a spatial extent, your raster will not line up 
-properly with your geopandas object.
+We have previously discussed the spatial extent of a raster. Here is where you will need to set the spatial 
+extent when plotting raster using `ep.plot_bands`. If you do not specify a spatial extent, your raster will not line up properly with your geopandas object.
 
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
 
-ep.plot_bands(SJER_chm_data,
-              extent=plotting_extent(sjer_lidar_chm_src), # Set spatial extent 
+# We plot with the zeros in the data so the CHM can be better represented visually
+ep.plot_bands(sjer_chm_data,
+              extent=plotting_extent(sjer_chm_data,
+                                     sjer_chm_data.rio.transform()),  # Set spatial extent
               cmap='Greys',
               title="San Joachin Field Site \n Vegetation Plot Locations",
               scale=False,
               ax=ax)
 
-SJER_plots_points.plot(ax=ax,
+sjer_plots_points.plot(ax=ax,
                        marker='s',
                        markersize=45,
                        color='purple')
@@ -325,12 +323,12 @@ Below you:
 {:.input}
 ```python
 # Create a buffered polygon layer from your plot location points
-SJER_plots_poly = SJER_plots_points.copy()
+sjer_plots_poly = sjer_plots_points.copy()
 
-# Buffer each point using a 20 meter circle radius 
+# Buffer each point using a 20 meter circle radius
 # and replace the point geometry with the new buffered geometry
-SJER_plots_poly["geometry"] = SJER_plots_points.geometry.buffer(20)
-SJER_plots_poly.head()
+sjer_plots_poly["geometry"] = sjer_plots_points.geometry.buffer(20)
+sjer_plots_poly.head()
 ```
 
 {:.output}
@@ -424,14 +422,17 @@ Below you first check to ensure the outputs directory exists that you wish to wr
 {:.input}
 ```python
 # If the dir does not exist, create it
-output_path = os.path.join("data", "spatial-vector-lidar", "outputs")
+output_path = os.path.join("spatial-vector-lidar", 
+                           "outputs")
 
 if not os.path.isdir(output_path):
     os.mkdir(output_path)
 
 # Export the buffered point layer as a shapefile to use in zonal stats
-plot_buffer_path = os.path.join(output_path, "plot_buffer.shp")
-SJER_plots_poly.to_file(plot_buffer_path)
+plot_buffer_path = os.path.join(output_path, 
+                                "plot_buffer.shp")
+
+sjer_plots_poly.to_file(plot_buffer_path)
 ```
 
 ## Extract Pixel Values For Each Plot 
@@ -440,7 +441,7 @@ Once you have the boundary for each plot location (a 20m diameter circle) you ca
 
 There are several ways to use the zonal_stats function. In this case we are providing the following
 
-1. chm data (numpy array): `SJER_chm_data` in a numpy array format
+1. chm data (numpy array): `sjer_chm_data_no_zeros` in a numpy array format (you can turn an xarray object into a numpy array by adding `.values` after the object name, for example, `sjer_chm_data_no_zeros` is an xarray object, and `sjer_chm_data_no_zeros.values` is the numpy version of the same data.
 2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array. 
 3. `plot_buffer_path`: this is the path to the buffered point shapefile that you created at the top of this lesson
 
@@ -449,9 +450,9 @@ There are several ways to use the zonal_stats function. In this case we are prov
 ```python
 # Extract zonal stats
 sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
-                                   SJER_chm_data,
+                                   sjer_chm_data_no_zeros.values,
                                    nodata=-999,
-                                   affine=sjer_chm_meta['transform'],
+                                   affine=sjer_chm_data_no_zeros.rio.transform(),
                                    geojson_out=True,
                                    copy_properties=True,
                                    stats="count min mean max median")
@@ -476,8 +477,8 @@ Convert the list output to a geodataframe that you can plot the data.
 {:.input}
 ```python
 # Turn extracted data into a pandas geodataframe
-SJER_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
-SJER_lidar_height_df.head()
+sjer_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
+sjer_lidar_height_df.head()
 ```
 
 {:.output}
@@ -601,11 +602,12 @@ Below is a bar plot of max lidar derived tree height by plot id. This plot allow
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
 
-ax.bar(SJER_lidar_height_df['Plot_ID'],
-       SJER_lidar_height_df['max'],
+ax.bar(sjer_lidar_height_df['Plot_ID'],
+       sjer_lidar_height_df['max'],
        color="purple")
 
-ax.set(xlabel='Plot ID', ylabel='Max Height',
+ax.set(xlabel='Plot ID', 
+       ylabel='Max Height',
        title='Maximum LIDAR Derived Tree Heights')
 
 plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
@@ -655,19 +657,19 @@ shape that we wish. The mask tells us which pixels fall into the zone.
 ```python
 # Extract zonal stats but retain the individual pixel values
 sjer_tree_heights_ras = rs.zonal_stats(plot_buffer_path,
-                                       SJER_chm_data,
+                                       sjer_chm_data_no_zeros.values,
                                        nodata=-999,
-                                       affine=sjer_chm_meta['transform'],
+                                       affine=sjer_chm_data_no_zeros.rio.transform(),
                                        geojson_out=True,
                                        raster_out=True,
                                        copy_properties=True,
                                        stats="count min mean max median")
 # Convert to geodataframe
-SJER_lidar_height_df_ras = gpd.GeoDataFrame.from_features(
+sjer_lidar_height_df_ras = gpd.GeoDataFrame.from_features(
     sjer_tree_heights_ras)
 
 # View subset of the dataframe
-SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
+sjer_lidar_height_df_ras[["Plot_ID", "count", "geometry",
                           "mini_raster_affine", "mini_raster_array"]].head()
 ```
 
@@ -755,16 +757,17 @@ Below you create a plot for each individual field site of all pixel values using
 {:.input}
 ```python
 # Get list of sites
-site_names = list(SJER_lidar_height_df_ras["Plot_ID"])
+site_names = list(sjer_lidar_height_df_ras["Plot_ID"])
 
 # Convert data in dataframe to a numpy array
-arr = np.stack(SJER_lidar_height_df_ras['mini_raster_array'])
+arr = np.stack(sjer_lidar_height_df_ras['mini_raster_array'])
 
 # Plot using earthpy
 ep.hist(arr,
         bins=[0, 5, 10, 15, 20, 25],
         cols=3,
-        title=site_names, figsize=(15, 30))
+        title=site_names, 
+        figsize=(15, 30))
 
 plt.show()
 ```
