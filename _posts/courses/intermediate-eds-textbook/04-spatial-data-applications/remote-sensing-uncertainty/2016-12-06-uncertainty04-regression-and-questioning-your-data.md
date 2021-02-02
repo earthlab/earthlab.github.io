@@ -2,9 +2,9 @@
 layout: single
 title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
-authors: ['Max Joseph', 'Leah Wasser']
+authors: ['Max Joseph', 'Leah Wasser', 'Nathan Korinek']
 dateCreated: 2016-12-06
-modified: 2021-02-01
+modified: 2021-02-02
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
@@ -123,7 +123,9 @@ insitu_stem_ht.reset_index(inplace=True)
 
 # First rename columns so that we know which belongs to lidar
 sjer_lidar_height_df = sjer_lidar_height_df.rename(
-    columns={'max': 'lidar_max', 'mean': 'lidar_mean', 'min': 'lidar_min'})
+    columns={'max': 'lidar_max',
+             'mean': 'lidar_mean',
+             'min': 'lidar_min'})
 
 # Join the data
 sjer_final_height = sjer_lidar_height_df.merge(insitu_stem_ht,
@@ -255,9 +257,13 @@ fig, ax = plt.subplots(figsize=(10, 10))
 
 m = slope.astype(float)
 
-sjer_final_height_df.plot('lidar_max', 'insitu_maxht',
-                          kind='scatter', color="purple",
-                          s=60, ax=ax, label="Data")
+sjer_final_height_df.plot('lidar_max',
+                          'insitu_maxht',
+                          kind='scatter',
+                          color="purple",
+                          s=60,
+                          ax=ax,
+                          label="Data")
 
 # Add a diagonal line
 ax.set(xlim=[0, 30], ylim=[0, 30])
@@ -304,14 +310,11 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 fig, ax = plt.subplots(figsize=(10, 10))
 
 ax.scatter(x, y, c='blue', label="data")
-
 ax.plot((0, 1), (0, 1), transform=ax.transAxes,
         ls='--', c='k', label="1:1 line")
 
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line')
-
 ax.set(xlim=[0, 50], ylim=[0, 50])
-
 ax.set(xlabel="Variable A",
        ylabel="Variable B",
        title="Data Points with a Strong \nR-squared and P-value but not a 1:1")
@@ -369,11 +372,9 @@ ax.plot((0, 1), (0, 1), transform=ax.transAxes,
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line')
 
 ax.set(xlim=[0, 50], ylim=[0, 50])
-
 ax.set(xlabel="Variable A",
        ylabel="Variable B",
        title="Data Points with a Strong \nR-squared but There is a Positive Bias")
-
 plt.legend()
 
 print("slope:", slope,
@@ -429,13 +430,11 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 fig, ax = plt.subplots(figsize=(10, 10))
 
 ax.scatter(x, y, c='blue', label="data")
-
 ax.plot((0, 1), (0, 1), transform=ax.transAxes,
         ls='--', c='k', label="1:1 line")
 
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line',
         color="purple")
-
 ax.set(xlim=[0, 50], ylim=[0, 50])
 
 ax.set(xlabel="Variable A",
@@ -528,7 +527,8 @@ sjer_final_height["lidar_measured"] = sjer_final_height["lidar_max"] - \
 
 fig, ax = plt.subplots(figsize=(12, 7))
 
-ax.bar(sjer_final_height['plotid'], sjer_final_height['lidar_measured'],
+ax.bar(sjer_final_height['plotid'],
+       sjer_final_height['lidar_measured'],
        color="purple")
 
 ax.set(xlabel='Plot ID',
