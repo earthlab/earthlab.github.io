@@ -2,9 +2,9 @@
 layout: single
 title: "Compare Lidar to Measured Tree Height"
 excerpt: "To explore uncertainty in remote sensing data, it is helpful to compare ground-based measurements and data that are collected via airborne instruments or satellites. Learn how to create scatter plots that compare values across two datasets."
-authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
+authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer', 'Nathan Korinek']
 dateCreated: 2016-12-06
-modified: 2021-02-01
+modified: 2021-02-02
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -54,7 +54,6 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 import rioxarray as rxr
-# import rasterio as rio
 from rasterio.plot import plotting_extent
 import geopandas as gpd
 import rasterstats as rs
@@ -73,6 +72,12 @@ os.chdir(os.path.join(et.io.HOME,
                       'earth-analytics',
                       'data'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 
 
@@ -165,8 +170,11 @@ Before you go any further, you may want to select just the columns that you will
 
 {:.input}
 ```python
-sjer_insitu = sjer_insitu_all[[
-    "siteid", "sitename", "plotid", "stemheight", "scientificname"]]
+sjer_insitu = sjer_insitu_all[["siteid",
+                               "sitename",
+                               "plotid",
+                               "stemheight",
+                               "scientificname"]]
 
 sjer_insitu.head()
 ```
@@ -346,7 +354,8 @@ Notice that below you use a pythonic approach to creating for loops. Rather than
 
 {:.input}
 ```python
-['insitu_' + col for col in insitu_stem_ht.columns]
+# Rename each column
+insitu_stem_ht.head()
 ```
 
 {:.output}
@@ -354,7 +363,62 @@ Notice that below you use a pythonic approach to creating for loops. Rather than
 
 
 
-    ['insitu_mean', 'insitu_max']
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>plotid</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SJER1068</th>
+      <td>3.866667</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>SJER112</th>
+      <td>8.221429</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <th>SJER116</th>
+      <td>8.218750</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>SJER117</th>
+      <td>6.512500</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>SJER120</th>
+      <td>7.600000</td>
+      <td>8.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
@@ -364,9 +428,81 @@ Rename each column - appending "insitu".
 
 {:.input}
 ```python
-# Add insitu to each column name to make your data more expressive
-insitu_stem_ht.columns = ['insitu_' + col for col in insitu_stem_ht.columns]
+insitu_stem_ht.rename(columns={"mean": "insitu_mean",
+                               "max": "insitu_max"},
+                      inplace=True)  # Modify the dataframe columns
 
+insitu_stem_ht.head()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>insitu_mean</th>
+      <th>insitu_max</th>
+    </tr>
+    <tr>
+      <th>plotid</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SJER1068</th>
+      <td>3.866667</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>SJER112</th>
+      <td>8.221429</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <th>SJER116</th>
+      <td>8.218750</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>SJER117</th>
+      <td>6.512500</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>SJER120</th>
+      <td>7.600000</td>
+      <td>8.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+{:.input}
+```python
 # Reset the index (plotid)
 insitu_stem_ht = insitu_stem_ht.reset_index()
 insitu_stem_ht.head()
@@ -453,7 +589,9 @@ Note that if you want to merge two GeoDataFrames together, you **cannot** use th
 ```python
 # Rename columns so that we know which columns represent lidar values
 sjer_lidar_height_df = sjer_lidar_height_df.rename(
-    columns={'max': 'lidar_max', 'mean': 'lidar_mean', 'min': 'lidar_min'})
+    columns={'max': 'lidar_max',
+             'mean': 'lidar_mean',
+             'min': 'lidar_min'})
 
 # Join lidar and human measured tree height data
 sjer_final_height = sjer_lidar_height_df.merge(insitu_stem_ht,
@@ -623,7 +761,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_22_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_23_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.">
 <figcaption>Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.</figcaption>
 
 </figure>
@@ -667,7 +805,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_25_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_26_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.">
 <figcaption>Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.</figcaption>
 
 </figure>
@@ -773,7 +911,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_31_0.png" alt = "Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_32_0.png" alt = "Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.">
 <figcaption>Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.</figcaption>
 
 </figure>
@@ -823,7 +961,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_33_0.png" alt = "Barplot showing the difference between lidar and measured tree height for each plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_34_0.png" alt = "Barplot showing the difference between lidar and measured tree height for each plot.">
 <figcaption>Barplot showing the difference between lidar and measured tree height for each plot.</figcaption>
 
 </figure>
