@@ -73,12 +73,6 @@ os.chdir(os.path.join(et.io.HOME,
                       'data'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 
 
 For this lesson you will work with the Lidar Canopy Height Model created by NEON located here:

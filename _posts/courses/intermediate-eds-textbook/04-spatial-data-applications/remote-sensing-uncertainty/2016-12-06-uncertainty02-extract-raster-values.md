@@ -4,7 +4,7 @@ title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer', 'Nathan Korinek']
 dateCreated: 2016-12-06
-modified: 2021-02-01
+modified: 2021-02-02
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -58,7 +58,6 @@ import pandas as pd
 import rioxarray as rxr
 from rasterio.plot import plotting_extent
 import geopandas as gpd
-
 # Rasterstats contains the zonalstatistics function
 # that you will use to extract raster values
 import rasterstats as rs
@@ -669,8 +668,11 @@ sjer_lidar_height_df_ras = gpd.GeoDataFrame.from_features(
     sjer_tree_heights_ras)
 
 # View subset of the dataframe
-sjer_lidar_height_df_ras[["Plot_ID", "count", "geometry",
-                          "mini_raster_affine", "mini_raster_array"]].head()
+sjer_lidar_height_df_ras[["Plot_ID", 
+                          "count", 
+                          "geometry",
+                          "mini_raster_affine", 
+                          "mini_raster_array"]].head()
 ```
 
 {:.output}
