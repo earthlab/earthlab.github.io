@@ -2,9 +2,9 @@
 layout: single
 title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
-authors: ['Max Joseph', 'Leah Wasser']
+authors: ['Max Joseph', 'Leah Wasser', 'Nathan Korinek']
 dateCreated: 2016-12-06
-modified: 2020-09-11
+modified: 2021-02-02
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
@@ -52,12 +52,15 @@ See the example below.
 {:.input}
 ```python
 import os
+from math import *
+
+# Importing stats from scipy for regression calculations
+from scipy import stats
 import matplotlib.pyplot as plt
 import seaborn as sns
-from math import *
 import numpy as np
 import pandas as pd
-import rasterio as rio
+import rioxarray as rxr
 import geopandas as gpd
 import rasterstats as rs
 import earthpy as et
@@ -68,62 +71,74 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data("spatial-vector-lidar")
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
+                      'data'))
 ```
 
 {:.input}
 ```python
-lidar_path = os.path.join("data", "spatial-vector-lidar", 
-                          "california", "neon-sjer-site", 
-                          "2013", "lidar", "SJER_lidarCHM.tif")
+lidar_path = os.path.join("spatial-vector-lidar",
+                          "california",
+                          "neon-sjer-site",
+                          "2013",
+                          "lidar",
+                          "SJER_lidarCHM.tif")
 
-with rio.open(lidar_path) as lidar_chm_src:
-    SJER_chm_data = lidar_chm_src.read(1, masked=True)
+sjer_chm_data = rxr.open_rasterio(lidar_path, masked=True).squeeze()
 
 # Import plot locations and extract summary raster statistics
-plot_buffer_path = os.path.join("data", "spatial-vector-lidar", 
-                                "outputs", "plot_buffer.shp")
+plot_buffer_path = os.path.join("spatial-vector-lidar",
+                                "outputs",
+                                "plot_buffer.shp")
 
 sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
-                                   lidar_path,
+                                   sjer_chm_data.values,
+                                   affine=sjer_chm_data.rio.transform(),
                                    geojson_out=True,
                                    copy_properties=True,
+                                   nodata=0,
                                    stats="mean max")
 
-SJER_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
+sjer_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
 
 # Import in situ data
-path_insitu = os.path.join("data", "spatial-vector-lidar", 
-                           "california", "neon-sjer-site", 
-                           "2013", "insitu", 
-                           "veg_structure/D17_2013_SJER_vegStr.csv")
+path_insitu = os.path.join("spatial-vector-lidar",
+                           "california",
+                           "neon-sjer-site",
+                           "2013",
+                           "insitu",
+                           "veg_structure",
+                           "D17_2013_SJER_vegStr.csv")
 
-SJER_insitu = pd.read_csv(path_insitu)
+sjer_insitu = pd.read_csv(path_insitu)
 
 
 # Get the max and mean stem height for each plot
-insitu_stem_ht = SJER_insitu.groupby('plotid', as_index=False)
+insitu_stem_ht = sjer_insitu.groupby('plotid', as_index=False)
 insitu_stem_ht = insitu_stem_ht['stemheight'].agg(['max', 'mean'])
 insitu_stem_ht = insitu_stem_ht.rename(
     columns={'max': 'insitu_maxht', 'mean': 'insitu_meanht'})
 insitu_stem_ht.reset_index(inplace=True)
 
 # First rename columns so that we know which belongs to lidar
-SJER_lidar_height_df = SJER_lidar_height_df.rename(
-    columns={'max': 'lidar_max', 'mean': 'lidar_mean', 'min': 'lidar_min'})
+sjer_lidar_height_df = sjer_lidar_height_df.rename(
+    columns={'max': 'lidar_max',
+             'mean': 'lidar_mean',
+             'min': 'lidar_min'})
 
 # Join the data
-SJER_final_height = SJER_lidar_height_df.merge(insitu_stem_ht,
+sjer_final_height = sjer_lidar_height_df.merge(insitu_stem_ht,
                                                left_on='Plot_ID',
                                                right_on='plotid')
 # Convert to a dataframe so we can use standard pandas plotting
-SJER_final_height_df = pd.DataFrame(SJER_final_height)
+sjer_final_height_df = pd.DataFrame(sjer_final_height)
 
 # Plot scatter plot
 fig, ax = plt.subplots(figsize=(10, 10))
 
 #csfont = {'fontname':'Myriad Pro'}
-SJER_final_height_df.plot('lidar_max', 'insitu_maxht',
+sjer_final_height_df.plot('lidar_max', 'insitu_maxht',
                           kind='scatter', color="purple",
                           s=60, ax=ax)
 
@@ -134,27 +149,16 @@ ax.plot((0, 1), (0, 1), transform=ax.transAxes, ls='--',
 
 ax.set(xlabel="Lidar derived max tree height (m)",
        ylabel="Measured tree height (m)", title="Lidar vs Measured Tree Height - SJER")
+
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    [Text(0.5, 0, 'Lidar derived max tree height (m)'),
-     Text(0, 0.5, 'Measured tree height (m)'),
-     Text(0.5, 1.0, 'Lidar vs Measured Tree Height - SJER')]
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_4_1.png" alt = "Plot showing a the relationship between lidar and measured tree height with a one to one line overlayed on top.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_4_0.png" alt = "Plot showing a the relationship between lidar and measured tree height with a one to one line overlayed on top.">
 <figcaption>Plot showing a the relationship between lidar and measured tree height with a one to one line overlayed on top.</figcaption>
 
 </figure>
@@ -213,12 +217,10 @@ You can run a regression analysis on the data above using the `stats` package in
 
 {:.input}
 ```python
-from scipy import stats
+x = sjer_final_height_df.lidar_max
+y = sjer_final_height_df.insitu_maxht
 
-x = SJER_final_height_df.lidar_max
-y = SJER_final_height_df.insitu_maxht
-
-slope, intercept, r_value, _, _ = stats.linregress(x, y)
+slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 
 print("slope:", slope,
       "\nintercept:", intercept,
@@ -255,9 +257,13 @@ fig, ax = plt.subplots(figsize=(10, 10))
 
 m = slope.astype(float)
 
-SJER_final_height_df.plot('lidar_max', 'insitu_maxht',
-                          kind='scatter', color="purple",
-                          s=60, ax=ax, label="Data")
+sjer_final_height_df.plot('lidar_max',
+                          'insitu_maxht',
+                          kind='scatter',
+                          color="purple",
+                          s=60,
+                          ax=ax,
+                          label="Data")
 
 # Add a diagonal line
 ax.set(xlim=[0, 30], ylim=[0, 30])
@@ -265,27 +271,19 @@ ax.plot((0, 1), (0, 1), 'y-', transform=ax.transAxes, label="1:1 line")
 ax.plot(x, m*x + intercept, 'grey', label='regression fitted line')
 
 ax.set(xlabel="Lidar derived max tree height (m)",
-       ylabel="Measured tree height (m)", title="Lidar vs Measured Tree Height - SJER")
+       ylabel="Measured tree height (m)",
+       title="Lidar vs Measured Tree Height - SJER")
+
 plt.legend()
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.legend.Legend at 0x7f35bd80cdc0>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_10_1.png" alt = "This plot shows the same x and y variables as the previous plot however now you have a regression relationship drawn in grey. This represents a statistical that quantifies how x relates to y. Note that in this case, this relationship is not a purely 1:1 relationship.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_10_0.png" alt = "This plot shows the same x and y variables as the previous plot however now you have a regression relationship drawn in grey. This represents a statistical that quantifies how x relates to y. Note that in this case, this relationship is not a purely 1:1 relationship.">
 <figcaption>This plot shows the same x and y variables as the previous plot however now you have a regression relationship drawn in grey. This represents a statistical that quantifies how x relates to y. Note that in this case, this relationship is not a purely 1:1 relationship.</figcaption>
 
 </figure>
@@ -312,15 +310,13 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 fig, ax = plt.subplots(figsize=(10, 10))
 
 ax.scatter(x, y, c='blue', label="data")
-
 ax.plot((0, 1), (0, 1), transform=ax.transAxes,
         ls='--', c='k', label="1:1 line")
 
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line')
-
 ax.set(xlim=[0, 50], ylim=[0, 50])
-
-ax.set(xlabel="Variable A", ylabel="Variable B",
+ax.set(xlabel="Variable A",
+       ylabel="Variable B",
        title="Data Points with a Strong \nR-squared and P-value but not a 1:1")
 
 plt.legend(fontsize=14)
@@ -376,10 +372,9 @@ ax.plot((0, 1), (0, 1), transform=ax.transAxes,
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line')
 
 ax.set(xlim=[0, 50], ylim=[0, 50])
-
-ax.set(xlabel="Variable A", ylabel="Variable B",
+ax.set(xlabel="Variable A",
+       ylabel="Variable B",
        title="Data Points with a Strong \nR-squared but There is a Positive Bias")
-
 plt.legend()
 
 print("slope:", slope,
@@ -435,16 +430,15 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 fig, ax = plt.subplots(figsize=(10, 10))
 
 ax.scatter(x, y, c='blue', label="data")
-
 ax.plot((0, 1), (0, 1), transform=ax.transAxes,
         ls='--', c='k', label="1:1 line")
 
 ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line',
         color="purple")
-
 ax.set(xlim=[0, 50], ylim=[0, 50])
 
-ax.set(xlabel="Variable A", ylabel="Variable B",
+ax.set(xlabel="Variable A",
+       ylabel="Variable B",
        title="Data Points with a Strong \nR-squared but There is a Positive Bias")
 
 plt.legend()
@@ -488,7 +482,7 @@ Below is a plot of the same data using the `seaborn` package. The Seaborn packag
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
 
-ax = sns.regplot('lidar_max', 'insitu_maxht', data=SJER_final_height_df,
+ax = sns.regplot('lidar_max', 'insitu_maxht', data=sjer_final_height_df,
                  color="purple")
 
 # Add a diagonal line
@@ -496,28 +490,18 @@ ax.set(xlim=[5, 30], ylim=[5, 30])
 ax.plot((0, 1), (0, 1), transform=ax.transAxes, ls='--', c='k')
 
 ax.set(xlabel="Lidar derived max tree height (m)",
-       ylabel="Measured tree height (m)", title="Lidar vs Measured Tree Height - SJER")
+       ylabel="Measured tree height (m)",
+       title="Lidar vs Measured Tree Height - SJER")
+
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    [Text(0.5, 0, 'Lidar derived max tree height (m)'),
-     Text(0, 0.5, 'Measured tree height (m)'),
-     Text(0.5, 1.0, 'Lidar vs Measured Tree Height - SJER')]
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_1.png" alt = "Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_0.png" alt = "Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.">
 <figcaption>Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.</figcaption>
 
 </figure>
@@ -538,15 +522,17 @@ Can you think of any things that could occur in particular plots that may throug
 {:.input}
 ```python
 # Calculate difference and add the plot id to each xaxis label
-SJER_final_height["lidar_measured"] = SJER_final_height["lidar_max"] - \
-    SJER_final_height["insitu_maxht"]
+sjer_final_height["lidar_measured"] = sjer_final_height["lidar_max"] - \
+    sjer_final_height["insitu_maxht"]
 
 fig, ax = plt.subplots(figsize=(12, 7))
 
-ax.bar(SJER_final_height['plotid'], SJER_final_height['lidar_measured'],
+ax.bar(sjer_final_height['plotid'],
+       sjer_final_height['lidar_measured'],
        color="purple")
 
-ax.set(xlabel='Plot ID', ylabel='(Lidar - Measured) Height Difference (m)',
+ax.set(xlabel='Plot ID',
+       ylabel='(Lidar - Measured) Height Difference (m)',
        title='Difference Between lidar and Measured Tree Height')
 
 plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
