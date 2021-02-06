@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-28
+modified: 2021-02-06
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -31,11 +31,11 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Replace (masked) values in one numpy array with values in another array.
+* Replace (masked) values in one xarray DataArray with values in another array.
 
 </div>
 
-Sometimes you have many bad pixels in a landsat scene that you wish to replace or fill in with pixels from another scene. In this lesson you will learn how to replace pixels in one scene with those from another using Numpy. 
+Sometimes you have many bad pixels in a landsat scene that you wish to replace or fill in with pixels from another scene. In this lesson you will learn how to replace pixels in one scene with those from another using Xarray. 
 
 To begin, open both of the pre-fire raster stacks. You got the cloud free data as a part of your homework, last week. The scene with the cloud is in the cold spring fire data that you downloaded last week. 
 
@@ -49,6 +49,7 @@ from matplotlib import patches as mpatches
 from matplotlib.colors import ListedColormap
 import seaborn as sns
 import numpy as np
+from numpy import ma
 from shapely.geometry import box
 import xarray as xr
 import rioxarray as rxr
@@ -68,6 +69,8 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
     Extracted output to /root/earth-analytics/data/cs-test-landsat/.
 
@@ -112,15 +115,16 @@ high_confidence_cloud = [480, 992]
 vals_to_mask = cloud_shadow + cloud + high_confidence_cloud
 
 # Call the earthpy mask function using pixel QA layer
-landsat_pre_cloud_masked = em.mask_pixels(landsat_pre_cloud.values, landsat_qa.values,
-                                          vals=vals_to_mask)
+landsat_pre_cloud_masked = landsat_pre_cloud.where(~landsat_qa.isin(vals_to_mask))
 ```
 
 Plot the data to ensure that the cloud covered pixels are masked. 
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_pre_cloud_masked,
+landsat_pre_cloud_masked_plot = ma.masked_array(landsat_pre_cloud_masked.values, landsat_pre_cloud_masked.isnull())
+
+ep.plot_rgb(landsat_pre_cloud_masked_plot,
             rgb=[2, 1, 0],
             title="Masked Landsat Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
@@ -316,28 +320,25 @@ landsat_pre_cloud_free.shape, landsat_pre_cloud_masked.shape
 
 
 
-Once the data are cropped to the same extent, you can replace values using numpy.
+Once the data are cropped to the same extent, you can replace values using xarray's `where()` function.
 
 {:.input}
 ```python
 # Get the mask layer from the pre_cloud data
-mask = landsat_pre_cloud_masked.mask
-
-# Copy the pre_cloud_data to a new array
-# so you don't impact the original array (optional but suggested!)
-landsat_pre_cloud_masked_copy = np.copy(landsat_pre_cloud_masked)
+mask = landsat_pre_cloud_masked.isnull()
 
 # Assign every cell in the new array that is masked
 # to the value in the same cell location as the cloud free data
-#landsat_pre_cloud_c[mask] = landsat_pre_noclouds_crop[mask]
-landsat_pre_cloud_masked_copy[mask] = landsat_pre_cloud_free.values[mask]
+landsat_pre_cloud_masked_val_replace = xr.where(mask, landsat_pre_cloud_free, landsat_pre_cloud_masked)
 ```
 
 Finally, plot the data. Does it look like it reassigned values correctly?
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_pre_cloud_masked_copy,
+landsat_pre_cloud_masked_val_replace_plot = ma.masked_array(landsat_pre_cloud_masked_val_replace.values, landsat_pre_cloud_masked_val_replace.isnull())
+
+ep.plot_rgb(landsat_pre_cloud_masked_val_replace_plot,
             rgb=[2, 1, 0],
             title="Masked Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
