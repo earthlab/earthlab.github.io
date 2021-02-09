@@ -4,7 +4,7 @@ category: courses
 title: "Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python"
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/
 week-landing: 4
-modified: 2020-02-19
+modified: 2021-02-09
 week: 4
 sidebar:
   nav:
@@ -57,6 +57,12 @@ Please read the following chapters to support completing this week's assignment:
 
 The plots below are examples of what your plot could look like. Feel free to
 customize or modify plot settings as you see fit! 
+
+
+{:.output}
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/rasterio/plot.py:263: SyntaxWarning: "is" with a literal. Did you mean "=="?
+      if len(arr.shape) is 2:
+
 
 
 
