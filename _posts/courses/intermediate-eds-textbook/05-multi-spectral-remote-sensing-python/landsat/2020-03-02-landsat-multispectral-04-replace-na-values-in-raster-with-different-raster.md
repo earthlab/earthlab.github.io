@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-02-06
+modified: 2021-02-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -69,8 +69,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
     Extracted output to /root/earth-analytics/data/cs-test-landsat/.
 
@@ -80,6 +78,30 @@ First, import the landsat rasters and mask out the clouds like you did in the pr
 
 {:.input}
 ```python
+# Custom function to read in list of tifs into an xarray object
+def combine_tifs(tif_list):
+    """A function that combines a list of tifs in the same CRS
+    and of the same extent into an xarray object
+
+    Parameters
+    ----------
+    tif_list : list
+        A list of paths to the tif files that you wish to combine.
+        
+    Returns
+    -------
+    An xarray object with all of the tif files in the listmerged into 
+    a single object.
+
+    """
+
+    out_xr=[]
+    for i, tif_path in enumerate(tif_list):
+        out_xr.append(rxr.open_rasterio(tif_path, masked=True).squeeze())
+        out_xr[i]["band"]=i+1
+     
+    return xr.concat(out_xr, dim="band") 
+
 # Stack the Landsat pre fire data
 landsat_paths_pre_path = os.path.join("cold-springs-fire", 
                                       "landsat_collect",
@@ -90,9 +112,7 @@ landsat_paths_pre_path = os.path.join("cold-springs-fire",
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
 
-landsat_pre_list = [rxr.open_rasterio(
-    image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
-landsat_pre_cloud = xr.concat(landsat_pre_list, dim="band")
+landsat_pre_cloud = combine_tifs(landsat_paths_pre)
 
 
 # Calculate bounds object
@@ -156,9 +176,7 @@ landsat_paths_pre_cloud_free = glob(
 
 landsat_paths_pre_cloud_free.sort()
 
-landsat_pre_cloud_free_list = [rxr.open_rasterio(
-    image_path, masked=True).squeeze() for image_path in landsat_paths_pre_cloud_free]
-landsat_pre_cloud_free = xr.concat(landsat_pre_cloud_free_list, dim="band")
+landsat_pre_cloud_free = combine_tifs(landsat_paths_pre_cloud_free)
 
 
 # Calculate bounds object
