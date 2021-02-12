@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-28
+modified: 2021-02-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -31,11 +31,11 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Replace (masked) values in one numpy array with values in another array.
+* Replace (masked) values in one xarray DataArray with values in another array.
 
 </div>
 
-Sometimes you have many bad pixels in a landsat scene that you wish to replace or fill in with pixels from another scene. In this lesson you will learn how to replace pixels in one scene with those from another using Numpy. 
+Sometimes you have many bad pixels in a landsat scene that you wish to replace or fill in with pixels from another scene. In this lesson you will learn how to replace pixels in one scene with those from another using Xarray. 
 
 To begin, open both of the pre-fire raster stacks. You got the cloud free data as a part of your homework, last week. The scene with the cloud is in the cold spring fire data that you downloaded last week. 
 
@@ -49,6 +49,7 @@ from matplotlib import patches as mpatches
 from matplotlib.colors import ListedColormap
 import seaborn as sns
 import numpy as np
+from numpy import ma
 from shapely.geometry import box
 import xarray as xr
 import rioxarray as rxr
@@ -77,6 +78,30 @@ First, import the landsat rasters and mask out the clouds like you did in the pr
 
 {:.input}
 ```python
+# Custom function to read in list of tifs into an xarray object
+def combine_tifs(tif_list):
+    """A function that combines a list of tifs in the same CRS
+    and of the same extent into an xarray object
+
+    Parameters
+    ----------
+    tif_list : list
+        A list of paths to the tif files that you wish to combine.
+        
+    Returns
+    -------
+    An xarray object with all of the tif files in the listmerged into 
+    a single object.
+
+    """
+
+    out_xr=[]
+    for i, tif_path in enumerate(tif_list):
+        out_xr.append(rxr.open_rasterio(tif_path, masked=True).squeeze())
+        out_xr[i]["band"]=i+1
+     
+    return xr.concat(out_xr, dim="band") 
+
 # Stack the Landsat pre fire data
 landsat_paths_pre_path = os.path.join("cold-springs-fire", 
                                       "landsat_collect",
@@ -87,9 +112,7 @@ landsat_paths_pre_path = os.path.join("cold-springs-fire",
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
 
-landsat_pre_list = [rxr.open_rasterio(
-    image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
-landsat_pre_cloud = xr.concat(landsat_pre_list, dim="band")
+landsat_pre_cloud = combine_tifs(landsat_paths_pre)
 
 
 # Calculate bounds object
@@ -112,15 +135,16 @@ high_confidence_cloud = [480, 992]
 vals_to_mask = cloud_shadow + cloud + high_confidence_cloud
 
 # Call the earthpy mask function using pixel QA layer
-landsat_pre_cloud_masked = em.mask_pixels(landsat_pre_cloud.values, landsat_qa.values,
-                                          vals=vals_to_mask)
+landsat_pre_cloud_masked = landsat_pre_cloud.where(~landsat_qa.isin(vals_to_mask))
 ```
 
 Plot the data to ensure that the cloud covered pixels are masked. 
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_pre_cloud_masked,
+landsat_pre_cloud_masked_plot = ma.masked_array(landsat_pre_cloud_masked.values, landsat_pre_cloud_masked.isnull())
+
+ep.plot_rgb(landsat_pre_cloud_masked_plot,
             rgb=[2, 1, 0],
             title="Masked Landsat Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
@@ -152,9 +176,7 @@ landsat_paths_pre_cloud_free = glob(
 
 landsat_paths_pre_cloud_free.sort()
 
-landsat_pre_cloud_free_list = [rxr.open_rasterio(
-    image_path, masked=True).squeeze() for image_path in landsat_paths_pre_cloud_free]
-landsat_pre_cloud_free = xr.concat(landsat_pre_cloud_free_list, dim="band")
+landsat_pre_cloud_free = combine_tifs(landsat_paths_pre_cloud_free)
 
 
 # Calculate bounds object
@@ -316,28 +338,25 @@ landsat_pre_cloud_free.shape, landsat_pre_cloud_masked.shape
 
 
 
-Once the data are cropped to the same extent, you can replace values using numpy.
+Once the data are cropped to the same extent, you can replace values using xarray's `where()` function.
 
 {:.input}
 ```python
 # Get the mask layer from the pre_cloud data
-mask = landsat_pre_cloud_masked.mask
-
-# Copy the pre_cloud_data to a new array
-# so you don't impact the original array (optional but suggested!)
-landsat_pre_cloud_masked_copy = np.copy(landsat_pre_cloud_masked)
+mask = landsat_pre_cloud_masked.isnull()
 
 # Assign every cell in the new array that is masked
 # to the value in the same cell location as the cloud free data
-#landsat_pre_cloud_c[mask] = landsat_pre_noclouds_crop[mask]
-landsat_pre_cloud_masked_copy[mask] = landsat_pre_cloud_free.values[mask]
+landsat_pre_cloud_masked_val_replace = xr.where(mask, landsat_pre_cloud_free, landsat_pre_cloud_masked)
 ```
 
 Finally, plot the data. Does it look like it reassigned values correctly?
 
 {:.input}
 ```python
-ep.plot_rgb(landsat_pre_cloud_masked_copy,
+landsat_pre_cloud_masked_val_replace_plot = ma.masked_array(landsat_pre_cloud_masked_val_replace.values, landsat_pre_cloud_masked_val_replace.isnull())
+
+ep.plot_rgb(landsat_pre_cloud_masked_val_replace_plot,
             rgb=[2, 1, 0],
             title="Masked Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()

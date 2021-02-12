@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-01-28
+modified: 2021-02-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -82,6 +82,7 @@ import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches, colors
 import seaborn as sns
 import numpy as np
+from numpy import ma
 import xarray as xr
 import rioxarray as rxr
 import earthpy as et
@@ -94,10 +95,16 @@ sns.set(font_scale=1.5)
 
 # Download data and set working directory
 data = et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 
-                      'earth-analytics', 
+os.chdir(os.path.join(et.io.HOME,
+                      'earth-analytics',
                       'data'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
 
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
 
@@ -106,19 +113,40 @@ HINT: Since we are only using the RGB and the NIR bands for this exercise, you c
 
 {:.input}
 ```python
-landsat_paths_pre_path = os.path.join("cold-springs-fire", 
+# Custom function to read in list of tifs into an xarray object
+def combine_tifs(tif_list):
+    """A function that combines a list of tifs in the same CRS
+    and of the same extent into an xarray object
+
+    Parameters
+    ----------
+    tif_list : list
+        A list of paths to the tif files that you wish to combine.
+        
+    Returns
+    -------
+    An xarray object with all of the tif files in the listmerged into 
+    a single object.
+
+    """
+
+    out_xr=[]
+    for i, tif_path in enumerate(tif_list):
+        out_xr.append(rxr.open_rasterio(tif_path, masked=True).squeeze())
+        out_xr[i]["band"]=i+1
+     
+    return xr.concat(out_xr, dim="band") 
+
+landsat_paths_pre_path = os.path.join("cold-springs-fire",
                                       "landsat_collect",
-                                      "LC080340322016070701T1-SC20180214145604", 
+                                      "LC080340322016070701T1-SC20180214145604",
                                       "crop",
                                       "*band[2-5]*.tif")
 
 landsat_paths_pre = glob(landsat_paths_pre_path)
 landsat_paths_pre.sort()
 
-landsat_pre_list = [rxr.open_rasterio(
-    image_path, masked=True).squeeze() for image_path in landsat_paths_pre]
-
-landsat_pre = xr.concat(landsat_pre_list, dim="band")
+landsat_pre = combine_tifs(landsat_paths_pre)
 
 ep.plot_rgb(landsat_pre.values,
             rgb=[2, 1, 0],
@@ -295,12 +323,7 @@ Reclassifying the data allows us to enforce one color for each unique value in o
 
 
 
-This next section shows you how to create a mask using the earthpy mask helper function `_create_mask` to create a binary cloud mask layer. In this mask all pixels that you wish to remove from your analysis or mask will be set to `1`. All other pixels which represent pixels you want to use in your analysis will be set to `0`.
-
-### NOTE:
-This step can be done by changing the inputs into the main `mask_pixels` function. We include it here so you can see what is going on in the function. See lower down in the lesson for this call. 
-
-Additionally, `_create_mask` only takes numpy arrays, not xarray DataArrays. To get the numpy array from the DataArray, make sure to add `.values` after you DataArray variable name. 
+This next section shows you how to create a mask using the xarray function `isin()` to create a binary cloud mask layer. In this mask all pixels that you wish to remove from your analysis or mask will be set to `1`. All other pixels which represent pixels you want to use in your analysis will be set to `0`.
 
 {:.input}
 ```python
@@ -359,10 +382,10 @@ all_masked_values
 
 {:.input}
 ```python
-# This is using a helper function from earthpy to create the mask so we can plot it
+# This is using a the isin function to create a binary cloud mask
 # You don't need to do this in your workflow as you can perform the mask in one step
 # But we have it here for demonstration purposes
-cl_mask = em._create_mask(landsat_qa.values, all_masked_values)
+cl_mask = landsat_qa.isin(all_masked_values)
 np.unique(cl_mask)
 ```
 
@@ -371,7 +394,7 @@ np.unique(cl_mask)
 
 
 
-    array([0, 1], dtype=int16)
+    array([False,  True])
 
 
 
@@ -414,16 +437,16 @@ using remote sensing data.
 To create the mask this you do the following:
 
 1. Make sure you use a raster layer for the mask that is the SAME EXTENT and the same pixel resolution as your landsat scene. In this case you have a mask layer that is already the same spatial resolution and extent as your landsat scene.
-2. Set all of the values in that layer that are clouds and / or shadows to `1` (1 to represent `mask = True`)
-3. Finally you use the `masked_array` function to apply the mask layer to the numpy array (or the landsat scene that you are working with in Python).  all pixel locations that were flagged as clouds or shadows in your mask to `NA` in your `raster` or in this case `rasterstack`.
+2. Set all of the values in that layer that are clouds and / or shadows to `True`
+3. Finally you use the `where` function to apply the mask layer to the xarray DataArray (or the landsat scene that you are working with in Python).  all pixel locations that were flagged as clouds or shadows in your mask to `NA` in your `raster` or in this case `rasterstack`.
 
-## Mask A Landsat Scene Using EarthPy
-Below you mask your data in one single step. This function `em.mask_pixels()` creates the mask as you saw above and then masks your data. 
+## Mask A Landsat Scene Using Xarray
+Below you mask your data in one single step. This function `.where()` applies the mask you created above to your xarray DataArray. To apply the mask, ensure you put a `~` in front of your mask inside the `where()` function. This must be done because `isin()` creates the mask with `True` values where we want `False`, values, and vice versa. The `~` flips all of the values inside the array.
 
 {:.input}
 ```python
 # Call the earthpy mask function using your mask layer
-landsat_pre_cl_free = em.mask_pixels(landsat_pre, cl_mask)
+landsat_pre_cl_free = landsat_pre.where(~cl_mask)
 ```
 
 Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function. This is the easiest way to mask your data! Again, this function only takes numpy arrays, so make sure to call `.values` on all of your xarray DataArrays that you are using as inputs into that function.
@@ -431,8 +454,7 @@ Alternatively, you can directly input your mask values and the pixel QA layer in
 {:.input}
 ```python
 # Call the earthpy mask function using pixel QA layer
-landsat_pre_cl_free = em.mask_pixels(
-    landsat_pre.values, landsat_qa.values, vals=all_masked_values)
+landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 ```
 
 
@@ -463,7 +485,11 @@ plt.show()
 {:.input}
 ```python
 # Plot data
-ep.plot_rgb(landsat_pre_cl_free,
+# Fix to plot xarray with plot_rgb
+landsat_pre_cl_free_plot = ma.masked_array(landsat_pre_cl_free.values, landsat_pre_cl_free.isnull())
+
+# Plot
+ep.plot_rgb(landsat_pre_cl_free_plot,
             rgb=[3, 2, 1],
             title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
