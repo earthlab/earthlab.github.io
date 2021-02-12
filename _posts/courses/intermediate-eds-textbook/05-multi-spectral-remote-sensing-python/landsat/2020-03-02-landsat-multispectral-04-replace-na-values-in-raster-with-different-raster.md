@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-02-10
+modified: 2021-02-12
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -142,6 +142,7 @@ Plot the data to ensure that the cloud covered pixels are masked.
 
 {:.input}
 ```python
+# Masking out NA values with numpy in order to plot with ep.plot_rgb
 landsat_pre_cloud_masked_plot = ma.masked_array(landsat_pre_cloud_masked.values, landsat_pre_cloud_masked.isnull())
 
 ep.plot_rgb(landsat_pre_cloud_masked_plot,
@@ -304,18 +305,7 @@ landsat_clouds_clip = es.extent_to_json(list(landsat_pre_cloud_ext_bds))
 
 {:.input}
 ```python
-# Export the cloud free data as a tiff and reimport / crop the data
-# landsat_cloud_free_out_path = os.path.join("data", "outputs", "cloud_mask")
-
-# if not os.path.exists(landsat_cloud_free_out_path):
-#     os.makedirs(landsat_cloud_free_out_path)
-
-# cropped_cloud_list = es.crop_all(landsat_paths_pre_cloud_free,
-#                                  landsat_cloud_free_out_path,
-#                                  [landsat_clouds_clip], overwrite=True)
-
-# landsat_pre_cloud_free, landsat_pre_clod_free_meta = es.stack(
-#     cropped_cloud_list)
+# Clip the data to the extent of the other landsat scene
 
 landsat_pre_cloud_free = landsat_pre_cloud_free.rio.clip([landsat_clouds_clip])
 ```
@@ -354,6 +344,7 @@ Finally, plot the data. Does it look like it reassigned values correctly?
 
 {:.input}
 ```python
+# Masking out NA values with numpy in order to plot with ep.plot_rgb
 landsat_pre_cloud_masked_val_replace_plot = ma.masked_array(landsat_pre_cloud_masked_val_replace.values, landsat_pre_cloud_masked_val_replace.isnull())
 
 ep.plot_rgb(landsat_pre_cloud_masked_val_replace_plot,
