@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-02-10
+modified: 2021-02-12
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -214,19 +214,27 @@ You will explore using this pixel quality assurance (QA) layer, next. To begin, 
 the `pixel_qa` layer using rioxarray and plot it with matplotlib.
 
 
-
-
 {:.input}
 ```python
-# landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect",
-#                                    "LC080340322016070701T1-SC20180214145604", "crop",
-#                                    "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
+# Open the landsat qa layer
+landsat_pre_cl_path = os.path.join("cold-springs-fire",
+                                   "landsat_collect",
+                                   "LC080340322016070701T1-SC20180214145604",
+                                   "crop",
+                                   "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
 
-# # Open the pixel_qa layer for your landsat scene
-# with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
-#     landsat_qa = landsat_pre_cl.read(1)
-#     landsat_ext = plotting_extent(landsat_pre_cl)
+landsat_qa = rxr.open_rasterio(landsat_pre_cl_path).squeeze()
+
+high_cloud_confidence = em.pixel_flags["pixel_qa"]["L8"]["High Cloud Confidence"]
+cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
+cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
+
+all_masked_values = cloud_shadow + cloud + high_cloud_confidence
+# Call the earthpy mask function using pixel QA layer
+landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 ```
+
+
 
 First, plot the pixel_qa layer in matplotlib.
 
@@ -485,7 +493,7 @@ plt.show()
 {:.input}
 ```python
 # Plot data
-# Fix to plot xarray with plot_rgb
+# Masking out NA values with numpy in order to plot with ep.plot_rgb
 landsat_pre_cl_free_plot = ma.masked_array(landsat_pre_cl_free.values, landsat_pre_cl_free.isnull())
 
 # Plot
