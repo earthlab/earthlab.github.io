@@ -100,12 +100,6 @@ os.chdir(os.path.join(et.io.HOME,
                       'data'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
-
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
 
 HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
