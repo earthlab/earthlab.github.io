@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data using Open Source Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2020-09-11
+modified: 2021-02-16
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/modis-data-in-python/
@@ -110,6 +110,12 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 
 
 
@@ -118,17 +124,43 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 
 
-    ['data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1.tif',
-     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1.tif']
+    ['cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1.tif',
+     'cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1.tif']
 
 
 
 
+
+{:.input}
+```python
+def combine_tifs(tif_list):
+    """A function that combines a list of tifs in the same CRS
+    and of the same extent into an xarray object
+
+    Parameters
+    ----------
+    tif_list : list
+        A list of paths to the tif files that you wish to combine.
+
+    Returns
+    -------
+    An xarray object with all of the tif files in the listmerged into 
+    a single object.
+
+    """
+
+    out_xr = []
+    for i, tif_path in enumerate(tif_list):
+        out_xr.append(rxr.open_rasterio(tif_path, masked=True).squeeze())
+        out_xr[i]["band"] = i+1
+
+    return xr.concat(out_xr, dim="band")
+```
 
 
 
@@ -138,7 +170,15 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 
 {:.output}
-    -100 10039
+    <xarray.DataArray ()>
+    array(-100.)
+    Coordinates:
+        band         int64 2
+        spatial_ref  int64 0 <xarray.DataArray ()>
+    array(10039.)
+    Coordinates:
+        band         int64 2
+        spatial_ref  int64 0
 
 
 
@@ -153,7 +193,7 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_16_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
 <figcaption>Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -167,7 +207,7 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_17_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
 <figcaption>Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -189,7 +229,15 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 
 {:.output}
-    0.24960000000000002 0.3013
+    <xarray.DataArray ()>
+    array(0.2496)
+    Coordinates:
+        band         int64 2
+        spatial_ref  int64 0 <xarray.DataArray ()>
+    array(0.3013)
+    Coordinates:
+        band         int64 2
+        spatial_ref  int64 0
 
 
 
