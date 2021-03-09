@@ -134,12 +134,6 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
-
 In previous lessons, you have used `glob("*keyword*.tif")` to create a list of all files that both:
 1. Contain a certain keyword as denoted by the asterisks (e.g. `*band*`) and
 2. Contain the extension `.tif`.
