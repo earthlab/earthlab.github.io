@@ -1,10 +1,10 @@
 ---
 layout: single
-title: "Introduction to the HDF4 Data Format"
+title: "Introduction to the HDF4 Data Format - Explore H4 Files Using HDFView"
 excerpt: "MODIS is remote sensing data that is stored in the HDF4 file format. Learn how to view and explore HDF4 files (and their metadata) using the free HDF viewer provided by the HDF group."
-authors: ['Leah Wasser', 'Jenny Palomino']
+authors: ['Leah Wasser', 'Nathan Korinek', 'Jenny Palomino']
 dateCreated: 2020-03-01
-modified: 2020-11-12
+modified: 2021-03-09
 category: [courses]
 class-lesson: ['hdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/
@@ -50,7 +50,7 @@ After completing this chapter, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the Cold Springs MODIS data, which you can download using **earthpy**:
 
-`et.data.get_data("cold-springs-modis-h5")`
+`et.data.get_data("cold-springs-modis-h4")`
 
 You will also need to download a <a href="https://www.hdfgroup.org/downloads/hdfview/" target="_blank">free HDF viewer</a> from the HDF Group website. Additional download and installation information are provided on this page. 
 
@@ -60,13 +60,9 @@ Be sure to download the data above, so that you can access the data in the free 
 
 ## What are HDF4 Files?
 
-On the landing page of this section, you learned about the general characteristics of Hierarchical Data Format (HDF) files and that there are many types of HDF files including HDF4, HDF5, and NetCDF. 
+On the landing page of this section, you learned about the general characteristics of Hierarchical Data Format (HDF) files and that there are many types of HDF files including HDF4, HDF5, and NetCDF. HDF files are open source file formats that support large, complex, heterogeneous data, using a "file directory" like structure. HDF formats also allow for embedding of metadata, making them *self-describing*. 
 
-HDF files are open source file formats that support large, complex, heterogeneous data, using a "file directory" like structure. HDF formats also allow for embedding of metadata, making them *self-describing*. 
-
-HDF4 is an older hierarchical data format as compared to HDF5, which is the latest version promoted by the HDF Group, the publisher of the libraries and standards for these formats. 
-
-While the transition to HDF5 has occurred for many remote sensing products, HDF4 is still the primary data format that is adapted for MODIS data products published by NASA.
+HDF4 is an older hierarchical data format as compared to HDF5, which is the latest version promoted by the HDF Group, the publisher of the libraries and standards for these formats. While the transition to HDF5 has occurred for many remote sensing products, HDF4 is still the primary data format that is adapted for MODIS data products published by NASA.
 
 <i class="fa fa-star"></i> **Data Tip:** HDF4 is an older hierarchical data format. Most MODIS data are still delivered in an adapted version of this format. HDF5 (and NetCDF which is similar to the HDF5 format with different associated standards) are the preferred data structures to use for new data products.
 {: .notice--success}
@@ -102,21 +98,20 @@ The sections below walk you through downloading and installing the tool as well 
 
 In order to download the <a href="https://www.hdfgroup.org/downloads/hdfview/" target="_blank">free HDF viewer</a> from the HDF Group website, you will need to first create a free account.
 
-You can create a free account by clicking on the "Create Free Account" button on the top-right corner of the download page.  
+* You can create a free account by clicking on the "Create Free Account" button on the top-right corner of the download page.  
+* During the process to create a free account, you will be asked to confirm your email address by entering a code that is emailed to the address that you provided. 
+* Once you have finished creating an account, you can select the appropriate installer for your operating system from the download page.
 
-During the process to create a free account, you will be asked to confirm your email address by entering a code that is emailed to the address that you provided. 
-
-Once you have finished creating an account, you can select the appropriate installer for your operating system from the download page.
-
-<i class="fa fa-exclamation-circle" aria-hidden="true"></i> **Windows Users:** you will need to select the appropriate installer based on your version of Windows. For example,  `HDFView-3.1.0-win10vs14_64.zip` is the appropriate installer for Windows version 10.0.14. After downloading the .zip file, you can extract the file and double-click on the .msi file to run the installation. 
+<i class="fa fa-exclamation-circle" aria-hidden="true"></i> **Windows Users:** you will need to select the appropriate installer based on your version of Windows. For example, `HDFView-3.1.0-win10vs14_64.zip` is the appropriate installer for Windows version 10.0.14. After downloading the .zip file, you can extract the file and double-click on the .msi file to run the installation. 
 {: .notice--success}
 
 
 ### Open HDF4 Files in HDF Viewer
 
-Once installed, open the HDFView tool on your computer. 
+Once installed:
 
-In the menu bar, click the first button `Open` to open a file. 
+* open the HDFView tool on your computer. 
+* In the menu bar, click the first button `Open` to open a file. 
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-hdf-viewer-open-file.png">
@@ -125,13 +120,12 @@ In the menu bar, click the first button `Open` to open a file.
  </figcaption>
 </figure>
 
-Navigate to directory for the data download (see: section on What You Need). 
+* Navigate to directory for the data download (see: section on What You Need). 
+* Recall that **earthpy** datasets are downloaded to the `data` directory under `earth-analytics` (e.g. `home/user/earth-analytics/data/cold-springs-modis-h5/`).
 
-Recall that **earthpy** datasets are downloaded to the `data` directory under `earth-analytics` (e.g. `home/user/earth-analytics/data/cold-springs-modis-h5/`).
+* Within the `cold-springs-modis-h5` directory, you will see two directories containing `.hdf` files (e.g. `07_july_2016` directory).  
 
-Within the `cold-springs-modis-h5` directory, you will see two directories containing `.hdf` files (e.g. `07_july_2016` directory).  
-
-Select and open `MOD09GA.A2016189.h09v05.006.2016191073856.hdf` within the `07_july_2016` directory.
+* Select and open `MOD09GA.A2016189.h09v05.006.2016191073856.hdf` within the `07_july_2016` directory.
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-hdf-viewer-open-select-file.png">
@@ -147,11 +141,9 @@ Select and open `MOD09GA.A2016189.h09v05.006.2016191073856.hdf` within the `07_j
 
 Once opened, the HDF file structure will appear in the left panel of the HDFView interface.
 
-Click on the `>` next to the dataset name for `MODIS_Grid_500m_2D` to expand it. 
-
-Then, expand `Data Fields` to see the data objects that are stored in that dataset. 
-
-From the list of surface reflectance bands, click (or select) `sur_refl_b01_1` for band 1. 
+* Click on the `>` next to the dataset name for `MODIS_Grid_500m_2D` to expand it. 
+* Then, expand `Data Fields` to see the data objects that are stored in that dataset. 
+* From the list of surface reflectance bands, click (or select) `sur_refl_b01_1` for band 1. 
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-data-object.png">
@@ -165,11 +157,9 @@ Notice that when you select an individual data object, you see the associated me
 
 #### View Image of Surface Reflectance Band
 
-Click on the second tab titled `General Object Info`. 
-
-Notice that the path to the file is displayed as well as other attributes such as the dimensions.
-
-To preview the image, click on the button for `Show Data with Options` (bottom center).
+* Click on the second tab titled `General Object Info`. 
+* Notice that the path to the file is displayed as well as other attributes such as the dimensions.
+* To preview the image, click on the button for `Show Data with Options` (bottom center).
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-object-info.png">
