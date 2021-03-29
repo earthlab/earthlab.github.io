@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
-modified: 2020-10-02
+modified: 2021-03-29
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -159,4 +159,54 @@ $ git pull
 ```
 
 You have now updated your local clone with the updates that you merged into your fork from original **GitHub** repository.
+
+## Working With Remotes 
+
+Remotes are the connections you have to GitHub in your local Git repository. You can use these as an alternative way to sync your repository with the main repository without accessing **GitHub.com**.
+
+### Adding Additional Remotes
+
+When you have a local repository, it is connected to GitHub through a remote url. The original URL you used to create the local repository is your `origin` url. When doing a `git push` or a `git pull`, this is what you are specifying with `git pull origin main`. The `origin` part of that command specifies that you want to interact with the url you have set up as `origin`. To see what url connections you have to GitHub inside of a repository, you can run 
+```bash
+git remote -v
+```
+
+inside of a Git repository. This should come up with a list of the url's you're using to connect the repository to GitHub, and the names of the connections. 
+
+If you have forked a repository, and cloned it from your fork, you can add another connection to the original repository. This allows you too update your main inside of the terminal. Be careful though, if you add a connection to the original repository, be sure not to push anything there instead of to your fork!
+
+Too add an additional connection too a repository, you can run `git remote add connection-name connection-url`. <a href="https://github.com/git-guides/git-remote" target="_blank"> GitHub has great documentary around adding a remote and the best practices to use when doing so.</a> In addition to that documentation, <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#adding-a-remote-repository" target="_blank">here is a more technical walk through of adding a remote connection.</a> When adding a connection to the original repository that you forked from, it is best practice to call the connection `upstream`. 
+
+Once you have added your `upstream` connection, you can update your fork from the `upstream` main branch! The following commands will update your local repository with any changes made too the upstream main branch, and push them up to your GitHub fork. 
+
+```bash
+$ git pull upstream main
+$ git push origin main
+```
+
+### SSH vs HTTPS Remote Connections
+
+When you've cloned your repository, you either used an HTTPS or an SSH connection. These are two different protocols that Git uses too securely connect from your local repository to **GitHub.com**. Too see when you would use SSH or HTTPS, <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/#setup-authentication-through-github" target="_blank">please see this lesson.</a> Depending on whether you use a authentication token or an SSH connection, you may need to ensure you have the correct upstream url. For example, if you set up your SSH, but are still getting prompted for a password everytime you try to use `git push` or `git pull`, it likely means your remote has an HTTPS connection instead of an SSH connection, which means that SSH can't work. The same scenario can happen in reverse, where you are trying to access an HTTPS connection through an SSH remote. 
+
+Too change the connection url you are using, you can follow the <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#changing-a-remote-repositorys-url" target="_blank">instructions GitHub has provided on this webpage.</a> In order to get the SSH or the HTTPS connection, you can select which url you'd prefer when cloning. This is also how you can get the url to update your connection with. Getting the HTTPS url should look like this:
+
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/https-url-connection.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/https-url-connection.png" alt="Demonstration of how to get the HTTPS connection from a GitHub Repository by selecting HTTPS under the Clone pull down menu."></a>
+   <figcaption> Demonstration of how to get the HTTPS connection from a GitHub Repository by selecting HTTPS under the Clone pull down menu.
+   </figcaption>
+</figure>
+
+And getting the SSH url should look like this:
+
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/ssh-url-connection.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/ssh-url-connection.png" alt="Demonstration of how to get the SSH connection from a GitHub Repository by selecting SSH under the Clone pull down menu."></a>
+   <figcaption> Demonstration of how to get the SSH connection from a GitHub Repository by selecting SSH under the Clone pull down menu.
+   </figcaption>
+</figure>
+
+You can then use the url you get alongside the GitHub instructions to change your connection url from SSH to HTTPS or HTTPS to SSH! 
+
+Once you have all your existing repositories using your preferred url connection, make sure when cloning a new repository to just use the correct url when cloning initially so you don't have to go through all of this again!
 
