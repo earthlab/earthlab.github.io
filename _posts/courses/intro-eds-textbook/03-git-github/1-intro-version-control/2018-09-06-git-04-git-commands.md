@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Setup & Commands"
 dateCreated: 2019-09-06
-modified: 2020-10-02
+modified: 2021-03-29
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -60,8 +60,8 @@ Next, run `git status`.
 ```bash
 $ git status 
 
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ```
@@ -74,8 +74,8 @@ the command `git status` to check that changes have been made to your file(s).
 
 ```bash
 git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -152,7 +152,7 @@ need to `push` the changed files to the repository on **GitHub.com**.
 
 You can push your changes to **GitHub** using the command:
 
-`git push origin master`
+`git push origin main`
 
 Depending on your settings, you may then be prompted for your **Github.com** username and password. After you have pushed your commits to **GitHub.com**, visit your repository (e.g. `https://github.com/username/repository-name`) and notice that your changes are reflected there. 
 
@@ -220,7 +220,7 @@ remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From github.com:earthlab-education/bootcamp-2020-03-github-lwasser
-   7d45e2c..675d82e  master     -> origin/master
+   7d45e2c..675d82e  main     -> origin/main
 Updating 7d45e2c..675d82e
 Fast-forward
  README.md | 2 +-

@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/guided-activity-version-control/
 nav-title: "Practice Git Skills"
 dateCreated: 2018-07-25
-modified: 2020-10-02
+modified: 2021-03-29
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 order: 6
@@ -56,7 +56,7 @@ In this lesson, you expand on those skills to:
 * `commit` the changed files to your local repository
 * `push` those changed files from the local copy of a repository to the cloud (`GitHub.com`)
 
-In later lessons, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`master`) copy of a repository.  
+In later lessons, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`main`) copy of a repository.  
 
 <div class="notice--warning" markdown="1">
 
@@ -104,8 +104,8 @@ to check the status of current changes. It should show that there is a change to
 
 ```bash
 git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)

@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-undo-local-changes/
 nav-title: "Undo Local Changes"
 dateCreated: 2019-09-06
-modified: 2020-10-02
+modified: 2021-03-29
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -66,8 +66,8 @@ After you have made an edit to the file, run `git status` in the **terminal** to
 When you run `git status`, you will see the following output:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -95,8 +95,8 @@ git status
 Which returns:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 The contents of your **README.md** file has been reverted to the last saved or 
@@ -131,8 +131,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -166,8 +166,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -189,8 +189,8 @@ git status
 Which returns that there are no changes in your repository:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 
@@ -217,8 +217,8 @@ git status
 
 Which returns:
 ```
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 ```
@@ -241,8 +241,8 @@ When you run `git status` again, you will see that the changes have been unstage
 
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -263,8 +263,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 

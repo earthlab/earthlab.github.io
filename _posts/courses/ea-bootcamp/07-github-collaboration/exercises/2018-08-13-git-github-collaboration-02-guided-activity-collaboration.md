@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-collaboration/
 nav-title: "Guided Activity on Git/Github.com For Collaboration"
 dateCreated: 2018-07-25
-modified: 2020-12-08
+modified: 2021-03-29
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -93,7 +93,7 @@ In the terminal, `cd` to your directory for your cloned repository `ea-bootcamp-
 
 * `git pull https://github.com/earthlab-education/ea-bootcamp-hometowns`: to pull down the changes that have been made to the original repository owned by earthlab-education. After this command, the changes have been made been pulled down to your local clone.  
 
-* `git push origin master`: to send these pulled changes back to your fork on `Github.com`. 
+* `git push origin main`: to send these pulled changes back to your fork on `Github.com`. 
 
 Your fork has now been updated with any changes merged to the original repository up to that point! 
 

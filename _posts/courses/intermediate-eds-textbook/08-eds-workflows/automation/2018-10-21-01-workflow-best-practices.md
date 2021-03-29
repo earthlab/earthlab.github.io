@@ -4,7 +4,7 @@ title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph', 'Lauren Herwehe', 'Joe McGlinchy']
 dateCreated: 2018-10-21
-modified: 2020-09-11
+modified: 2021-03-29
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/
@@ -523,7 +523,7 @@ print(ndvi)
 {:.input}
 ```python
 # Function definition in the earthpy package:
-# https://github.com/earthlab/earthpy/blob/master/earthpy/spatial.py#L62
+# https://github.com/earthlab/earthpy/blob/main/earthpy/spatial.py#L62
 import warnings
 
 def normalized_diff(b1, b2):
@@ -577,9 +577,9 @@ print(ndvi)
 
 
 {:.output}
-    <ipython-input-15-6acb522572a0>:25: RuntimeWarning: divide by zero encountered in true_divide
+    <ipython-input-15-010090fc2fc1>:25: RuntimeWarning: divide by zero encountered in true_divide
       n_diff = (b1 - b2) / (b1 + b2)
-    <ipython-input-15-6acb522572a0>:29: Warning: Divide by zero produced infinity values that will be replaced with nan values
+    <ipython-input-15-010090fc2fc1>:29: Warning: Divide by zero produced infinity values that will be replaced with nan values
       warnings.warn(
 
 

@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-undo-changes/
 nav-title: "Guided Activity on Undo Changes in Git"
 dateCreated: 2018-07-25
-modified: 2020-12-08
+modified: 2021-03-29
 module-title: 'Git/GitHub For Collaboration'
 module-nav-title: 'Git/GitHub For Collaboration'
 module-description: 'This tutorial teaches you how to undo changes using Git and helps you practice collaborating with others on GitHub.com.'
@@ -88,8 +88,8 @@ After you have made an edit to the file, run `git status` in the Terminal to see
 When you run `git status`, you will see the following output:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -114,8 +114,8 @@ git status
 Which returns:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 Now, the contents of your README.md file has been reverted to the last saved or committed version. Thus, you have discarded the most recent changes. You can open the file in a text editor to confirm!
@@ -141,8 +141,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -177,8 +177,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -200,8 +200,8 @@ git status
 Which returns that there are no changes in your repository:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 
@@ -237,8 +237,8 @@ git status
 
 Which returns:
 ```
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 ```
@@ -253,8 +253,8 @@ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
