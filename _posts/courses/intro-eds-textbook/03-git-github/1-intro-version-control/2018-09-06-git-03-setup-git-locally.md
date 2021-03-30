@@ -171,7 +171,6 @@ However, if you wish to use SSH, then you will need to UPDATE the remote for you
 $ (base) CIRES-EL-LM-020:practice-git-skillz $ git remote -v
 origin	git@github.com:your-username/practice-git-skillz.git (fetch)
 origin	git@github.com:your-username/practice-git-skillz.git (push)
-
 ```
 
 To change your remote repository url from https to SSH, do the following

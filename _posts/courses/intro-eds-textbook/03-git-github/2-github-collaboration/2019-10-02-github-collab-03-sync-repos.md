@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
-modified: 2021-03-29
+modified: 2021-03-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -162,22 +162,66 @@ You have now updated your local clone with the updates that you merged into your
 
 ## Working With Remotes 
 
-Remotes are the connections you have to GitHub in your local Git repository. You can use these as an alternative way to sync your repository with the main repository without accessing **GitHub.com**.
+Remotes connect your local cloned GitHub repo to GitHub.com. You can also remotes to sync your repository with the main or parent repository (rather than using a reverse pull request).
 
 ### Adding Additional Remotes
 
-When you have a local repository, it is connected to GitHub through a remote url. The original URL you used to create the local repository is your `origin` url. When doing a `git push` or a `git pull`, this is what you are specifying with `git pull origin main`. The `origin` part of that command specifies that you want to interact with the url you have set up as `origin`. To see what url connections you have to GitHub inside of a repository, you can run 
+Your locally cloned GitHub repository is connected to GitHub through a remote url. The URL that 
+you used to clone the repository is your `origin` url. When running a `git push` or a `git pull`, this 
+url specifies the location of the repo to pull from or push to. For example,  when you run:
+
+```bash
+git pull origin main
+```
+
+The `origin` part of that command specifies that you want to interact with the url you have set up as `origin`. To see what url connections you have to GitHub inside of a repository, you can run:
+
 ```bash
 git remote -v
 ```
 
-inside of a Git repository. This should come up with a list of the url's you're using to connect the repository to GitHub, and the names of the connections. 
+inside of a Git repository in bash. `git remote -v` will return a list of the url's are setup to
+connect the repository to GitHub, and the names of the connections. 
 
-If you have forked a repository, and cloned it from your fork, you can add another connection to the original repository. This allows you too update your main inside of the terminal. Be careful though, if you add a connection to the original repository, be sure not to push anything there instead of to your fork!
+```bash
+$ (base) CIRES-EL-LM-020:practice-git-skillz $ git remote -v
+origin	git@github.com:your-username/practice-git-skillz.git (fetch)
+origin	git@github.com:your-username/practice-git-skillz.git (push)
+```
 
-Too add an additional connection too a repository, you can run `git remote add connection-name connection-url`. <a href="https://github.com/git-guides/git-remote" target="_blank"> GitHub has great documentary around adding a remote and the best practices to use when doing so.</a> In addition to that documentation, <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#adding-a-remote-repository" target="_blank">here is a more technical walk through of adding a remote connection.</a> When adding a connection to the original repository that you forked from, it is best practice to call the connection `upstream`. 
+If you have forked a repository, and cloned that fork locally, you can also add another remote 
+connection to the original (parent) repository. This additional remote allows you to 
+update your clone from the parent repo locally on your computer. This method of updating your 
+repo is the same as a reverse pull request on GitHub.com in practice. The only difference is
+that you won't be able to view the changes and updates that can be visually inspected when 
+using the GitHub.com interface.
 
-Once you have added your `upstream` connection, you can update your fork from the `upstream` main branch! The following commands will update your local repository with any changes made too the upstream main branch, and push them up to your GitHub fork. 
+
+<i class="fa fa-star"></i> **Data Tip:** When you add a new remote to your repo, be cautious not to use `git push` to push files to that remote! We recommend this approach for pulling updates rather than pushing files  
+if you are just getting started with **git** and **GitHub**.
+{: .notice--success}
+
+
+####  How To Add An Additional Remote
+
+To add an additional connection to a repository, you can run:
+
+```bash
+$ git remote add connection-name connection-url
+``` 
+
+so if you wished to add a new connection called `upstream`, you would use the following:
+
+```bash
+$ git remote add upstream connection-url
+``` 
+
+* <a href="https://github.com/git-guides/git-remote" target="_blank"> The GitHub documentation on managing remotes provides an excellent overview.</a> 
+* <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#adding-a-remote-repository" target="_blank">Here is a more technical walk through of adding a remote connection.</a> 
+
+When adding a connection to the original parent repository that you forked from, it is best practice to call the connection `upstream`. 
+
+Once you have added your `upstream` connection, you can update your fork from the `upstream` branch. The following commands will update your local repository with any changes made too the upstream main branch, and push them up to your GitHub fork (named `origin`). 
 
 ```bash
 $ git pull upstream main
