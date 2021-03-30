@@ -224,11 +224,13 @@ Then you can push those updates to your GitHub fork (remote named `origin`).
 $ git push origin main
 ```
 
-### SSH vs HTTPS Remote Connections
+<div class="notice--info" markdown="1">
 
-When you cloned your repository, you either used an HTTPS or an SSH connection. These are two different protocols that Git uses to securely connect from your local repository to **GitHub.com**. You can read more and deciding upon using SSH or HTTPS <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/#setup-authentication-through-github" target="_blank">in the earthdatascience.org authentication setup lessons.</a> Depending upon whether you use a authentication token or an SSH connection, you may need to ensure you have the correct upstream url. For example, if you set up SSH on your computer but are still getting prompted for a password everytime you try to run `git push` or `git pull`, it likely means that your remote has an HTTPS connection instead of an SSH connection.The same scenario can happen in reverse, where you are trying to access an HTTPS connection through an SSH remote. 
+### REMINDER: SSH vs HTTPS Remote Connections
 
-To change the connection url you are using, you can follow the <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#changing-a-remote-repositorys-url" target="_blank">instructions GitHub has provided on this webpage.</a> In order to get the SSH or the HTTPS connection, you can select which url you'd prefer when cloning. This is also how you can get the url to update your connection with. Getting the HTTPS url should look like this:
+When you cloned your repository, you either used an HTTPS or an SSH connection. These are two different protocols that Git uses to securely connect from your local repository to **GitHub.com**. You can read more and deciding upon using SSH or HTTPS <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/#setup-authentication-through-github" target="_blank">in the earthdatascience.org authentication setup lessons.</a> Depending upon whether you use a authentication token or an SSH connection, you may need to ensure that you have the correct upstream url. For example, if you set up SSH on your computer but are still getting prompted for a password everytime you try to run `git push` or `git pull`, it likely means that your remote has an HTTPS connection instead of an SSH connection. Alternatively, you won't be able to run `git pull` or `git push` if you are trying to access an HTTPS connection through an SSH remote. 
+
+Getting the HTTPS url should look like this:
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-https-repo-url.png
@@ -250,7 +252,8 @@ github-ssh-repo-url.png" alt="Click on the green code drop down button to copy t
    </figcaption>
 </figure>
 
-You can then use the url you get alongside the GitHub instructions to change your connection url from SSH to HTTPS or HTTPS to SSH! 
+</div>
 
-Once you have all your existing repositories using your preferred url connection, make sure when cloning a new repository to just use the correct url when cloning initially so you don't have to go through all of this again!
+
+
 
