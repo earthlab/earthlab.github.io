@@ -186,9 +186,8 @@ If you have forked a repository, and cloned that fork locally, you can also add 
 connection to the original (parent) repository. This additional remote allows you to 
 update your clone from the parent repo locally on your computer. This method of updating your 
 repo is the same as a reverse pull request on GitHub.com in practice. The only difference is
-that you won't be able to view the changes and updates that can be visually inspected when 
+that you won't be able to view the changes and updates in a visual interface as you can when 
 using the GitHub.com interface.
-
 
 <i class="fa fa-star"></i> **Data Tip:** When you add a new remote to your repo, be cautious not to use `git push` to push files to that remote! We recommend this approach for pulling updates rather than pushing files  
 if you are just getting started with **git** and **GitHub**.
@@ -203,7 +202,7 @@ To add an additional connection to a repository, you can run:
 $ git remote add connection-name connection-url
 ``` 
 
-so if you wished to add a new connection called `upstream`, you would use the following:
+If you wished to add a new connection called `upstream`, you would use the following:
 
 ```bash
 $ git remote add upstream connection-url
@@ -212,9 +211,7 @@ $ git remote add upstream connection-url
 * <a href="https://github.com/git-guides/git-remote" target="_blank"> The GitHub documentation on managing remotes provides an excellent overview.</a> 
 * <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#adding-a-remote-repository" target="_blank">Here is a more technical walk through of adding a remote connection.</a> 
 
-When adding a connection to the original parent repository that you forked from, it is best practice to call the connection `upstream`. 
-
-Once you have added your `upstream` connection, you can update your fork from the 
+When adding a connection to the original parent repository that you forked from, it is best practice to call the connection `upstream`. Once you have added your `upstream` connection, you can update your fork from the 
 remote called `upstream` (which is the parent repository. 
 
 ```bash
@@ -229,23 +226,27 @@ $ git push origin main
 
 ### SSH vs HTTPS Remote Connections
 
-When you've cloned your repository, you either used an HTTPS or an SSH connection. These are two different protocols that Git uses too securely connect from your local repository to **GitHub.com**. Too see when you would use SSH or HTTPS, <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/#setup-authentication-through-github" target="_blank">please see this lesson.</a> Depending on whether you use a authentication token or an SSH connection, you may need to ensure you have the correct upstream url. For example, if you set up your SSH, but are still getting prompted for a password everytime you try to use `git push` or `git pull`, it likely means your remote has an HTTPS connection instead of an SSH connection, which means that SSH can't work. The same scenario can happen in reverse, where you are trying to access an HTTPS connection through an SSH remote. 
+When you cloned your repository, you either used an HTTPS or an SSH connection. These are two different protocols that Git uses to securely connect from your local repository to **GitHub.com**. You can read more and deciding upon using SSH or HTTPS <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/#setup-authentication-through-github" target="_blank">in the earthdatascience.org authentication setup lessons.</a> Depending upon whether you use a authentication token or an SSH connection, you may need to ensure you have the correct upstream url. For example, if you set up SSH on your computer but are still getting prompted for a password everytime you try to run `git push` or `git pull`, it likely means that your remote has an HTTPS connection instead of an SSH connection.The same scenario can happen in reverse, where you are trying to access an HTTPS connection through an SSH remote. 
 
-Too change the connection url you are using, you can follow the <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#changing-a-remote-repositorys-url" target="_blank">instructions GitHub has provided on this webpage.</a> In order to get the SSH or the HTTPS connection, you can select which url you'd prefer when cloning. This is also how you can get the url to update your connection with. Getting the HTTPS url should look like this:
+To change the connection url you are using, you can follow the <a href="https://docs.github.com/en/github/getting-started-with-github/managing-remote-repositories#changing-a-remote-repositorys-url" target="_blank">instructions GitHub has provided on this webpage.</a> In order to get the SSH or the HTTPS connection, you can select which url you'd prefer when cloning. This is also how you can get the url to update your connection with. Getting the HTTPS url should look like this:
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/https-url-connection.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/https-url-connection.png" alt="Demonstration of how to get the HTTPS connection from a GitHub Repository by selecting HTTPS under the Clone pull down menu."></a>
-   <figcaption> Demonstration of how to get the HTTPS connection from a GitHub Repository by selecting HTTPS under the Clone pull down menu.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-https-repo-url.png
+github-ssh-repo-url.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-https-repo-url.png
+github-ssh-repo-url.png" alt="Click on the green code drop down button to copy the GitHub repo url. The https:// url is shown inthis image."></a>
+   <figcaption> Click on the green code drop down button to copy the GitHub repo url. The https:// url is shown inthis image.
    </figcaption>
 </figure>
 
 And getting the SSH url should look like this:
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/ssh-url-connection.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/ssh-url-connection.png" alt="Demonstration of how to get the SSH connection from a GitHub Repository by selecting SSH under the Clone pull down menu."></a>
-   <figcaption> Demonstration of how to get the SSH connection from a GitHub Repository by selecting SSH under the Clone pull down menu.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-ssh-repo-url.png
+github-ssh-repo-url.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-ssh-repo-url.png
+github-ssh-repo-url.png" alt="Click on the green code drop down button to copy the GitHub repo url. The ssh url is shown inthis image."></a>
+   <figcaption> Click on the green code drop down button to copy the GitHub repo url. The ssh url is shown inthis image.
    </figcaption>
 </figure>
 
