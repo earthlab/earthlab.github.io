@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-undo-local-changes/
 nav-title: "Undo Local Changes"
 dateCreated: 2019-09-06
-modified: 2020-10-02
+modified: 2021-03-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -66,8 +66,9 @@ After you have made an edit to the file, run `git status` in the **terminal** to
 When you run `git status`, you will see the following output:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -83,22 +84,23 @@ to the **README.md** file, you can revert back to the last committed version usi
 
 
 ```bash
-git checkout README.md
+$ git checkout README.md
 ```
 
 Run `git status` to check that the changes have been undone.
 
 ```bash
-git status
+$ git status
 ```
 
 Which returns:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
+
 The contents of your **README.md** file has been reverted to the last saved or 
 committed version. Thus, you have discarded the most recent changes. You can open 
 the file in a text editor to confirm!
@@ -119,20 +121,20 @@ See the example below to make a change to file using `bash` (you do not need to 
 
 ```bash
 # Comment in bash; modify the README file
-echo 'Some more changes' >> README.md
+$ echo 'Some more changes' >> README.md
 ```
 
 Then, run `git add` to stage the file (i.e. add to version control) and run `git status` again.
 
 ```bash
-git add README.md
+$ git add README.md
 
-git status
+$ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -145,7 +147,7 @@ staged changes. You can use `git reset HEAD filename` to unstage your changes.
 
 
 ```bash
-git reset HEAD README.md
+$ git reset HEAD README.md
 ```
 
 Which returns:
@@ -162,12 +164,12 @@ When you use `git reset`, your changes still exist in the file, but the file has
 
 
 ```bash
-git status
+$ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -181,16 +183,16 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Now that you have changes that are not staged (i.e. not tracked in version control), you can use `git checkout` again to undo those changes. 
 
 ```bash
-git checkout README.md
+$ git checkout README.md
 
-git status
+$ git status
 ```
 
 Which returns that there are no changes in your repository:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 
@@ -208,17 +210,17 @@ Then, run `git add` to stage the file (i.e. add to version control) and then run
 
 ```bash
 # Comment in bash; modify the README file
-echo 'Even more changes.' >> README.md
+$ echo 'Even more changes.' >> README.md
 
-git commit -m 'Update description in README.md'
+$ git commit -m 'Update description in README.md'
 
-git status
+$ git status
 ```
 
 Which returns:
 ```
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 ```
@@ -227,7 +229,7 @@ If you do not actually want to `git push` this change to your repository on **Gi
 
 
 ```bash
-git reset HEAD~
+$ git reset HEAD~
 ```
 
 Which returns:
@@ -241,8 +243,8 @@ When you run `git status` again, you will see that the changes have been unstage
 
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -257,14 +259,14 @@ Notice that now your file has been unstaged, and thus, is no longer being tracke
 At this point, you can run `git checkout README.md` to undo the changes to the file if you want. 
 
 ```bash
-git checkout README.md
+$ git checkout README.md
 
-git status
+$ git status
 ```
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 nothing to commit, working directory clean
 ```
 
