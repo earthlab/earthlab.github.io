@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/
 nav-title: "Get Files From GitHub"
 dateCreated: 2019-09-06
-modified: 2020-09-16
+modified: 2021-03-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -55,9 +55,9 @@ Having a copy of a set of files stored in **GitHub** repositories in the cloud i
 
 ## Directory Structure of Repositories
 
-In essence, a repository is a directory for a specific project that is identified as a repository by **git** and **GitHub** because it contains a subdirectory called .git. 
+In essence, a repository is a directory for a specific project that is identified as a repository by **git** and **GitHub** because it contains a subdirectory called `.git`. 
 
-The `.git` subdirectory is created automatically, either by **GitHub** if it is created on **GitHub.com** or by **git** if the repository is created locally on a computer first (i.e. initialized as a repository). This .git subdirectory is used by these tools to manage and track the various tasks that are run on this directory (e.g. tracking changes to files in the repository). Thus, **you never need to access or modify the files in the .git subdirectory.**
+The `.git` subdirectory is created automatically, either by **GitHub** if it is created on **GitHub.com** or by **git** if the repository is created locally on a computer first (i.e. initialized as a repository). This `.git` subdirectory is used by these tools to manage and track the various tasks that are run on this directory (e.g. tracking changes to files in the repository). Thus, **you never need to access or modify the files in the `.git` subdirectory.**
 
 A typical repository (e.g. `project-name`) is structured as follows:
 
@@ -70,7 +70,7 @@ project-name
     README.md
 ```
 
-In addition to the `.git` subdirectory, it is common to have subdirectories for specific files of a workflow (e.g. data, scripts). A few common files in most if not all git repos are:
+In addition to the `.git` subdirectory, it is common to have subdirectories for specific files of a workflow such  as data or scripts. A few common files in most if not all git repos are:
 
 1. **`README.md` file:** This is a Markdown file that is used to provide a description of the repository (i.e. its contents, purpose, etc), so that others can learn how to use the files in the repository. 
 2. **`.gitignore` file:** This file can be used to list the files that you do not want **git** to track (i.e. monitor via version control). You will learn more about both of these useful files later in this chapter. 
@@ -95,7 +95,7 @@ For example, the repositories that you will work with throughout this textbook w
 
 Using **GitHub.com**, you can make a copy of a **GitHub** repository (also known as a **repo**) owned by another user or organization (a task referred to as `forking` a repository). This means that **you do not have to fork a repository that you already own**. Instead, other users can fork your repository if they would like a copy to work with, and your original files will not be modified! 
 
-The ability to `fork` a repository is a benefit of using **GitHub** repositories because the forked repository is linked to the original. This means that you (or other users) can download new updates from the original to your (or their) forked repository as well as suggest changes to the original repository, which can be reviewed by the owner of that repository. Thus, forking allows you to collaborate with others while protecting the original versions of files. When collaborating, everyone will work with copies of the original files. And all changes are tracked in each file's history and can be undone at any time. 
+The ability to `fork` a repository is a benefit of using **GitHub** repositories because the forked repository is linked to the original. This means that you (or other users) can update the files in your fork from the original to your (or their) forked repository. It also means that you can suggest changes to the original repository, which can be reviewed by the owner of that repository. Thus, forking allows you to collaborate with others while protecting the original versions of files. When collaborating, everyone will work with copies of the original files. And all changes are tracked in each file's history and can be undone at any time. 
 
 You can `fork` an existing **GitHub** repository from the main **GitHub.com** page of the repository that you want to copy.
 
@@ -113,8 +113,8 @@ To fork a repo:
 
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-fork-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
  <figcaption> To fork a repo, first navigate to the repo you want to fork. Then click the **fork** button in the upper right hand corner of your screen. You can then create a copy of of this repo in your account.
  </figcaption>
 </figure>
@@ -125,7 +125,7 @@ Later in this textbook, you will learn how to suggest changes to the original re
 
 ## Copy Files From GitHub.com to Your Computer (`git clone`)
 
-To work locally with a **GitHub** repository (including forked repos), you need to create a local copy of that repository on your computer (a task referred to as `cloining` a repo). You can clone **GitHub** repositories that you own or that are owned by others (e.g. repositories that you have forked to your **GitHub** account).
+To work locally with a **GitHub** repository (including forked repos), you need to create a local copy of that repository on your computer (a task referred to as `cloning` a repo). You can clone **GitHub** repositories that you own or that are owned by others (e.g. repositories that you have forked to your **GitHub** account).
 
 In either case, cloning allows you to create a local copy of a **GitHub** repository, so that you can work with the files locally on your computer. Cloning a repository to your computer is a great way to work on your files locally, while still having a copy of your files on the cloud on **GitHub.com**. Following the steps below, you will use the `git clone` command in the **terminal** to clone **GitHub** repositories. 
 
@@ -155,8 +155,8 @@ On the main **GitHub.com** page of the repository, you can click on the green bu
 
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-clone-repo.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-clone-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
  <figcaption> You can make a local copy of your forked repository on your computer with the git clone command. 
  </figcaption>
 </figure>

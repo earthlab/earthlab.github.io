@@ -2,13 +2,13 @@
 layout: single
 title: 'How To Setup Git Locally On Your Computer'
 excerpt: "Learn how to setup git locally on your computer."
-authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
+authors: ['Leah Wasser', 'Nathan Korinek','Jenny Palomino', 'Max Joseph']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/
 nav-title: "Setup Git"
 dateCreated: 2019-09-06
-modified: 2021-03-29
+modified: 2021-03-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -32,6 +32,7 @@ redirect_from:
 After completing this page, you will be able to:
 
 * **configure** git locally with your username and email and preferred text editor
+* Setup git / GitHub authentication using either a token or SSH
 
 </div>
 
@@ -96,27 +97,100 @@ If you are using a linux based JupyterHub (similar to what we use for our earth 
 git config --global core.editor nano
 ```
 
-This command will set nano to be your default text editor for all operations. 
+This command will set **nano** to be your default text editor for all operations. 
 
-## Setup Authentication Through GitHub
+## Setup Authentication For Git Through GitHub
 
-GitHub requires additional authentication for users aside from a username and password. There are two main ways to set up authentication for GitHub: through a personal access token, or though SSH. We will give you resources for both, but would recommend SSH!
+GitHub requires authentication to perform any changes to a repo. There are two ways to 
+set up authentication for GitHub: 
 
-### Set Up a GitHub Token (Not recommended)
+1. Using a personal access token which you can setup on GitHub.com and use locally to authenticate: This involves  creating a token on GitHub.com and then using it as a "password" locally in bash.
+2. Using SSH: This involves a bit more setup locally but once it is setup, you can skip the authentication steps for each change that you make to a repo.
 
-Setting up a token is easier in the short run, but can be more difficult to manage over the long run. Using the token can be slower, as you have to enter it in everytime you need to authenticate your GitHub account, and if you lose your token it can be difficult to remedy that situation. <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">GitHub has a great help page to help you set up a personal access token.</a> **ONCE YOU GENERATE YOUR TOKEN COPY IT TO SOMEWHERE SAFE BEFORE YOU CLOSE THE PAGE**. If you lose your token you will have to create a new one, and may be locked out of certain functionality on your GitHub. Treat it like a password for your account.
+In this lesson, you will learn about both options. If you are able to, we do  recommend that you use SSH authentication. However a token approach works well too!
+
+### Set Up a GitHub Token For Authentication
+
+Setting up a token is quicker in the short run as it requires fewer steps. However,  in the long
+run, SSH can be more difficult to manage given:
+
+1. you have to enter your token everytime you need to authenticate your GitHub account (unless you cache /store it)
+2. if you lose your token value you have to refresh / ceate a new token. 
+
+<a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">To setup a token to use for authentication, follow the GitHub guide.</a> 
+
+<i class="fa fa-star"></i> **Data Tip:** If you chose to setup token based authentication, once you generate your token, be sure to copy it to a safe location before you close the GitHub page. If you lose the token, you will have to recreate it. 
+{: .notice--success }
 
 ### Set Up an SSH Connection to GitHub (recommended)
 
-SSH, which stands for Secure Shell, is an alternative way of connecting to GitHub remotely. While harder to set up, once SSH is set up you never have to authenticate your connection to GitHub again. This is because you will have a Key stored locally on your pc that can be authenticated against a key stored on your GitHub account. 
+SSH, which stands for **S**ecure **SH**ell, is an alternative way of authenticating with GitHub from your computer. While SSH setup involves more steps, once it is set up you never have to authenticate your connection to GitHub again. This is because you will have a Key stored locally on your computer that can be authenticated against a key stored on your GitHub account. 
 
-SSH has two steps too setting it up: creating the key itself, and adding the key to your GitHub account. 
+Setting up SSH involves two steps:
 
-<a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Here are step by step instructions for generating your SSH key.</a> Make sure to follow the instructions all the way to the end of the page where you add your SSH key to your SSH agent. **NOTE:** Around step 4 the instructions tell you to set up a passphrase for your SSH connection. While you can do this if you like, it is an optional step. SSH is already very secure, so if you decide you don't want an SSH passphrase, you can just hit return on the empty passphrase line. 
+1. creating the key itself locally on your computer, and 
+2. adding the key to your GitHub account. 
 
-After you've generated your key and added it to your agent, you can <a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank">add the key to your GitHub account.</a> The instructions vary slightly from operating system to operating system, so be sure you are using the correct instructions! **NOTE FOR LINUX USERS:** On the help page for adding your SSH key to your GitHub account, GitHub recommends that you install `xclip` and then use that to copy your SSH public key. While this works, it has caused some people trouble. If you run into an issue on this step, you can always use `cat  path/to/file` and manually copy the output you get in the terminal. 
+Below you will find two GitHub tutorials that walk you through all of the steps needed to setup SSH on your computer.
 
-### Ensure Remote Connection Matches Authentication Type
+#### Step 1: Generate Your  SSH Key Locally 
 
-When setting up authentication, you may notice that you set up SSH and Git is still prompting you for a password when using `git push` or `git pull`. This is due to the fact that while you set up SSH locally, your remote connection to GitHub is through an HTTPS url instead of an SSH url. If you are using SSH authentication, you should make sure all of your remote url's are SSH, and if you are using an access token, you should make sure all of your remote url's are HTTPS. Too see how to check which type of remote url you currently have, and how to change your connection url if needed, <a href="{{site.url}}/courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/#working-with-remotes" target="_blank">see this lesson.</a>
+<a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Use this link to find step by step instructions for generating your SSH key.</a> 
+
+Make sure to follow the instructions all the way to the end of the page where you add your SSH key to your SSH agent. **NOTE:** Around step 4 the instructions tell you to set up a passphrase for your SSH connection. While you can do this if you like, it is an optional step. SSH is already very secure, so if you decide you don't want an SSH passphrase, you can just hit return on the empty passphrase line. 
+
+#### Step 2:  Add Your SSH Key  To Your GitHub Account
+
+After you've generated your key and added it to your agent, you need to add the key to your GitHub account.<a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank">This link provides step by step instructions on adding the SSH key to your account.</a> The instructions vary slightly from operating system to operating system, so be sure you are using the instructions for the operating system running on your computer (MAC, Windows or Linux). 
+
+<i class="fa fa-star"></i> **NOTE FOR LINUX USERS:** On the help page for adding your SSH key to your GitHub account, GitHub recommends that you install `xclip` and then use that to copy your SSH public key. While this works, it can cause problems on some computer. If you run into an issue on this step, you can always use `cat  path/to/file` and manually copy the output you get in the terminal. The `cat` command in BASH will copy the contents of a file to your clipboard. You can then paste that output (which is your secure key) into  GitHub to finalize connecting your computer to GitHub.
+{: .notice--success }
+
+
+### Update Your Remotes To Support SSH
+
+If you have been using a username / password login to authenticate with GitHub, and you are  switching 
+to SSH-based authentication, you will likely need to update the remotes attached to your GitHub repo(s).
+A quick way to see if this is the case, is 
+
+1. at the command line, CD to the repo directory (cd path/to/practice-git-skillz)
+2. when in the directory of interest, run `git remote -v` 
+
+If the URL returned looks like the one below, starting with **https://** then you are still authenticating
+using either a password or a token. If you setup token-based authentication, then you can use the https:// remote  setup. 
+
+```bash
+$ (base) CIRES-EL-LM-020:practice-git-skillz $ git remote -v
+origin	https://github.com/your-username/practice-git-skillz.git (fetch)
+origin	https://github.com/your-username/practice-git-skillz.git (push)
+```
+
+However, if you wish to use SSH, then you will need to UPDATE the remote for your repo. 
+
+```bash
+$ (base) CIRES-EL-LM-020:practice-git-skillz $ git remote -v
+origin	git@github.com:your-username/practice-git-skillz.git (fetch)
+origin	git@github.com:your-username/practice-git-skillz.git (push)
+
+```
+
+To change your remote repository url from https to SSH, do the following
+
+1. Go to the repository on GitHub.com
+2. Use the green Code button to copy the SSH URL for that repo (see animated gif below for how to do that)
+3. Use `git remote set-url` to update the url locally
+
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-get-remote-url.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-get-remote-url.gif" alt="You can find  the url for your GitHub repo using the green code button. Copy the url and then use git --set-url to update the  remote locally."></a>
+ <figcaption> You can find the url for your GitHub repo using the green code button. Copy the url and then use  git --set-url to update the remote locally.
+ </figcaption>
+</figure>
+
+```bash
+$ git remote set-url origin git@github.com:your-username/practice-git-skillz.git
+```
+
+Once you have updated your remotes, SSH authentication should work!
 
