@@ -56,12 +56,11 @@ Your repo being in sync refers to your fork having all of the commits or changes
 to the code and files that have been made to the parent repo.
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-master-abc.png">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-master-abc.png" alt="Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 50 commits. This fork is out of sync."></a>
- <figcaption>Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 50 commits. This fork is out of sync.
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-main-practice.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-main-practice.png" alt="Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 1 commits. This fork is out of sync."></a>
+ <figcaption>Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 1 commits. This fork is out of sync.
  </figcaption>
 </figure>
-
 
 ## Two Ways to Sync A Repo - Command Line and on GitHub
 
@@ -79,19 +78,12 @@ This lesson will focus on syncing your fork using a reverse pull request approac
  </figcaption>
 </figure>
 
-## Sync Your Forked GitHub Repo Using A Pull Request
+## Sync Your Forked GitHub Repo Using A Reverse Pull Request
 
-To sync your forked repo with the parent or central repo you:
+To sync your forked repo with the parent or central repo on GitHub you:
 
 1. Create a pull request on **GitHub.com** to update your fork of the repository from the original repository, and
-2. Run the `git pull` command in the Terminal to update your local clone. The following sections review how to complete these steps.
-
-<figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-sync-repo.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-sync-repo.gif" alt="An animated gif showing you how to sync a GitHub repo on GitHub.com. Note that the fork is the base (the repo being updated). The earthlab owned repo is the head. You can also sync individual branches within a repo using this same approach."></a>
- <figcaption>An animated gif showing you how to sync a GitHub repo on GitHub.com. In this case, the user lwasser is updating her fork of the abc-classroom repo from the earthlab/abc-classroom repo. Note that the fork is the base (the repo being updated). The earthlab owned repo is the head. You can also sync individual branches within a repo using this same approach.
- </figcaption>
-</figure>
+2. Run the `git pull` command in the terminal to update your local clone. The following sections review how to complete these steps.
 
 
 ## How To Sync or Update Your Forked Repo Using the Github Website
@@ -107,11 +99,12 @@ On this web page, create a pull request by following these steps:
 
    
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-create-reverse-pull-request.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-create-reverse-pull-request.gif" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
- <figcaption> You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork.
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-reverse-pr-demo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-reverse-pr-demo.gif" alt="An animated gif showing you how to sync a GitHub repo on GitHub.com. In this case, the user lwasser is updating her fork of the the practise repo from the earthlab-education/practice-git-skillz repo. Note that the fork is the base (the repo being updated). The Earth Lab owned repo is the head. You can also sync individual branches within a repo using this same approach."></a>
+ <figcaption>An animated gif showing you how to sync a GitHub repo on GitHub.com. In this case, the user lwasser is updating her fork of the the practise repo from the earthlab-education/practice-git-skillz repo. Note that the fork is the base (the repo being updated). The Earth Lab owned repo is the head. You can also sync individual branches within a repo using this same approach.
  </figcaption>
 </figure>
+
 
 When you create this pull request, you will see what files will be updated in your fork.
 
@@ -184,7 +177,7 @@ inside of a Git repository in bash. `git remote -v` will return a list of the ur
 connect the repository to GitHub, and the names of the connections. 
 
 ```bash
-$ (base) CIRES-EL-LM-020:practice-git-skillz $ git remote -v
+$ (base) practice-git-skillz $ git remote -v
 origin	git@github.com:your-username/practice-git-skillz.git (fetch)
 origin	git@github.com:your-username/practice-git-skillz.git (push)
 ```
@@ -221,10 +214,16 @@ $ git remote add upstream connection-url
 
 When adding a connection to the original parent repository that you forked from, it is best practice to call the connection `upstream`. 
 
-Once you have added your `upstream` connection, you can update your fork from the `upstream` branch. The following commands will update your local repository with any changes made too the upstream main branch, and push them up to your GitHub fork (named `origin`). 
+Once you have added your `upstream` connection, you can update your fork from the 
+remote called `upstream` (which is the parent repository. 
 
 ```bash
 $ git pull upstream main
+```
+
+Then you can push those updates to your GitHub fork (remote named `origin`). 
+
+```bash
 $ git push origin main
 ```
 
