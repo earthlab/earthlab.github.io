@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Setup & Commands"
 dateCreated: 2019-09-06
-modified: 2020-10-02
+modified: 2021-03-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -60,8 +60,8 @@ Next, run `git status`.
 ```bash
 $ git status 
 
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ```
@@ -74,8 +74,8 @@ the command `git status` to check that changes have been made to your file(s).
 
 ```bash
 git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -152,23 +152,16 @@ need to `push` the changed files to the repository on **GitHub.com**.
 
 You can push your changes to **GitHub** using the command:
 
-`git push origin master`
+`git push origin main`
 
 Depending on your settings, you may then be prompted for your **Github.com** username and password. After you have pushed your commits to **GitHub.com**, visit your repository (e.g. `https://github.com/username/repository-name`) and notice that your changes are reflected there. 
 
-Also notice that you have access to the full commit history for your repository!
+Also notice that you have access to the full commit history for your repository.
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/access-commits-on-github.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/access-commits-on-github.png" alt="On the GitHub page of a repository, you can click on the Commits option (as shown in the image) to see a full list of commits that have been pushed to a repository."></a>
-   <figcaption> On the GitHub page of a repository, you can click on the Commits option (as shown in the image) to see a full list of commits that have been pushed to a repository.
-   </figcaption>
-</figure>
-
-<figure>
-   <a href="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.png" alt="The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com."></a>
-   <figcaption> The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com.
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.gif">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.gif" alt="The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com by clicking on the commits text on the repo home page."></a>
+   <figcaption> The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com by clicking on the commits text on the repo home page.
    </figcaption>
 </figure>
 
@@ -201,10 +194,9 @@ In the example below, there are no changes to any files. `git pull` returns `Alr
 up to date`. 
 
 ```bash
-(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
-(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
-Already up to date.
-(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ 
+$ cd practice-git-skillz/
+$ git pull
+Already up to date. 
 ```
 
 Below is an example of using `git pull` when there are changes on github.com to pull
@@ -212,20 +204,19 @@ down. Notice that it gives you a summary of what files where changed (in the exa
 below this is the **README.md** file) and how many changes were made. 
 
 ```bash
-(earth-analytics-python) COMPUTERNAME:bootcamp leahwasser$ cd bootcamp-2020-03-github-lwasser/
-(earth-analytics-python) COMPUTERNAME:bootcamp-2020-03-github-lwasser leahwasser$ git pull
+$ cd practice-git-skillz/
+$ git pull
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
-From github.com:earthlab-education/bootcamp-2020-03-github-lwasser
-   7d45e2c..675d82e  master     -> origin/master
+From github.com:earthlab-education/practice-git-skillz
+   7d45e2c..675d82e  main     -> origin/main
 Updating 7d45e2c..675d82e
 Fast-forward
  README.md | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
-(earth-analytics-python) CIRES-EL-DM-041:bootcamp-2020-03-github-lwasser leahwasser$ 
 ```
 
 All of the changes that were made to your repo, will be pulled down to your local repo.
