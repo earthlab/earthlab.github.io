@@ -299,8 +299,8 @@ are submitting the PR will review it. At this point, they will either:
 A screencast showing how this process works is below.
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-pull-request-screencast.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-pull-request-screencast.gif" alt="Short animated gif showing the steps involved with merging a pull request. It's common for a reviewer to comment on your pull request and request changes. Once the reviewer is happy with the PR, they will merge it using the merge button on the bottom of the PR. It is important to note that you can only merge a PR in a repo in which you have permissions to merge."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-pull-request.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-merge-pull-request.gif" alt="Short animated gif showing the steps involved with merging a pull request. It's common for a reviewer to comment on your pull request and request changes. Once the reviewer is happy with the PR, they will merge it using the merge button on the bottom of the PR. It is important to note that you can only merge a PR in a repo in which you have permissions to merge."></a>
  <figcaption>It's common for a reviewer to comment on your pull request and request changes. Once the reviewer is happy with the PR, they will merge it using the merge button on the bottom of the PR. It is important to note that you can only merge a PR in a repo in which you have permissions to merge.
  </figcaption>
 </figure>
