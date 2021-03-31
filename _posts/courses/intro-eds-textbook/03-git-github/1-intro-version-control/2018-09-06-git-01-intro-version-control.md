@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/
 nav-title: "About Version Control"
 dateCreated: 2019-09-06
-modified: 2020-09-16
+modified: 2021-03-30
 module-title: 'Git/GitHub For Version Control'
 module-nav-title: 'Git/GitHub For Version Control'
 module-description: 'A version control system allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
@@ -40,7 +40,8 @@ In this chapter, you will learn about the benefits of version control for tracki
 
 After completing this chapter, you will be able to:
 
-* Define version control and explain why is useful in a scientific workflow.
+* Define **version control**.
+* Explain why **version control** is useful in a scientific workflow.
 * Implement version control using **git**.
 
 
