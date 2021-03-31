@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/how-to-submit-pull-requests-on-github/
 nav-title: "GitHub Pull Requests"
 dateCreated: 2019-10-02
-modified: 2021-01-28
+modified: 2021-03-31
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -29,7 +29,7 @@ redirect_from:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Explain what a pull request is and how it can be used.
-* Explain the relationship between the head repository (e.g. a forked repository) and base (e.g. original repository or master branch) repository.
+* Explain the relationship between the head repository (e.g. a forked repository) and base (e.g. original repository or main branch) repository.
 * Mention or call out someone to review your pull request on **GitHub** using @GitHubUsername.
 * Explain what a diff is in **GitHub**.
 * Submit a pull request of changes to a repository on **GitHub.com**.
@@ -45,7 +45,7 @@ to a repository that are visible and can be easily reviewed.
 Pull requests are specific to **GitHub** and can be implemented in two ways:
 
 1. You submit changes to another repository based upon changes that you made to a fork (i.e. copy owned by you) of that repository.
-2. You submit changes to an existing repository using a branch (i.e. a copy of the master branch of repository). Branches are not discussed in this chapter but you will learn more about branches as you get into more advanced **GItHub** topics.
+2. You submit changes to an existing repository using a branch (i.e. a copy of the main branch of repository). Branches are not discussed in this chapter but you will learn more about branches as you get into more advanced **GItHub** topics.
 
 ## Introduction to the Pull Request Workflow
 
@@ -53,7 +53,7 @@ For the purposes of this page, pretend that you are working with your colleague
 on a project. You have been asked to make some changes to a file called contributing.rst
 in your collaborator's repository. 
 
-A contributing.rst file is commonly used in open source projects on GitHub to outline the steps that users can follow to contribute to a project (see for example, the <a href="https://github.com/earthlab/earthpy/blob/master/CONTRIBUTING.rst" target="_blank">contributing.rst for earthpy</a>).  
+A contributing.rst file is commonly used in open source projects on GitHub to outline the steps that users can follow to contribute to a project (see for example, the <a href="https://github.com/earthlab/earthpy/blob/main/CONTRIBUTING.rst" target="_blank">contributing.rst for earthpy</a>).  
 
 Specifically, you have been asked to replace
 the word **earthpy** in the contributing.rst document in the repo with the word
@@ -184,8 +184,8 @@ Next, you will learn how to create a pull request in **GitHub**.
 ## How To Submit Pull Requests To Suggest Changes To Repositories
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-create-pull-request-screencast.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-create-pull-request-screencast.gif" alt="Short animated gif showing the steps involved with creating a pull request. When you setup your pull request, remember to ensure that the base is the repository that you wish to ADD change to. Your fork (or a branch) is where the changes currently exist (i.e. the head). When creating a new pull request, you should always check that the changes in your PR are the ones that you wish to submit. It's also good practice to ping or @mention a collaborator who you want to review and merge the PR if you know who that will be."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request-demo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-submit-pull-request-demo.gif" alt="Short animated gif showing the steps involved with creating a pull request. When you setup your pull request, remember to ensure that the base is the repository that you wish to ADD change to. Your fork (or a branch) is where the changes currently exist (i.e. the head). When creating a new pull request, you should always check that the changes in your PR are the ones that you wish to submit. It's also good practice to ping or @mention a collaborator who you want to review and merge the PR if you know who that will be."></a>
  <figcaption>When you setup your pull request, remember to ensure that the base is the repository that you wish to ADD change to. Your fork (or a branch) is where the changes currently exist (i.e. the head). When creating a new pull request, you should always check that the changes in your PR are the ones that you wish to submit. It's also good practice to ping or @mention a collaborator who you want to review and merge the PR if you know who that will be.
  </figcaption>
 </figure>
@@ -195,9 +195,9 @@ Next, you will learn how to create a pull request in **GitHub**.
 To start a PR, click the `New pull request` button on the main page of your forked repository.
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git-version-control/new-pull-request.png">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277."></a>
- <figcaption> Location of the New pull request button on the main page of an example repository for jenp0277.
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-create-new-pull-request.png">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-create-new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277."></a>
+ <figcaption> Location of the new pull request button on the main page of an example forked repository.
  </figcaption>
 </figure>
 
