@@ -50,19 +50,13 @@ Pull requests are specific to **GitHub** and can be implemented in two ways:
 ## Introduction to the Pull Request Workflow
 
 For the purposes of this page, pretend that you are working with your colleague
-on a project. You have been asked to make some changes to a file called contributing.rst
+on a project. You have been asked to make some changes to a README.md file
 in your collaborator's repository. 
-
-A contributing.rst file is commonly used in open source projects on GitHub to outline the steps that users can follow to contribute to a project (see for example, the <a href="https://github.com/earthlab/earthpy/blob/main/CONTRIBUTING.rst" target="_blank">contributing.rst for earthpy</a>).  
-
-Specifically, you have been asked to replace
-the word **earthpy** in the contributing.rst document in the repo with the word
-**matplotcheck**. 
 
 To begin this task, you:
 
 1. <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/#create-a-copy-of-other-users-files-on-githubcom-forking">Create a fork</a> of your colleague's repository. 
-2. Clone that fork to your local computer and begin to work on the contributing.rst file in a text editor.
+2. Clone that fork to your local computer and begin to work on the README.md file in a text editor.
 3. When you are done editing the text file locally on your computer, you save the file and `git add` and `git commit` your changes using git.
 4. Finally, you `git push` those changes back up to your fork of your colleague's repository.
 
