@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/how-to-setup-git/
 nav-title: "Setup Git"
 dateCreated: 2019-09-06
-modified: 2021-03-30
+modified: 2021-04-01
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -111,11 +111,11 @@ In this lesson, you will learn about both options. If you are able to, we do  re
 
 ### Set Up a GitHub Token For Authentication
 
-Setting up a token is quicker in the short run as it requires fewer steps. However,  in the long
-run, SSH can be more difficult to manage given:
+Setting up a token is quicker in the short run as it requires fewer steps. However, in the long
+run, token-based authentication can be more difficult to manage given:
 
-1. you have to enter your token everytime you need to authenticate your GitHub account (unless you cache /store it)
-2. if you lose your token value you have to refresh / ceate a new token. 
+1. You have to enter your token everytime you need to authenticate your GitHub account (unless you cache /store it)
+2. If you lose your token value you have to refresh / ceate a new token. 
 
 <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">To setup a token to use for authentication, follow the GitHub guide.</a> 
 
