@@ -8,7 +8,7 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Setup & Commands"
 dateCreated: 2019-09-06
-modified: 2021-03-30
+modified: 2021-04-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -200,7 +200,7 @@ Already up to date.
 ```
 
 Below is an example of using `git pull` when there are changes on github.com to pull
-down. Notice that it gives you a summary of what files where changed (in the example
+down. Notice that it gives you a summary of what files were changed (in the example
 below this is the **README.md** file) and how many changes were made. 
 
 ```bash
