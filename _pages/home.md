@@ -6,7 +6,7 @@ title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
   cta_label: "Get a Professional Graduate Certificate in Earth Analytics"
-  cta_url: "https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate"
+  cta_url: "https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Learn to use earth science and other data in R & Python'
