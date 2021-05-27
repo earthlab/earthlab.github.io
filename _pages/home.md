@@ -6,7 +6,7 @@ title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
   cta_label: "Get a Professional Graduate Certificate in Earth Analytics"
-  cta_url: "https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate"
+  cta_url: "https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Learn to use earth science and other data in R & Python'
@@ -102,7 +102,7 @@ sidebar:
 
 <div class = "prof-cert-wrapper">
 <div id = "right" >
-<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
+<a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
 </div>
 
 <div id = "left" markdown="1">This site contains open, tutorials and course materials covering topics including data integration, GIS
