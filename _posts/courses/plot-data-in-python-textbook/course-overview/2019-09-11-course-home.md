@@ -7,7 +7,7 @@ nav-title: "Scientist's Guide to Plotting Data in Python Home"
 permalink: /courses/scientists-guide-to-plotting-data-in-python/
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 dateCreated: 2019-09-11
-modified: 2020-07-21
+modified: 2021-06-04
 module-type: 'overview'
 module-title: "Scientist's Guide to Plotting Data in Python Textbook"
 week-landing: 0
@@ -47,7 +47,7 @@ redirect_from:
 
 The Scientist's Guide to Plotting Data in Python is an online textbook for anyone new to plotting scientific data using the **Python** programming language. 
 
-This textbook is designed for the Earth Analytics courses for the <a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors in Earth Lab at CU Boulder. 
+This textbook is designed for the Earth Analytics courses for the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors in Earth Lab at CU Boulder. 
 
 
 ### Overview 

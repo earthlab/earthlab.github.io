@@ -10,7 +10,7 @@ comments: yes
 permalink: /blog/four-skills-earth-data-science/
 sidebar:
   nav:
-tags: 
+tags:
 author_profile: no
 ---
 
@@ -22,7 +22,7 @@ author_profile: no
 
 
 
-Earth analytics is a niche field that is growing rapidly. You may be considering a career in Earth analytics or looking for way to expand your Earth science expertise. What specific skills will give you a competitive edge in today’s job market? Uncover exactly what employers are looking for. 
+Earth analytics is a niche field that is growing rapidly. You may be considering a career in Earth analytics or looking for way to expand your Earth science expertise. What specific skills will give you a competitive edge in today’s job market? Uncover exactly what employers are looking for.
 
 ## Why Are Earth Data Scientists in Demand?
 
@@ -35,7 +35,7 @@ Understanding earth systems is not solely a task for earth scientists. In today�
 <i class="fa fa-star"></i> A combination of data skills and interdisciplinary expertise is often difficult for employers to find, making Earth Data Scientists highly sought after in the workforce.
 {: .notice--success}
 
-The increase in quantity and quality of data, particularly data about Earth, provide a robust and dynamic foundation for informing innovation in business, science and policy. It also provides opportunities to solve some of today’s most pressing environmental challenges. 
+The increase in quantity and quality of data, particularly data about Earth, provide a robust and dynamic foundation for informing innovation in business, science and policy. It also provides opportunities to solve some of today’s most pressing environmental challenges.
 
 ## What Earth Data Science Skills Are Employers Looking For?
 
@@ -45,7 +45,7 @@ Here are four must-have skills to add to your repertoire if you are interested i
 
 ## 1. Learn How to Code
 
-Just when you thought coding was only for computer nerds, it turns out Earth science expertise and programming are a match made in the cloud. 
+Just when you thought coding was only for computer nerds, it turns out Earth science expertise and programming are a match made in the cloud.
 
 <figure>
   <a href="{{ site.url }}/images/blog/2019-03-18-four-must-have-skills-in-earth-data-science/earth-data-science-skills-in-demand-geeks-and-repetitive-tasks.png">
@@ -63,7 +63,7 @@ Hiring managers ubiquitously emphasized the importance of coding as an indicatio
 
 > Ability to write concise, readable scripts to answer scientific questions [and] preferably [be] familiar enough with software languages to shift to appropriate language for the problem.
 
-Scientific programming is no longer a skill used just by software engineers, web developers and computer scientists. Rather, programming leads to workflow and data integration efficiency, automation, and beyond. 
+Scientific programming is no longer a skill used just by software engineers, web developers and computer scientists. Rather, programming leads to workflow and data integration efficiency, automation, and beyond.
 
 
 
@@ -125,18 +125,18 @@ Many potential employers emphasized that the ability to work with messy, real-wo
 
 > One of the most important issues we face is candidates who have not worked with real data. Many are very advanced in their statistics and programming knowledge, but haven’t had experience with data that haven’t been pre-cleaned, organized and described. Learning how to evaluate, understand/interpret and organize data to answer your research questions is critical.
 
-Often, courses and workshops provide pre-cleaned data to students to optimize the teaching experience. 
+Often, courses and workshops provide pre-cleaned data to students to optimize the teaching experience.
 
 <i class="fa fa-star"></i> Want to be self-sufficient in data clean up? <a href="{{ site.url }}/courses/earth-analytics-python/" target="_blank">The Earth Analytics Course</a> at Earth Lab teaches you how to clean up and organize your own data.
 {: .notice--success}
 
-The reality of working with new data on a project is that many steps are required to clean or munge the data into a usable format. And if you can harness the potential of nontraditional datasets, you will be considered exceptional on the job. 
+The reality of working with new data on a project is that many steps are required to clean or munge the data into a usable format. And if you can harness the potential of nontraditional datasets, you will be considered exceptional on the job.
 
 ### General Data Structure Skills Are Critical
 
-Once you know how to code, there are some specific data management skills that may significantly strengthen your professional credentials. In the survey, industry (AKA the private sector) and academic hiring managers preferred candidates that knew how to: 
+Once you know how to code, there are some specific data management skills that may significantly strengthen your professional credentials. In the survey, industry (AKA the private sector) and academic hiring managers preferred candidates that knew how to:
 
-* Integrate data from multiple sources 
+* Integrate data from multiple sources
 * Work with different data structures (e.g. vector, raster, hierarchical)
 * Employ best data management practices
 * Work with remote sensing data.
@@ -157,7 +157,7 @@ Welcome to the modern workplace: it’s professionally and geographically divers
 
 ### Communication Skills Are Highly Valued
 
-The ability to communicate with colleagues across many disciplines was the most highly ranked communication skill in both industry and academia. As science and technology progress, scientists are asking bigger questions, making it impossible to remain in the realm of just one discipline. In a practical example, a steady increase in the number and discipline range of authors in academic research papers may indicate a need for interdisciplinary expertise, as noted in this article by 
+The ability to communicate with colleagues across many disciplines was the most highly ranked communication skill in both industry and academia. As science and technology progress, scientists are asking bigger questions, making it impossible to remain in the realm of just one discipline. In a practical example, a steady increase in the number and discipline range of authors in academic research papers may indicate a need for interdisciplinary expertise, as noted in this article by
 <a href="https://www.economist.com/news/science-and-technology/21710792-scientific-publications-are-getting-more-and-more-names-attached-them-why" target="_blank">The Economist</a>.
 
 <i class="fa fa-star"></i> Interdisciplinary roots will help grow your career and influence.
@@ -165,7 +165,7 @@ The ability to communicate with colleagues across many disciplines was the most 
 
 The private sector seeks interdisciplinary experience as working teams often contain an array of professionals. From engineers to project managers to sales staff, all parties need to be able to communicate with one another. One respondent noted:
 
-> I also want someone who can speak broadly about the industry and its challenges, not just repeat textbook examples or show code they’ve developed in a class. 
+> I also want someone who can speak broadly about the industry and its challenges, not just repeat textbook examples or show code they’ve developed in a class.
 
 ### Know How To Communicate and Collaborate Remotely
 
@@ -193,7 +193,7 @@ You’re right. This isn’t exactly a skill, but it is a highly valued characte
 
 An industry respondent emphasized a desire to hire candidates who can see the big picture, stating that his/her organization looks for applicants who show:
 
-> A focus on collaborative open-source development, as well as producing these results in a scalable way. I think most scientists struggle when faced with two questions around something they’ve built: 
+> A focus on collaborative open-source development, as well as producing these results in a scalable way. I think most scientists struggle when faced with two questions around something they’ve built:
 1. What is the value proposition to our customers (e.g. what job does this do for them that they’re trying to do elsewhere and how does this make it easier for them to do that job)?
 2. How does it scale (e.g. can anyone other than you run this code, or is it so complex and so narrow in scope that no one can use it)? Usability often trumps accuracy in industry
 
@@ -201,7 +201,7 @@ While there are sometimes limitations to making science open and reproducible, p
 
 ## Build Meaningful Career Opportunities With Earth Data Science Skills
 
-Proficiency in data science can open up lots of academic and private sector job opportunities. Through teaching data science skills in the Earth sciences, the Earth Analytics Education Initiative, part of the CU-Boulder <a href="https://www.colorado.edu/earthlab/" target="_blank">Earth Lab</a> helps: 
+Proficiency in data science can open up lots of academic and private sector job opportunities. Through teaching data science skills in the Earth sciences, the Earth Analytics Education Initiative, part of the CU-Boulder <a href="https://www.colorado.edu/earthlab/" target="_blank">Earth Lab</a> helps:
 
 1. Earth science students enter the workforce equipped, inspired and prepared to address pressing challenges.
 2. Earth science professionals adapt to changing workplace demands.
