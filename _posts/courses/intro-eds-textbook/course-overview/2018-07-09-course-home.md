@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Jenny Palomino']
 nav-title: "Intro to Earth Data Science Home"
 permalink: /courses/intro-to-earth-data-science/
 course: "intro-to-earth-data-science-textbook"
-modified: 2020-09-03
+modified: 2021-06-04
 module-type: 'overview'
 module-title: "Intro to Earth Data Science Textbook"
 week-landing: 0
@@ -49,7 +49,7 @@ redirect_from:
 
 Introduction to Earth Data Science is an online textbook for anyone new to open reproducible science and the `Python` programming language. There are no prerequisites for this material, and no prior programming knowledge is assumed. 
 
-This textbook is designed for the Earth Analytics Bootcamp for the <a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors at CU Boulder. 
+This textbook is designed for the Earth Analytics Bootcamp for the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors at CU Boulder. 
 
 ### Overview 
 
