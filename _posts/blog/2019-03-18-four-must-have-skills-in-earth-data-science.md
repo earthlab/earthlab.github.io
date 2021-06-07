@@ -208,5 +208,5 @@ Proficiency in data science can open up lots of academic and private sector job 
 
 What skills have you found to be most important in your job search, current position, or organization? Comment below.
 
-<i class="fa fa-star"></i> Interested in learning more about Earth analytics? <a href="http://www.colorado.edu/earthlab/earth-analytics-education/earth-data-analytics-foundations-professional-certificate" target="_blank"> The University of Colorado - Boulder, Earth Lab offers a professional graduate certificate in Earth Data Analytics - Foundations. Learn more here.</a>
+<i class="fa fa-star"></i> Interested in learning more about Earth analytics? <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target="_blank"> The University of Colorado - Boulder, Earth Lab offers a professional graduate certificate in Earth Data Analytics - Foundations. Learn more here.</a>
 {: .notice--success}
