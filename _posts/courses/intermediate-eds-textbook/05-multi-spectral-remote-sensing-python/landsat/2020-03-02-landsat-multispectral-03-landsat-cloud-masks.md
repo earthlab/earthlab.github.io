@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2021-02-12
+modified: 2021-06-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -100,48 +100,612 @@ os.chdir(os.path.join(et.io.HOME,
                       'data'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
+## Functions To Process Landsat  Data
+
+To begin, you can use the functions created in the previous lesson to process
+your Landsat data. 
+
+{:.input}
+```python
+def check_crs(raster_path):
+    """
+    Returns the CRS of a raster file.
+
+    Parameters
+    ----------
+    raster_path : string
+        A path to a raster file that you wish to check the crs of. Assuming
+        this is a tif file.
+
+    Returns
+    -------
+    A crs object
+
+    """
+
+    with rio.open(all_landsat_post_bands[0]) as src:
+        return src.crs
+
+
+def open_clean_band(band_path, crop_layer=None, valid_range=None):
+    """A function that opens a Landsat band as an (rio)xarray object
+
+    Parameters
+    ----------
+    band_path : list
+        A list of paths to the tif files that you wish to combine.
+
+    clip_extent : geopandas geodataframe
+        A geodataframe containing the clip extent of interest. NOTE: this will 
+        fail if the clip extent is in a different CRS than the raster data.
+
+    valid_range : tuple (optional)
+        The min and max valid range for the data. All pixels with values outside
+        of this range will be masked.
+
+    Returns
+    -------
+    An single xarray object with the Landsat band data.
+
+    """
+
+    if crop_layer is not None:
+        try:
+            clip_bound = crop_layer.geometry
+            cleaned_band = rxr.open_rasterio(band_path,
+                                             masked=True).rio.clip(clip_bound,
+                                                                   from_disk=True).squeeze()
+        except Exception as err:
+            print("Oops, I need a geodataframe object for this to work.")
+            print(err)
+
+    cleaned_band = rxr.open_rasterio(band_path,
+                                     masked=True).squeeze()
+
+    # Only mask the data if a valid range tuple is provided
+    if valid_range:
+        mask = ((landsat_post_xr_clip < valid_range[0]) | (
+            landsat_post_xr_clip > valid_range[1]))
+        cleaned_band = landsat_post_xr_clip.where(
+            ~xr.where(mask, True, False))
+
+    return cleaned_band
+
+
+def process_bands(paths, crop_layer=None, stack=False):
+    """
+    Open, clean and crop a list of raster files using rioxarray.
+
+    Parameters
+    ----------
+    paths : list
+        A list of paths to raster files that could be stacked (of the same 
+        resolution, crs and spatial extent).
+
+    crop_layer : geodataframe
+        A geodataframe containing the crop geometry that you wish to crop your
+        data to.
+
+    stack : boolean
+        If True, return a stacked xarray object. If false will return a list
+        of xarray objects.
+
+    Returns
+    -------
+        Either a list of xarray objects or a stacked xarray object
+    """
+
+    all_bands = []
+    for i, aband in enumerate(paths):
+        cleaned = open_clean_band(aband, crop_layer)
+        cleaned["band"] = i+1
+        all_bands.append(cleaned)
+
+    if stack:
+        print("I'm stacking your data now.")
+        return xr.concat(all_bands, dim="band")
+    else:
+        print("Returning a list of xarray objects.")
+        return all_bands
+```
+
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
 
 HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
 
+Note that one thing was added to the functions below - a conditional that allows
+you to chose to either crop or not crop your data.
+
 
 {:.input}
 ```python
-# Custom function to read in list of tifs into an xarray object
-def combine_tifs(tif_list):
-    """A function that combines a list of tifs in the same CRS
-    and of the same extent into an xarray object
+landsat_dirpath_pre = os.path.join("cold-springs-fire",
+                                   "landsat_collect",
+                                   "LC080340322016070701T1-SC20180214145604",
+                                   "crop",
+                                   "*band[2-5]*.tif")
 
-    Parameters
-    ----------
-    tif_list : list
-        A list of paths to the tif files that you wish to combine.
-        
-    Returns
-    -------
-    An xarray object with all of the tif files in the listmerged into 
-    a single object.
+landsat_paths_pre = sorted(glob(landsat_dirpath_pre))
 
-    """
+landsat_pre = process_bands(landsat_paths_pre, stack=True)
+landsat_pre
+```
 
-    out_xr=[]
-    for i, tif_path in enumerate(tif_list):
-        out_xr.append(rxr.open_rasterio(tif_path, masked=True).squeeze())
-        out_xr[i]["band"]=i+1
-     
-    return xr.concat(out_xr, dim="band") 
+{:.output}
+    I'm stacking your data now.
 
-landsat_paths_pre_path = os.path.join("cold-springs-fire",
-                                      "landsat_collect",
-                                      "LC080340322016070701T1-SC20180214145604",
-                                      "crop",
-                                      "*band[2-5]*.tif")
 
-landsat_paths_pre = glob(landsat_paths_pre_path)
-landsat_paths_pre.sort()
 
-landsat_pre = combine_tifs(landsat_paths_pre)
+{:.output}
+{:.execute_result}
 
+
+
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (band: 4, y: 177, x: 246)&gt;
+array([[[ 443.,  456.,  446., ...,  213.,  251.,  293.],
+        [ 408.,  420.,  436., ...,  226.,  272.,  332.],
+        [ 356.,  375.,  373., ...,  261.,  329.,  383.],
+        ...,
+        [ 407.,  427.,  428., ...,  306.,  273.,  216.],
+        [ 545.,  552.,  580., ...,  307.,  315.,  252.],
+        [ 350.,  221.,  233., ...,  320.,  348.,  315.]],
+
+       [[ 635.,  641.,  629., ...,  360.,  397.,  454.],
+        [ 601.,  617.,  620., ...,  380.,  418.,  509.],
+        [ 587.,  600.,  573., ...,  431.,  513.,  603.],
+        ...,
+        [ 679.,  742.,  729., ...,  493.,  482.,  459.],
+        [ 816.,  827.,  824., ...,  461.,  502.,  485.],
+        [ 526.,  388.,  364., ...,  463.,  501.,  512.]],
+
+       [[ 625.,  671.,  651., ...,  265.,  307.,  340.],
+        [ 568.,  620.,  627., ...,  309.,  354.,  431.],
+        [ 513.,  510.,  515., ...,  362.,  464.,  565.],
+        ...,
+        [ 725.,  834.,  864., ...,  485.,  467.,  457.],
+        [1031.,  864.,  844., ...,  438.,  457.,  429.],
+        [ 525.,  432.,  411., ...,  465.,  472.,  451.]],
+
+       [[2080., 1942., 1950., ..., 1748., 1802., 2135.],
+        [2300., 2045., 1939., ..., 1716., 1783., 2131.],
+        [2582., 2443., 2347., ..., 1836., 2002., 2241.],
+        ...,
+        [2076., 1993., 2145., ..., 1914., 2066., 2166.],
+        [1910., 1899., 1962., ..., 1787., 2038., 2300.],
+        [1633., 1611., 1738., ..., 1714., 1848., 2194.]]])
+Coordinates:
+  * band         (band) int64 1 2 3 4
+  * y            (y) float64 4.428e+06 4.428e+06 ... 4.423e+06 4.423e+06
+  * x            (x) float64 4.557e+05 4.557e+05 4.557e+05 ... 4.63e+05 4.63e+05
+    spatial_ref  int64 0
+Attributes:
+    STATISTICS_MAXIMUM:  8481
+    STATISTICS_MEAN:     664.90340361031
+    STATISTICS_MINIMUM:  -767
+    STATISTICS_STDDEV:   1197.873301452
+    scale_factor:        1.0
+    add_offset:          0.0
+    grid_mapping:        spatial_ref</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 4</li><li><span class='xr-has-index'>y</span>: 177</li><li><span class='xr-has-index'>x</span>: 246</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ca92d1dd-a500-4a5a-9a6f-59a51e722a4f' class='xr-array-in' type='checkbox' checked><label for='section-ca92d1dd-a500-4a5a-9a6f-59a51e722a4f' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>443.0 456.0 446.0 475.0 ... 1.706e+03 1.714e+03 1.848e+03 2.194e+03</span></div><div class='xr-array-data'><pre>array([[[ 443.,  456.,  446., ...,  213.,  251.,  293.],
+        [ 408.,  420.,  436., ...,  226.,  272.,  332.],
+        [ 356.,  375.,  373., ...,  261.,  329.,  383.],
+        ...,
+        [ 407.,  427.,  428., ...,  306.,  273.,  216.],
+        [ 545.,  552.,  580., ...,  307.,  315.,  252.],
+        [ 350.,  221.,  233., ...,  320.,  348.,  315.]],
+
+       [[ 635.,  641.,  629., ...,  360.,  397.,  454.],
+        [ 601.,  617.,  620., ...,  380.,  418.,  509.],
+        [ 587.,  600.,  573., ...,  431.,  513.,  603.],
+        ...,
+        [ 679.,  742.,  729., ...,  493.,  482.,  459.],
+        [ 816.,  827.,  824., ...,  461.,  502.,  485.],
+        [ 526.,  388.,  364., ...,  463.,  501.,  512.]],
+
+       [[ 625.,  671.,  651., ...,  265.,  307.,  340.],
+        [ 568.,  620.,  627., ...,  309.,  354.,  431.],
+        [ 513.,  510.,  515., ...,  362.,  464.,  565.],
+        ...,
+        [ 725.,  834.,  864., ...,  485.,  467.,  457.],
+        [1031.,  864.,  844., ...,  438.,  457.,  429.],
+        [ 525.,  432.,  411., ...,  465.,  472.,  451.]],
+
+       [[2080., 1942., 1950., ..., 1748., 1802., 2135.],
+        [2300., 2045., 1939., ..., 1716., 1783., 2131.],
+        [2582., 2443., 2347., ..., 1836., 2002., 2241.],
+        ...,
+        [2076., 1993., 2145., ..., 1914., 2066., 2166.],
+        [1910., 1899., 1962., ..., 1787., 2038., 2300.],
+        [1633., 1611., 1738., ..., 1714., 1848., 2194.]]])</pre></div></div></li><li class='xr-section-item'><input id='section-d9c068af-030a-4f98-a4d1-c47df8a17da3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d9c068af-030a-4f98-a4d1-c47df8a17da3' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4</div><input id='attrs-76ddcf7c-2e60-4dd5-aa01-07285663c5e0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-76ddcf7c-2e60-4dd5-aa01-07285663c5e0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-075ffd73-23d0-4487-8600-92ab73cb9833' class='xr-var-data-in' type='checkbox'><label for='data-075ffd73-23d0-4487-8600-92ab73cb9833' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1, 2, 3, 4])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.428e+06 4.428e+06 ... 4.423e+06</div><input id='attrs-6d1d48df-71d4-4f72-b12a-651ebf4d6b26' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d1d48df-71d4-4f72-b12a-651ebf4d6b26' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca6b186a-64c5-4906-82e4-15ede39e6525' class='xr-var-data-in' type='checkbox'><label for='data-ca6b186a-64c5-4906-82e4-15ede39e6525' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4428450., 4428420., 4428390., 4428360., 4428330., 4428300., 4428270.,
+       4428240., 4428210., 4428180., 4428150., 4428120., 4428090., 4428060.,
+       4428030., 4428000., 4427970., 4427940., 4427910., 4427880., 4427850.,
+       4427820., 4427790., 4427760., 4427730., 4427700., 4427670., 4427640.,
+       4427610., 4427580., 4427550., 4427520., 4427490., 4427460., 4427430.,
+       4427400., 4427370., 4427340., 4427310., 4427280., 4427250., 4427220.,
+       4427190., 4427160., 4427130., 4427100., 4427070., 4427040., 4427010.,
+       4426980., 4426950., 4426920., 4426890., 4426860., 4426830., 4426800.,
+       4426770., 4426740., 4426710., 4426680., 4426650., 4426620., 4426590.,
+       4426560., 4426530., 4426500., 4426470., 4426440., 4426410., 4426380.,
+       4426350., 4426320., 4426290., 4426260., 4426230., 4426200., 4426170.,
+       4426140., 4426110., 4426080., 4426050., 4426020., 4425990., 4425960.,
+       4425930., 4425900., 4425870., 4425840., 4425810., 4425780., 4425750.,
+       4425720., 4425690., 4425660., 4425630., 4425600., 4425570., 4425540.,
+       4425510., 4425480., 4425450., 4425420., 4425390., 4425360., 4425330.,
+       4425300., 4425270., 4425240., 4425210., 4425180., 4425150., 4425120.,
+       4425090., 4425060., 4425030., 4425000., 4424970., 4424940., 4424910.,
+       4424880., 4424850., 4424820., 4424790., 4424760., 4424730., 4424700.,
+       4424670., 4424640., 4424610., 4424580., 4424550., 4424520., 4424490.,
+       4424460., 4424430., 4424400., 4424370., 4424340., 4424310., 4424280.,
+       4424250., 4424220., 4424190., 4424160., 4424130., 4424100., 4424070.,
+       4424040., 4424010., 4423980., 4423950., 4423920., 4423890., 4423860.,
+       4423830., 4423800., 4423770., 4423740., 4423710., 4423680., 4423650.,
+       4423620., 4423590., 4423560., 4423530., 4423500., 4423470., 4423440.,
+       4423410., 4423380., 4423350., 4423320., 4423290., 4423260., 4423230.,
+       4423200., 4423170.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.557e+05 4.557e+05 ... 4.63e+05</div><input id='attrs-e17e03d2-395c-4a0c-8ec4-9b225817dc24' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e17e03d2-395c-4a0c-8ec4-9b225817dc24' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-93500f68-4dce-4d6b-9ffe-81c6ceb7e288' class='xr-var-data-in' type='checkbox'><label for='data-93500f68-4dce-4d6b-9ffe-81c6ceb7e288' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([455670., 455700., 455730., ..., 462960., 462990., 463020.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-f97feb37-a2b2-4820-bd06-c3b048d7c4be' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f97feb37-a2b2-4820-bd06-c3b048d7c4be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-714246f1-33b8-4e7b-8030-85160416b508' class='xr-var-data-in' type='checkbox'><label for='data-714246f1-33b8-4e7b-8030-85160416b508' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>GeoTransform :</span></dt><dd>455655.0 30.0 0.0 4428465.0 0.0 -30.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-67766c6a-6d45-443f-9b3a-a289ce1e186f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-67766c6a-6d45-443f-9b3a-a289ce1e186f' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>STATISTICS_MAXIMUM :</span></dt><dd>8481</dd><dt><span>STATISTICS_MEAN :</span></dt><dd>664.90340361031</dd><dt><span>STATISTICS_MINIMUM :</span></dt><dd>-767</dd><dt><span>STATISTICS_STDDEV :</span></dt><dd>1197.873301452</dd><dt><span>scale_factor :</span></dt><dd>1.0</dd><dt><span>add_offset :</span></dt><dd>0.0</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div>
+
+
+
+
+
+{:.input}
+```python
+# Plot the data
 ep.plot_rgb(landsat_pre.values,
             rgb=[2, 1, 0],
             title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
@@ -154,7 +718,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_4_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_7_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
 <figcaption>RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.</figcaption>
 
 </figure>
@@ -224,7 +788,8 @@ cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
 cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
 
 all_masked_values = cloud_shadow + cloud + high_cloud_confidence
-# Call the earthpy mask function using pixel QA layer
+
+# Mask the data using the pixel QA layer
 landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 ```
 
@@ -233,41 +798,13 @@ landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 First, plot the pixel_qa layer in matplotlib.
 
 
-{:.input}
-```python
-# This is optional code to plot the qa layer - don't worry too much about the details.
-# Create a colormap with 11 colors
-cmap = plt.cm.get_cmap('tab20b', 11)
-# Get a list of unique values in the qa layer
-vals = np.unique(landsat_qa).tolist()
-bins = [0] + vals
-# Normalize the colormap
-bounds = [((a + b) / 2) for a, b in zip(bins[:-1], bins[1::1])] + \
-    [(bins[-1] - bins[-2]) + bins[-1]]
-norm = colors.BoundaryNorm(bounds, cmap.N)
-
-# Plot the data
-fig, ax = plt.subplots(figsize=(12, 8))
-
-im = ax.imshow(landsat_qa,
-               cmap=cmap,
-               norm=norm)
-
-ep.draw_legend(im,
-               classes=vals,
-               cmap=cmap, titles=vals)
-
-ax.set_title("Landsat Collection Quality Assessment Layer")
-ax.set_axis_off()
-plt.show()
-```
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_17_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
@@ -384,9 +921,7 @@ all_masked_values
 
 {:.input}
 ```python
-# This is using a the isin function to create a binary cloud mask
-# You don't need to do this in your workflow as you can perform the mask in one step
-# But we have it here for demonstration purposes
+# Create the cloud mask
 cl_mask = landsat_qa.isin(all_masked_values)
 np.unique(cl_mask)
 ```
@@ -403,16 +938,31 @@ np.unique(cl_mask)
 
 
 
+Below is the plot of the reclassified raster mask.
 
-Below is the plot of the reclassified raster mask created from the `_create_mask` helper function.
+{:.input}
+```python
+fig, ax = plt.subplots(figsize=(12, 8))
 
+im = ax.imshow(cl_mask,
+               cmap=plt.cm.get_cmap('tab20b', 2))
+
+cbar = ep.colorbar(im)
+cbar.set_ticks((0.25, .75))
+cbar.ax.set_yticklabels(["Clear Pixels", "Cloud / Shadow Pixels"])
+
+ax.set_title("Landsat Cloud Mask | Light Purple Pixels will be Masked")
+ax.set_axis_off()
+
+plt.show()
+```
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_28_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_30_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
 <figcaption>Landsat image in which the masked pixels (cloud) are rendered in light purple.</figcaption>
 
 </figure>
@@ -447,7 +997,7 @@ Below you mask your data in one single step. This function `.where()` applies th
 
 {:.input}
 ```python
-# Call the earthpy mask function using your mask layer
+# Mask your data using .where()
 landsat_pre_cl_free = landsat_pre.where(~cl_mask)
 ```
 
@@ -455,7 +1005,7 @@ Alternatively, you can directly input your mask values and the pixel QA layer in
 
 {:.input}
 ```python
-# Call the earthpy mask function using pixel QA layer
+# Mask your data and create the mask using one single line of code
 landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 ```
 
@@ -476,7 +1026,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_35_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_37_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -488,7 +1038,8 @@ plt.show()
 ```python
 # Plot data
 # Masking out NA values with numpy in order to plot with ep.plot_rgb
-landsat_pre_cl_free_plot = ma.masked_array(landsat_pre_cl_free.values, landsat_pre_cl_free.isnull())
+landsat_pre_cl_free_plot = ma.masked_array(landsat_pre_cl_free.values,
+                                           landsat_pre_cl_free.isnull())
 
 # Plot
 ep.plot_rgb(landsat_pre_cl_free_plot,
@@ -502,7 +1053,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_36_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_38_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
