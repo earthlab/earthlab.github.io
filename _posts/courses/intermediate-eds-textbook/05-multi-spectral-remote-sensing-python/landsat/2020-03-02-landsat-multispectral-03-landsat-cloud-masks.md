@@ -106,18 +106,13 @@ os.chdir(os.path.join(et.io.HOME,
 
 
 
-Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
+## Functions To Process Landsat  Data
 
-HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
-
-Note that one thing was added to the functions below - a conditional that allows
-you to chose to either crop or not crop your data.
-
+To begin, you can use the functions created in the previous lesson to process
+your Landsat data. 
 
 {:.input}
 ```python
-# TODO - use  the functions at the end of the previous lesson to set this lesson up.
-
 def check_crs(raster_path):
     """
     Returns the CRS of a raster file.
@@ -219,6 +214,14 @@ def process_bands(paths, crop_layer=None, stack=False):
         print("Returning a list of xarray objects.")
         return all_bands
 ```
+
+Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework. 
+
+HINT: Since we are only using the RGB and the NIR bands for this exercise, you can use `*band[2-5]*.tif` inside `glob` to filter just the needed bands. This will save a lot of time in processing since you will only be using the data you need. 
+
+Note that one thing was added to the functions below - a conditional that allows
+you to chose to either crop or not crop your data.
+
 
 {:.input}
 ```python
@@ -639,7 +642,7 @@ Attributes:
     STATISTICS_STDDEV:   1197.873301452
     scale_factor:        1.0
     add_offset:          0.0
-    grid_mapping:        spatial_ref</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 4</li><li><span class='xr-has-index'>y</span>: 177</li><li><span class='xr-has-index'>x</span>: 246</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1e7fd0e2-77cf-436f-884c-bb693aaccc31' class='xr-array-in' type='checkbox' checked><label for='section-1e7fd0e2-77cf-436f-884c-bb693aaccc31' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>443.0 456.0 446.0 475.0 ... 1.706e+03 1.714e+03 1.848e+03 2.194e+03</span></div><div class='xr-array-data'><pre>array([[[ 443.,  456.,  446., ...,  213.,  251.,  293.],
+    grid_mapping:        spatial_ref</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>band</span>: 4</li><li><span class='xr-has-index'>y</span>: 177</li><li><span class='xr-has-index'>x</span>: 246</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ca92d1dd-a500-4a5a-9a6f-59a51e722a4f' class='xr-array-in' type='checkbox' checked><label for='section-ca92d1dd-a500-4a5a-9a6f-59a51e722a4f' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>443.0 456.0 446.0 475.0 ... 1.706e+03 1.714e+03 1.848e+03 2.194e+03</span></div><div class='xr-array-data'><pre>array([[[ 443.,  456.,  446., ...,  213.,  251.,  293.],
         [ 408.,  420.,  436., ...,  226.,  272.,  332.],
         [ 356.,  375.,  373., ...,  261.,  329.,  383.],
         ...,
@@ -669,7 +672,7 @@ Attributes:
         ...,
         [2076., 1993., 2145., ..., 1914., 2066., 2166.],
         [1910., 1899., 1962., ..., 1787., 2038., 2300.],
-        [1633., 1611., 1738., ..., 1714., 1848., 2194.]]])</pre></div></div></li><li class='xr-section-item'><input id='section-f5020775-9776-4cda-8749-36da968c9382' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f5020775-9776-4cda-8749-36da968c9382' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4</div><input id='attrs-dd155ea3-ea6a-4a58-a398-d780f5e6b6c3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dd155ea3-ea6a-4a58-a398-d780f5e6b6c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9dfaaea7-0bc4-41d4-b80e-c51e626d3984' class='xr-var-data-in' type='checkbox'><label for='data-9dfaaea7-0bc4-41d4-b80e-c51e626d3984' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1, 2, 3, 4])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.428e+06 4.428e+06 ... 4.423e+06</div><input id='attrs-f46e19f6-c5bd-4cbc-9a80-a88e211c9228' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f46e19f6-c5bd-4cbc-9a80-a88e211c9228' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aa92a277-53bb-42e1-82a2-c2c5ac06032c' class='xr-var-data-in' type='checkbox'><label for='data-aa92a277-53bb-42e1-82a2-c2c5ac06032c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4428450., 4428420., 4428390., 4428360., 4428330., 4428300., 4428270.,
+        [1633., 1611., 1738., ..., 1714., 1848., 2194.]]])</pre></div></div></li><li class='xr-section-item'><input id='section-d9c068af-030a-4f98-a4d1-c47df8a17da3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d9c068af-030a-4f98-a4d1-c47df8a17da3' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>band</span></div><div class='xr-var-dims'>(band)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4</div><input id='attrs-76ddcf7c-2e60-4dd5-aa01-07285663c5e0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-76ddcf7c-2e60-4dd5-aa01-07285663c5e0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-075ffd73-23d0-4487-8600-92ab73cb9833' class='xr-var-data-in' type='checkbox'><label for='data-075ffd73-23d0-4487-8600-92ab73cb9833' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1, 2, 3, 4])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.428e+06 4.428e+06 ... 4.423e+06</div><input id='attrs-6d1d48df-71d4-4f72-b12a-651ebf4d6b26' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d1d48df-71d4-4f72-b12a-651ebf4d6b26' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca6b186a-64c5-4906-82e4-15ede39e6525' class='xr-var-data-in' type='checkbox'><label for='data-ca6b186a-64c5-4906-82e4-15ede39e6525' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([4428450., 4428420., 4428390., 4428360., 4428330., 4428300., 4428270.,
        4428240., 4428210., 4428180., 4428150., 4428120., 4428090., 4428060.,
        4428030., 4428000., 4427970., 4427940., 4427910., 4427880., 4427850.,
        4427820., 4427790., 4427760., 4427730., 4427700., 4427670., 4427640.,
@@ -694,7 +697,7 @@ Attributes:
        4423830., 4423800., 4423770., 4423740., 4423710., 4423680., 4423650.,
        4423620., 4423590., 4423560., 4423530., 4423500., 4423470., 4423440.,
        4423410., 4423380., 4423350., 4423320., 4423290., 4423260., 4423230.,
-       4423200., 4423170.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.557e+05 4.557e+05 ... 4.63e+05</div><input id='attrs-7b8d3099-9feb-4881-a6ab-2a3342a271fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7b8d3099-9feb-4881-a6ab-2a3342a271fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d2ee7808-9188-4e00-8fe6-9adb988e881b' class='xr-var-data-in' type='checkbox'><label for='data-d2ee7808-9188-4e00-8fe6-9adb988e881b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([455670., 455700., 455730., ..., 462960., 462990., 463020.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-c8f77db3-cc76-4dc3-9a84-5c5d84576051' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c8f77db3-cc76-4dc3-9a84-5c5d84576051' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-59bda9b2-97dd-4c84-9f5e-2f59b0619293' class='xr-var-data-in' type='checkbox'><label for='data-59bda9b2-97dd-4c84-9f5e-2f59b0619293' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>GeoTransform :</span></dt><dd>455655.0 30.0 0.0 4428465.0 0.0 -30.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8cd1ef39-6c8f-4cb7-bb25-14e64dbdf394' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8cd1ef39-6c8f-4cb7-bb25-14e64dbdf394' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>STATISTICS_MAXIMUM :</span></dt><dd>8481</dd><dt><span>STATISTICS_MEAN :</span></dt><dd>664.90340361031</dd><dt><span>STATISTICS_MINIMUM :</span></dt><dd>-767</dd><dt><span>STATISTICS_STDDEV :</span></dt><dd>1197.873301452</dd><dt><span>scale_factor :</span></dt><dd>1.0</dd><dt><span>add_offset :</span></dt><dd>0.0</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div>
+       4423200., 4423170.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.557e+05 4.557e+05 ... 4.63e+05</div><input id='attrs-e17e03d2-395c-4a0c-8ec4-9b225817dc24' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e17e03d2-395c-4a0c-8ec4-9b225817dc24' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-93500f68-4dce-4d6b-9ffe-81c6ceb7e288' class='xr-var-data-in' type='checkbox'><label for='data-93500f68-4dce-4d6b-9ffe-81c6ceb7e288' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([455670., 455700., 455730., ..., 462960., 462990., 463020.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-f97feb37-a2b2-4820-bd06-c3b048d7c4be' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f97feb37-a2b2-4820-bd06-c3b048d7c4be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-714246f1-33b8-4e7b-8030-85160416b508' class='xr-var-data-in' type='checkbox'><label for='data-714246f1-33b8-4e7b-8030-85160416b508' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>WGS 84</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>projected_crs_name :</span></dt><dd>WGS 84 / UTM zone 13N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-105.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 13N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-105],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32613&quot;]]</dd><dt><span>GeoTransform :</span></dt><dd>455655.0 30.0 0.0 4428465.0 0.0 -30.0</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-67766c6a-6d45-443f-9b3a-a289ce1e186f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-67766c6a-6d45-443f-9b3a-a289ce1e186f' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>STATISTICS_MAXIMUM :</span></dt><dd>8481</dd><dt><span>STATISTICS_MEAN :</span></dt><dd>664.90340361031</dd><dt><span>STATISTICS_MINIMUM :</span></dt><dd>-767</dd><dt><span>STATISTICS_STDDEV :</span></dt><dd>1197.873301452</dd><dt><span>scale_factor :</span></dt><dd>1.0</dd><dt><span>add_offset :</span></dt><dd>0.0</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div>
 
 
 
@@ -715,7 +718,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_6_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_7_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
 <figcaption>RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.</figcaption>
 
 </figure>
@@ -785,7 +788,8 @@ cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
 cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
 
 all_masked_values = cloud_shadow + cloud + high_cloud_confidence
-# Call the earthpy mask function using pixel QA layer
+
+# Mask the data using the pixel QA layer
 landsat_pre_cl_free = landsat_pre.where(~landsat_qa.isin(all_masked_values))
 ```
 
@@ -800,7 +804,7 @@ First, plot the pixel_qa layer in matplotlib.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_16_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-landsat-cloud-masks/2020-03-02-landsat-multispectral-03-landsat-cloud-masks_17_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
@@ -917,9 +921,7 @@ all_masked_values
 
 {:.input}
 ```python
-# This is using a the isin function to create a binary cloud mask
-# You don't need to do this in your workflow as you can perform the mask in one step
-# But we have it here for demonstration purposes
+# Create the cloud mask
 cl_mask = landsat_qa.isin(all_masked_values)
 np.unique(cl_mask)
 ```
@@ -936,9 +938,24 @@ np.unique(cl_mask)
 
 
 
+Below is the plot of the reclassified raster mask.
 
-Below is the plot of the reclassified raster mask created from the `_create_mask` helper function.
+{:.input}
+```python
+fig, ax = plt.subplots(figsize=(12, 8))
 
+im = ax.imshow(cl_mask,
+               cmap=plt.cm.get_cmap('tab20b', 2))
+
+cbar = ep.colorbar(im)
+cbar.set_ticks((0.25, .75))
+cbar.ax.set_yticklabels(["Clear Pixels", "Cloud / Shadow Pixels"])
+
+ax.set_title("Landsat Cloud Mask | Light Purple Pixels will be Masked")
+ax.set_axis_off()
+
+plt.show()
+```
 
 {:.output}
 {:.display_data}
