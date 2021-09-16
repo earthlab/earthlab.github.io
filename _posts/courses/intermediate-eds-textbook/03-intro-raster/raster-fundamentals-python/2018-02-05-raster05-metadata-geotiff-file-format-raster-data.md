@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-06
-modified: 2020-11-10
+modified: 2021-08-19
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -71,7 +71,7 @@ More about the  `.tif` format:
 
 ### Geotiffs in Python
 
-The **rasterio** package in **Python** allows us to both open geotiff files and also to
+The **rioxarray** package in **Python** allows us to both open geotiff files and also to
 directly access `.tif tags` programmatically. You can quickly view the spatial **extent**,
 **coordinate reference system** and **resolution** of your raster data.
 
@@ -243,7 +243,7 @@ pre_lidar_dem.rio.resolution() == pre_lidar_dsm.rio.resolution()
 
 
 ### Extra Metadata with EPSG
-EPSG is short-hand way of specifying many CRS parameters at once. Each EPSG code correspondings to a Proj4 code. In **rasterio**, more metadata is available if you use Proj4 instead of EPSG. 
+EPSG is short-hand way of specifying many CRS parameters at once. Each EPSG code correspondings to a Proj4 code. 
 
 To see the Proj4 parameters for a given EPSG code, you can either <a href="http://www.spatialreference.org/ref/epsg/32613/" target="_blank"> look them up online </a> or use the EPSG to Proj4 dictionary:
 

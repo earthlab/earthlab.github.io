@@ -1,10 +1,10 @@
 ---
 layout: single
-title: "Test Your Skills: Open Raster Data Using Rasterio In Open Source Python "
+title: "Test Your Skills: Open Raster Data Using RioXarray In Open Source Python "
 excerpt: "Challenge your skills. Practice opening, cleaning and plotting raster data in Python"
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-23
-modified: 2021-01-28
+modified: 2021-08-19
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-data-exercises/
@@ -65,7 +65,7 @@ It's time to practice your raster skills. Do the following:
 
 Use the `pre_DTM_hill.tif` layer in the `colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar` directory.
 
-1. Open the `pre_DTM_hill.tif` layer using rasterio.
+1. Open the `pre_DTM_hill.tif` layer using rioxarray.
 2. Plot the data using `ep.plot_bands()`. 
 3. Set the colormap (`cmap=`) parameter value to Greys: `cmap="gray"`
 
