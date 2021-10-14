@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
-modified: 2021-09-30
+modified: 2021-10-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
