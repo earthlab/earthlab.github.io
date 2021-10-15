@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
-modified: 2021-03-30
+modified: 2021-10-14
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -58,7 +58,7 @@ to the code and files that have been made to the parent repo.
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-main-practice.png">
  <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-commits-behind-main-practice.png" alt="Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 1 commits. This fork is out of sync."></a>
- <figcaption>Image of an out of sync forked repo. Notice that you can tell by the upper right hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 1 commits. This fork is out of sync.
+ <figcaption>Image of an out of sync forked repo. Notice that you can tell by the upper left hand corner of the repo that this fork is owned by lwasser. The parent repo is owned by earthlab. You can also see that this fork is BEHIND the parent repo by 1 commits. This fork is out of sync.
  </figcaption>
 </figure>
 
