@@ -1,4 +1,4 @@
-name: Build and deploy Jekyll site to GitHub Pages
+name: Build and Jekyll site and run htmlproofer
 
 on:
   push:
@@ -10,24 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Use GitHub Actions' cache to shorten build times and decrease load on servers
       - name: Build the Jekyll site
-      - uses: actions/cache@v1
+        uses: actions/cache@v1
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - uses: helaili/jekyll-action@v2
+        uses: helaili/jekyll-action@v2
         with:
           build_only: true
           jekyll_build_options: -d _site
 
       - name: Check HTML using htmlproofer
-      - uses: chabad360/htmlproofer@master
+        uses: chabad360/htmlproofer@master
         with:
           directory: '_site'
           # The directory to scan
