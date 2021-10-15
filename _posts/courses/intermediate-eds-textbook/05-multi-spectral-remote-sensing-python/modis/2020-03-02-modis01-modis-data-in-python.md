@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data using Open Source Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2021-03-09
+modified: 2021-10-11
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/modis-data-in-python/
@@ -210,11 +210,8 @@ modis_bands_pre = combine_tifs(modis_bands_pre_list)
 {:.input}
 ```python
 # Plot MODIS RGB
-# Take out the masked values to plot with ep.plot_rgb
-modis_bands_pre_plot = ma.masked_array(
-    modis_bands_pre.values, modis_bands_pre.isnull())
 
-ep.plot_rgb(modis_bands_pre_plot,
+ep.plot_rgb(modis_bands_pre.values,
             rgb=[0, 3, 2],
             title="Surface Reflectance \n MODIS RGB Bands")
 plt.show()
@@ -245,11 +242,11 @@ print(modis_bands_pre[1].min(), modis_bands_pre[1].max())
 
 {:.output}
     <xarray.DataArray ()>
-    array(-100.)
+    array(-100., dtype=float32)
     Coordinates:
         band         int64 2
         spatial_ref  int64 0 <xarray.DataArray ()>
-    array(10039.)
+    array(10039., dtype=float32)
     Coordinates:
         band         int64 2
         spatial_ref  int64 0
@@ -300,13 +297,10 @@ modis_clip = modis_bands_pre.rio.clip(fire_bound_box,
 
 extent = plotting_extent(modis_clip[0].values, modis_clip.rio.transform())
 
-modis_clip_plot = ma.masked_array(modis_clip.values, modis_clip.isnull())
-modis_clip_geometry_plot = ma.masked_array(modis_clip_geometry.values, modis_clip_geometry.isnull())
-
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 15))
 
 # Plotting Geometry Clip
-ep.plot_rgb(modis_clip_plot,
+ep.plot_rgb(modis_clip.values,
             rgb=[0, 3, 2],
             ax=ax1,
             extent=extent,
@@ -315,7 +309,7 @@ ep.plot_rgb(modis_clip_plot,
 fire_bound_sin.boundary.plot(ax=ax1)
 
 # Plotting Bounds Clip
-ep.plot_rgb(modis_clip_geometry_plot,
+ep.plot_rgb(modis_clip_geometry.values,
             rgb=[0, 3, 2],
             ax=ax2,
             extent=extent,
@@ -450,11 +444,11 @@ print(modis_bands_pre_scaled[1].min(), modis_bands_pre_scaled[1].max())
 
 {:.output}
     <xarray.DataArray ()>
-    array(0.2496)
+    array(0.2496, dtype=float32)
     Coordinates:
         band         int64 2
         spatial_ref  int64 0 <xarray.DataArray ()>
-    array(0.3013)
+    array(0.3013, dtype=float32)
     Coordinates:
         band         int64 2
         spatial_ref  int64 0
