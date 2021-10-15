@@ -9,9 +9,11 @@ jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the code
       - uses: actions/checkout@v2
 
       # Use GitHub Actions' cache to shorten build times and decrease load on servers
+      - name: Build the Jekyll site
       - uses: actions/cache@v1
         with:
           path: vendor/bundle
@@ -24,12 +26,10 @@ jobs:
           build_only: true
           jekyll_build_options: -d _site
 
-  htmlproofer:
-    runs-on: ubuntu-latest
-    steps:
+      - name: Check HTML using htmlproofer
       - uses: chabad360/htmlproofer@master
         with:
-          directory: "_site"
+          directory: '_site'
           # The directory to scan
           arguments: --url-swap "https\:\/\/www\.earthdatascience\.org\/images:/images" --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
           # The arguments to pass to HTMLProofer
