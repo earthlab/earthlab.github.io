@@ -21,4 +21,15 @@ jobs:
 
       - uses: helaili/jekyll-action@2.0.4
         with:
-          args: --build_only true
+          build_only: true
+          jekyll_build_options: -d _site
+
+  htmlproofer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chabad360/htmlproofer@master
+        with:
+          directory: "_site"
+          # The directory to scan
+          arguments: --url-swap "https\:\/\/www\.earthdatascience\.org\/images:/images" --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
+          # The arguments to pass to HTMLProofer
