@@ -19,7 +19,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - uses: helaili/jekyll-action@2.0.4
+      - uses: helaili/jekyll-action@v2
         with:
           build_only: true
           jekyll_build_options: -d _site
