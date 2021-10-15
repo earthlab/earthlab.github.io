@@ -21,4 +21,4 @@ jobs:
 
       - uses: helaili/jekyll-action@2.0.4
         with:
-          build_only: true
+          args: --build_only true

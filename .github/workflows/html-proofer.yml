@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: chabad360/htmlproofer@master
         with:
-          directory: ${{ **/_site }}
+          directory: "_site"
           # The directory to scan
           arguments: --url-swap "https\:\/\/www\.earthdatascience\.org\/images:/images" --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
           # The arguments to pass to HTMLProofer
