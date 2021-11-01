@@ -2,9 +2,9 @@
 layout: single
 title: "Layer a raster dataset over a hillshade in Python to create a beautiful basemap that represents topography."
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
-authors: ['Leah Wasser']
+authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2018-02-05
-modified: 2020-07-21
+modified: 2021-11-01
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
@@ -57,7 +57,7 @@ To begin, open up both the Digital Terrain Model (DTM) and the DTM hillshade fil
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-import rasterio as rio
+import rioxarray as rxr
 import earthpy as et
 import earthpy.plot as ep
 
@@ -77,25 +77,31 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Open DTM data
-lidar_dem_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", 
-                              "lidar", "pre_DTM.tif")
+lidar_dem_path = os.path.join("data", 
+                              "colorado-flood", 
+                              "spatial", 
+                              "boulder-leehill-rd", 
+                              "pre-flood", 
+                              "lidar", 
+                              "pre_DTM.tif")
 
-with rio.open(lidar_dem_path) as lidar_dem:
-    lidar_dem_im = lidar_dem.read(1, masked=True)
+lidar_dem_im = rxr.open_rasterio(lidar_dem_path, masked=True)
 
 # Open DTM hillshade
-lidar_hs_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "boulder-leehill-rd", "pre-flood", 
-                              "lidar", "pre_DTM_hill.tif")
+lidar_hs_path = os.path.join("data", 
+                             "colorado-flood", 
+                             "spatial", 
+                              "boulder-leehill-rd", 
+                             "pre-flood", 
+                              "lidar", 
+                             "pre_DTM_hill.tif")
 
-with rio.open(lidar_hs_path) as lidar_dem_hill:
-    lidar_dem_hill = lidar_dem_hill.read(1, masked=True)
+lidar_dem_hill = rxr.open_rasterio(lidar_hs_path, masked=True)
 ```
 
 To plot both layers together, you use the same `ax` object for the two layers, and then add a `alpha` value to the DTM hillshade image. This value makes the image more transparent. 
 
-Below an` alpha` of 0.5 (50%) is applied. Play around with the alpha value to see how it impacts your map.
+Below an `alpha` of 0.5 (50%) is applied. Play around with the alpha value to see how it impacts your map.
 
 {:.input}
 ```python

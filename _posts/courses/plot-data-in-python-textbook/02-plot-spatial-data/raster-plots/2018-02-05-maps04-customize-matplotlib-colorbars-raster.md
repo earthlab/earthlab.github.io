@@ -2,9 +2,9 @@
 layout: single
 title: "Customize Matplotlib Raster Maps in Python"
 excerpt: "Sometimes you want to customize the colorbar and range of values plotted in a raster map. Learn how to create breaks to plot rasters in Python."
-authors: ['Leah Wasser']
+authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2018-02-05
-modified: 2020-07-21
+modified: 2021-11-01
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/customize-matplotlib-raster-maps/
@@ -49,10 +49,8 @@ from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
 import seaborn as sns
 import numpy as np
-import rasterio as rio
-from rasterio.plot import plotting_extent
+import rioxarray as rxr
 import earthpy as et
-import earthpy.spatial as es
 import earthpy.plot as ep
 
 # Prettier plotting with seaborn
@@ -70,11 +68,13 @@ You will work with the canopy height model raster that you created in this week'
 {:.input}
 ```python
 # Open raster data
-lidar_chm_path = os.path.join("data", "colorado-flood", "spatial", 
-                              "outputs", "lidar_chm.tiff")
+lidar_chm_path = os.path.join("data", 
+                              "colorado-flood", 
+                              "spatial", 
+                              "outputs", 
+                              "lidar_chm.tiff")
 
-with rio.open(lidar_chm_path) as lidar_chm_src:
-    lidar_chm = lidar_chm_src.read(1)
+lidar_chm = rxr.open_rasterio(lidar_chm_path, masked=True).squeeze()
 ```
 
 
@@ -117,7 +117,9 @@ chm_plot = ax.imshow(lidar_chm,
 ax.set_title("Lidar Canopy Height Model (CHM)")
 
 # Add a legend for labels
-legend_labels = {"tan": "short", "springgreen": "medium", "darkgreen": "tall"}
+legend_labels = {"tan": "short", 
+                 "springgreen": "medium", 
+                 "darkgreen": "tall"}
 
 patches = [Patch(color=color, label=label)
            for color, label in legend_labels.items()]
