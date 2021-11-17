@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data using Open Source Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2021-10-15
+modified: 2021-11-17
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/modis-data-in-python/
@@ -134,6 +134,12 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 In previous lessons, you have used `glob("*keyword*.tif")` to create a list of all files that both:
 1. Contain a certain keyword as denoted by the asterisks (e.g. `*band*`) and
 2. Contain the extension `.tif`.
@@ -210,8 +216,11 @@ modis_bands_pre = combine_tifs(modis_bands_pre_list)
 {:.input}
 ```python
 # Plot MODIS RGB
+# Take out the masked values to plot with ep.plot_rgb
+modis_bands_pre_plot = ma.masked_array(
+    modis_bands_pre.values, modis_bands_pre.isnull())
 
-ep.plot_rgb(modis_bands_pre.values,
+ep.plot_rgb(modis_bands_pre_plot,
             rgb=[0, 3, 2],
             title="Surface Reflectance \n MODIS RGB Bands")
 plt.show()
@@ -297,10 +306,13 @@ modis_clip = modis_bands_pre.rio.clip(fire_bound_box,
 
 extent = plotting_extent(modis_clip[0].values, modis_clip.rio.transform())
 
+modis_clip_plot = ma.masked_array(modis_clip.values, modis_clip.isnull())
+modis_clip_geometry_plot = ma.masked_array(modis_clip_geometry.values, modis_clip_geometry.isnull())
+
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 15))
 
 # Plotting Geometry Clip
-ep.plot_rgb(modis_clip.values,
+ep.plot_rgb(modis_clip_plot,
             rgb=[0, 3, 2],
             ax=ax1,
             extent=extent,
@@ -309,7 +321,7 @@ ep.plot_rgb(modis_clip.values,
 fire_bound_sin.boundary.plot(ax=ax1)
 
 # Plotting Bounds Clip
-ep.plot_rgb(modis_clip_geometry.values,
+ep.plot_rgb(modis_clip_geometry_plot,
             rgb=[0, 3, 2],
             ax=ax2,
             extent=extent,
