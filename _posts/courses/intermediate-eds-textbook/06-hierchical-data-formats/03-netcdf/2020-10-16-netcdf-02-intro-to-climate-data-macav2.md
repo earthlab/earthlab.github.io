@@ -82,7 +82,7 @@ There are several different options for downloading MACA v2 data including:
 
 <div class="notice--warning" markdown="1">
 ## The Climate Toolbox
-The Climate Toolbox is a collection of approximately 20 web-based tools that allow the user to visualize past and future projected climate, agriculture, wildfire, and hydrological data for the United States. It is maintained by the University of California, Merced in collaboration with government organizations including the USDA, NOAA, and the USGS.
+The <a href="https://climatetoolbox.org/tool/climate-mapper"  target="_blank">Climate Toolbox </a>is a collection of approximately 20 web-based tools that allow the user to visualize past and future projected climate, agriculture, wildfire, and hydrological data for the United States. It is maintained by the University of California, Merced in collaboration with government organizations including the USDA, NOAA, and the USGS.
 
 ### The Climate Toolbox Climate Mapper Tool
 The Climate Mapper Tool allows you to map climate data extracted from MACA v2 Metdata, display current conditions, forecasts, and future projections for the U.S. The data includes variables related to climate, agriculture, wildfire, and hydrology. The tool aims to help scientists and decision-makers visualize climate information in a straightforward and easy-to-use way. 
