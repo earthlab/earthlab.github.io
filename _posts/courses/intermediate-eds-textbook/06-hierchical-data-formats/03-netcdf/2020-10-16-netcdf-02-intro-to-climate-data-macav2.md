@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate Data"
 excerpt: "In this lesson you will learn the basics of what CMIP5 and MACA v 2 data are and how global climate data are downscaled to higher resolutions to support regional analysis."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2020-11-12
+modified: 2021-11-17
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-MACAv2-cmip5-data/
@@ -64,38 +64,39 @@ Downscaling however comes with its challenges. There are many different processi
 
 ## What Formats Are MACA v2 Data In?
 
-* Tabular (txt and csv) - Learn how to work with txt and csv data in this lesson.
-* GeoTIFF - Learn how to work with geotiff data in this lesson.
-* netCDF - Get more detail on the netCDF documentation from UCAR here.
+* Tabular (txt and csv) - Learn how to work with txt and csv data <a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/file-formats/use-text-files/use-tabular-data/">in this lesson</a>.
+* GeoTIFF - Learn how to work with geotiff data  <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/">in this lesson</a>.
+* netCDF - Get more detail on the netCDF documentation from UCAR <a href="https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_introduction.html" target="_blank">here</a>.
+
 
 
 ## How do you get MACA v2 data?
 
-There are several different options for downloading MACA v2 data including the:
+There are several different options for downloading MACA v2 data including:
 
-Directly from MACA v2 through a:
-Catalog
-Data portal
-USGS GeoData Portal
-Climate Futures Toolbox (CFT), an R tool created by CU Boulder Earth Lab
-Climate Mapper Tool, a tool from the Climate Toolbox
+<a href="https://climate.northwestknowledge.net/MACA/data_portal.php" target=”_blank”>Through the MACA v2 Data portal </a>
+<a href="http://thredds.northwestknowledge.net:8080/thredds/reacch_climate_CMIP5_aggregated_macav2_monthly_catalog.html" target="_blank">Through the MACA v2 Catalog </a>
+<a href="https://cida.usgs.gov/gdp/client/#!catalog/gdp/dataset/5752f2d9e4b053f0edd15628" target=”_blank”>Through the USGS GeoData Portal </a>
+<a href="https://github.com/earthlab/cft" target=”_blank”>Using the `R` Climate Futures Toolbox (CFT)</a>, an R tool created by CU Boulder Earth Lab
+<a href="https://climatetoolbox.org/tool/Climate-Mapper">The Climate Mapper Toolbox</a>, a tool from the <a href="https://climatetoolbox.org/" target=”_blank”>Climate Toolbox</a>
 
-
+<div class="notice--warning" markdown="1">
 ## The Climate Toolbox
 The Climate Toolbox is a collection of approximately 20 web-based tools that allow the user to visualize past and future projected climate, agriculture, wildfire, and hydrological data for the United States. It is maintained by the University of California, Merced in collaboration with government organizations including the USDA, NOAA, and the USGS.
 
 ### The Climate Toolbox Climate Mapper Tool
 The Climate Mapper Tool allows you to map climate data extracted from MACA v2 Metdata, display current conditions, forecasts, and future projections for the U.S. The data includes variables related to climate, agriculture, wildfire, and hydrology. The tool aims to help scientists and decision-makers visualize climate information in a straightforward and easy-to-use way. 
 
+</div>
 
 <div class="notice--info" markdown="1">
 
 ## Additional Resources  
 
-Learn more about MACA v2 data from its creators at the University of California Merced.
-See example applications of MACA v2 data.
-Explore the Climate Toolbox.
-Use the Climate Mapper Tool.
+* Learn more about <a href="http://www.climatologylab.org/maca.html" target=”_blank”>MACA v2 data</a> from its creators at the University of California Merced.
+* See <a href="https://www.earthdatascience.org/cft/articles/cft-intro.html">example applications of MACA v2 data</a> .
+* Explore the <a href="https://climatetoolbox.org/" target=”_blank”>Climate Toolbox</a>
+* Use the <a href="https://climatetoolbox.org/tool/Climate-Mapper" target=”_blank”>Climate Mapper Tool</a>
 
 </div>
 
