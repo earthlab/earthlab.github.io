@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate Data"
 excerpt: "In this lesson you will learn the basics of what CMIP5 and MACA v 2 data are and how global climate data are downscaled to higher resolutions to support regional analysis."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2021-11-17
+modified: 2021-11-18
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-MACAv2-cmip5-data/
@@ -69,14 +69,13 @@ Downscaling however comes with its challenges. There are many different processi
 * netCDF - Get more detail on the netCDF documentation from UCAR <a href="https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_introduction.html" target="_blank">here</a>.
 
 
-
 ## How do you get MACA v2 data?
 
 There are several different options for downloading MACA v2 data including:
 
 * <a href="https://climate.northwestknowledge.net/MACA/data_portal.php" target="_blank">Through the MACA v2 Data portal </a>
 * <a href="http://thredds.northwestknowledge.net:8080/thredds/reacch_climate_CMIP5_aggregated_macav2_monthly_catalog.html" target="_blank">Through the MACA v2 Catalog </a>
-* <a href="https://cida.usgs.gov/gdp/client/#!catalog/gdp/dataset/5752f2d9e4b053f0edd15628" target=”_blank”>Through the USGS GeoData Portal </a>
+* <a href="https://cida.usgs.gov/gdp/client/#!catalog/gdp/dataset/5752f2d9e4b053f0edd15628" target="_blank">Through the USGS GeoData Portal </a>
 * <a href="https://github.com/earthlab/cft" target="_blank">Using the `R` Climate Futures Toolbox (CFT)</a>, an R tool created by CU Boulder Earth Lab
 * <a href="https://climatetoolbox.org/tool/Climate-Mapper">The Climate Mapper Toolbox</a>, a tool from the <a href="https://climatetoolbox.org/" target="_blank">Climate Toolbox</a>
 
