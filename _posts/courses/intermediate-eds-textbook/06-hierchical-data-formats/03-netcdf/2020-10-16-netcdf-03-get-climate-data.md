@@ -143,7 +143,7 @@ var_long_name = ('air_temperature',
 
 ## Select Data Download Options
 
-Below you select the options that you wish to use to download your data. 
+Below you first create lists containing the  the options that you wish to use to download your data. 
 
 
 {:.input}
@@ -206,6 +206,8 @@ run_num[4] = 6  # setting CCSM4 with run 6
 domain = 'CONUS'
 ```
 
+Next, select the options that you want to use for your data download.
+
 {:.input}
 ```python
 # Model options between 0-19
@@ -233,6 +235,9 @@ except IndexError as e:
      ✅ Scenario: rcp85
 
 
+
+Finally, use the `scenario` variable to select the time period associated with
+the options selected above.
 
 {:.input}
 ```python
@@ -319,7 +324,6 @@ server online. Thus you need internet access to run the code below.
 {:.input}
 ```python
 # Open the data from the thredds server
-
 try:
     max_temp_xr = xr.open_dataset(full_file_path)
 except OSError as oe:
@@ -712,14 +716,14 @@ Attributes: (12/46)
     publisher_email:                 reacch@uidaho.edu
     publisher_url:                   http://www.reacchpna.org/
     license:                         Creative Commons CC0 1.0 Universal Dedic...
-    coordinate_system:               WGS84,EPSG:4326</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-729d4b3d-8245-4391-8f4c-184ec4c75501' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-729d4b3d-8245-4391-8f4c-184ec4c75501' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>crs</span>: 1</li><li><span class='xr-has-index'>lon</span>: 1386</li><li><span class='xr-has-index'>time</span>: 1128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-d3587022-9d2c-446c-beb6-bc42aeb7be0d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d3587022-9d2c-446c-beb6-bc42aeb7be0d' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-2394c95b-0c27-4b04-b252-6bcda468a476' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2394c95b-0c27-4b04-b252-6bcda468a476' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-472abd07-a51d-4c18-b581-65b616744e3d' class='xr-var-data-in' type='checkbox'><label for='data-472abd07-a51d-4c18-b581-65b616744e3d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-26fbee37-348a-4eb9-a775-73773c8cedd4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-26fbee37-348a-4eb9-a775-73773c8cedd4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2a0cc914-f544-46d8-94d0-d3218401d79a' class='xr-var-data-in' type='checkbox'><label for='data-2a0cc914-f544-46d8-94d0-d3218401d79a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-5ce88a1d-0632-4ae7-9a3a-d0dfc0cbe2b5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5ce88a1d-0632-4ae7-9a3a-d0dfc0cbe2b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a1d97c3a-c693-45ea-9a61-67aa675bffc8' class='xr-var-data-in' type='checkbox'><label for='data-a1d97c3a-c693-45ea-9a61-67aa675bffc8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
-       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2006-01-15 00:00:00 ... 2099-12-...</div><input id='attrs-6fc87514-adbb-4131-9349-568fe9333add' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6fc87514-adbb-4131-9349-568fe9333add' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-12ed89b7-5320-4c16-9ff8-bda925618975' class='xr-var-data-in' type='checkbox'><label for='data-12ed89b7-5320-4c16-9ff8-bda925618975' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2006, 1, 15, 0, 0, 0, 0, has_year_zero=True),
+    coordinate_system:               WGS84,EPSG:4326</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-26d536b3-2b09-429b-af19-5db7acb5b41f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-26d536b3-2b09-429b-af19-5db7acb5b41f' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 585</li><li><span class='xr-has-index'>crs</span>: 1</li><li><span class='xr-has-index'>lon</span>: 1386</li><li><span class='xr-has-index'>time</span>: 1128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a1bf4885-143a-4ae7-b0d1-a5792b252c9f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a1bf4885-143a-4ae7-b0d1-a5792b252c9f' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>25.06 25.1 25.15 ... 49.35 49.4</div><input id='attrs-69613404-e165-477b-b774-68d8cc26ef7d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69613404-e165-477b-b774-68d8cc26ef7d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b88db11d-2e0b-4602-863e-59c29a11fd86' class='xr-var-data-in' type='checkbox'><label for='data-b88db11d-2e0b-4602-863e-59c29a11fd86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array([25.063078, 25.104744, 25.14641 , ..., 49.312691, 49.354359, 49.396023])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>crs</span></div><div class='xr-var-dims'>(crs)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1</div><input id='attrs-44ec65ff-b3c1-4feb-be97-30ba9787630f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-44ec65ff-b3c1-4feb-be97-30ba9787630f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-79c910f1-4653-48b9-a6dc-8fe6d12c8ed3' class='xr-var-data-in' type='checkbox'><label for='data-79c910f1-4653-48b9-a6dc-8fe6d12c8ed3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd></dl></div><div class='xr-var-data'><pre>array([1], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>235.2 235.3 235.3 ... 292.9 292.9</div><input id='attrs-019165a7-0be1-47fb-9a03-a4a8d9a48cf0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-019165a7-0be1-47fb-9a03-a4a8d9a48cf0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35122269-f447-4833-97ab-65775e4bbf9f' class='xr-var-data-in' type='checkbox'><label for='data-35122269-f447-4833-97ab-65775e4bbf9f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([235.227844, 235.269501, 235.311157, ..., 292.851929, 292.893585,
+       292.935242])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2006-01-15 00:00:00 ... 2099-12-...</div><input id='attrs-f014d0b8-114f-475a-8177-c07bdd2e0672' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f014d0b8-114f-475a-8177-c07bdd2e0672' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cae9c0f0-9f26-4273-8fdd-17caf25394d9' class='xr-var-data-in' type='checkbox'><label for='data-cae9c0f0-9f26-4273-8fdd-17caf25394d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2006, 1, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2006, 2, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2006, 3, 15, 0, 0, 0, 0, has_year_zero=True), ...,
        cftime.DatetimeNoLeap(2099, 10, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2099, 11, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2099, 12, 15, 0, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-568249de-1777-45d0-ace3-dad1fd6d2ca0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-568249de-1777-45d0-ace3-dad1fd6d2ca0' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_temperature</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2c2ff105-d228-4647-ba69-72dbf5c996cd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2c2ff105-d228-4647-ba69-72dbf5c996cd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f8ae715f-518d-45fa-8aa7-9bf7c6f46aef' class='xr-var-data-in' type='checkbox'><label for='data-f8ae715f-518d-45fa-8aa7-9bf7c6f46aef' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div><div class='xr-var-data'><pre>[914593680 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a49aef35-f7fd-4068-bebf-0ee006020f61' class='xr-section-summary-in' type='checkbox'  ><label for='section-a49aef35-f7fd-4068-bebf-0ee006020f61' class='xr-section-summary' >Attributes: <span>(46)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Multivariate Adaptive Constructed Analogs (MACA) method, version 2.3,Dec 2013.</dd><dt><span>id :</span></dt><dd>MACAv2-METDATA</dd><dt><span>naming_authority :</span></dt><dd>edu.uidaho.reacch</dd><dt><span>Metadata_Conventions :</span></dt><dd>Unidata Dataset Discovery v1.0</dd><dt><span>Metadata_Link :</span></dt><dd></dd><dt><span>cdm_data_type :</span></dt><dd>FLOAT</dd><dt><span>title :</span></dt><dd>Monthly aggregation of downscaled daily meteorological data of Monthly Average of Daily Maximum Near-Surface Air Temperature from College of Global Change and Earth System Science, Beijing Normal University (BNU-ESM) using the run r1i1p1 of the rcp85 scenario.</dd><dt><span>summary :</span></dt><dd>This archive contains monthly downscaled meteorological and hydrological projections for the Conterminous United States at 1/24-deg resolution. These monthly values are obtained by aggregating the daily values obtained from the downscaling using the Multivariate Adaptive Constructed Analogs (MACA, Abatzoglou, 2012) statistical downscaling method with the METDATA (Abatzoglou,2013) training dataset. The downscaled meteorological variables are maximum/minimum temperature(tasmax/tasmin), maximum/minimum relative humidity (rhsmax/rhsmin),precipitation amount(pr), downward shortwave solar radiation(rsds), eastward wind(uas), northward wind(vas), and specific humidity(huss). The downscaling is based on the 365-day model outputs from different global climate models (GCMs) from Phase 5 of the Coupled Model Inter-comparison Project (CMIP3) utlizing the historical (1950-2005) and future RCP4.5/8.5(2006-2099) scenarios. </dd><dt><span>keywords :</span></dt><dd>monthly, precipitation, maximum temperature, minimum temperature, downward shortwave solar radiation, specific humidity, wind velocity, CMIP5, Gridded Meteorological Data</dd><dt><span>keywords_vocabulary :</span></dt><dd></dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF-1.0</dd><dt><span>history :</span></dt><dd>No revisions.</dd><dt><span>comment :</span></dt><dd></dd><dt><span>geospatial_bounds :</span></dt><dd>POLYGON((-124.7722 25.0631,-124.7722 49.3960, -67.0648 49.3960,-67.0648, 25.0631, -124.7722,25.0631))</dd><dt><span>geospatial_lat_min :</span></dt><dd>25.0631</dd><dt><span>geospatial_lat_max :</span></dt><dd>49.3960</dd><dt><span>geospatial_lon_min :</span></dt><dd>-124.7722</dd><dt><span>geospatial_lon_max :</span></dt><dd>-67.0648</dd><dt><span>geospatial_lat_units :</span></dt><dd>decimal degrees north</dd><dt><span>geospatial_lon_units :</span></dt><dd>decimal degrees east</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_resolution :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_positive :</span></dt><dd>up</dd><dt><span>time_coverage_start :</span></dt><dd>2091-01-01T00:0</dd><dt><span>time_coverage_end :</span></dt><dd>2095-12-31T00:00</dd><dt><span>time_coverage_duration :</span></dt><dd>P5Y</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1M</dd><dt><span>date_created :</span></dt><dd>2014-05-15</dd><dt><span>date_modified :</span></dt><dd>2014-05-15</dd><dt><span>date_issued :</span></dt><dd>2014-05-15</dd><dt><span>creator_name :</span></dt><dd>John Abatzoglou</dd><dt><span>creator_url :</span></dt><dd>http://maca.northwestknowledge.net</dd><dt><span>creator_email :</span></dt><dd>jabatzoglou@uidaho.edu</dd><dt><span>institution :</span></dt><dd>University of Idaho</dd><dt><span>processing_level :</span></dt><dd>GRID</dd><dt><span>project :</span></dt><dd></dd><dt><span>contributor_name :</span></dt><dd>Katherine C. Hegewisch</dd><dt><span>contributor_role :</span></dt><dd>Postdoctoral Fellow</dd><dt><span>publisher_name :</span></dt><dd>REACCH</dd><dt><span>publisher_email :</span></dt><dd>reacch@uidaho.edu</dd><dt><span>publisher_url :</span></dt><dd>http://www.reacchpna.org/</dd><dt><span>license :</span></dt><dd>Creative Commons CC0 1.0 Universal Dedication(http://creativecommons.org/publicdomain/zero/1.0/legalcode)</dd><dt><span>coordinate_system :</span></dt><dd>WGS84,EPSG:4326</dd></dl></div></li></ul></div></div>
+      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-40a047ae-1897-4ecf-acc9-0d08a374c05a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-40a047ae-1897-4ecf-acc9-0d08a374c05a' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_temperature</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f043a937-828e-42ac-89df-6ddf45332d59' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f043a937-828e-42ac-89df-6ddf45332d59' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4dda2c4a-7159-4a62-9ac8-7737ebad05e4' class='xr-var-data-in' type='checkbox'><label for='data-4dda2c4a-7159-4a62-9ac8-7737ebad05e4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div><div class='xr-var-data'><pre>[914593680 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-531d149c-fcb3-49e8-99e9-8cec69fac444' class='xr-section-summary-in' type='checkbox'  ><label for='section-531d149c-fcb3-49e8-99e9-8cec69fac444' class='xr-section-summary' >Attributes: <span>(46)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Multivariate Adaptive Constructed Analogs (MACA) method, version 2.3,Dec 2013.</dd><dt><span>id :</span></dt><dd>MACAv2-METDATA</dd><dt><span>naming_authority :</span></dt><dd>edu.uidaho.reacch</dd><dt><span>Metadata_Conventions :</span></dt><dd>Unidata Dataset Discovery v1.0</dd><dt><span>Metadata_Link :</span></dt><dd></dd><dt><span>cdm_data_type :</span></dt><dd>FLOAT</dd><dt><span>title :</span></dt><dd>Monthly aggregation of downscaled daily meteorological data of Monthly Average of Daily Maximum Near-Surface Air Temperature from College of Global Change and Earth System Science, Beijing Normal University (BNU-ESM) using the run r1i1p1 of the rcp85 scenario.</dd><dt><span>summary :</span></dt><dd>This archive contains monthly downscaled meteorological and hydrological projections for the Conterminous United States at 1/24-deg resolution. These monthly values are obtained by aggregating the daily values obtained from the downscaling using the Multivariate Adaptive Constructed Analogs (MACA, Abatzoglou, 2012) statistical downscaling method with the METDATA (Abatzoglou,2013) training dataset. The downscaled meteorological variables are maximum/minimum temperature(tasmax/tasmin), maximum/minimum relative humidity (rhsmax/rhsmin),precipitation amount(pr), downward shortwave solar radiation(rsds), eastward wind(uas), northward wind(vas), and specific humidity(huss). The downscaling is based on the 365-day model outputs from different global climate models (GCMs) from Phase 5 of the Coupled Model Inter-comparison Project (CMIP3) utlizing the historical (1950-2005) and future RCP4.5/8.5(2006-2099) scenarios. </dd><dt><span>keywords :</span></dt><dd>monthly, precipitation, maximum temperature, minimum temperature, downward shortwave solar radiation, specific humidity, wind velocity, CMIP5, Gridded Meteorological Data</dd><dt><span>keywords_vocabulary :</span></dt><dd></dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF-1.0</dd><dt><span>history :</span></dt><dd>No revisions.</dd><dt><span>comment :</span></dt><dd></dd><dt><span>geospatial_bounds :</span></dt><dd>POLYGON((-124.7722 25.0631,-124.7722 49.3960, -67.0648 49.3960,-67.0648, 25.0631, -124.7722,25.0631))</dd><dt><span>geospatial_lat_min :</span></dt><dd>25.0631</dd><dt><span>geospatial_lat_max :</span></dt><dd>49.3960</dd><dt><span>geospatial_lon_min :</span></dt><dd>-124.7722</dd><dt><span>geospatial_lon_max :</span></dt><dd>-67.0648</dd><dt><span>geospatial_lat_units :</span></dt><dd>decimal degrees north</dd><dt><span>geospatial_lon_units :</span></dt><dd>decimal degrees east</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>0.0417</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_resolution :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_positive :</span></dt><dd>up</dd><dt><span>time_coverage_start :</span></dt><dd>2091-01-01T00:0</dd><dt><span>time_coverage_end :</span></dt><dd>2095-12-31T00:00</dd><dt><span>time_coverage_duration :</span></dt><dd>P5Y</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1M</dd><dt><span>date_created :</span></dt><dd>2014-05-15</dd><dt><span>date_modified :</span></dt><dd>2014-05-15</dd><dt><span>date_issued :</span></dt><dd>2014-05-15</dd><dt><span>creator_name :</span></dt><dd>John Abatzoglou</dd><dt><span>creator_url :</span></dt><dd>http://maca.northwestknowledge.net</dd><dt><span>creator_email :</span></dt><dd>jabatzoglou@uidaho.edu</dd><dt><span>institution :</span></dt><dd>University of Idaho</dd><dt><span>processing_level :</span></dt><dd>GRID</dd><dt><span>project :</span></dt><dd></dd><dt><span>contributor_name :</span></dt><dd>Katherine C. Hegewisch</dd><dt><span>contributor_role :</span></dt><dd>Postdoctoral Fellow</dd><dt><span>publisher_name :</span></dt><dd>REACCH</dd><dt><span>publisher_email :</span></dt><dd>reacch@uidaho.edu</dd><dt><span>publisher_url :</span></dt><dd>http://www.reacchpna.org/</dd><dt><span>license :</span></dt><dd>Creative Commons CC0 1.0 Universal Dedication(http://creativecommons.org/publicdomain/zero/1.0/legalcode)</dd><dt><span>coordinate_system :</span></dt><dd>WGS84,EPSG:4326</dd></dl></div></li></ul></div></div>
 
 
 
@@ -1143,40 +1147,28 @@ Attributes:
     standard_name:  air_temperature
     height:         2 m
     cell_methods:   time: maximum(interval: 24 hours);mean over days
-    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1128</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e520c34d-c1b2-44f0-a8c1-f19c9815d2cb' class='xr-array-in' type='checkbox' checked><label for='section-e520c34d-c1b2-44f0-a8c1-f19c9815d2cb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>282.9 285.5 291.0 290.9 292.2 298.0 ... 308.8 306.6 301.7 290.8 288.8</span></div><div class='xr-array-data'><pre>array([282.93192, 285.54318, 291.04315, ..., 301.6674 , 290.809  , 288.78992],
-      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-779241da-a961-4fe7-ac8c-199a06dbd9d2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-779241da-a961-4fe7-ac8c-199a06dbd9d2' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>37.56</div><input id='attrs-5a79b592-ae14-4122-a887-51470600d29f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5a79b592-ae14-4122-a887-51470600d29f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87cb1cb6-1974-4985-a227-f04c65ad6b63' class='xr-var-data-in' type='checkbox'><label for='data-87cb1cb6-1974-4985-a227-f04c65ad6b63' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(37.56287766)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>241.5</div><input id='attrs-0975585d-efc2-46fb-8be5-b4b3ee296dad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0975585d-efc2-46fb-8be5-b4b3ee296dad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-328ba44d-5972-474a-8a42-59b48a1a2ad6' class='xr-var-data-in' type='checkbox'><label for='data-328ba44d-5972-474a-8a42-59b48a1a2ad6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array(241.47773743)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2006-01-15 00:00:00 ... 2099-12-...</div><input id='attrs-5ee636b6-e796-4d13-825d-a3e5cdf5f293' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5ee636b6-e796-4d13-825d-a3e5cdf5f293' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-259e8bdf-3983-4039-b395-e7b58e6f1050' class='xr-var-data-in' type='checkbox'><label for='data-259e8bdf-3983-4039-b395-e7b58e6f1050' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2006, 1, 15, 0, 0, 0, 0, has_year_zero=True),
+    _ChunkSizes:    [ 10  44 107]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'air_temperature'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1128</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-24fd444b-4324-40f8-85b9-75a7b0cd50e5' class='xr-array-in' type='checkbox' checked><label for='section-24fd444b-4324-40f8-85b9-75a7b0cd50e5' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>282.9 285.5 291.0 290.9 292.2 298.0 ... 308.8 306.6 301.7 290.8 288.8</span></div><div class='xr-array-data'><pre>array([282.93192, 285.54318, 291.04315, ..., 301.6674 , 290.809  , 288.78992],
+      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-4e1f5c2f-5deb-4508-ade0-85cef3db4fd7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e1f5c2f-5deb-4508-ade0-85cef3db4fd7' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>37.56</div><input id='attrs-acc9b699-9fff-4e97-a2eb-b1e7c1ed4de1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-acc9b699-9fff-4e97-a2eb-b1e7c1ed4de1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ffa9774c-9223-4f42-95af-662f43de793f' class='xr-var-data-in' type='checkbox'><label for='data-ffa9774c-9223-4f42-95af-662f43de793f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>description :</span></dt><dd>Latitude of the center of the grid cell</dd></dl></div><div class='xr-var-data'><pre>array(37.56287766)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>241.5</div><input id='attrs-cae7c64f-3668-465d-9a1a-1badb47a8a11' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cae7c64f-3668-465d-9a1a-1badb47a8a11' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3397c996-ce86-4b50-a282-fa9698147d79' class='xr-var-data-in' type='checkbox'><label for='data-3397c996-ce86-4b50-a282-fa9698147d79' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>description :</span></dt><dd>Longitude of the center of the grid cell</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array(241.47773743)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2006-01-15 00:00:00 ... 2099-12-...</div><input id='attrs-4d5673b6-d7d3-4bc5-9f72-b19caa4d4f4d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d5673b6-d7d3-4bc5-9f72-b19caa4d4f4d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5cb6fb7-f810-4298-aa97-d860695da3c5' class='xr-var-data-in' type='checkbox'><label for='data-d5cb6fb7-f810-4298-aa97-d860695da3c5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>days since 1900-01-01</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(2006, 1, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2006, 2, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2006, 3, 15, 0, 0, 0, 0, has_year_zero=True), ...,
        cftime.DatetimeNoLeap(2099, 10, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2099, 11, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2099, 12, 15, 0, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6803d9e1-bd2b-4096-a0e9-ecf56bd115e7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6803d9e1-bd2b-4096-a0e9-ecf56bd115e7' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
+      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6d92afd9-40db-4905-9a83-18b49c29f721' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6d92afd9-40db-4905-9a83-18b49c29f721' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Monthly Average of Daily Maximum Near-Surface Air Temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>grid_mapping :</span></dt><dd>crs</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>height :</span></dt><dd>2 m</dd><dt><span>cell_methods :</span></dt><dd>time: maximum(interval: 24 hours);mean over days</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 10  44 107]</dd></dl></div></li></ul></div></div>
 
 
 
 
+
+Below you quickly plot the data. You will learn more about working with these 
+data (and creating nicer plots) in the following lessons. 
 
 {:.input}
 ```python
+# Quick plot of the data
 temp_single_point.plot.line()
 plt.show()
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-03-get-climate-data/2020-10-16-netcdf-03-get-climate-data_17_0.png">
-
-</figure>
-
-
-
-
-
-
-
 
 {:.output}
 {:.display_data}
@@ -1190,25 +1182,6 @@ plt.show()
 
 
 
-Below is a plot that shows where the latitude and longitude you selected are, and where the data in the rest notebook will be pulled from!
-
-
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_land.zip
-      warnings.warn(f'Downloading: {url}', DownloadWarning)
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_coastline.zip
-      warnings.warn(f'Downloading: {url}', DownloadWarning)
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-03-get-climate-data/2020-10-16-netcdf-03-get-climate-data_22_1.png">
-
-</figure>
 
 
 
@@ -1216,103 +1189,8 @@ Below is a plot that shows where the latitude and longitude you selected are, an
 
 
 
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/06-hierchical-data-formats/03-netcdf/2020-10-16-netcdf-03-get-climate-data/2020-10-16-netcdf-03-get-climate-data_24_0.png">
-
-</figure>
 
 
-
-
-## Challenge 5  - Export your data to a csv file
-
-This subset data is worth sharing! Below you will export the data to a `.csv` file. 
-
-
-{:.output}
-{:.execute_result}
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lat</th>
-      <th>lon</th>
-      <th>air_temperature</th>
-    </tr>
-    <tr>
-      <th>time</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2008-01-15 00:00:00</th>
-      <td>37.562878</td>
-      <td>241.477737</td>
-      <td>281.641693</td>
-    </tr>
-    <tr>
-      <th>2008-02-15 00:00:00</th>
-      <td>37.562878</td>
-      <td>241.477737</td>
-      <td>287.855652</td>
-    </tr>
-    <tr>
-      <th>2008-03-15 00:00:00</th>
-      <td>37.562878</td>
-      <td>241.477737</td>
-      <td>285.143585</td>
-    </tr>
-    <tr>
-      <th>2008-04-15 00:00:00</th>
-      <td>37.562878</td>
-      <td>241.477737</td>
-      <td>288.578522</td>
-    </tr>
-    <tr>
-      <th>2008-05-15 00:00:00</th>
-      <td>37.562878</td>
-      <td>241.477737</td>
-      <td>297.690033</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    'air_temperature-2008-01-2012-09.csv'
 
 
 
