@@ -4,7 +4,7 @@ title: "Activity: Plot Spatial Raster Data in Python"
 excerpt: "Practice your skills creating maps of raster and vector data using open source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-02-26
-modified: 2020-09-15
+modified: 2021-11-01
 category: [courses]
 class-lesson: ['plot-activities']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-activities/practice-making-maps-python/
@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import geopandas as gpd
-import rasterio as rio
+import rioxarray as rxr
 from rasterio.plot import plotting_extent
 import folium
 import earthpy as et
@@ -64,12 +64,6 @@ warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
 # Add seaborn general plot specifications
 sns.set(font_scale=1.5, style="whitegrid")
 ```
-
-{:.output}
-    /opt/conda/lib/python3.8/site-packages/rasterio/plot.py:260: SyntaxWarning: "is" with a literal. Did you mean "=="?
-      if len(arr.shape) is 2:
-
-
 
 <div class="notice--warning" markdown="1">
 
@@ -155,9 +149,8 @@ trailheads = gpd.read_file(
 
 Next you will create a base map to put your trails on. In order to do this, you will use a Digital Elevation Model (`USGS_1_n41w106.tif`) for RMNP. The code to download the DEM is in the cell below. Once that is downloaded, you must complete the following steps to create the hillshade and plot the two rasters on top of each other. 
 
-1. Read in the USGS DEM into a numpy array using rasterio. 
-2. Clip the data to the extent of the south zone boundary you plotted earlier using this syntax inside of the context manager you used to open the array: 
-```clipped_data, clipped_metadata = es.crop_image(rasterio_variable_name, south_zone_boundary_geodataframe_name)```
+1. Read in the USGS DEM with rioxarray. 
+2. Clip the data to the extent of the south zone boundary you plotted earlier using rioxarray and the geometry of the boundary. 
 3. Create a hillshade from the clipped DEM using the syntax: `es.hillshade(clipped_data[0])`. This function outputs a numpy array with the hillshade data.
 4. Overlay the clipped DEM array on top of the hillshade array you just created. 
 5. Be sure to add a title to your plot.
@@ -218,7 +211,8 @@ Keep in mind a few things when you do this
 
 1. You will need to create a plotting_extent object to use in the `extent=` plot parameter in `ep.plot_bands()` to ensure that your raster data line up with the vector data. Make sure you use the data and metadata that was the output of your clip to create the plotting_extent object so that the extent is correct. Your code should look like the following: 
 ```
-ned_cl_extent = plotting_extent(clipped_data[0], clipped_metadata["transform"])
+ned_cl_extent = plotting_extent(clipped_data[0], 
+                                   clipped_data.rio.transform())
 ```
 2. The legibility of data will change with the background data, so be sure to adjust colors/thickness of your data if you need to in order to make it visible. 
 3. Be sure to add a title to your map. 
@@ -273,14 +267,16 @@ style = {'color': 'green'}
 
 # Adding the lines to the map
 trails_south_json = trails_south.to_json()
-interactive_map = folium.Map(location=[40.37244, -105.66472], zoom_start=7)
-lines = folium.features.GeoJson(
-    trails_south_json, style_function=lambda x: style)
+interactive_map = folium.Map(location=[40.37244, -105.66472], 
+                             zoom_start=7)
+lines = folium.features.GeoJson(trails_south_json, 
+                                style_function=lambda x: style)
 interactive_map.add_child(lines)
 
 # Adding the points to the map
 for i in range(len(trailheads_south)):
     folium.Marker([trailheads_south.iloc[i].geometry.y, trailheads_south.iloc[i].geometry.x],
-                  popup=trailheads_south.iloc[i]['GEOMETRYID'], icon=folium.Icon(icon='play')).add_to(interactive_map)
+                  popup=trailheads_south.iloc[i]['GEOMETRYID'], 
+                  icon=folium.Icon(icon='play')).add_to(interactive_map)
 interactive_map
 ```
