@@ -4,7 +4,7 @@ title: "Introduction to the CMIP and MACA v2 Climate Data"
 excerpt: "In this lesson you will learn the basics of what CMIP5 and MACA v 2 data are and how global climate data are downscaled to higher resolutions to support regional analysis."
 authors: ['Leah Wasser']
 dateCreated: 2020-10-23
-modified: 2021-11-18
+modified: 2021-11-19
 category: [courses]
 class-lesson: ['netcdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-MACAv2-cmip5-data/
@@ -92,7 +92,7 @@ The Climate Mapper Tool allows you to map climate data extracted from MACA v2 Me
 
 ## Additional Resources  
 
-* Learn more about <a href="http://www.climatologylab.org/maca.html" target=”_blank”>MACA v2 data</a> from its creators at the University of California Merced.
+* Learn more about <a href="http://www.climatologylab.org/maca.html" target="_blank">MACA v2 data</a> from its creators at the University of California Merced.
 * See <a href="https://www.earthdatascience.org/cft/articles/cft-intro.html">example applications of MACA v2 data</a> .
 * Explore the <a href="https://climatetoolbox.org/" target=”_blank”>Climate Toolbox</a>
 * Use the <a href="https://climatetoolbox.org/tool/Climate-Mapper" target=”_blank”>Climate Mapper Tool</a>
