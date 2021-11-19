@@ -94,8 +94,8 @@ The Climate Mapper Tool allows you to map climate data extracted from MACA v2 Me
 
 * Learn more about <a href="http://www.climatologylab.org/maca.html" target="_blank">MACA v2 data</a> from its creators at the University of California Merced.
 * See <a href="https://www.earthdatascience.org/cft/articles/cft-intro.html">example applications of MACA v2 data</a> .
-* Explore the <a href="https://climatetoolbox.org/" target=”_blank”>Climate Toolbox</a>
-* Use the <a href="https://climatetoolbox.org/tool/Climate-Mapper" target=”_blank”>Climate Mapper Tool</a>
+* Explore the <a href="https://climatetoolbox.org/" target="_blank">Climate Toolbox</a>
+* Use the <a href="https://climatetoolbox.org/tool/Climate-Mapper" target="_blank">Climate Mapper Tool</a>
 
 </div>
 
