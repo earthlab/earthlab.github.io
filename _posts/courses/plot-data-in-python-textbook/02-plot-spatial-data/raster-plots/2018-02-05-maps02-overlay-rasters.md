@@ -4,7 +4,7 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2018-02-05
-modified: 2021-11-01
+modified: 2022-01-06
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
@@ -65,7 +65,7 @@ import earthpy.plot as ep
 data = et.data.get_data('colorado-flood')
 
 # Set working directory
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
@@ -77,8 +77,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Open DTM data
-lidar_dem_path = os.path.join("data", 
-                              "colorado-flood", 
+lidar_dem_path = os.path.join("colorado-flood", 
                               "spatial", 
                               "boulder-leehill-rd", 
                               "pre-flood", 
@@ -88,8 +87,7 @@ lidar_dem_path = os.path.join("data",
 lidar_dem_im = rxr.open_rasterio(lidar_dem_path, masked=True)
 
 # Open DTM hillshade
-lidar_hs_path = os.path.join("data", 
-                             "colorado-flood", 
+lidar_hs_path = os.path.join("colorado-flood", 
                              "spatial", 
                               "boulder-leehill-rd", 
                              "pre-flood", 

@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python: GIS in Python"
 excerpt: "In this lesson you will learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent.."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2020-09-10
+modified: 2022-01-06
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-change-spatial-extent-of-map-matplotlib-geopandas/
@@ -52,7 +52,7 @@ import earthpy as et
 # Get the data
 data = et.data.get_data('spatial-vector-lidar')
 
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
 {:.output}
@@ -64,10 +64,18 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Read in necessary files 
-sjer_aoi = gpd.read_file(
-    "data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_crop.shp")
-country_boundary_us = gpd.read_file("data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp")
-ne_roads = gpd.read_file("data/spatial-vector-lidar/global/ne_10m_roads/ne_10m_n_america_roads.shp")
+sjer_aoi = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                      "california", 
+                                      "neon-sjer-site", 
+                                      "vector_data", 
+                                      "SJER_crop.shp"))
+country_boundary_us = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                                 "usa", 
+                                                 "usa-boundary-dissolved.shp"))
+ne_roads = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                      "global", 
+                                      "ne_10m_roads",
+                                      "ne_10m_n_america_roads.shp"))
 ```
 
 
