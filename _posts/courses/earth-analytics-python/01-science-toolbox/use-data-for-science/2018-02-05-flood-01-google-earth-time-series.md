@@ -70,6 +70,8 @@ the Front Range in Colorado, USA.
  </figcaption>
 </figure>
 
+"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/IHIckvWhwoo?start=177&end=189&loop=1&mute=1&rel=0;" frameborder=\"0\" allowfullscreen></iframe>\n",
+
 ## Use Imagery to Detect Change
 
 Spatially located (georeferenced) imagery, collected using satellites and airplanes
