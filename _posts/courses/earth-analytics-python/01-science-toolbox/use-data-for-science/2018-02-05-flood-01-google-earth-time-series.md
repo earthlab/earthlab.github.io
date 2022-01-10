@@ -3,7 +3,7 @@ layout: single
 title: 'Use Google Earth Time Series Images to View Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-04-03
+modified: 2022-01-10
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -69,8 +69,6 @@ the Front Range in Colorado, USA.
  (right) the 2013 flooding event.  Source: Boulder County via <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
  </figcaption>
 </figure>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
 ## Use Imagery to Detect Change
 
