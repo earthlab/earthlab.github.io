@@ -4,7 +4,7 @@ title: "Overlay Raster and Vector Spatial Data in A Matplotlib Plot Using Extent
 excerpt: "When plotting raster and vector data together, the extent of the plot needs to be defined for the data to overlay with each other correctly. Learn how to define plotting extents for Python Matplotlib Plots."
 authors: ['Leah Wasser', 'Nathan Korinek', 'Jenny Palomino']
 dateCreated: 2020-03-26
-modified: 2021-11-01
+modified: 2022-01-06
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/
@@ -78,7 +78,7 @@ import earthpy.plot as ep
 
 # Get data and set working directory
 et.data.get_data('cold-springs-fire')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 # Set figure size and title size of plots
 mpl.rcParams['figure.figsize'] = (14, 14)
@@ -100,8 +100,7 @@ to both crop your raster data and as a visual overlay on your final plot.
 {:.input}
 ```python
 # Import fire boundary
-fire_boundary_path = os.path.join("data",
-                                  "cold-springs-fire",
+fire_boundary_path = os.path.join("cold-springs-fire",
                                   "vector_layers",
                                   "fire-boundary-geomac",
                                   "co_cold_springs_20160711_2200_dd83.shp")
@@ -168,8 +167,7 @@ above.
 {:.input}
 ```python
 # Define path to NAIP data
-naip_path = os.path.join("data",
-                         "cold-springs-fire",
+naip_path = os.path.join("cold-springs-fire",
                          "naip",
                          "m_3910505_nw_13_1_20150919",
                          "crop",
@@ -499,8 +497,7 @@ be plotted in an illegible way.
 ```python
 # Open up and crop the MODIS data like you did with the NAIP data
 
-modis_path = os.path.join('data', 
-                          'cold-springs-fire', 
+modis_path = os.path.join('cold-springs-fire', 
                           'modis', 
                           'reflectance', 
                           '07_july_2016',

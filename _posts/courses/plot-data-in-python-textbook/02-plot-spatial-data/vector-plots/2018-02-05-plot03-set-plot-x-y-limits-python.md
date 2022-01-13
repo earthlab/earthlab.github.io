@@ -4,7 +4,7 @@ title: "Customize Map Extents in Python: GIS in Python"
 excerpt: "When making maps, sometimes you want to zoom in to a specific area in your map. Learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent that is displayed."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-07-21
+modified: 2022-01-06
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-change-spatial-extent-of-map-matplotlib-geopandas/
@@ -48,23 +48,26 @@ import earthpy as et
 
 # Get the data & set working dir
 data = et.data.get_data('spatial-vector-lidar')
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics', "data"))
 ```
 
 {:.input}
 ```python
 # Read in necessary files 
-data_path = os.path.join("data", "spatial-vector-lidar")
-
-sjer_aoi = gpd.read_file(os.path.join(data_path, "california" , 
+sjer_aoi = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                      "california" , 
                                       "neon-sjer-site", 
-                                      "vector_data", "SJER_crop.shp"))
+                                      "vector_data", 
+                                      "SJER_crop.shp"))
 
-country_boundary_us = gpd.read_file(os.path.join(data_path, "usa", 
+country_boundary_us = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                                 "usa", 
                                                  "usa-boundary-dissolved.shp"))
 
-ne_roads = gpd.read_file(os.path.join(data_path, "global", 
-                                      "ne_10m_roads", "ne_10m_n_america_roads.shp"))
+ne_roads = gpd.read_file(os.path.join("spatial-vector-lidar", 
+                                      "global", 
+                                      "ne_10m_roads", 
+                                      "ne_10m_n_america_roads.shp"))
 ```
 
 ## Change the Spatial Extent of a Plot in Python
