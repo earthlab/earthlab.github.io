@@ -4,7 +4,7 @@ title: "Overlay Raster and Vector Spatial Data in A Matplotlib Plot Using Extent
 excerpt: "When plotting raster and vector data together, the extent of the plot needs to be defined for the data to overlay with each other correctly. Learn how to define plotting extents for Python Matplotlib Plots."
 authors: ['Leah Wasser', 'Nathan Korinek', 'Jenny Palomino']
 dateCreated: 2020-03-26
-modified: 2022-01-13
+modified: 2022-01-14
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/
