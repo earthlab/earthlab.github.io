@@ -4,7 +4,7 @@ title: "Customize Map Extents in Python: GIS in Python"
 excerpt: "When making maps, sometimes you want to zoom in to a specific area in your map. Learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent that is displayed."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2022-01-14
+modified: 2022-01-21
 category: [courses]
 class-lesson: ['hw-custom-maps-python-tb']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-change-spatial-extent-of-map-matplotlib-geopandas/
