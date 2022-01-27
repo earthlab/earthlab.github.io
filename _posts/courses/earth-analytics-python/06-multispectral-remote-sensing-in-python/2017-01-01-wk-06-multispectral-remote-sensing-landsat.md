@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/
-modified: 2022-01-19
+modified: 2022-01-27
 week-landing: 6
 week: 6
 sidebar:
