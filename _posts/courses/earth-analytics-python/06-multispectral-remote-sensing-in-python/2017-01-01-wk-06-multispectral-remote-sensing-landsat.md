@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/
-modified: 2021-02-12
+modified: 2022-01-19
 week-landing: 6
 week: 6
 sidebar:
@@ -47,7 +47,7 @@ Please be sure to read about the <a href="https://www.earthdatascience.org/cours
 
 ### 1a. Remote Sensing Readings
 
-* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA Overview of Landsat 8</a>
+* <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-8/" target="_blank">NASA Overview of Landsat 8</a>
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn State e-Education post on multi-spectral data. Note they discuss AVHRR at the top which you won't use in this lesson but be sure to read about Landsat.</a>
 
 
