@@ -4,7 +4,7 @@ title: "Practice Opening and Plotting Landsat Data in Python Using Rasterio"
 excerpt: "A set of activities for you to practice your skills using Landsat Data in Open Source Python."
 authors: ['Leah Wasser', 'Nathan Korinek']
 dateCreated: 2020-06-24
-modified: 2022-01-19
+modified: 2022-01-27
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/landsat-exercises/
