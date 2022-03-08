@@ -4,7 +4,7 @@ category: courses
 title: "Earth Analytics Python Course - Week One"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2020-03-13
+modified: 2022-03-08
 week: 1
 sidebar:
   nav:
@@ -118,7 +118,6 @@ It is OK if the dates are not formatted properly on your plot. You will learn ho
 <figcaption>Homework plot of daily and monthly precipitation over time in Boulder, Colorado.</figcaption>
 
 </figure>
-
 
 
 

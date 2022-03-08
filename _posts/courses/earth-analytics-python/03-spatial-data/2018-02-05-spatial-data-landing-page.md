@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python - Spati
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
-modified: 2020-04-04
+modified: 2022-03-08
 sidebar:
   nav:
 comments: false
@@ -78,16 +78,6 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
-{:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
-    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
-    
-    To further ignore this warning, you can do: 
-    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
-      return self.notna()
-
-
-
 
 {:.output}
 {:.display_data}
@@ -109,24 +99,10 @@ Please read the following chapters to support completing this week's assignment:
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
-    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
-    
-    To further ignore this warning, you can do: 
-    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
-      return self.notna()
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3364: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+      if (await self.run_code(code, result,  async_=asy)):
 
 
-
-
-
-{:.output}
-    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:358: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
-    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
-    
-    To further ignore this warning, you can do: 
-    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
-      return self.notna()
 
 
 
@@ -145,6 +121,12 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
+
+
+
+{:.output}
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3364: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+      if (await self.run_code(code, result,  async_=asy)):
 
 
 
@@ -170,15 +152,15 @@ The `download()` function will unzip your data for you and place it in the direc
 
 
 {:.output}
-    Downloading from https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+    Downloading from https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_0_countries.zip
     Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_10m_admin_0_countries
 
 
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/pandas/core/reshape/merge.py:618: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
-      warnings.warn(msg, UserWarning)
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/pandas/core/frame.py:9131: FutureWarning: merging between different levels is deprecated and will be removed in a future version. (1 levels on the left,2 on the right)
+      return merge(
 
 
 
