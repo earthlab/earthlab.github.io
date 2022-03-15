@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data using Open Source Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2021-11-19
+modified: 2022-03-15
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/modis-data-in-python/
@@ -133,12 +133,6 @@ from shapely.geometry import box
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
 
 In previous lessons, you have used `glob("*keyword*.tif")` to create a list of all files that both:
 1. Contain a certain keyword as denoted by the asterisks (e.g. `*band*`) and
@@ -331,7 +325,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_14_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-eds-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_14_0.png" alt = "Plot showing the difference in the pixels selected from the MODIS dataset when clipping to the exact boundary of a geometry vs. clipping to the bounding box of a geometry. The bounding box is a perfect rectangle, while the exact geometry leaves out pixels that aren't directly within the boundary.">
+<figcaption>Plot showing the difference in the pixels selected from the MODIS dataset when clipping to the exact boundary of a geometry vs. clipping to the bounding box of a geometry. The bounding box is a perfect rectangle, while the exact geometry leaves out pixels that aren't directly within the boundary.</figcaption>
 
 </figure>
 

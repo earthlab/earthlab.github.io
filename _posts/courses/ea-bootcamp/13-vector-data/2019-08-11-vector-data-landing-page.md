@@ -66,7 +66,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_6_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_6_0.png" alt = "Plot of lines representing roads grouped by type, as well points representing plants grouped by type. ">
+<figcaption>Plot of lines representing roads grouped by type, as well points representing plants grouped by type. </figcaption>
 
 </figure>
 
@@ -74,6 +75,12 @@ Below are example versions of the plots you will create for your homework.
 
 
 ## Challenge 2: Figure 2 - Roads in Del Norte, Modoc & Siskiyou Counties
+
+
+
+{:.output}
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3364: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+      if (await self.run_code(code, result,  async_=asy)):
 
 
 
@@ -99,8 +106,8 @@ Below are example versions of the plots you will create for your homework.
 
 
 {:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/pandas/core/reshape/merge.py:643: UserWarning: merging between different levels can give an unintended result (1 levels on the left,2 on the right)
-      warnings.warn(msg, UserWarning)
+    /opt/conda/envs/EDS/lib/python3.8/site-packages/pandas/core/frame.py:9131: FutureWarning: merging between different levels is deprecated and will be removed in a future version. (1 levels on the left,2 on the right)
+      return merge(
 
 
 
@@ -110,7 +117,8 @@ Below are example versions of the plots you will create for your homework.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_11_0.png">
+<img src = "{{ site.url }}/images/courses/ea-bootcamp/13-vector-data/2019-08-11-vector-data-landing-page/2019-08-11-vector-data-landing-page_11_0.png" alt = "Plot of global total estimated population grouped into 8 regions.">
+<figcaption>Plot of global total estimated population grouped into 8 regions.</figcaption>
 
 </figure>
 
