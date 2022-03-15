@@ -35,14 +35,14 @@ At the end of this week you will be able to:
 
 </div>
 
-### The Homework Assignment for This Week Can Be Found on Github 
+### The Homework Assignment for This Week Can Be Found on Github
 
 
 <a href="https://github.com/earthlab-education/ea-python-2020-06-multispectral-remote-sensing-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
-Please be sure to read Chapters 7-9 and 11 of Section 5 of the Intermediate Earth Analytics Textbook on <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Multispectral Remote Sensing Data in Python</a>. 
+Please be sure to read Chapters 7-9 and 11 of Section 5 of the Intermediate Earth Analytics Textbook on <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Multispectral Remote Sensing Data in Python</a>.
 
-Please be sure to read about the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/">Cold Springs fire</a> in Chapter 22 of Section 7 of the Intermediate Earth Analytics Textbook. 
+Please be sure to read about the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/">Cold Springs fire</a> in Chapter 22 of Section 7 of the Intermediate Earth Analytics Textbook.
 
 
 ### 1a. Remote Sensing Readings
@@ -138,6 +138,3 @@ The intermediate NDVI plots below are not required for your homework. They are h
 <figcaption>Homework plot  6 NDVI calculated from Landsat 8 pre-fire data.</figcaption>
 
 </figure>
-
-
-
