@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2022-03-08
+modified: 2022-03-15
 week-landing: 7
 week: 7
 sidebar:
@@ -30,7 +30,7 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will learn how
 
 ## Materials to Review For This Week's Assignment
 
-Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytics Textbook on <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>. 
+Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytics Textbook on <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>.
 
 
 
@@ -39,14 +39,14 @@ Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytic
 For this week’s assignment, you will generate a plot of the normalized difference vegetation index (NDVI) for two different locations in the United States to begin to understand how the growing seasons vary in each site:
 
 1. <a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER) in Southern California, United States</a>
-2. <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a> 
+2. <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a>
 
-From this plot, you will be able to compare the seasonal vegetation patterns of the two locations. This comparison would be useful if you were planning NEON’s upcoming flight season in both locations and wanted to ensure that you flew the area when the vegetation was the most green! If could also be useful if you wanted to track green-up as it happened over time in both sites to see if there were changes happening. 
+From this plot, you will be able to compare the seasonal vegetation patterns of the two locations. This comparison would be useful if you were planning NEON’s upcoming flight season in both locations and wanted to ensure that you flew the area when the vegetation was the most green! If could also be useful if you wanted to track green-up as it happened over time in both sites to see if there were changes happening.
 
-As a bonus, you will also create a stacked NDVI output data product to share with your colleagues. You are doing all of the work to clean and process the data. It would be nice if you could share a data product output to save others the hassle. 
+As a bonus, you will also create a stacked NDVI output data product to share with your colleagues. You are doing all of the work to clean and process the data. It would be nice if you could share a data product output to save others the hassle.
 
 
-### Design A Workflow 
+### Design A Workflow
 
 Your goal this week is to calculate the mean NDVI value for each Landsat 8 scene captured for a NEON site over a year. You have the following data to do accomplish this goal:
 
@@ -90,6 +90,3 @@ The plots below are examples of what your output plots will look like with and w
 <figcaption>Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?</figcaption>
 
 </figure>
-
-
-

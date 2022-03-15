@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Lidar Raster Data in Python"
 permalink: /courses/earth-analytics-python/lidar-raster-data/
-modified: 2022-03-08
+modified: 2022-03-15
 week-landing: 3
 week: 2
 sidebar:
@@ -23,7 +23,7 @@ Welcome to week {{ page.week }} of Earth Analytics! In week {{ page.week }} you 
 Light Detection and Ranging (LiDAR) data. You will learn to use point cloud data and
 lidar rasters in `Python` and explore using QGIS - a free, open-source GIS tool.
 
-<!-- 
+<!--
 Your final 2013 Colorado flood report assignment is below. Read the assignment
 carefully and make sure you've completed all of the steps and followed all of the
 guidelines. Use all of the class and homework lessons that you've learned in the
@@ -58,9 +58,9 @@ PDF</a>
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework
 
-Please see the assignment dropbox on CANVAS for an overview of your homework for this week. If you'd like to see what your plots should look like - please scroll down to the bottom of this page. 
+Please see the assignment dropbox on CANVAS for an overview of your homework for this week. If you'd like to see what your plots should look like - please scroll down to the bottom of this page.
 
-Note that your plots may look at bit different from the ones on this page as you might select different classification value ranges and colors. That is OK. Please be sure to justify your choices in your homework test. 
+Note that your plots may look at bit different from the ones on this page as you might select different classification value ranges and colors. That is OK. Please be sure to justify your choices in your homework test.
 
 
 </div>
@@ -75,8 +75,8 @@ The plots below are examples of what your plots might look like. Your plots do n
 Please view the dropbox in Canvas to see the rubric that will be used to grade your assignment
 
 ## Homework Plots
-The plots that you generate for this week's homework should look like the ones below. 
-Note that your plot may have some variation if you select different classification bins and plot colors. 
+The plots that you generate for this week's homework should look like the ones below.
+Note that your plot may have some variation if you select different classification bins and plot colors.
 
 
 
@@ -135,11 +135,3 @@ Note that your plot may have some variation if you select different classificati
 <figcaption>Plot of classified pre/post DTM difference raster.</figcaption>
 
 </figure>
-
-
-
-
-
-
-
-
