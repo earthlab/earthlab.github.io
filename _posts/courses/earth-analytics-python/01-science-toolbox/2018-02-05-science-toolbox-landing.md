@@ -66,7 +66,7 @@ during the next few weeks of this class.
 
 #### Before / After Google Earth Fly Through
 
-This 40 second video shows imagery collected before and after the 2013 floods in the Lee Hill Road, Boulder area.
+This 12 second section of the previous video shows imagery collected before and after the 2013 floods in the Lee Hill Road, Boulder area.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IHIckvWhwoo?start=177&end=189&loop=1&mute=1&rel=0;" frameborder="0" allowfullscreen></iframe>
 
