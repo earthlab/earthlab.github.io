@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python - Spati
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
-modified: 2022-03-08
+modified: 2022-03-15
 sidebar:
   nav:
 comments: false
@@ -98,12 +98,6 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3364: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
-      if (await self.run_code(code, result,  async_=asy)):
-
-
-
 
 
 
@@ -121,12 +115,6 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
-
-
-
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3364: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
-      if (await self.run_code(code, result,  async_=asy)):
 
 
 
@@ -155,12 +143,6 @@ The `download()` function will unzip your data for you and place it in the direc
     Downloading from https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_0_countries.zip
     Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_10m_admin_0_countries
 
-
-
-
-{:.output}
-    /opt/conda/envs/EDS/lib/python3.8/site-packages/pandas/core/frame.py:9131: FutureWarning: merging between different levels is deprecated and will be removed in a future version. (1 levels on the left,2 on the right)
-      return merge(
 
 
 
