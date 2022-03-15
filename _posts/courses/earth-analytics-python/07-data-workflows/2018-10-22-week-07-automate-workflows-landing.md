@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2020-07-09
+modified: 2022-03-15
 week-landing: 7
 week: 7
 sidebar:
@@ -64,12 +64,13 @@ The plots below are examples of what your output plots will look like with and w
 
 
 
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_4_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_5_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
 <figcaption>While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.</figcaption>
 
 </figure>
@@ -85,7 +86,7 @@ The plots below are examples of what your output plots will look like with and w
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_7_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_8_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
 <figcaption>Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?</figcaption>
 
 </figure>

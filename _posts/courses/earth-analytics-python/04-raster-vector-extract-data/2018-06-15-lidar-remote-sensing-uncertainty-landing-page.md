@@ -4,7 +4,7 @@ category: courses
 title: "Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python"
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/
 week-landing: 4
-modified: 2021-02-12
+modified: 2022-03-15
 week: 4
 sidebar:
   nav:

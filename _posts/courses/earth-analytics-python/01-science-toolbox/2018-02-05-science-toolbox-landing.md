@@ -4,7 +4,7 @@ category: courses
 title: "Earth Analytics Python Course - Week One"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2020-03-13
+modified: 2022-03-15
 week: 1
 sidebar:
   nav:
@@ -66,10 +66,9 @@ during the next few weeks of this class.
 
 #### Before / After Google Earth Fly Through
 
-This 40 second video shows imagery collected before and after the 2013 floods in the Lee Hill Road, Boulder area.
+This 12 second section of the previous video shows imagery collected before and after the 2013 floods in the Lee Hill Road, Boulder area.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IHIckvWhwoo?start=177&end=189&loop=1&mute=1&rel=0;" frameborder="0" allowfullscreen></iframe>
 
 <i class="fa fa-star" aria-hidden="true"></i> **Important:** It is important to start on this report assignment early as it will take you some time to complete. Start today so you can focus on the raster data additions to the report next week! 
 {: .notice--success}
@@ -118,7 +117,6 @@ It is OK if the dates are not formatted properly on your plot. You will learn ho
 <figcaption>Homework plot of daily and monthly precipitation over time in Boulder, Colorado.</figcaption>
 
 </figure>
-
 
 
 
