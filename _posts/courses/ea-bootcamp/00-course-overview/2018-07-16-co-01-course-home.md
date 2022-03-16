@@ -41,7 +41,7 @@ overview-order: 1
 <!-- an overview module specifies the overview content for the course including syllabus and any assignments  module-type: 'session' specified a week or a particular set of content surrounding a topic - eg internship seminar, etc -->
 
 ## About the Earth Analytics Bootcamp
-The Earth Analytics Bootcamp is a three-week introductory-level course taught by instructors in Earth Lab and is a part of the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target="_blank">Professional Certificate in Earth Data Analytics - Foundations</a> at CU Boulder.
+The Earth Analytics Bootcamp is a three-week introductory-level course taught by instructors in Earth Lab and is a part of the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=earthdatascience&utm_medium=website&utm_campaign=certificate-2022&utm_id=certificate-2022" target="_blank">Professional Certificate in Earth Data Analytics - Foundations</a> at CU Boulder.
 
 In this course, you will learn how to analyze and visualize earth and environmental science data using the `Python` programming language. You will also learn how to design and implement open reproducible science workflows using `Bash`/`Shell`, `Git`/`Github.com`, and `Jupyter Notebook`. 
 

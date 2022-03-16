@@ -10,7 +10,7 @@ lang: []
 
 <div class = "prof-cert-wrapper">
 <div id = "right">
-<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
+<a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=earthdatascience&utm_medium=website&utm_campaign=certificate-2022&utm_id=certificate-2022" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
 <div id = "left" markdown="1">Scientific programming can be used to efficiently
 work with many different types of data. Rather than performing tasks manually,
 you can write code that opens, cleans and processes your data. However, often

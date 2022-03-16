@@ -5,7 +5,7 @@ title: "Use Data for Earth and Environmental Science in Open Source Python | Ear
 nav-title: "Use Data for Earth and Environmental Science in Open Source Python Home"
 permalink: /courses/use-data-open-source-python/
 course: "intermediate-earth-data-science-textbook"
-modified: 2021-06-07
+modified: 2022-03-15
 module-type: 'overview'
 module-title: "Use Data for Earth and Environmental Science in Open Source Python Textbook"
 week-landing: 0
@@ -47,7 +47,7 @@ Use Data for Earth and Environmental Science in Open Source Python is an interme
 
 This textbook assumes that readers have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook </a> or are familiar with the **Python** programming language, **Jupyter Notebook**, and **git/GitHub**. 
 
-This textbook is designed for the Earth Analytics Python course for the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors at CU Boulder. 
+This textbook is designed for the Earth Analytics Python course for the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=earthdatascience&utm_medium=website&utm_campaign=certificate-2022&utm_id=certificate-2022" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors at CU Boulder. 
 
 
 ### Overview 
