@@ -19,7 +19,7 @@ author_profile: false
 
 <div class = "prof-cert-wrapper">
 <div id = "right">
-<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
+<a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=earthdatascience&utm_medium=website&utm_campaign=certificate-2022&utm_id=certificate-2022" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
 <div id = "left" markdown="1">Learn about the latest skills and tools being used in the earth data science field. Get tips and tricks on scientific programming and learn what skills and tools will give you an edge in the job market.
 
 Also learn about the tools being used to work with different types of data in `R` and `Python`.
