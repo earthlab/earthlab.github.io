@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 topics:
   reproducible-science-and-programming: ['git']
 redirect_from:
