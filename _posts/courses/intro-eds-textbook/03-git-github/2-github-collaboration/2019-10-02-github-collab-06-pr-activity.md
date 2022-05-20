@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/practice-pull-requests/
 nav-title: "Activity: Fork & Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2020-11-04
+modified: 2022-05-20
 odule-type: 'class'
 class-order: 2
 course: "intro-to-earth-data-science-textbook"
