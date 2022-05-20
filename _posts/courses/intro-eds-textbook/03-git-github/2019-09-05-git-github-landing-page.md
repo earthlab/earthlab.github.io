@@ -32,4 +32,3 @@ After completing this section of the introduction to earth analytics online text
 </div>
 
 {% include textbook-section-toc.html %}
-
