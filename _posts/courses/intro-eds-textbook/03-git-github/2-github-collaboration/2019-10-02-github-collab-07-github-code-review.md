@@ -19,8 +19,6 @@ comments: true
 order: 7
 topics:
   reproducible-science-and-programming: ['git']
-
----
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
