@@ -9,7 +9,8 @@ permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/
 nav-title: "GitHub Code Review"
 dateCreated: 2022-04-07
 modified: 2022-05-20
-module-type: 'class's
+module-type: 'class'
+class-order: 2
 course: "intro-to-earth-data-science-textbook"
 week: 3
 sidebar:
