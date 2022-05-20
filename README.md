@@ -32,6 +32,15 @@ $ git clone ${The repo's git URL}
 $ cd earthlab.github.io
 ```
 
+### 2. Run on the jekyll docker by executing the provided script in Bash console:
+
+```
+$ source serve.sh
+```
+This may take a few minutes to start up the first time you run it. The website will be available on [port 4000](http://localhost:4000)
+
+OR
+
 ### 2. Install All Gems
 
 The site runs on Jekyll and ruby. To build the site you first need to install

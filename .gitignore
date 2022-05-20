@@ -7,3 +7,4 @@ deleted_files.txt
 Gemfile.lock
 _site/
 .ipynb_checkpoints/
+.jekyll-metadata
