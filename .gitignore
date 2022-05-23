@@ -6,3 +6,5 @@ deleted_files.txt
 .sass-cache/
 Gemfile.lock
 _site/
+.ipynb_checkpoints/
+.jekyll-metadata

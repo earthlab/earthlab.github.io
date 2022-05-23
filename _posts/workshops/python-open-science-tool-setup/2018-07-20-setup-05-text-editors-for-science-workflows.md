@@ -4,7 +4,7 @@ category: courses
 title: 'Text Editors for the Command Line and Scientific Programming'
 excerpt: 'Text editors can be used to edit code and for commit messages in git. Learn about features to look for in a text editor and how to change your default text editor at the command line.'
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2022-01-21
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/text-editors-for-science-workflows/
 nav-title: 'Text Editors For Coding'
@@ -88,7 +88,7 @@ Some scientists will only code in a text editor. Others will use a text editor f
 
 Most operating systems come with a default text editor as described below. While choosing a text editor is a very personal preference, for this course,  if you don’t already have a favorite, we recommend the [Atom](https://atom.io/) text editor which will run on Mac, Linux, and Wndows.
 
-You can use whatever text editor you are most comfortable, but mainly for this course we will be working in `Jpyter Notebook`. However, it is important to be familiar with text editors because they are powerful tools that many scientists use to write code. If you use `Git`, you will need a text editor to create some commit and merge messages.
+You can use whatever text editor you are most comfortable, but mainly for this course we will be working in `Jupyter Notebook`. However, it is important to be familiar with text editors because they are powerful tools that many scientists use to write code. If you use `Git`, you will need a text editor to create some commit and merge messages.
 
 
 ## The Vim Text Editor
@@ -195,13 +195,13 @@ IMPORTANT: in order to change your default text editor, the text editor of your 
 
 Editor | Configuration command
 ------ |------
-Atom |  git config --global core.editor "atom --wait"
-nano |  git config --global core.editor "nano -w"
-Sublime Text (Mac) |  git config --global core.editor "subl -n -w"
-Sublime Text (Win, 32-bit install) | git config --global core.editor "'c:/program files (x86)/sublime text  3/sublime_text.exe' -w"
-Sublime Text (Win, 64-bit install)| git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"
-Notepad++ (Win, 32-bit install)| git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
-Notepad++ (Win, 64-bit install) | git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPluginin”
+Atom |  `git config --global core.editor "atom --wait"`
+nano |  `git config --global core.editor "nano -w"`
+Sublime Text (Mac) |  `git config --global core.editor "subl -n -w"`
+Sublime Text (Win, 32-bit install) | `git config --global core.editor "'c:/program files (x86)/sublime text  3/sublime_text.exe' -w"`
+Sublime Text (Win, 64-bit install)| `git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"`
+Notepad++ (Win, 32-bit install)| `git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"`
+Notepad++ (Win, 64-bit install) | `git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPluginin”`
 
 
 
@@ -210,9 +210,10 @@ Notepad++ (Win, 64-bit install) | git config --global core.editor "'c:/program f
 ## Additional Resources
 
 If you are interested in learning more about the features of these text editors, check out these guides:
-<a href="https://cs61a.org/articles/atom.html" target = "_blank">Atom</a>,
-<a href="https://cs61a.org/articles/sublime.html" target = "_blank">Sublime</a>, or
-<a href="https://cs61a.org/articles/vim.html" target = "_blank">Vim</a>
+<a href="https://cs61a.org/articles/atom/" target = "_blank">Atom</a>,
+<a href="https://cs61a.org/articles/sublime/" target = "_blank">Sublime</a>, or
+<a href="https://cs61a.org/articles/vim/" target = "_blank">Vim</a>
 
 
 </div>
+

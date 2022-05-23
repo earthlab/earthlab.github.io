@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2020-03-04
+modified: 2022-03-15
 week-landing: 7
 week: 7
 sidebar:
@@ -30,7 +30,7 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will learn how
 
 ## Materials to Review For This Week's Assignment
 
-Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytics Textbook on <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>. 
+Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytics Textbook on <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>.
 
 
 
@@ -39,14 +39,14 @@ Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytic
 For this week’s assignment, you will generate a plot of the normalized difference vegetation index (NDVI) for two different locations in the United States to begin to understand how the growing seasons vary in each site:
 
 1. <a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER) in Southern California, United States</a>
-2. <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a> 
+2. <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a>
 
-From this plot, you will be able to compare the seasonal vegetation patterns of the two locations. This comparison would be useful if you were planning NEON’s upcoming flight season in both locations and wanted to ensure that you flew the area when the vegetation was the most green! If could also be useful if you wanted to track green-up as it happened over time in both sites to see if there were changes happening. 
+From this plot, you will be able to compare the seasonal vegetation patterns of the two locations. This comparison would be useful if you were planning NEON’s upcoming flight season in both locations and wanted to ensure that you flew the area when the vegetation was the most green! If could also be useful if you wanted to track green-up as it happened over time in both sites to see if there were changes happening.
 
-As a bonus, you will also create a stacked NDVI output data product to share with your colleagues. You are doing all of the work to clean and process the data. It would be nice if you could share a data product output to save others the hassle. 
+As a bonus, you will also create a stacked NDVI output data product to share with your colleagues. You are doing all of the work to clean and process the data. It would be nice if you could share a data product output to save others the hassle.
 
 
-### Design A Workflow 
+### Design A Workflow
 
 Your goal this week is to calculate the mean NDVI value for each Landsat 8 scene captured for a NEON site over a year. You have the following data to do accomplish this goal:
 
@@ -64,12 +64,13 @@ The plots below are examples of what your output plots will look like with and w
 
 
 
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_4_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_5_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
 <figcaption>While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.</figcaption>
 
 </figure>
@@ -85,10 +86,7 @@ The plots below are examples of what your output plots will look like with and w
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_7_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-data-workflows/2018-10-22-week-07-automate-workflows-landing/2018-10-22-week-07-automate-workflows-landing_8_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
 <figcaption>Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?</figcaption>
 
 </figure>
-
-
-

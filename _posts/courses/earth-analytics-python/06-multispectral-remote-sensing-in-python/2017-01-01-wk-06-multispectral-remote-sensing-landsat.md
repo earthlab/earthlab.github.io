@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/
-modified: 2020-02-19
+modified: 2022-03-15
 week-landing: 6
 week: 6
 sidebar:
@@ -35,19 +35,19 @@ At the end of this week you will be able to:
 
 </div>
 
-### The Homework Assignment for This Week Can Be Found on Github 
+### The Homework Assignment for This Week Can Be Found on Github
 
 
 <a href="https://github.com/earthlab-education/ea-python-2020-06-multispectral-remote-sensing-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
-Please be sure to read Chapters 7-9 and 11 of Section 5 of the Intermediate Earth Analytics Textbook on <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Multispectral Remote Sensing Data in Python</a>. 
+Please be sure to read Chapters 7-9 and 11 of Section 5 of the Intermediate Earth Analytics Textbook on <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Multispectral Remote Sensing Data in Python</a>.
 
-Please be sure to read about the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/">Cold Springs fire</a> in Chapter 22 of Section 7 of the Intermediate Earth Analytics Textbook. 
+Please be sure to read about the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/">Cold Springs fire</a> in Chapter 22 of Section 7 of the Intermediate Earth Analytics Textbook.
 
 
 ### 1a. Remote Sensing Readings
 
-* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA Overview of Landsat 8</a>
+* <a href="https://landsat.gsfc.nasa.gov/satellites/landsat-8/" target="_blank">NASA Overview of Landsat 8</a>
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn State e-Education post on multi-spectral data. Note they discuss AVHRR at the top which you won't use in this lesson but be sure to read about Landsat.</a>
 
 
@@ -138,6 +138,3 @@ The intermediate NDVI plots below are not required for your homework. They are h
 <figcaption>Homework plot  6 NDVI calculated from Landsat 8 pre-fire data.</figcaption>
 
 </figure>
-
-
-

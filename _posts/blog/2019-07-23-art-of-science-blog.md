@@ -6,7 +6,7 @@ category: blog
 excerpt: "Blogging is a great way to communicate the importance and results
   of scientific projects. Learn tips and tricks to get the most out of science blogging."
 layout: single
-modified: '2020-03-13'
+modified: '2021-06-07'
 comments: yes
 permalink: /blog/how-to-write-a-blog-for-science-communication/
 sidebar:
@@ -92,7 +92,7 @@ That being said, be sure to avoid plagiarism by attributing quotes and either ci
 
 ## 8. Find Inspiration for Your Next Post
 
-You might want to read a few good blogs to get writing inspiration. This post on <a href="https://www.colorado.edu/earthlab/2019/01/14/using-bacteria-fight-wildfire" target="_blank">Using Bacteria to Fight Wildfires</a> combines story-telling with science and this post on <a href="https://www.earthdatascience.org/blog/earth-data-scientist-demand/" target="_blank">Why Earth Data Scientists Are in Demand</a> is informational without being overwhelming.
+You might want to read a few good blogs to get writing inspiration. For example, this post on <a href="https://www.earthdatascience.org/blog/earth-data-scientist-demand/" target="_blank">Why Earth Data Scientists Are in Demand</a> is informational without being overwhelming.
 
 Blogging is an awesome way to introduce a new community to your research. If you love what you do, chances are other people will too. You just need to put that passion down in words simple enough for someone else to understand.
 
