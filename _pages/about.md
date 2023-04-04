@@ -32,7 +32,7 @@ Our team approaches Earth analytics from a diverse set of perspectives, with
 backgrounds in high performance computing, statistics, visualization, and
 applied science.
 
-* Learn more about the <a href = "https://www.colorado.edu/earthlab/analytics-hub" target = "_blank">Earth Lab Analytics Hub]</a>
+* Learn more about the <a href = "https://www.colorado.edu/earthlab/analytics-hub" target = "_blank">Earth Lab Analytics Hub</a>
 * Learn More about the <a href = "https://www.colorado.edu/earthlab/learn" target = "_blank">Earth Lab Education Initiative</a>
 
 ## Site Maintainers
