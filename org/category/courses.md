@@ -61,8 +61,8 @@ redirect_from:
 textbooks and courses as open education resources. We want to help you learn
 the skills that you need to develop a career in earth data science.
 Many of our Earth Data Science courses, are developed and taught as a part of the
-<a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target="_blank">professional Certificate and Masters program in Earth Data Analytics</a>
-offered by <a href="https://www.colorado.edu/earthlab" target = "_blank">Earth Lab</a> at the University of Colorado - Boulder.
+<a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate" target="_blank">Earth Data Analytics Professional Graduate Certificate</a>
+offered by <a href="https://earthlab.colorado.edu" target = "_blank">Earth Lab</a> at the University of Colorado - Boulder.
 </div>
 
 </div>
