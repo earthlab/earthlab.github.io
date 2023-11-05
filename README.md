@@ -29,7 +29,6 @@ updates from CI builds of lessons.
 ```
 # clone the repository
 $ git clone ${The repo's git URL}
-$ cd earthlab.github.io
 ```
 
 ### 2. Run on the jekyll docker by executing the provided script in Bash console:
@@ -156,3 +155,5 @@ to interactively develop the site.
 
 Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
 If you use our materials following license guidelines - please cite us!
+Tested the Fork functionality
+$ cd earthlab.github.io
