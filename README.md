@@ -1,4 +1,4 @@
-
+Test Commit
 
 Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
 Please view our license for all courses and workshop material. Cite our materials following the license and us these DOI's as appropriate:
@@ -29,7 +29,6 @@ updates from CI builds of lessons.
 ```
 # clone the repository
 $ git clone ${The repo's git URL}
-$ cd earthlab.github.io
 ```
 
 ### 2. Run on the jekyll docker by executing the provided script in Bash console:
@@ -156,3 +155,6 @@ to interactively develop the site.
 
 Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
 If you use our materials following license guidelines - please cite us!
+elar
+sted the Fork functionality
+$ cd earthlab.github.io
