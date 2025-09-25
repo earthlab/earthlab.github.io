@@ -16,6 +16,7 @@ GitHub pages. To work locally on the site:
 
 
 ## Interactive Development: Run the Website Locally On Your Computer
+  This is a helpful website
 
 You can use this repository to dynamically build and serve / view the EarthDataScience.org
 Website locally using the following steps.
